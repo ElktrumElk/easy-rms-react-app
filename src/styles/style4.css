@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.cnt_a-4 {
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.stat_1-4 {
+    width: 95%;
+    padding: .5rem 0rem;
+    border-radius: 2rem;
+    padding-right: .3rem;
+    display: flex;
+    align-self: center;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+.sort-4 {
+    width: 8rem;
+    padding: .5rem .5rem;
+    border-radius: 4rem;
+    background-color: rgba(255, 255, 255, 0.628);
+    display: flex;
+    border: 1px solid gray;
+    margin-inline-start: auto;
+    align-items: center;
+    justify-content: space-around;
+
+    cursor: pointer;
+}
+
+.sort_ic-4 {
+    width: 20px;
+    height: 20px;
+}
+
+.sort-4 span {
+    font-size: 1rem;
+    font-weight: 400;
+
+}
+
+.date-4 {
+    display: flex;
+    padding: 1rem 1rem;
+    gap: .5rem;
+}
+
+.date_ic-4 {
+    width: 20px;
+    height: 20px;
+}
+
+.file_cnt-4 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-block-start: 2rem;
+
+}
+
+.file_cnt-4 .file_sub_cnt-4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+    background-color: rgb(202, 199, 199);
+    width: 90%;
+    border-radius: 2rem;
+
+
+
+}
+
+.file_name-4 {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dash_board.dark .file_sub_cnt-4 {
+    background-color: rgb(38, 45, 58);
+    width: 90%;
+    border-radius: 2rem;
+}
+
+.file_type_ic-4 {
+    width: 20px;
+    height: 20px;
+}
+
+.time-4 {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+/*the holds the files in section according to the date they were uploaded*/
+.group_time-4 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sec_date-4 {
+    color: rgb(99, 98, 98);
+}
+
+.download_btn-4 {
+    padding: 1rem 2rem;
+    border-radius: 4rem;
+    color: white;
+    background-color: rgb(1, 130, 1);
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem
+}
+
+.download_ic {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 920px) {
+    .download_btn-4 {
+        display: none;
+    }
+
+    .sort-4 span {
+        display: none;
+    }
+
+    .sort-4 {
+        width: fit-content;
+        padding: .5rem 1rem;
+    }
+}
