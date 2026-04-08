@@ -14,18 +14,20 @@ export default function Dashboard() {
             setExpand(false);
         }
     }
+    const [mainPanelData, setData] = useState(null);
 
+    
     return (
         <>
             <div id="dashboard" className={isExpand ? "p_cnt-3 side_expand" : "p_cnt-3"}>
                 {/**Side bar */}
-                <DashSideBar isExpand={isExpand} handleExpand={handleExpand} />
+                <DashSideBar isExpand={isExpand} handleExpand={handleExpand} batchCb={setData}/>
 
                 {/**Header */}
                 <DashboardHeader />
 
                 {/**main panel */}
-                <DashboardMainPanel />
+                <DashboardMainPanel render_frame={mainPanelData}/>
             </div>
         </>
     )

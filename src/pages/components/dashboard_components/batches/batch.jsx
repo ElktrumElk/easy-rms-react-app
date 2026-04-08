@@ -16,6 +16,7 @@ export default function Batches({ cb }) {
         //console.log(batchFiles[idx]);
         if (typeof cb === 'function') {
             cb(batchFiles[idx]);
+        
         }
     }
 

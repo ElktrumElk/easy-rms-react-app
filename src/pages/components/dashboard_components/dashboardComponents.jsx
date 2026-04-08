@@ -1,6 +1,7 @@
 import { useState } from "react"
 import DashboardStats from "./dashboard_stats"
 import Batches from "./batches/batch"
+import BatchComponent from "./batches/batch_components";
 
 /**\
  * 
@@ -19,8 +20,7 @@ import Batches from "./batches/batch"
  * @param {*} param0 
  * @returns 
  */
-export function DashSideBar({ handleExpand, isExpand }) {
-
+export function DashSideBar({ handleExpand, isExpand, batchCb}) {
     return (
         <>
             <div id="side_bar" className={isExpand ? "side_bar-3 expand" : "side_bar-3"}>
@@ -54,7 +54,7 @@ export function DashSideBar({ handleExpand, isExpand }) {
                             </li>
 
                             {/**Batch list */}
-                            <Batches />
+                            <Batches cb={batchCb} />
 
                         </ul>
 
@@ -79,7 +79,7 @@ export function DashboardHeader() {
     let year = date.getFullYear();
 
     const callender = `${day} ${date.getDate()} ${month} ${year}`;
-    
+
 
     return (
         <>
@@ -182,12 +182,13 @@ export function DashboardHeader() {
 }
 
 /**Serves as the main panel for content changing */
-export function DashboardMainPanel({render_frame}) {
-
+export function DashboardMainPanel({ render_frame }) {
     return (
         <>
             <section className="cont-3">
-                <DashboardStats />
+                {
+                    render_frame ? <BatchComponent data={render_frame}/> : <DashboardStats /> 
+                }
             </section>
         </>
     )
