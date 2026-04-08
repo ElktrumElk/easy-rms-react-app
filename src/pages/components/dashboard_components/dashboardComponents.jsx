@@ -2,7 +2,7 @@ import DashboardStats from "./dashboard_stats"
 import Batches from "./batches/batch"
 import BatchComponent from "./batches/batch_components";
 import BottomPanel from "../bottomPanel";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**\
  * 
@@ -58,7 +58,7 @@ export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray, ex
                             </li>
 
                             {/**Batch list at the side panel*/}
-                            <Batches data={batchCb} setBatchArray={setBatchArray}  externalIndex={externalIndex} />
+                            <Batches data={batchCb} setBatchArray={setBatchArray} externalIndex={externalIndex} />
 
                         </ul>
 
@@ -74,9 +74,19 @@ export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray, ex
  * @param {Object} param0 
  * @param {CallableFunction} param0.bottomPanelShow - state function of the bottom panel
  * @param {Boolean} param0.bottomPanelValue - state value of the bottom panel
+ * @param {Boolean} param0.isBack - The back button to return back to the previous page
+ * @param {CallableFunction} param0.isBackComponent - This function to update the render frame to false to get the dashboard stats
+ * @param {CallableFunction} param0.isBackFunc - function of the back
  * @returns 
  */
-export function DashboardHeader({ bottomPanelShow, bottomPanelValue, headerName = "Dashboard" }) {
+export function DashboardHeader({
+    bottomPanelShow,
+    bottomPanelValue,
+    headerName = "Dashboard",
+    isBack,
+    isBackFunc = null,
+    isBackComponent = null
+}) {
     const date = new Date();
     //days
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -90,13 +100,21 @@ export function DashboardHeader({ bottomPanelShow, bottomPanelValue, headerName 
 
     const callender = `${day} ${date.getDate()} ${month} ${year}`;
 
+    useEffect(() => {
+        if (!isBack) {
+            isBackComponent(false);
+            console.log("yup")
+        }
+    }, [isBack])
 
     return (
         <>
             <section className="head-3">
                 <header className="head_header-3">
                     <div className="sub_cnt-3 s-3">
-                        <img className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" />
+                        <img className="ic-3 ic3-3" src={isBack ? "https://img.icons8.com/?size=100&id=40217&format=png&color=000000" : "https://img.icons8.com/?size=100&id=73&format=png&color=a9049b"}
+                            onClick={() => { isBackFunc(!isBack) }} />
+
                         <h1 className="current-3">{headerName}</h1>
                     </div>
 
@@ -197,7 +215,7 @@ export function DashboardHeader({ bottomPanelShow, bottomPanelValue, headerName 
  * @param {CallableFunction} param0.isBottomBatch - A callable function thats update the batch list rendering on the main frame
 */
 export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch }) {
-    
+
     return (
         <>
             <section id='main_section' className="cont-3" >
@@ -205,7 +223,7 @@ export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, i
                     render_frame ? <BatchComponent data={render_frame} /> : <DashboardStats />
                 }
 
-                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch}/>
+                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} />
             </section>
         </>
     )
