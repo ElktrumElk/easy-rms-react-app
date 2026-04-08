@@ -2,7 +2,23 @@ import { useState } from "react"
 import DashboardStats from "./dashboard_stats"
 import Batches from "./batches/batch"
 
+/**\
+ * 
+ * 
+ * 
+ *======= The main application interface components======================
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 
+/**
+ * The sidebar panel
+ * @param {*} param0 
+ * @returns 
+ */
 export function DashSideBar({ handleExpand, isExpand }) {
 
     return (
@@ -24,7 +40,7 @@ export function DashSideBar({ handleExpand, isExpand }) {
                     <div className="gen-3">
                         <ul id="gen_list" className="gen_list-3">
 
-                            <li id="Home_btn" className="g_list-3" title="home" onClick={handleExpand}>
+                            <li id="Home_btn" className="g_list-3" title="home">
                                 <img className="ic_1-3"
                                     src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" />
                                 <span>Home</span>
@@ -166,7 +182,8 @@ export function DashboardHeader() {
 }
 
 /**Serves as the main panel for content changing */
-export function DashboardMainPanel() {
+export function DashboardMainPanel({render_frame}) {
+
     return (
         <>
             <section className="cont-3">

@@ -18,8 +18,8 @@ function App() {
     <>
     <div className='app'>
       {
-      isSigninPressed ? <LoginPage  click={setSignin}/> : <DefaultPage isSign={setSignin} /> 
-      //<Dashboard />
+      //isSigninPressed ? <LoginPage  click={setSignin}/> : <DefaultPage isSign={setSignin} /> 
+      <Dashboard />
       }
     </div>
     </>

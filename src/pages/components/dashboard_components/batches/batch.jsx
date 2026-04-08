@@ -1,7 +1,23 @@
+import { useRef, useState } from "react";
+import batchData from "./batch_file_data";
 
-export default function Batches() {
+export default function Batches({ cb }) {
 
-    const batchName = ["Advance Excel", "Linux", "C++", "MS Office", "N++"];
+
+    const [items] = useState(
+        ["Advance Excel", "Linux", "C++", "MS Office", "N++"]
+    )
+
+    const batchFiles = batchData();
+    const batchClick = useRef([]);
+
+
+    const CurrentBatch = (idx) => {
+        //console.log(batchFiles[idx]);
+        if (typeof cb === 'function') {
+            cb(batchFiles[idx]);
+        }
+    }
 
     return (
         <>
@@ -9,9 +25,9 @@ export default function Batches() {
                 <div className="batch_list_lrg-3">
                     <ul>
                         {
-                            batchName.map((values, idx) => (
+                            items.map((values, idx) => (
 
-                                <li key={"batch_ls" + idx}>{values}</li>
+                                <li id={idx} ref={batchClick} key={idx} onClick={() => { CurrentBatch(idx) }}>{values}</li>
 
                             ))
                         }
