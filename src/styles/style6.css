@@ -16,6 +16,15 @@
     padding: 1rem 1rem;
     gap: 1rem;
     padding-bottom: 2rem;
+    max-height: 900px;
+    transform: translateY(100%);
+    transition: transform .5s ease;
+    pointer-events: none;
+}
+
+.bottom_panel-6.expand {
+    transform: translateY(0%);
+    pointer-events: all;
 }
 
 .batch_name_cnt-6 {
@@ -63,6 +72,7 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .main_btn-6 {
     width: 40px;
     padding: .1rem .1rem;
@@ -80,7 +90,7 @@
 
 .student_info-6 {
     margin-bottom: 1rem;
-    padding-bottom: 1rem; 
+    padding-bottom: 1rem;
     border-bottom: .5px solid rgba(128, 128, 128, 0.612);
 
 }

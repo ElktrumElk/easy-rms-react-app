@@ -3,11 +3,12 @@
  * 
  * @param {Object} param0
  * @param {Array} param0.batches - List of the batches 
+ * @param {Boolean} param0.isDisplay - boolean. 
  * @returns 
  */
-export default function BottomPanel({ batches = [] }) {
+export default function BottomPanel({ batches = [], isDisplay = false }) {
     return (
-        <div className="bottom_panel-5 bottom_panel-6">
+        <div className={isDisplay ? "bottom_panel-5 bottom_panel-6 expand" : "bottom_panel-5 bottom_panel-6"}>
 
             <div className="std_info_cnt-3 border_bottom-3 student_info-6">
 

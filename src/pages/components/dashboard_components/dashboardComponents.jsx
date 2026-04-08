@@ -67,7 +67,14 @@ export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray }) 
     )
 }
 
-export function DashboardHeader() {
+/**
+ * # Header
+ * @param {Object} param0 
+ * @param {CallableFunction} param0.bottomPanelShow - state function of the bottom panel
+ * @param {Boolean} param0.bottomPanelValue - state value of the bottom panel
+ * @returns 
+ */
+export function DashboardHeader( {bottomPanelShow, bottomPanelValue}) {
     const date = new Date();
 
     //days
@@ -107,7 +114,7 @@ export function DashboardHeader() {
                             src="https://img.icons8.com/?size=100&id=45474&format=png&color=7a7a7a" alt="dark" />
 
                         <img id="hambuger_menu" className="ic-3 ic_2-3 hamburder-3"
-                            src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="search" />
+                            src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="search" onClick={() => {bottomPanelShow(!bottomPanelValue)}}/>
                     </div>
                 </header>
 
@@ -187,7 +194,7 @@ export function DashboardHeader() {
  * @param {Object} param0
  * @param {Array} param0.batchList - The list of available batches
 */
-export function DashboardMainPanel({ render_frame, batchList }) {
+export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay }) {
     console.log(render_frame)
 
     return (
@@ -196,7 +203,7 @@ export function DashboardMainPanel({ render_frame, batchList }) {
                 {
                     render_frame ? <BatchComponent data={render_frame} /> : <DashboardStats />
                 }
-                <BottomPanel batches={batchList} />
+                <BottomPanel batches={batchList} isDisplay={isBottomDisplay}/>
             </section>
         </>
     )

@@ -24,6 +24,7 @@ export default function Dashboard() {
     }
     const [mainPanelData, setData] = useState(null);
     const [batchArray, setArray] = useState([]);
+    const [isBottomPanelShow, setBottomPanel] = useState(false);
 
     return (
         <>
@@ -32,10 +33,10 @@ export default function Dashboard() {
                 <DashSideBar isExpand={isExpand} handleExpand={handleExpand} batchCb={setData} setBatchArray={setArray} />
 
                 {/**Header */}
-                <DashboardHeader />
+                <DashboardHeader bottomPanelShow={setBottomPanel} bottomPanelValue={isBottomPanelShow}/>
 
                 {/**main panel */}
-                <DashboardMainPanel render_frame={mainPanelData} batchList={batchArray} />
+                <DashboardMainPanel render_frame={mainPanelData} batchList={batchArray} isBottomDisplay={isBottomPanelShow}/>
             </div>
         </>
     )

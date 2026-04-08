@@ -415,7 +415,6 @@
     flex-direction: column;
     box-sizing: border-box;
     width: 95%;
-    min-height: 10%;
     max-height: 90%;
     position: fixed;
     bottom: 0;
