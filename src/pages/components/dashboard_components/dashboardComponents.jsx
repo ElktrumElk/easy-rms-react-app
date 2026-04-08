@@ -76,9 +76,8 @@ export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray, ex
  * @param {Boolean} param0.bottomPanelValue - state value of the bottom panel
  * @returns 
  */
-export function DashboardHeader({ bottomPanelShow, bottomPanelValue }) {
+export function DashboardHeader({ bottomPanelShow, bottomPanelValue, headerName = "Dashboard" }) {
     const date = new Date();
-
     //days
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     //months
@@ -98,7 +97,7 @@ export function DashboardHeader({ bottomPanelShow, bottomPanelValue }) {
                 <header className="head_header-3">
                     <div className="sub_cnt-3 s-3">
                         <img className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" />
-                        <h1 className="current-3">{"Dashboard"}</h1>
+                        <h1 className="current-3">{headerName}</h1>
                     </div>
 
                     <div className="sub_cnt-3 sa-3">

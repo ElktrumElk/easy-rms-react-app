@@ -1,5 +1,5 @@
 import { DashSideBar, DashboardHeader, DashboardMainPanel } from "./components/dashboard_components/dashboardComponents"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -32,6 +32,10 @@ export default function Dashboard() {
      * */
     const [externalBatch, setExternalBatch] = useState(null);
 
+    const [dashName, setDashName] = useState("Dashboard");
+    useEffect(() => {
+      setDashName(batchArray[externalBatch]);  
+    }, [externalBatch])
     return (
         <>
             <div id="dashboard" className={isExpand ? "p_cnt-3 side_expand" : "p_cnt-3"}>
@@ -42,7 +46,7 @@ export default function Dashboard() {
                 <DashSideBar isExpand={isExpand} handleExpand={handleExpand} batchCb={setData} setBatchArray={setArray} externalIndex={externalBatch}/>
 
                 {/**Header */}
-                <DashboardHeader bottomPanelShow={setBottomPanel} bottomPanelValue={isBottomPanelShow}/>
+                <DashboardHeader bottomPanelShow={setBottomPanel} bottomPanelValue={isBottomPanelShow} headerName={dashName}/>
 
                 {/**main panel */}
                 <DashboardMainPanel render_frame={mainPanelData} batchList={batchArray} isBottomDisplay={isBottomPanelShow} isBottomBatch={setExternalBatch}/>
