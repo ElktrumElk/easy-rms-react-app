@@ -410,6 +410,20 @@
     height: 30px;
 }
 
+.bottom_panel-5 {
+    display: none;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 95%;
+    min-height: 10%;
+    max-height: 90%;
+    position: fixed;
+    bottom: 0;
+    align-self: center;
+    background-color: white;
+    border-radius: .3rem;
+}
+
 @media (max-width: 920px) {
     .bar {
         width: 40Px;
@@ -500,6 +514,10 @@
         clip-path: inset(0 0 0 7%);
         border: 1px solid red;
     }
+    .bottom_panel-5 {
+        display: flex;
+        border: 1px solid gray;
+    }
 }
 
 .loading-5 {
@@ -510,3 +528,4 @@
     inset: 0;
     margin-inline-start: 40%;
 }
+

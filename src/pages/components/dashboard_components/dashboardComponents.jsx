@@ -1,7 +1,7 @@
-import { useState } from "react"
 import DashboardStats from "./dashboard_stats"
 import Batches from "./batches/batch"
 import BatchComponent from "./batches/batch_components";
+import BottomPanel from "../bottomPanel";
 
 /**\
  * 
@@ -17,10 +17,12 @@ import BatchComponent from "./batches/batch_components";
 
 /**
  * The sidebar panel
- * @param {*} param0 
+ * @param {Object} param0 
+ * @param {CallableFunction} param0.batchCb 
+ * @param {CallableFunction} param0.setBatchArray - The setter for the batch list state
  * @returns 
  */
-export function DashSideBar({ handleExpand, isExpand, batchCb}) {
+export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray }) {
     return (
         <>
             <div id="side_bar" className={isExpand ? "side_bar-3 expand" : "side_bar-3"}>
@@ -53,8 +55,8 @@ export function DashSideBar({ handleExpand, isExpand, batchCb}) {
                                 <span>Batch</span>
                             </li>
 
-                            {/**Batch list */}
-                            <Batches cb={batchCb} />
+                            {/**Batch list at the side panel*/}
+                            <Batches data={batchCb} setBatchArray={setBatchArray} />
 
                         </ul>
 
@@ -181,14 +183,20 @@ export function DashboardHeader() {
     )
 }
 
-/**Serves as the main panel for content changing */
-export function DashboardMainPanel({ render_frame }) {
+/**Serves as the main panel for content changing 
+ * @param {Object} param0
+ * @param {Array} param0.batchList - The list of available batches
+*/
+export function DashboardMainPanel({ render_frame, batchList }) {
+    console.log(render_frame)
+
     return (
         <>
             <section className="cont-3">
                 {
-                    render_frame ? <BatchComponent data={render_frame}/> : <DashboardStats /> 
+                    render_frame ? <BatchComponent data={render_frame} /> : <DashboardStats />
                 }
+                <BottomPanel batches={batchList} />
             </section>
         </>
     )

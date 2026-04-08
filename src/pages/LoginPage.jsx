@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { BackBtn } from "./components/buttons"
-import Dashboard from "./dashboard";
+import Dashboard from "./DashboardPage";
 
 export default function LoginPage({ click }) {
 
