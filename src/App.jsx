@@ -7,6 +7,7 @@ import './styles/style4.css';
 import './styles/style5.css';
 import DefaultPage from './pages/default_page';
 import LoginPage from './pages/login';
+import Dashboard from './pages/dashboard';
 
 
 function App() {
@@ -16,7 +17,10 @@ function App() {
   return (
     <>
     <div className='app'>
-      {isSigninPressed ? <LoginPage  click={setSignin}/> : <DefaultPage isSign={setSignin} /> }
+      {
+      isSigninPressed ? <LoginPage  click={setSignin}/> : <DefaultPage isSign={setSignin} /> 
+      //<Dashboard />
+      }
     </div>
     </>
   )

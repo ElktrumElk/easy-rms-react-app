@@ -1,5 +1,6 @@
 import { useState } from "react"
 import DashboardStats from "./dashboard_stats"
+import Batches from "./batches/batch"
 
 
 export function DashSideBar({ handleExpand, isExpand }) {
@@ -30,21 +31,14 @@ export function DashSideBar({ handleExpand, isExpand }) {
                             </li>
 
 
-                            <li  id="batch_lrg_btn" className="g_list-3" title="Batch"  onClick={handleExpand}>
+                            <li id="batch_lrg_btn" className="g_list-3" title="Batch" onClick={handleExpand}>
                                 <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=727&format=png&color=7a7a7a"
                                     alt="batch" />
                                 <span>Batch</span>
                             </li>
 
-                            <li id="batch_lists" className="ls-3">
-                                <div className="batch_list_lrg-3">
-                                    <ul>
-                                        <li className="active">Advance Excel</li>
-                                        <li>Linux</li>
-                                        <li>C++</li>
-                                    </ul>
-                                </div>
-                            </li>
+                            {/**Batch list */}
+                            <Batches />
 
                         </ul>
 
@@ -56,20 +50,35 @@ export function DashSideBar({ handleExpand, isExpand }) {
 }
 
 export function DashboardHeader() {
+    const date = new Date();
+
+    //days
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    //months
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+    let day = days[date.getDay()];
+    let month = months[date.getMonth()];
+    let year = date.getFullYear();
+
+    const callender = `${day} ${date.getDate()} ${month} ${year}`;
+    
+
     return (
         <>
             <section className="head-3">
                 <header className="head_header-3">
                     <div className="sub_cnt-3 s-3">
                         <img className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" />
-                        <h1 className="current-3">Dashboard</h1>
+                        <h1 className="current-3">{"Dashboard"}</h1>
                     </div>
 
                     <div className="sub_cnt-3 sa-3">
 
                         <div className="callender-3">
                             <img src="https://img.icons8.com/?size=100&id=SqCUs5XkuU76&format=png&color=000000" width="20" height="20" />
-                            <span>Tue 7 Apr 2026</span>
+                            <span>{callender}</span>
                         </div>
                         <input id="search" className="search_inp" placeholder="search..." />
 
@@ -167,34 +176,3 @@ export function DashboardMainPanel() {
     )
 }
 
-/**Holds all the components of the dash board */
-export default function DashboardComponents() {
-
-
-    const [isExpand, setExpand] = useState(false);
-
-    const handleExpand = () => {
-        if (!isExpand) {
-
-            setExpand(true);
-
-        } else {
-            setExpand(false);
-        }
-    }
-
-    return (
-        <>
-            <div id="dashboard" className={isExpand ? "p_cnt-3 side_expand" : "p_cnt-3" }>
-                {/**Side bar */}
-                <DashSideBar isExpand={isExpand} handleExpand={handleExpand} />
-
-                {/**Header */}
-                <DashboardHeader />
-
-                {/**main panel */}
-                <DashboardMainPanel />
-            </div>
-        </>
-    )
-}

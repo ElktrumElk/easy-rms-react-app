@@ -13,7 +13,7 @@ export default function ModuleStats() {
 
                     <div className="bar_chat-5">
                         <img id="stats_g_load" className="loading-5" src="/animations/icons8-iphone-spinner.gif" />
-                        <canvas id="bar_cnt"></canvas>
+                        <canvas id="bar_cnt"></canvas> 
                     </div>
                 </div>
 

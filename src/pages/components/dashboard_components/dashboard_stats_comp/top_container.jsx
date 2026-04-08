@@ -1,5 +1,8 @@
+import { useRef } from "react"
 
 export function TopContainer() {
+
+    const expand = useRef([]);
     return (
         <>
             <div className="top_bar-5">
@@ -7,6 +10,7 @@ export function TopContainer() {
 
                 <div className="top_bar_counts-5">
 
+                    <div className="bg"></div>
                     <div className="status_card-5">
 
                         <div className="status_card_tp_cnt-5">

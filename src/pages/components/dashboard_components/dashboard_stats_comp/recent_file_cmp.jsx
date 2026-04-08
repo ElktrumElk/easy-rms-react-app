@@ -25,7 +25,7 @@ export default function RecentFileComponent() {
 
                             <div id="view_cnt" className="views-5">
                                 <img src="https://img.icons8.com/?size=100&id=4y6r43dyjbzw&format=png&color=7a7a7a" />
-                                <span>200</span>
+                                <span>21</span>
                             </div>
 
                             <div className="down_btn">
@@ -46,6 +46,11 @@ export default function RecentFileComponent() {
                                 <span>8:57 PM</span>
                             </div>
 
+                            <div id="view_cnt" className="views-5">
+                                <img src="https://img.icons8.com/?size=100&id=4y6r43dyjbzw&format=png&color=7a7a7a" />
+                                <span>8</span>
+                            </div>
+
                             <div className="down_btn">
                                 <img src="https://img.icons8.com/?size=100&id=14100&format=png&color=7a7a7a" alt="down2" />
                                 <span>Download</span>
@@ -62,6 +67,11 @@ export default function RecentFileComponent() {
 
                             <div className="time_cnt-5">
                                 <span>8:57 PM</span>
+                            </div>
+
+                            <div id="view_cnt" className="views-5">
+                                <img src="https://img.icons8.com/?size=100&id=4y6r43dyjbzw&format=png&color=7a7a7a" />
+                                <span>20</span>
                             </div>
 
                             <div className="down_btn">
