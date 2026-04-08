@@ -2,6 +2,7 @@ import DashboardStats from "./dashboard_stats"
 import Batches from "./batches/batch"
 import BatchComponent from "./batches/batch_components";
 import BottomPanel from "../bottomPanel";
+import { useRef, useState } from "react";
 
 /**\
  * 
@@ -20,9 +21,10 @@ import BottomPanel from "../bottomPanel";
  * @param {Object} param0 
  * @param {CallableFunction} param0.batchCb 
  * @param {CallableFunction} param0.setBatchArray - The setter for the batch list state
+ * @param {Number} param0.externalIndex - The setter for the batch list state
  * @returns 
  */
-export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray }) {
+export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray, externalIndex }) {
     return (
         <>
             <div id="side_bar" className={isExpand ? "side_bar-3 expand" : "side_bar-3"}>
@@ -56,7 +58,7 @@ export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray }) 
                             </li>
 
                             {/**Batch list at the side panel*/}
-                            <Batches data={batchCb} setBatchArray={setBatchArray} />
+                            <Batches data={batchCb} setBatchArray={setBatchArray}  externalIndex={externalIndex} />
 
                         </ul>
 
@@ -74,7 +76,7 @@ export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray }) 
  * @param {Boolean} param0.bottomPanelValue - state value of the bottom panel
  * @returns 
  */
-export function DashboardHeader( {bottomPanelShow, bottomPanelValue}) {
+export function DashboardHeader({ bottomPanelShow, bottomPanelValue }) {
     const date = new Date();
 
     //days
@@ -114,7 +116,7 @@ export function DashboardHeader( {bottomPanelShow, bottomPanelValue}) {
                             src="https://img.icons8.com/?size=100&id=45474&format=png&color=7a7a7a" alt="dark" />
 
                         <img id="hambuger_menu" className="ic-3 ic_2-3 hamburder-3"
-                            src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="search" onClick={() => {bottomPanelShow(!bottomPanelValue)}}/>
+                            src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="search" onClick={() => { bottomPanelShow(!bottomPanelValue) }} />
                     </div>
                 </header>
 
@@ -193,17 +195,18 @@ export function DashboardHeader( {bottomPanelShow, bottomPanelValue}) {
 /**Serves as the main panel for content changing 
  * @param {Object} param0
  * @param {Array} param0.batchList - The list of available batches
+ * @param {CallableFunction} param0.isBottomBatch - A callable function thats update the batch list rendering on the main frame
 */
-export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay }) {
-    console.log(render_frame)
-
+export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch }) {
+    
     return (
         <>
-            <section className="cont-3">
+            <section id='main_section' className="cont-3" >
                 {
                     render_frame ? <BatchComponent data={render_frame} /> : <DashboardStats />
                 }
-                <BottomPanel batches={batchList} isDisplay={isBottomDisplay}/>
+
+                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch}/>
             </section>
         </>
     )

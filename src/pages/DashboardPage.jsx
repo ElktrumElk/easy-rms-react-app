@@ -25,18 +25,27 @@ export default function Dashboard() {
     const [mainPanelData, setData] = useState(null);
     const [batchArray, setArray] = useState([]);
     const [isBottomPanelShow, setBottomPanel] = useState(false);
+    
+    /**
+     * @var {Number} externalBtach --This variable hook carries the bottom panel triggering of batch to be render on the main panel 
+     * 
+     * */
+    const [externalBatch, setExternalBatch] = useState(null);
 
     return (
         <>
             <div id="dashboard" className={isExpand ? "p_cnt-3 side_expand" : "p_cnt-3"}>
-                {/**Side bar */}
-                <DashSideBar isExpand={isExpand} handleExpand={handleExpand} batchCb={setData} setBatchArray={setArray} />
+                {/**Side bar 
+                 * You can find the dashSideBar from the file DashBoardComponents
+                 * */ 
+                 }
+                <DashSideBar isExpand={isExpand} handleExpand={handleExpand} batchCb={setData} setBatchArray={setArray} externalIndex={externalBatch}/>
 
                 {/**Header */}
                 <DashboardHeader bottomPanelShow={setBottomPanel} bottomPanelValue={isBottomPanelShow}/>
 
                 {/**main panel */}
-                <DashboardMainPanel render_frame={mainPanelData} batchList={batchArray} isBottomDisplay={isBottomPanelShow}/>
+                <DashboardMainPanel render_frame={mainPanelData} batchList={batchArray} isBottomDisplay={isBottomPanelShow} isBottomBatch={setExternalBatch}/>
             </div>
         </>
     )
