@@ -5,10 +5,10 @@ import SignButton from "./components/buttons"
 /**
  * 
  * @param {*} param0 
- * @param {HTMLButtonElement} param0.isSign - Sign-in btn
+ * @param {Function} param0.onSignIn - Callback to navigate to login/sign in page
  * @returns 
  */
-export default function DefaultPage({ isSign }) {
+export default function DefaultPage({ onSignIn }) {
 
     return (
         <>
@@ -32,7 +32,7 @@ export default function DefaultPage({ isSign }) {
                     </div>
 
                     <div className="sign_btn_cnt-1">
-                        <SignButton className={"sign_in_btn-1"} content={"Sign in"} cb={isSign}/>
+                        <SignButton className={"sign_in_btn-1"} content={"Sign in"} cb={onSignIn}/>
                     </div>
                 </header>
 
@@ -46,7 +46,7 @@ export default function DefaultPage({ isSign }) {
                         <div className="reg_sig_btn-1">
                             <button  className="btns-1">Register</button>
 
-                            <SignButton className={"btns-1 s_1-1"} content={"Sign in"} cb={isSign}/>
+                            <SignButton className={"btns-1 s_1-1"} content={"Sign in"} cb={onSignIn}/>
 
                         </div>
                     </div>

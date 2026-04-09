@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import './styles/style1.css';
 import './styles/style2.css';
@@ -12,17 +12,31 @@ import Dashboard from './pages/DashboardPage';
 
 
 function App() {
-  const [isSigninPressed, setSignin] = useState(false);
+  const [currentPage, setCurrentPage] = useState('default');
+  const [loggedIn, getLoggedIn] = useState(localStorage.getItem("isLoggedIn"));
 
+  useEffect(() => {
+    if(loggedIn === 'true') {
+      setCurrentPage("dashboard");
+    }
+  }, [loggedIn])
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'login':
+        return <LoginPage onBack={() => setCurrentPage('default')} onLoginSuccess={() => setCurrentPage('dashboard')} />;
+      case 'dashboard':
+        return <Dashboard />;
+      default:
+        return <DefaultPage onSignIn={() => setCurrentPage('login')} />;
+    }
+  };
 
   return (
     <>
-    <div className='app'>
-      {
-      //isSigninPressed ? <LoginPage  click={setSignin}/> : <DefaultPage isSign={setSignin} /> 
-      <Dashboard />
-      }
-    </div>
+      <div className='app'>
+        {renderPage()}
+      </div>
     </>
   )
 }

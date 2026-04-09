@@ -19,12 +19,24 @@ import { useEffect, useRef, useState } from "react";
 /**
  * The sidebar panel
  * @param {Object} param0 
- * @param {CallableFunction} param0.batchCb 
+ * @param {CallableFunction} param0.batchCb - The batch Callback to update the data of the render_frame
+ * @param {CallableFunction} param0.handleExpand  - Expand the side bar / Collapse the side bar
  * @param {CallableFunction} param0.setBatchArray - The setter for the batch list state
  * @param {Number} param0.externalIndex - The setter for the batch list state
+ * @param {CallableFunction} param0.setClick - Trigger the back button when clicked 
+ * @param {CallableFunction} param0.funcName - Trigger the back button when clicked 
  * @returns 
  */
-export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray, externalIndex }) {
+export function DashSideBar({
+    handleExpand,
+    isExpand,
+    batchCb,
+    setBatchArray,
+    externalIndex,
+    setClick,
+    returnHome,
+    funcName,
+}) {
     return (
         <>
             <div id="side_bar" className={isExpand ? "side_bar-3 expand" : "side_bar-3"}>
@@ -44,7 +56,7 @@ export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray, ex
                     <div className="gen-3">
                         <ul id="gen_list" className="gen_list-3">
 
-                            <li id="Home_btn" className="g_list-3" title="home">
+                            <li id="Home_btn" className="g_list-3" title="home" onClick={() => { returnHome(null) }}>
                                 <img className="ic_1-3"
                                     src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" />
                                 <span>Home</span>
@@ -58,7 +70,7 @@ export function DashSideBar({ handleExpand, isExpand, batchCb, setBatchArray, ex
                             </li>
 
                             {/**Batch list at the side panel*/}
-                            <Batches data={batchCb} setBatchArray={setBatchArray} externalIndex={externalIndex} />
+                            <Batches data={batchCb} batchName={funcName} setBatchArray={setBatchArray} externalIndex={externalIndex} isClicked={setClick} />
 
                         </ul>
 
@@ -103,7 +115,6 @@ export function DashboardHeader({
     useEffect(() => {
         if (!isBack) {
             isBackComponent(false);
-            console.log("yup")
         }
     }, [isBack])
 
@@ -112,10 +123,18 @@ export function DashboardHeader({
             <section className="head-3">
                 <header className="head_header-3">
                     <div className="sub_cnt-3 s-3">
-                        <img className="ic-3 ic3-3" src={isBack ? "https://img.icons8.com/?size=100&id=40217&format=png&color=000000" : "https://img.icons8.com/?size=100&id=73&format=png&color=a9049b"}
-                            onClick={() => { isBackFunc(!isBack) }} />
 
-                        <h1 className="current-3">{headerName}</h1>
+                        {   
+                            /**Check if the isBack button was dislpayed */
+                            isBack ?
+                                /**The back button when a the dashboard stats is change */
+                                <img className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=40217&format=png&color=000000"
+                                    onClick={() => { isBackFunc(false) }} />
+                                :
+                                /**The home icon at the top of the header */
+                                <img className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b"/>
+                        }
+                        <h1 className="current-3">{ isBack ? headerName : "Dashboard"}</h1>
                     </div>
 
                     <div className="sub_cnt-3 sa-3">

@@ -7,10 +7,15 @@ import batchData from "./batch_file_data";
  * @param {CallableFunction} param0.data - Holds the batch data
  * @param {CallableFunction} param0.setBatchArray -- Setter for the batch list state
  * @param {Boolean} param0.isExternalClicked -- external button clicked
- * @param {Number} param0.externalIndex -- external index
+ * @param {Number} param0.externalIndex -- external index of the batch clicked from the bottom panel
+ * @param {boolean} param0.isClicked -- true / false check if the batch was click
+ * @param {CallableFunction} param0.batchName -- return the name of the batch clicked
  * @returns 
  */
-export default function Batches({ data, setBatchArray, isExternalclicked = false, externalIndex = null }) {
+
+export default function Batches({ data, setBatchArray, isClicked, batchName, isExternalclicked = false, externalIndex = null }) {
+
+    /**Array of batches */
     const [items] = useState([
         "Advance Excel",
         "Linux",
@@ -22,14 +27,24 @@ export default function Batches({ data, setBatchArray, isExternalclicked = false
     const batchFiles = batchData();
     const batchClick = useRef([]);
 
+    /**The cureent batch that is beign clicked */
     const CurrentBatch = (idx) => {
-        if (typeof data === 'function') {
+        if (typeof data === 'function' || typeof isClicked === 'function') {
+
             data(batchFiles[idx]);
+            if (typeof batchName === 'function') {
+               
+                batchName(items[idx]);
+            }
+            isClicked(idx);
         }
+
     };
 
     useEffect(() => {
-        if (typeof setBatchArray === 'function') {
+        if (typeof setBatchArray === 'function' ||
+            typeof isClicked === 'function'
+        ) {
             setBatchArray(items);
         }
     }, [items, setBatchArray]);
@@ -37,7 +52,7 @@ export default function Batches({ data, setBatchArray, isExternalclicked = false
     /**Listen for changes for the external index */
     useEffect(() => {
         if (externalIndex !== null) {
-    
+
             if (typeof data === 'function') {
                 data(batchFiles[externalIndex !== null || !isNaN(externalIndex) ? externalIndex : 0]);
             }
