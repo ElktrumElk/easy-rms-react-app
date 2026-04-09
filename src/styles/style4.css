@@ -140,6 +140,13 @@
     height: 20px;
 }
 
+/*The download button at each file component*/
+.files_download_btn-4 {
+    display: none;
+    width: 30px;
+    height: 30px;
+}
+
 @media (max-width: 920px) {
     .download_btn-4 {
         display: none;
@@ -153,4 +160,14 @@
         width: fit-content;
         padding: .5rem 1rem;
     }
+    .files_download_btn-4 {
+        display: flex;
+    }
+    
+}
+@media (max-width: 600px) {
+    .time-4 .file_time-4 {
+        display: none;
+    }
+    
 }

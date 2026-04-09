@@ -528,5 +528,7 @@ body {
     .p_cnt-3.side_expand {
         grid-template-columns: 1fr;
     }
-
+    .callender-3 {
+        display: none;
+    }
 }

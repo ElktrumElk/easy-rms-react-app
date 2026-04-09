@@ -513,9 +513,33 @@
         clip-path: inset(0 0 0 7%);
         border: 1px solid red;
     }
+
     .bottom_panel-5 {
         display: flex;
         border: 1px solid gray;
+    }
+}
+
+@media (max-width: 600px) {
+    .bottom_panel-5 {
+        display: flex;
+        border: 1px solid gray;
+    }
+
+    .rec_file_cmp-5 .down_btn span {
+        display: none;
+        align-items: center;
+        gap: .5rem;
+    }
+}
+
+@media (max-width: 481px) {
+    .views-5 {
+        display: none;
+    }
+
+    .rec_file_cmp-5 {
+        grid-template-columns: 3fr 1fr;
     }
 }
 
@@ -527,4 +551,3 @@
     inset: 0;
     margin-inline-start: 40%;
 }
-

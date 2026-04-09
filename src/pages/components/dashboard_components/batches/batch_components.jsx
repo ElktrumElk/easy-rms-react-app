@@ -1,7 +1,7 @@
 
 
 export default function BatchComponent({ data }) {
- 
+
     return (
 
         <>
@@ -43,11 +43,12 @@ export default function BatchComponent({ data }) {
                                             </div>
 
                                             <div className="time-4">
-                                                <span>{file.time}</span>
+                                                <span className="file_time-4">{file.time}</span>
                                                 <button className="download_btn-4">
                                                     <img className="download_ic" src="https://img.icons8.com/?size=100&id=83159&format=png&color=FFFFFF" alt="download" />
                                                     <span>Download</span>
                                                 </button>
+                                                <img className="files_download_btn-4" src="https://img.icons8.com/?size=100&id=14100&format=png&color=7a7a7a" />
                                             </div>
 
                                         </div>

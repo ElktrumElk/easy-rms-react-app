@@ -32,7 +32,6 @@ export default function BottomPanel({ batches = [], isDisplay = false, click }) 
     };
     return (
         <div
-
             className={isDisplay ? "bottom_panel-5 bottom_panel-6 expand" : "bottom_panel-5 bottom_panel-6"}>
 
             <div className="std_info_cnt-3 border_bottom-3 student_info-6">
