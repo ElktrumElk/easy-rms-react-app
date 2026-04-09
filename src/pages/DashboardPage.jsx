@@ -67,11 +67,14 @@ export default function Dashboard() {
         }
     })
 
-    
+    const [colorMode, setColorMode] = useState("light")
 
     return (
         <>
-            <div id="dashboard" className={isExpand ? "p_cnt-3 side_expand" : "p_cnt-3"}>
+            <div id="dashboard" className={
+                isExpand ? "p_cnt-3 side_expand" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
+                }>
+
                 {/**Side bar 
                  * You can find the dashSideBar from the file DashBoardComponents
                  * */
@@ -97,7 +100,7 @@ export default function Dashboard() {
                     isBackComponent={setData} />
 
                 {/**main panel */}
-                <DashboardMainPanel render_frame={mainPanelData} batchList={batchArray} isBottomDisplay={isBottomPanelShow} isBottomBatch={setExternalBatch} />
+                <DashboardMainPanel render_frame={mainPanelData} batchList={batchArray} isBottomDisplay={isBottomPanelShow} isBottomBatch={setExternalBatch} setColorMode={setColorMode}/>
             </div>
         </>
     )

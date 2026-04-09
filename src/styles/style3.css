@@ -10,7 +10,7 @@
 .dash_board.dark {
     --bg: rgb(0, 0, 0);
     --button-bg-cl: rgb(22, 22, 23);
-    --comp-a-bg-cl: rgb(0, 0, 0);
+    --comp-a-bg-cl: rgb(33, 34, 45);
     color: rgb(208, 205, 205);
     --dark-thm-cl: white;
     --drop-btns-cl: rgb(220, 220, 220);

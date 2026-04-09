@@ -12,9 +12,11 @@ import batchData from "./dashboard_components/batches/batch_file_data";
  * @param {Array} param0.batches - List of the batches 
  * @param {Boolean} param0.isDisplay - boolean. 
  * @param {Function} param0.click - boolean. 
+ * @param {Function} param0.colorMode - set The color mode to dark or white
+ *
  * @returns 
  */
-export default function BottomPanel({ batches = [], isDisplay = false, click }) {
+export default function BottomPanel({ batches = [], isDisplay = false, click, colorMode}) {
 
     const [showList, setShowList] = useState(false);
 
@@ -30,6 +32,23 @@ export default function BottomPanel({ batches = [], isDisplay = false, click }) 
             click(id);
         }
     };
+
+    /**Handle color mode */
+    const [isDark, setDark] = useState(true);
+
+    const handleColorMode = () => {
+
+        setDark(!isDark); //toggle between light and dark
+
+        if (isDark) {
+            colorMode("dark");
+            console.log("yo")
+        }else {
+            console.log("yo")
+            colorMode("light")
+        }
+    }
+
     return (
         <div
             className={isDisplay ? "bottom_panel-5 bottom_panel-6 expand" : "bottom_panel-5 bottom_panel-6"}>
@@ -79,7 +98,7 @@ export default function BottomPanel({ batches = [], isDisplay = false, click }) 
 
                 {/**Toggle */}
                 <div className="toggle_cnt-6">
-                    <div className="main_btn-6">
+                    <div className="main_btn-6" onClick={handleColorMode}>
                         <div className="main_btn_ctr-6"></div>
                     </div>
                 </div>

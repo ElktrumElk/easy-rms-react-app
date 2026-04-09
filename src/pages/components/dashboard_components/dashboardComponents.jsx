@@ -232,8 +232,9 @@ export function DashboardHeader({
  * @param {Object} param0
  * @param {Array} param0.batchList - The list of available batches
  * @param {CallableFunction} param0.isBottomBatch - A callable function thats update the batch list rendering on the main frame
+ * @param {CallableFunction} param0.setColorMode - set the useState of the colorMode to triger colorMode changes
 */
-export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch }) {
+export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch, setColorMode }) {
 
     return (
         <>
@@ -242,7 +243,7 @@ export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, i
                     render_frame ? <BatchComponent data={render_frame} /> : <DashboardStats />
                 }
 
-                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} />
+                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} />
             </section>
         </>
     )

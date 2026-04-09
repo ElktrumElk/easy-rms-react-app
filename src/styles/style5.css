@@ -1,3 +1,13 @@
+:root {
+    --layout-1: white;
+
+}
+
+.dash_board.dark {
+    --layout-1: rgb(33, 34, 45);
+    background-color: rgb(24, 24, 28);
+}
+
 .home_screen {
     display: flex;
     flex-direction: column;
@@ -28,14 +38,14 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-
-
 }
+
+
 
 .status_card-5 {
     width: 100%;
     min-height: 10rem;
-    background-color: white;
+    background-color: var(--layout-1);
     border-radius: .6rem;
     border: .3px solid rgba(205, 203, 203, 0.457);
     display: grid;
@@ -537,7 +547,6 @@
     .views-5 {
         display: none;
     }
-
     .rec_file_cmp-5 {
         grid-template-columns: 3fr 1fr;
     }
