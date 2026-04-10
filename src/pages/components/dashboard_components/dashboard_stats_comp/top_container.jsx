@@ -1,9 +1,9 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import TotalNumberResources from "./total_num_res";
 
 export function TopContainer() {
 
-    const expand = useRef([]);
+    const [viewPanel, setViewPanels] = useState(false);
     return (
         <>
             <div className="top_bar-5">
@@ -13,7 +13,7 @@ export function TopContainer() {
 
                     <div className="bg"></div>
 
-                    <div className="status_card-5 top_status_card-8">
+                    <div className={viewPanel ? "status_card-5 top_status_card-8" : "status_card-5"}>
 
                         <div className="status_card_tp_cnt-5">
                             <span><strong>Number of Resources</strong></span>
@@ -30,11 +30,11 @@ export function TopContainer() {
                             </div>
                         </div>
 
-                        <div className="btm_cnt-5">
+                        <div className="btm_cnt-5" onClick={() => {setViewPanels(!viewPanel)}}>
                             <span>View Details</span>
                         </div>
 
-                       <TotalNumberResources />
+                       {viewPanel && <TotalNumberResources viewPanel={viewPanel} setViewPanel={setViewPanels}/>}
 
                     </div>
 
