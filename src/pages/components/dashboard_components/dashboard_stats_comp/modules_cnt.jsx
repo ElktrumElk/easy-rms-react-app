@@ -74,43 +74,50 @@ export default function ModuleContainer() {
     return (
         <>
             {
-                <div key={indx} className="list_sub_cnt-8">
-                    <div className="list_top_sec-8">
-                        <div className="res_name_cnt-8">
-                            <h2>{batch.batchName}</h2>
+                modules.map((module, indx) => (
 
-                            <div className="list_status_cnt-8">
-                                <img src="/icons/progress_ic.png" width={"20"} height={"20"} />
-                                <span>{batch.state}</span>
+                    <div key={indx} className="list_sub_cnt-8">
+                        <div className="list_top_sec-8">
+                            <div className="res_name_cnt-8">
+                                <h2>{module.moduleName}</h2>
+
+                                <div className="list_status_cnt-8">
+                                    <img src="/icons/progress_ic.png" width={"20"} height={"20"} />
+                                    <span>{module.state}</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div className="list_info-8">
+                            <div>
+                                <img src="/icons/date_ic.png" width={"20px"} height={"20px"} />
+                                <span>{module.timeAssign}</span>
+                            </div>
+
+                            <div>
+                                <img src="/icons/inCharge_ic.png" width={"20px"} height={"20px"} />
+                                <span>{module.inCharge}</span>
+                            </div>
+                            <div>
+                                <img src="/icons/module_btch_ic.png" width={"20px"} height={"20px"} />
+                                <span>{module.batch}</span>
+                            </div>
+
+                            <div>
+                                <img src="/icons/modules_ic.png" width={"20px"} height={"20px"} />
+                                <span><strong>{module.totalFiles}</strong> Files</span>
                             </div>
                         </div>
-
-                    </div>
-
-                    <div className="list_info-8">
-                        <div>
-                            <img src="/icons/date_ic.png" width={"20px"} height={"20px"} />
-                            <span>{batch.timeCreated}</span>
-                        </div>
-
-                        <div>
-                            <img src="/icons/inCharge_ic.png" width={"20px"} height={"20px"} />
-                            <span>{batch.inCharge}</span>
-                        </div>
-
-                        <div>
-                            <img src="/icons/modules_ic.png" width={"20px"} height={"20px"} />
-                            <span><strong>{batch.modules}</strong> Modules</span>
+                        <div className="li_btm-8">
+                            <div>
+                                <div>*</div>
+                                <span>Chapters {module.totalChapters}</span>
+                                <span className="module_up_status-8">Updated {module.lastUpdated}</span>
+                            </div>
                         </div>
                     </div>
-                    <div className="li_btm-8">
-                        <div>
-                            <div>*</div>
-                            <span>Progress({batch.progress}/{batch.modules})</span>
-                            <span className="module_up_status-8">Updated {batch.lastUpdate}</span>
-                        </div>
-                    </div>
-                </div>
+                ))
             }
         </>
     )

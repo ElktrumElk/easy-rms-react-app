@@ -1,3 +1,4 @@
+import { useState } from "react"
 import BatchesEnrolledContainer from "./batches_enrolled_cnt"
 
 /**
@@ -9,6 +10,7 @@ import BatchesEnrolledContainer from "./batches_enrolled_cnt"
  */
 export default function TotalNumberResources({viewPanel, setViewPanel}) {
 
+    const [currentTab, setCurrentTab] = useState("")
     return (
         <>
             <section className="tnrl-8">
