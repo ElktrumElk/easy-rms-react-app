@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import TotalNumberResources from "./total_num_res";
 
 export function TopContainer() {
 
@@ -11,6 +12,7 @@ export function TopContainer() {
                 <div className="top_bar_counts-5">
 
                     <div className="bg"></div>
+
                     <div className="status_card-5 top_status_card-8">
 
                         <div className="status_card_tp_cnt-5">
@@ -19,11 +21,11 @@ export function TopContainer() {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>740</span>
+                                <span>4</span>
                             </div>
 
                             <div className="rating_cnt">
-                                <img src="/down"/>
+                                <img src="/down" />
                                 <span>15%</span>
                             </div>
                         </div>
@@ -31,6 +33,8 @@ export function TopContainer() {
                         <div className="btm_cnt-5">
                             <span>View Details</span>
                         </div>
+
+                       <TotalNumberResources />
 
                     </div>
 
