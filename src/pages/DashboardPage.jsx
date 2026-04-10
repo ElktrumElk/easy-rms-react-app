@@ -59,14 +59,21 @@ export default function Dashboard() {
     }, [externalBatch, sideBatchClick]);
 
     const [colorMode, setColorMode] = useState(localStorage.getItem("userPreferColorTheme"));
-   /* useEffect(() => {
+    useEffect(() => {
         if (mainPanelData === null) {
             setDashName("Dashboard");
             setDashNameSideBar("Dashboard")
             setExternalBatch(null);
             setBackBtn(false)
         }
-    })*/
+    })
+
+    const [selectFile, setSelectFile] = useState(false);
+    useEffect(() => {
+        setSelectFile(false);
+
+    }, [sideBatchClick, externalBatch])
+
     return (
         <>
             <div id="dashboard" className={
@@ -107,6 +114,8 @@ export default function Dashboard() {
                     isBottomBatch={setExternalBatch}
                     setColorMode={setColorMode}
                     colorModeValue={colorMode}
+                    selectFile={selectFile}
+                    setSelectFile={setSelectFile}
                 />
             </div>
         </>

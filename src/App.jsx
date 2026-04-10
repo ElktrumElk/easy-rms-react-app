@@ -6,6 +6,7 @@ import './styles/style3.css';
 import './styles/style4.css';
 import './styles/style5.css';
 import './styles/style6.css';
+import './styles/style7.css';
 import DefaultPage from './pages/DefaultPage';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/DashboardPage';

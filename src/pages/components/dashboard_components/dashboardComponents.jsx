@@ -153,7 +153,7 @@ export function DashboardHeader({
                             src="https://img.icons8.com/?size=100&id=132&format=png&color=7a7a7a" alt="search" />
 
                         <img id="theme_tg_btn" className="ic-3 ic_2-3"
-                            src={colorModeValue === "dark" ? "/icons/light_mode_ic.png" : "https://img.icons8.com/?size=100&id=45474&format=png&color=7a7a7a"} alt="dark" onClick={() => {colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark')}}/>
+                            src={colorModeValue === "dark" ? "/icons/light_mode_ic.png" : "/icons/dark_mode_ic.png"} alt="dark" onClick={() => {colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark')}}/>
 
                         <img id="hambuger_menu" className="ic-3 ic_2-3 hamburder-3"
                             src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="hambugerMenu" onClick={() => { bottomPanelShow(!bottomPanelValue) }} />
@@ -171,14 +171,16 @@ export function DashboardHeader({
  * @param {CallableFunction} param0.isBottomBatch - A callable function thats update the batch list rendering on the main frame
  * @param {CallableFunction} param0.setColorMode - set the useState of the colorMode to triger colorMode changes
  * @param {String} param0.colorModeValue - Value of the colorMode needs to be passed here
+ * @param {Boolean} param0.selectFile - if The select icon should be display for file selection
+ * @param {CallableFunction} param0.setSelectFile - The callbackfunction for the select file to change state true / false
 */
-export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch, setColorMode, colorModeValue }) {
+export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch, setColorMode, colorModeValue, selectFile, setSelectFile }) {
 
     return (
         <>
             <section id='main_section' className="cont-3" >
                 {
-                    render_frame ? <BatchComponent data={render_frame} /> : <DashboardStats />
+                    render_frame ? <BatchComponent data={render_frame} selectFile={selectFile} setSelectFile={setSelectFile}/> : <DashboardStats />
                 }
 
                 <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue}/>
