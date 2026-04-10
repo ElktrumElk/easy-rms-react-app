@@ -1,12 +1,18 @@
 
 
-export default function AddFilePanel() {
+/**
+ * 
+ * @param {Object} param0 
+ * @param {Boolean} param0.showAddPanel - True / false to show the add panel
+ * @returns 
+ */
+export default function AddFilePanel({showAddPanel}) {
     return (
         <>
-            <div className="add_panel-7">
+            <div className={showAddPanel ? "add_panel-7 expand" : "add_panel-7"}>
                 <div className="add_panel_cnt-7">
                     <span>Add file</span>
-                    <img src="/icons/close_ic.png" width={"10"} height={"10"} alt="close"/>
+                    <img src="/icons/close_ic.png" width={"20"} height={"20"} alt="close"/>
                 </div>
 
                 <div className="add_panel_cnt-7">
@@ -21,12 +27,12 @@ export default function AddFilePanel() {
 
                 <div className="add_panel_cnt-7 btm-7">
                     <button className="add_panel_buttons-7">
-                        <img src="/icons/google_drive_ic.png"/>
+                        <img src="/icons/google_drive_ic.png" width={"30"} height={"30"}/>
                         <span><strong>Upload with Google Drive</strong></span>
                     </button>
 
                     <button className="add_panel_buttons-7">
-                        <img />
+                        <img src="/icons/drop_box_ic.png" width={"30"} height={"30"}/>
                         <span><strong>Upload with Dropbox</strong></span>
                     </button>
                 </div>

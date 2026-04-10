@@ -175,7 +175,7 @@ export function DashboardHeader({
  * @param {Boolean} param0.selectFile - if The select icon should be display for file selection
  * @param {CallableFunction} param0.setSelectFile - The callbackfunction for the select file to change state true / false
 */
-export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch, setColorMode, colorModeValue, selectFile, setSelectFile }) {
+export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch, setColorMode, colorModeValue, selectFile, setSelectFile, showAddPanel }) {
 
     return (
         <>
@@ -185,7 +185,7 @@ export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, i
                 }
 
                 <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue}/>
-                <AddFilePanel />
+                <AddFilePanel showAddPanel={showAddPanel}/>
             </section>
         </>
     )

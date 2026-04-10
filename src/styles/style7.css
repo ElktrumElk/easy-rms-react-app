@@ -32,8 +32,7 @@
 
 .add_panel-7 {
     width: 30rem;
-
-    min-height: 30rem;
+    max-height: 0rem;
     box-sizing: content-box;
     padding: 1rem 1rem;
     align-self: center;
@@ -45,10 +44,19 @@
     box-shadow: 0px 0px .2rem rgb(142, 142, 142);
     gap: .1rem;
     position: fixed;
+    visibility: hidden;
     top: 17%;
     left: 50%;
     z-index: 10;
+    transition: max-height .4s ease;
+    pointer-events: none;
 
+}
+/*Expand*/
+.add_panel-7.expand {
+    max-height: 40rem;
+    pointer-events: all;
+    visibility: visible;
 }
 
 .add_panel_cnt-7 {
@@ -57,7 +65,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
+
 }
+
 
 .add_panel_cnt-7:nth-child(2) {
     border-radius: 1rem;
@@ -95,6 +106,10 @@
     border: none;
     color: var(--dark-thm-cl);
     border-radius: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 @media (max-width: 600px) {
