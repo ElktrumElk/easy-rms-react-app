@@ -58,6 +58,7 @@
     align-items: center;
     gap: 1rem;
     width: 100%;
+    overflow-x: auto;
 }
 
 .tabs-8 button {
@@ -67,6 +68,10 @@
     justify-content: center;
     background-color: transparent;
     border: none;
+    flex: 0 0 auto;
+}
+.tabs-8::-webkit-scrollbar {
+    display: none;
 }
 
 .tabs-8 button.active {

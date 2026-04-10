@@ -1,5 +1,5 @@
 import DashboardStats from "./dashboard_stats"
-import Batches from "./batches/batch"
+import Modules from "./batches/batch"
 import BatchComponent from "./batches/batch_components";
 import BottomPanel from "../bottomPanel";
 import { useEffect, useRef, useState } from "react";
@@ -64,14 +64,14 @@ export function DashSideBar({
                             </li>
 
 
-                            <li id="batch_lrg_btn" className="g_list-3" title="Batch" onClick={handleExpand}>
+                            <li id="batch_lrg_btn" className="g_list-3" title="Modules" onClick={handleExpand}>
                                 <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=727&format=png&color=7a7a7a"
                                     alt="batch" />
-                                <span>Batch</span>
+                                <span>Modules</span>
                             </li>
 
-                            {/**Batch list at the side panel*/}
-                            <Batches data={batchCb} batchName={funcName} setBatchArray={setBatchArray} externalIndex={externalIndex} isClicked={setClick} />
+                            {/**Modules list at the side panel*/}
+                            <Modules data={batchCb} batchName={funcName} setBatchArray={setBatchArray} externalIndex={externalIndex} isClicked={setClick} />
 
                         </ul>
 
@@ -168,7 +168,7 @@ export function DashboardHeader({
 
 /**Serves as the main panel for content changing 
  * @param {Object} param0
- * @param {Array} param0.batchList - The list of available batches
+ * @param {Array} param0.batchList - The list of available Modules
  * @param {CallableFunction} param0.isBottomBatch - A callable function thats update the batch list rendering on the main frame
  * @param {CallableFunction} param0.setColorMode - set the useState of the colorMode to triger colorMode changes
  * @param {String} param0.colorModeValue - Value of the colorMode needs to be passed here
@@ -205,7 +205,7 @@ export function DashboardMainPanel({ render_frame,
                         <DashboardStats />
                 }
 
-                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue} />
+                <BottomPanel Modules={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue} />
                 <AddFilePanel showAddPanel={showAddPanel} setAddPanel={setAddPanel}/>
             </section>
         </>

@@ -29,7 +29,7 @@ export default function BatchComponent({
         const clickedImg = fileSelectedRef.current[parentIdx]?.[childIdx];
 
         if (clickedImg) {
-            console.log(`Clicked file: Batch ${parentIdx}, File ${childIdx}`);
+            console.log(`Clicked file: Modules ${parentIdx}, File ${childIdx}`);
 
             const currentSrc = clickedImg.src;
             if (currentSrc.includes('file_uncheck_ic.png')) {

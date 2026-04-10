@@ -27,7 +27,7 @@ export default function Dashboard() {
 
     /**Holds the frame that is rendered on the main_panel */
     const [mainPanelData, setData] = useState(null);
-    /**The List of batches available */
+    /**The List of Modules available */
     const [batchArray, setArray] = useState([]);
     /**Check for bottom panel */
     const [isBottomPanelShow, setBottomPanel] = useState(false);

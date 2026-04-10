@@ -13,9 +13,9 @@ import batchData from "./batch_file_data";
  * @returns 
  */
 
-export default function Batches({ data, setBatchArray, isClicked, batchName, isExternalclicked = false, externalIndex = null }) {
+export default function Modules({ data, setBatchArray, isClicked, batchName, isExternalclicked = false, externalIndex = null }) {
 
-    /**Array of batches */
+    /**Array of Modules */
     const [items] = useState([
         "Advance Excel",
         "Linux",
