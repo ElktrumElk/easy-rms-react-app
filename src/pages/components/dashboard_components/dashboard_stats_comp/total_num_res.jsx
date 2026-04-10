@@ -27,20 +27,28 @@ export default function TotalNumberResources() {
 
                     <div className="list_cnt-8">
                         <div className="list_sub_cnt-8">
-                            <div className="res_name_cnt-8">
-                                <span>Advance Excel</span>
+                            <div className="list_top_sec-8">
+                                <div className="res_name_cnt-8">
+                                    <h2>Advance Excel</h2>
+
+                                    <div className="list_status_cnt-8">
+                                        <img src="/icons/progress_ic.png" width={"20"} height={"20"}/>
+                                        <span>In progress</span>
+                                    </div>
+                                </div>
                                 <div>
-                                    <img />
-                                    <span>In Progress</span>
+                                    <span><strong>20+</strong> Students</span>
                                 </div>
                             </div>
 
-                            <div>
+                            <div className="list_info-8">
                                 <div>
+                                    <img src="/icons/date_ic.png" width={"20px"} height={"20px"}/>
                                     <span>Wed 5 Jan 2026</span>
                                 </div>
 
                                 <div>
+                                    <img src="/icons/inCharge_ic.png" width={"20px"} height={"20px"}/>
                                     <span>Mr Zeshan</span>
                                 </div>
 
