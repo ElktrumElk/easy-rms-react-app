@@ -1,5 +1,6 @@
 import { useState } from "react"
 import BatchesEnrolledContainer from "./batches_enrolled_cnt"
+import ModuleContainer from "./modules_cnt";
 
 /**
  * 
@@ -8,19 +9,20 @@ import BatchesEnrolledContainer from "./batches_enrolled_cnt"
  * @param {CallableFunction} param0.setViewPanel - The callback function to change the state of the view panel
  * @returns 
  */
-export default function TotalNumberResources({viewPanel, setViewPanel}) {
+export default function TotalNumberResources({ viewPanel, setViewPanel }) {
 
-    const [currentTab, setCurrentTab] = useState("")
+    const [currentTab, setCurrentTab] = useState("BE");
+
     return (
         <>
             <section className="tnrl-8">
                 <div className="Ttl_num_res_list-8">
                     <div className="higher_top-8">
-                        <img className="close_add_panel-8" 
-                        src="/icons/close_ic.png" 
-                        width={"20px"} 
-                        height={"20px"} 
-                        onClick={() => {setViewPanel(!viewPanel)}}
+                        <img className="close_add_panel-8"
+                            src="/icons/close_ic.png"
+                            width={"20px"}
+                            height={"20px"}
+                            onClick={() => { setViewPanel(!viewPanel) }}
                         />
 
                         <div className="top_cnt-8">
@@ -31,15 +33,28 @@ export default function TotalNumberResources({viewPanel, setViewPanel}) {
                             </button>
                         </div>
                         <div className="tabs-8">
-                            <button className="active">Batches Enrolled</button>
-                            <button>Modules</button>
-                            <button>Access Course</button>
+                            <button className={currentTab === "BE" && "active"}
+                                onClick={() => { setCurrentTab("BE") }}
+                            >
+                                Batches Enrolled
+                            </button>
+
+                            <button
+                                className={currentTab === "MD" && "active"}
+                                onClick={() => { setCurrentTab("MD") }}
+                            >Modules</button>
+
+                            <button
+                                className={currentTab === "AC" && "active"}
+                                onClick={() => { setCurrentTab("AC") }}
+                            >Accessed Course</button>
                         </div>
                     </div>
 
 
                     <div className="list_cnt-8">
-                        <BatchesEnrolledContainer />
+                        {currentTab === "BE" && <BatchesEnrolledContainer />}
+                        {currentTab === "MD" && <ModuleContainer />}
                     </div>
 
                 </div>
