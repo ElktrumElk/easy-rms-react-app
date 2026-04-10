@@ -3,6 +3,7 @@ import Batches from "./batches/batch"
 import BatchComponent from "./batches/batch_components";
 import BottomPanel from "../bottomPanel";
 import { useEffect, useRef, useState } from "react";
+import AddFilePanel from "./super_users/panels/add_file_panel";
 
 /**\
  * 
@@ -184,6 +185,7 @@ export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, i
                 }
 
                 <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue}/>
+                <AddFilePanel />
             </section>
         </>
     )

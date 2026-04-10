@@ -1,3 +1,11 @@
+:root {
+    --add-panel-btn-cl: rgba(128, 128, 128, 0.443);
+}
+
+.dash_board.dark {
+    --add-panel-btn-cl: rgba(41, 40, 40, 0.311);
+}
+
 .toolsCnt-7 {
     display: flex;
     gap: .5rem;
@@ -22,17 +30,25 @@
     height: 20px;
 }
 
-.add_panel_cnt-7 {
-    width: 30%;
-    height: auto;
+.add_panel-7 {
+    width: 30rem;
+
+    min-height: 30rem;
+    box-sizing: content-box;
+    padding: 1rem 1rem;
     align-self: center;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: .5fr 2fr 1fr;
+    grid-template-rows: .5fr 3fr 1fr;
     background-color: var(--comp-a-bg-cl);
     border-radius: .4rem;
     box-shadow: 0px 0px .2rem rgb(142, 142, 142);
     gap: .1rem;
+    position: fixed;
+    top: 17%;
+    left: 50%;
+    z-index: 10;
+
 }
 
 .add_panel_cnt-7 {
@@ -48,13 +64,37 @@
     height: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: .5rem;
     box-shadow: 0px 0px .2rem rgb(142, 142, 142);
 
+
 }
+
 .add_panel_cnt-7:nth-child(2) img {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
+}
+
+.add_panel_cnt-7:nth-child(2) span {
+    color: var(--dark-thm-cl)
+}
+
+.btm-7 {
+    flex-direction: column;
+    justify-content: unset;
+    gap: .5rem;
+    margin-block-start: 1rem;
+
+}
+
+.add_panel_buttons-7 {
+    width: 100%;
+    padding: 1rem .4rem;
+    background-color: var(--add-panel-btn-cl);
+    border: none;
+    color: var(--dark-thm-cl);
+    border-radius: 4rem;
 }
 
 @media (max-width: 600px) {
