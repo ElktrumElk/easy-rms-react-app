@@ -13,6 +13,9 @@ import SelectFile from "../super_users/select_file_button";
 export default function BatchComponent({ data, selectFile, setSelectFile }) {
 
     const fileSelectedRef = useRef([])
+    const [deletBtn, showDeleteBtn] = useState(false)
+
+    let i = 0;
 
     const HandleFileSelect = (parentIdx, childIdx) => {
         const clickedImg = fileSelectedRef.current[parentIdx]?.[childIdx];
@@ -23,21 +26,34 @@ export default function BatchComponent({ data, selectFile, setSelectFile }) {
             const currentSrc = clickedImg.src;
             if (currentSrc.includes('file_uncheck_ic.png')) {
                 clickedImg.src = '/icons/file_check_ic.png';     // change to checked
+                i += 1;
+                console.log("t 1", i)
+                showDeleteBtn(true)
+
             } else {
                 clickedImg.src = '/icons/file_uncheck_ic.png';   // change to unchecked
+                if (i > 0) {
+                    i -= 1;
+                    console.log("t 2", i);
+                    showDeleteBtn(true)
+                } else {
+
+                    showDeleteBtn(false)
+                    console.log("f 1", i);
+                }
+
             }
         }
     };
 
     useEffect(() => {
-        fileSelectedRef.current = data.batchFiles.map(batch =>{
-            Array(batch.files.length).fill(null);
-            console.log(fileSelectedRef);
-        });
+        fileSelectedRef.current = data.batchFiles.map(batch =>
+            Array(batch.files.length).fill(null)
+        );
+
     }, [data.batchFiles]);
 
     return (
-
         <>
             <div id="dash_cmp" className="cnt_a-4">
 
@@ -50,7 +66,7 @@ export default function BatchComponent({ data, selectFile, setSelectFile }) {
                     <div className="toolsCnt-7">
                         <AddButton />
                         <SelectFile setSelectFile={setSelectFile} selectFile={selectFile} />
-                        <DeleteFileButton />
+                        {deletBtn && <DeleteFileButton />}
                     </div>
                 </div>
 
