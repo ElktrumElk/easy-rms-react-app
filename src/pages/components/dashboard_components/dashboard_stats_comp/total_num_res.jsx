@@ -1,6 +1,5 @@
 import BatchesEnrolledContainer from "./batches_enrolled_cnt"
 
-
 /**
  * 
  * @param {Object} param0
