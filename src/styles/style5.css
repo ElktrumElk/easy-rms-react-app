@@ -5,9 +5,9 @@
 }
 
 .dash_board.dark {
-    --layout-1: rgb(33, 34, 45);
+    --layout-1: rgb(16, 18, 31);
     --layout-2: rgb(33, 34, 45, 0.47);
-    background-color: rgb(13, 13, 15);
+    background-color: rgb(7, 7, 8);
 }
 
 .home_screen {

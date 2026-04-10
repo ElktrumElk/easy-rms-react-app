@@ -10,7 +10,7 @@
 .dash_board.dark {
     --bg: rgb(0, 0, 0);
     --button-bg-cl: rgb(22, 22, 23);
-    --comp-a-bg-cl: rgb(33, 34, 45);
+    --comp-a-bg-cl: rgb(16, 18, 31);
     color: rgb(208, 205, 205);
     --dark-thm-cl: white;
     --drop-btns-cl: rgb(220, 220, 220);
@@ -18,7 +18,7 @@
 }
 
 .dash_board.dark .side_bar-3 {
-    color: rgb(208, 205, 205);
+    color: rgb(218, 218, 218);
 }
 
 .dash_board.dark li {
@@ -33,7 +33,7 @@
     color: var(--dark-thm-cl);
     background-color: #0e0d0dd3;
     backdrop-filter: blur(5px);
-    box-shadow: 0px 0px .3rem gray;
+    box-shadow: 0px 0px .3rem rgb(91, 91, 91);
 }
 
 * {
@@ -320,6 +320,7 @@ body {
 .ic_2-3 {
     padding: .5rem .8rem;
     box-sizing: content-box;
+    cursor: pointer;
 }
 
 .search_inp {

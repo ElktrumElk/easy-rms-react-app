@@ -81,6 +81,7 @@
     justify-content: center;
     gap: .5rem;
     box-shadow: 0px 0px .2rem rgb(142, 142, 142);
+    cursor: pointer;
 }
 
 .add_panel_cnt-7:nth-child(2) img {
@@ -111,12 +112,14 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    cursor: pointer;
 }
 
 .close_ic-7 {
     padding: 1rem 1rem;
     box-sizing: content-box;
     border-radius: 1rem;
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {

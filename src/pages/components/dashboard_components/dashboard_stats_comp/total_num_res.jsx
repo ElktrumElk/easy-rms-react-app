@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import BatchesEnrolledContainer from "./batches_enrolled_cnt"
 import ModuleContainer from "./modules_cnt";
 
@@ -7,11 +7,20 @@ import ModuleContainer from "./modules_cnt";
  * @param {Object} param0
  * @param {Boolean} param0.viewPanel - true / false Holds the value state of the resource panel
  * @param {CallableFunction} param0.setViewPanel - The callback function to change the state of the view panel
+ * @param {CallableFunction} param0.curTab - Open the exact tab when on view 
+ * @param {String} param0.curTabValue - Holds the value of the current Tab state
+ * 
+ * 
  * @returns 
  */
-export default function TotalNumberResources({ viewPanel, setViewPanel }) {
+export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, curTabValue }) {
 
     const [currentTab, setCurrentTab] = useState("BE");
+    const [tabName, setTabName] = useState("Resources")
+
+    useEffect(() => {
+        setCurrentTab(curTabValue);
+    }, [curTabValue]);
 
     return (
         <>

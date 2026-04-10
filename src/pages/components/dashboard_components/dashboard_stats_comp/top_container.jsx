@@ -4,6 +4,7 @@ import TotalNumberResources from "./total_num_res";
 export function TopContainer() {
 
     const [viewPanel, setViewPanels] = useState(false);
+    const [ct, setCurTab] = useState(null);
     return (
         <>
             <div className="top_bar-5">
@@ -30,11 +31,11 @@ export function TopContainer() {
                             </div>
                         </div>
 
-                        <div className="btm_cnt-5" onClick={() => {setViewPanels(!viewPanel)}}>
+                        <div className="btm_cnt-5" onClick={() => { setViewPanels(!viewPanel) }}>
                             <span>View Details</span>
                         </div>
 
-                       {viewPanel && <TotalNumberResources viewPanel={viewPanel} setViewPanel={setViewPanels}/>}
+                        {viewPanel && <TotalNumberResources viewPanel={viewPanel} setViewPanel={setViewPanels} curTabValue={ct}/>}
 
                     </div>
 
@@ -46,7 +47,7 @@ export function TopContainer() {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>2</span>
+                                <span>4</span>
                             </div>
                             <div className="rating_cnt">
                                 <img src="/down" />
@@ -54,7 +55,10 @@ export function TopContainer() {
                             </div>
                         </div>
 
-                        <div className="btm_cnt-5">
+                        <div className="btm_cnt-5" onClick={() => {
+                            setViewPanels(!viewPanel);
+                            setCurTab("BE");
+                        }}>
                             <span>View Details</span>
                         </div>
 

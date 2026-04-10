@@ -132,12 +132,14 @@
     border: none;
     display: flex;
     align-items: center;
-    gap: 1rem
+    gap: 1rem;
+    cursor: pointer;
 }
 
 .download_ic {
     width: 20px;
     height: 20px;
+    
 }
 
 /*The download button at each file component*/
@@ -145,6 +147,8 @@
     display: none;
     width: 30px;
     height: 30px;
+    cursor: pointer;
+
 }
 
 @media (max-width: 920px) {
