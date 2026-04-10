@@ -11,8 +11,8 @@
 export default function SelectFile({setSelectFile, selectFile}) {
     return (
         <>
-            <div className="tool_btn-7">
-                <img className="add_btn_ic-7" src="/icons/select_ic.png" alt="select" onClick={() => {setSelectFile(!selectFile)}}/>
+            <div className="tool_btn-7" onClick={() => {setSelectFile(!selectFile)}}>
+                <img className="add_btn_ic-7" src="/icons/select_ic.png" alt="select" />
                 <span>{selectFile? "Cancel" : "Select"}</span>
             </div>
         </>

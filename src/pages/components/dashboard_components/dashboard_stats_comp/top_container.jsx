@@ -11,7 +11,7 @@ export function TopContainer() {
                 <div className="top_bar_counts-5">
 
                     <div className="bg"></div>
-                    <div className="status_card-5">
+                    <div className="status_card-5 top_status_card-8">
 
                         <div className="status_card_tp_cnt-5">
                             <span><strong>Number of Resources</strong></span>

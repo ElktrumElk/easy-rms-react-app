@@ -1,0 +1,11 @@
+
+.top_status_card-8 {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+}
+
+.top_status_card-8:has(.status_card_tp_cnt-5, .status_card_mid_cnt-5, .rating_cnt, .btm_cnt-5) {
+    display: none;
+}

@@ -1,17 +1,17 @@
 :root {
-    --add-panel-btn-cl: rgba(128, 128, 128, 0.443);
+    --add-panel-btn-cl: rgba(128, 128, 128, 0.247);
     --tools-add-panel-bg-cl: rgb(211, 210, 210);
 }
 
 .dash_board.dark {
-    --add-panel-btn-cl: rgba(41, 40, 40, 0.311);
+    --add-panel-btn-cl: rgba(41, 40, 40, 0.185);
     --tools-add-panel-bg-cl: rgb(20, 20, 20);
 
 }
 
 .toolsCnt-7 {
     display: flex;
-    gap: .5rem;
+    gap: .1rem;
     align-items: center;
     margin-inline-start: auto;
     background-color: transparent;
@@ -113,20 +113,30 @@
     gap: 1rem;
 }
 
+.close_ic-7 {
+    padding: 1rem 1rem;
+    box-sizing: content-box;
+    border-radius: 1rem;
+}
+
 @media (max-width: 600px) {
     .tool_btn-7 span {
         display: none;
     }
 
     .toolsCnt-7 {
-        background-color: var(--tools-add-panel-bg-cl);
-        border-radius: 4rem;
+        background-color: transparent;
+        gap: 0;
+        border-radius: .7rem;
     }
 
     .add_btn_ic-7 {
-        box-shadow: 0px 0px .2rem gray;
-        border-radius: 4rem;
-        padding: .2re .2rem;
+        border-radius: 2rem;
+        padding: .3rem .3rem;
+        box-sizing: content-box;
+    }
+    .add_btn_ic-7:last-child {
+        border: none;
     }
 }
 

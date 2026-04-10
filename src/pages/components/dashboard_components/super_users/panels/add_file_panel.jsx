@@ -5,9 +5,10 @@ import { useEffect, useState } from "react"
  * 
  * @param {Object} param0 
  * @param {Boolean} param0.showAddPanel - True / false to show the add panel
+ * @param {Callbackfunction} param0.setAddPanel- True / false to show the add panel
  * @returns 
  */
-export default function AddFilePanel({showAddPanel}) {
+export default function AddFilePanel({showAddPanel, setAddPanel}) {
 
     const [isVisible, setVisibility] = useState(false);
 
@@ -30,13 +31,19 @@ export default function AddFilePanel({showAddPanel}) {
             >
                 <div className="add_panel_cnt-7">
                     <span>Add file</span>
-                    <img src="/icons/close_ic.png" width={"20"} height={"20"} alt="close"/>
+                    <img className="close_ic-7" 
+                    src="/icons/close_ic.png" 
+                    width={"20"}
+                     height={"20"} 
+                     alt="close"
+                     onClick={() => {setAddPanel(false)}}
+                     />
                 </div>
 
                 <div className="add_panel_cnt-7">
                     <img src="/icons/drag_and_drop_blue.png" alt="drag_and_drop"/>
                     <input type="file"
-                        accept="application/*,text/*,.pdf,"
+                        accept="application/*,text/*,.pdf"
                         multiple={true}
                     />
 
