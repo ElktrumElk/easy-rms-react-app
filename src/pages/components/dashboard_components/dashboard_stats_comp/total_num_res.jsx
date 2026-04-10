@@ -53,7 +53,8 @@ export default function TotalNumberResources() {
                                 </div>
 
                                 <div>
-                                    <span><strong>20</strong> Files</span>
+                                    <img src="/icons/modules_ic.png" width={"20px"} height={"20px"}/>
+                                    <span><strong>10</strong> Modules</span>
                                 </div>
                             </div>
                         </div>
