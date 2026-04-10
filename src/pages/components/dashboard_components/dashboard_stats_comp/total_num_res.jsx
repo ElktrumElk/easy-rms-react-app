@@ -29,8 +29,7 @@ export default function TotalNumberResources({viewPanel, setViewPanel}) {
                             </button>
                         </div>
                         <div className="tabs-8">
-                            <button className="active">All</button>
-                            <button>Batches Enrolled</button>
+                            <button className="active">Batches Enrolled</button>
                             <button>Modules</button>
                             <button>Access Course</button>
                         </div>
