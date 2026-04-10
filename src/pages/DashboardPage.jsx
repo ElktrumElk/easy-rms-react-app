@@ -58,22 +58,20 @@ export default function Dashboard() {
 
     }, [externalBatch, sideBatchClick]);
 
-    useEffect(() => {
+    const [colorMode, setColorMode] = useState(localStorage.getItem("userPreferColorTheme"));
+   /* useEffect(() => {
         if (mainPanelData === null) {
             setDashName("Dashboard");
             setDashNameSideBar("Dashboard")
             setExternalBatch(null);
             setBackBtn(false)
         }
-    })
-
-    const [colorMode, setColorMode] = useState("light")
-
+    })*/
     return (
         <>
             <div id="dashboard" className={
-                isExpand ? "p_cnt-3 side_expand" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
-                }>
+                isExpand ? colorMode === "light" ? "p_cnt-3 side_expand" : "p_cnt-3 side_expand dash_board dark" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
+            }>
 
                 {/**Side bar 
                  * You can find the dashSideBar from the file DashBoardComponents
@@ -88,7 +86,6 @@ export default function Dashboard() {
                     externalIndex={externalBatch}
                     setClick={isClick}
                     funcName={setDashNameSideBar}
-
                 />
 
                 {/**Header */}
@@ -97,10 +94,20 @@ export default function Dashboard() {
                     headerName={dashName}
                     isBack={isBackBtn}
                     isBackFunc={setBackBtn}
-                    isBackComponent={setData} />
+                    isBackComponent={setData} 
+                    setColorMode={setColorMode}
+                    colorModeValue={colorMode}
+                    />
 
                 {/**main panel */}
-                <DashboardMainPanel render_frame={mainPanelData} batchList={batchArray} isBottomDisplay={isBottomPanelShow} isBottomBatch={setExternalBatch} setColorMode={setColorMode}/>
+                <DashboardMainPanel
+                    render_frame={mainPanelData}
+                    batchList={batchArray}
+                    isBottomDisplay={isBottomPanelShow}
+                    isBottomBatch={setExternalBatch}
+                    setColorMode={setColorMode}
+                    colorModeValue={colorMode}
+                />
             </div>
         </>
     )

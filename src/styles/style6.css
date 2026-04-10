@@ -93,6 +93,13 @@
     color: #7f7f0d;
 }
 
+.main_btn-6:has(.main_btn_ctr-6.darkmode) .main_btn_ctr-6 {
+    margin-inline-start: auto;
+    background-color: white;
+}
+.main_btn-6:has(.main_btn_ctr-6.darkmode) {
+    background-color: rgb(5, 44, 76);
+}
 .student_info-6 {
     margin-bottom: 1rem;
     padding-bottom: 1rem;

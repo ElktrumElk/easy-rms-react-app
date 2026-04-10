@@ -89,6 +89,8 @@ export function DashSideBar({
  * @param {Boolean} param0.isBack - The back button to return back to the previous page
  * @param {CallableFunction} param0.isBackComponent - This function to update the render frame to false to get the dashboard stats
  * @param {CallableFunction} param0.isBackFunc - function of the back
+ * @param {CallableFunction} param0.setColorMode - Set the color mode to dark or white
+ * @param {String} param0.colorMode.Value - Holds the value of the color mode
  * @returns 
  */
 export function DashboardHeader({
@@ -97,7 +99,9 @@ export function DashboardHeader({
     headerName = "Dashboard",
     isBack,
     isBackFunc = null,
-    isBackComponent = null
+    isBackComponent = null,
+    setColorMode,
+    colorModeValue
 }) {
     const date = new Date();
     //days
@@ -149,79 +153,12 @@ export function DashboardHeader({
                             src="https://img.icons8.com/?size=100&id=132&format=png&color=7a7a7a" alt="search" />
 
                         <img id="theme_tg_btn" className="ic-3 ic_2-3"
-                            src="https://img.icons8.com/?size=100&id=45474&format=png&color=7a7a7a" alt="dark" />
+                            src="https://img.icons8.com/?size=100&id=45474&format=png&color=7a7a7a" alt="dark" onClick={() => {colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark')}}/>
 
                         <img id="hambuger_menu" className="ic-3 ic_2-3 hamburder-3"
-                            src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="search" onClick={() => { bottomPanelShow(!bottomPanelValue) }} />
+                            src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="hambugerMenu" onClick={() => { bottomPanelShow(!bottomPanelValue) }} />
                     </div>
                 </header>
-
-
-
-                <div id="menu_pan" className="menu_pan_bg">
-
-                    <div id="menu_card" className="menu_panel-3">
-
-                        <div className="inp_div_cnt">
-                            <input id="search_1" className="inp_search-3" type="search" placeholder="search" />
-                        </div>
-
-                        <div className="std_info_cnt-3 border_bottom-3">
-
-                            <div className="std_info-3">
-                                <span>Student Name</span>
-                                <span>Elkanah Cole</span>
-                            </div>
-                            <div className="std_info-3">
-                                <span>Student ID</span>
-                                <span>Code20560028</span>
-                            </div>
-
-                        </div>
-
-                        <div className="std_info_cnt-3">
-                            <div id="batch_btn" className="std_info-3 batch_drop_down">
-                                <div className="drop_panel_btcn-3"><img style={{ color: "#03a1cd" }} className="drop_down_ic-3"
-                                    src="https://img.icons8.com/?size=100&id=727&format=png&color=03a1cd"
-                                    alt="batch" /><strong>Batches</strong></div>
-                                <span id="batch_number">3</span>
-                            </div>
-
-                            <div id="btch_list" className="batch_list-3">
-                                <ul>
-                                    <li className="border_bottom-3">
-                                        <span>Advance Excel</span>
-                                        <span>6 files</span>
-                                    </li>
-
-                                    <li className="border_bottom-3">
-                                        <span>Linux</span>
-                                        <span>14 files</span>
-                                    </li>
-
-                                    <li className="border_bottom-3">
-                                        <span>C++</span>
-                                        <span>10 files</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="std_info_cnt-3">
-                            <div className="std_info-3">
-                                <div className="drop_panel_btcn-3"><img style={{ color: "#5a3292" }} className="drop_down_ic-3"
-                                    src="https://img.icons8.com/?size=100&id=25943&format=png&color=5a3292"
-                                    alt="batch" /><strong>Color Mode: Light</strong></div>
-                                <div id="tg_btn_mobile" className="color_tg_inp-3">
-                                    <div id="tg_ctr" className="cl_tg_ctr-3"></div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
 
             </section>
         </>
@@ -233,8 +170,9 @@ export function DashboardHeader({
  * @param {Array} param0.batchList - The list of available batches
  * @param {CallableFunction} param0.isBottomBatch - A callable function thats update the batch list rendering on the main frame
  * @param {CallableFunction} param0.setColorMode - set the useState of the colorMode to triger colorMode changes
+ * @param {String} param0.colorModeValue - Value of the colorMode needs to be passed here
 */
-export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch, setColorMode }) {
+export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch, setColorMode, colorModeValue }) {
 
     return (
         <>
@@ -243,7 +181,7 @@ export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, i
                     render_frame ? <BatchComponent data={render_frame} /> : <DashboardStats />
                 }
 
-                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} />
+                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue}/>
             </section>
         </>
     )

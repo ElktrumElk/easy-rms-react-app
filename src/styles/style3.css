@@ -233,17 +233,22 @@ body {
     padding: .1rem;
     margin-inline-start: 2rem;
     width: 100%;
+
 }
 
+/*Larger screens with the sidebar*/
 .batch_list_lrg-3 ul li {
     display: flex;
     padding: 1rem 1rem;
-    border-radius: .2rem;
+    border-radius: 3rem;
 
 }
 
+
+
 .batch_list_lrg-3 ul li.active {
     background-color: rgba(128, 128, 128, 0.361);
+    transition: background .1s ease;
 }
 
 /*Holds the batch list of larg screens*/
@@ -482,10 +487,10 @@ body {
 .callender-3 {
  
     padding: .5rem .5rem;
-    background: rgb(255, 255, 255);
+    background: var(--comp-a-bg-cl);
     display: flex;
     gap: .5rem;
-   
+    color: var(--dark-thm-cl);
 
 }
 

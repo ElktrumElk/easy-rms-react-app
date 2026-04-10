@@ -26,21 +26,23 @@ export default function Batches({ data, setBatchArray, isClicked, batchName, isE
 
     const batchFiles = batchData();
     const batchClick = useRef([]);
+    const [currentClicked, setCurrentClicked] = useState(null)
+
 
     /**The cureent batch that is beign clicked */
     const CurrentBatch = (idx) => {
         if (typeof data === 'function' || typeof isClicked === 'function') {
-
             data(batchFiles[idx]);
             if (typeof batchName === 'function') {
-               
                 batchName(items[idx]);
             }
+            setCurrentClicked(idx);
             isClicked(idx);
         }
-
     };
 
+
+    /**================================== */
     useEffect(() => {
         if (typeof setBatchArray === 'function' ||
             typeof isClicked === 'function'
@@ -49,10 +51,10 @@ export default function Batches({ data, setBatchArray, isClicked, batchName, isE
         }
     }, [items, setBatchArray]);
 
+
     /**Listen for changes for the external index */
     useEffect(() => {
         if (externalIndex !== null) {
-
             if (typeof data === 'function') {
                 data(batchFiles[externalIndex !== null || !isNaN(externalIndex) ? externalIndex : 0]);
             }
@@ -66,7 +68,7 @@ export default function Batches({ data, setBatchArray, isClicked, batchName, isE
                     <ul>
                         {
                             items.map((values, idx) => (
-                                <li id={idx} ref={batchClick} key={idx} onClick={() => CurrentBatch(idx)}>{values}</li>
+                                <li id={idx} ref={batchClick} className={currentClicked === idx ? 'active' : ''} key={idx} onClick={() => CurrentBatch(idx)}>{values}</li>
                             ))
                         }
                     </ul>

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import batchData from "./dashboard_components/batches/batch_file_data";
 
 
@@ -13,10 +13,11 @@ import batchData from "./dashboard_components/batches/batch_file_data";
  * @param {Boolean} param0.isDisplay - boolean. 
  * @param {Function} param0.click - boolean. 
  * @param {Function} param0.colorMode - set The color mode to dark or white
+ * @param {String} param0.colorModeValue = The value of the color mode to get the user saved prefer theme
  *
  * @returns 
  */
-export default function BottomPanel({ batches = [], isDisplay = false, click, colorMode}) {
+export default function BottomPanel({ batches = [], isDisplay = false, click, colorMode, colorModeValue }) {
 
     const [showList, setShowList] = useState(false);
 
@@ -28,26 +29,36 @@ export default function BottomPanel({ batches = [], isDisplay = false, click, co
 
     /**Comment: check for the active batch that is clicked */
     const currBatch = (id) => {
-        if(typeof click === 'function') {
+        if (typeof click === 'function') {
             click(id);
         }
     };
 
     /**Handle color mode */
-    const [isDark, setDark] = useState(true);
+    const [isDark, setDark] = useState(false);
 
     const handleColorMode = () => {
-
-        setDark(!isDark); //toggle between light and dark
-
         if (isDark) {
-            colorMode("dark");
-            console.log("yo")
-        }else {
-            console.log("yo")
+            console.log("light")
             colorMode("light")
+            localStorage.setItem("userPreferColorTheme", "light")
+
+        } else {
+            console.log("dark")
+            colorMode("dark");
+            localStorage.setItem("userPreferColorTheme", "dark")
         }
     }
+
+    useEffect(() => {
+        if (colorModeValue === 'dark') {
+            setDark(true);
+            console.log("yup")
+        } else {
+            setDark(false);
+            console.log("yo")
+        }
+    }, [colorModeValue])
 
     return (
         <div
@@ -59,6 +70,7 @@ export default function BottomPanel({ batches = [], isDisplay = false, click, co
                     <span>Student Name</span>
                     <span>Elkanah Cole</span>
                 </div>
+
                 <div className="std_info-3">
                     <span>Student ID</span>
                     <span>Code20560028</span>
@@ -79,7 +91,7 @@ export default function BottomPanel({ batches = [], isDisplay = false, click, co
                 <ul className={showList ? "batch_lists_cnt-6 expand" : "batch_lists_cnt-6"}>
                     {
                         batches.map((batchName, idx) => (
-                            <li ref={batchClick} className="batch_lists" key={idx} onClick={() => {currBatch(idx)}}>{batchName}</li>
+                            <li ref={batchClick} className="batch_lists" key={idx} onClick={() => { currBatch(idx) }}>{batchName}</li>
                         ))
                     }
                 </ul>
@@ -99,7 +111,7 @@ export default function BottomPanel({ batches = [], isDisplay = false, click, co
                 {/**Toggle */}
                 <div className="toggle_cnt-6">
                     <div className="main_btn-6" onClick={handleColorMode}>
-                        <div className="main_btn_ctr-6"></div>
+                        <div className={isDark ? "main_btn_ctr-6 darkmode" : "main_btn_ctr-6"}></div>
                     </div>
                 </div>
             </div>
