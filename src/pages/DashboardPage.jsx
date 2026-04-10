@@ -74,6 +74,8 @@ export default function Dashboard() {
 
     }, [sideBatchClick, externalBatch])
 
+    const [showAddPanel, setAddPanel] = useState(false);
+    /**==========================JSX ELEMENT============================= */
     return (
         <>
             <div id="dashboard" className={
@@ -116,6 +118,8 @@ export default function Dashboard() {
                     colorModeValue={colorMode}
                     selectFile={selectFile}
                     setSelectFile={setSelectFile}
+                    showAddPanel={showAddPanel}
+                    setAddPanel={setAddPanel}
                 />
             </div>
         </>

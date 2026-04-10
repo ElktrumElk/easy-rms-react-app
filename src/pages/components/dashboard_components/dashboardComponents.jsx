@@ -129,7 +129,7 @@ export function DashboardHeader({
                 <header className="head_header-3">
                     <div className="sub_cnt-3 s-3">
 
-                        {   
+                        {
                             /**Check if the isBack button was dislpayed */
                             isBack ?
                                 /**The back button when a the dashboard stats is change */
@@ -137,9 +137,9 @@ export function DashboardHeader({
                                     onClick={() => { isBackFunc(false) }} />
                                 :
                                 /**The home icon at the top of the header */
-                                <img className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b"/>
+                                <img className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" />
                         }
-                        <h1 className="current-3">{ isBack ? headerName : "Dashboard"}</h1>
+                        <h1 className="current-3">{isBack ? headerName : "Dashboard"}</h1>
                     </div>
 
                     <div className="sub_cnt-3 sa-3">
@@ -154,7 +154,7 @@ export function DashboardHeader({
                             src="https://img.icons8.com/?size=100&id=132&format=png&color=7a7a7a" alt="search" />
 
                         <img id="theme_tg_btn" className="ic-3 ic_2-3"
-                            src={colorModeValue === "dark" ? "/icons/light_mode_ic.png" : "/icons/dark_mode_ic.png"} alt="dark" onClick={() => {colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark')}}/>
+                            src={colorModeValue === "dark" ? "/icons/light_mode_ic.png" : "/icons/dark_mode_ic.png"} alt="dark" onClick={() => { colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark') }} />
 
                         <img id="hambuger_menu" className="ic-3 ic_2-3 hamburder-3"
                             src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="hambugerMenu" onClick={() => { bottomPanelShow(!bottomPanelValue) }} />
@@ -174,18 +174,39 @@ export function DashboardHeader({
  * @param {String} param0.colorModeValue - Value of the colorMode needs to be passed here
  * @param {Boolean} param0.selectFile - if The select icon should be display for file selection
  * @param {CallableFunction} param0.setSelectFile - The callbackfunction for the select file to change state true / false
+ * @param {Boolean} param0.showAddPanel - Show Add panel
+ * @param {Boolean} param0.setAddPanel - function to change the state of the add panel 
 */
-export function DashboardMainPanel({ render_frame, batchList, isBottomDisplay, isBottomBatch, setColorMode, colorModeValue, selectFile, setSelectFile, showAddPanel }) {
+export function DashboardMainPanel({ render_frame,
+    batchList,
+    isBottomDisplay,
+    isBottomBatch,
+    setColorMode,
+    colorModeValue,
+    selectFile,
+    setSelectFile,
+    showAddPanel,
+    setAddPanel
+}) {
 
     return (
         <>
             <section id='main_section' className="cont-3" >
                 {
-                    render_frame ? <BatchComponent data={render_frame} selectFile={selectFile} setSelectFile={setSelectFile}/> : <DashboardStats />
+                    render_frame ?
+                        <BatchComponent
+                            data={render_frame}
+                            selectFile={selectFile}
+                            setSelectFile={setSelectFile}
+                            showAddPanel={showAddPanel}
+                            setAddPanel={setAddPanel}
+                        />
+                        :
+                        <DashboardStats />
                 }
 
-                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue}/>
-                <AddFilePanel showAddPanel={showAddPanel}/>
+                <BottomPanel batches={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue} />
+                <AddFilePanel showAddPanel={showAddPanel} />
             </section>
         </>
     )

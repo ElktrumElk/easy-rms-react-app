@@ -8,9 +8,17 @@ import SelectFile from "../super_users/select_file_button";
  * @param {Object} param0 
  * @param {Boolean} param0.selectFile - A boolean if the file select icon should be display for user select or not
  * @param {CallableFunction} param0.setSelectFile - The function of the selectfile
+ * @param {Boolean} param0.showAddPanel - True / false. triggers the show panel
+ * @param {CallableFunction} param0.setAddPanel - the function to change the showAddPanel value
  * @returns 
  */
-export default function BatchComponent({ data, selectFile, setSelectFile }) {
+export default function BatchComponent({ 
+    data, 
+    selectFile, 
+    setSelectFile,
+    showAddPanel,
+    setAddPanel
+}) {
 
     const fileSelectedRef = useRef([])
     const [deletBtn, showDeleteBtn] = useState(false)
@@ -72,7 +80,7 @@ export default function BatchComponent({ data, selectFile, setSelectFile }) {
                         <span><strong id="currentSecTime">Tue 15 Apr, 2026</strong></span>
                     </div>
                     <div className="toolsCnt-7">
-                        <AddButton />
+                        <AddButton setAddPanel={setAddPanel} showAddPanel={showAddPanel} />
                         <SelectFile setSelectFile={setSelectFile} selectFile={selectFile} />
                         {deletBtn && <DeleteFileButton />}
                     </div>

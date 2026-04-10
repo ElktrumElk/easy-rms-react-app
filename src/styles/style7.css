@@ -38,13 +38,13 @@
     align-self: center;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: .5fr 3fr 1fr;
+    grid-template-rows: .5fr 2fr 1fr;
     background-color: var(--comp-a-bg-cl);
     border-radius: .4rem;
     box-shadow: 0px 0px .2rem rgb(142, 142, 142);
     gap: .1rem;
     position: fixed;
-    visibility: hidden;
+   
     top: 17%;
     left: 50%;
     z-index: 10;
@@ -56,7 +56,6 @@
 .add_panel-7.expand {
     max-height: 40rem;
     pointer-events: all;
-    visibility: visible;
 }
 
 .add_panel_cnt-7 {

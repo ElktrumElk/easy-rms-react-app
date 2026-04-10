@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 
 
 /**
@@ -7,9 +8,26 @@
  * @returns 
  */
 export default function AddFilePanel({showAddPanel}) {
+
+    const [isVisible, setVisibility] = useState(false);
+
+    useEffect(() => {
+        if(showAddPanel) {
+            setVisibility(true);
+        }else {
+            setTimeout(() => {
+                setVisibility(false)
+            }, 300)
+        }
+    }, [showAddPanel]);
+
     return (
         <>
-            <div className={showAddPanel ? "add_panel-7 expand" : "add_panel-7"}>
+            <div className={showAddPanel ? "add_panel-7 expand" : "add_panel-7"}
+                style={{
+                    visibility: isVisible ? "visible" : "hidden"
+                }}
+            >
                 <div className="add_panel_cnt-7">
                     <span>Add file</span>
                     <img src="/icons/close_ic.png" width={"20"} height={"20"} alt="close"/>
