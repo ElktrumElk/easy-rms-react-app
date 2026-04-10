@@ -27,19 +27,19 @@ export default function BatchComponent({ data, selectFile, setSelectFile }) {
             if (currentSrc.includes('file_uncheck_ic.png')) {
                 clickedImg.src = '/icons/file_check_ic.png';     // change to checked
                 i += 1;
-                console.log("t 1", i)
+                //console.log("t 1", i) //debugging
                 showDeleteBtn(true)
 
             } else {
                 clickedImg.src = '/icons/file_uncheck_ic.png';   // change to unchecked
                 if (i > 0) {
                     i -= 1;
-                    console.log("t 2", i);
+                    //console.log("t 2", i); //debugging
                     showDeleteBtn(true)
                 } else {
 
                     showDeleteBtn(false)
-                    console.log("f 1", i);
+                    //console.log("f 1", i); //debugging
                 }
 
             }
@@ -52,6 +52,14 @@ export default function BatchComponent({ data, selectFile, setSelectFile }) {
         );
 
     }, [data.batchFiles]);
+
+    /**Listen if the select button is really active */
+    useEffect(() => {
+        if (!selectFile) {
+            showDeleteBtn(false);
+            i = 0;
+        }
+    }, [selectFile]);
 
     return (
         <>

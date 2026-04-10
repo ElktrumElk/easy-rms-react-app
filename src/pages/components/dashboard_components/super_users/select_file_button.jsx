@@ -13,7 +13,7 @@ export default function SelectFile({setSelectFile, selectFile}) {
         <>
             <div className="tool_btn-7">
                 <img className="add_btn_ic-7" src="/icons/select_ic.png" alt="select" onClick={() => {setSelectFile(!selectFile)}}/>
-                <span>Select</span>
+                <span>{selectFile? "Cancel" : "Select"}</span>
             </div>
         </>
     )
