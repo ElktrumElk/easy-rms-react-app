@@ -153,7 +153,7 @@ export function DashboardHeader({
                             src="https://img.icons8.com/?size=100&id=132&format=png&color=7a7a7a" alt="search" />
 
                         <img id="theme_tg_btn" className="ic-3 ic_2-3"
-                            src="https://img.icons8.com/?size=100&id=45474&format=png&color=7a7a7a" alt="dark" onClick={() => {colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark')}}/>
+                            src={colorModeValue === "dark" ? "/icons/light_mode_ic.png" : "https://img.icons8.com/?size=100&id=45474&format=png&color=7a7a7a"} alt="dark" onClick={() => {colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark')}}/>
 
                         <img id="hambuger_menu" className="ic-3 ic_2-3 hamburder-3"
                             src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="hambugerMenu" onClick={() => { bottomPanelShow(!bottomPanelValue) }} />
