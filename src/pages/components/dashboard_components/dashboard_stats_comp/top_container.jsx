@@ -5,6 +5,9 @@ export function TopContainer() {
 
     const [viewPanel, setViewPanels] = useState(false);
     const [ct, setCurTab] = useState(null);
+
+    /**Name of the tab to be displayed */
+    const [tb, setTb] = useState(null);
     return (
         <>
             <div className="top_bar-5">
@@ -35,7 +38,16 @@ export function TopContainer() {
                             <span>View Details</span>
                         </div>
 
-                        {viewPanel && <TotalNumberResources viewPanel={viewPanel} setViewPanel={setViewPanels} curTabValue={ct}/>}
+                        {
+                            viewPanel &&
+                            <TotalNumberResources
+                                viewPanel={viewPanel}
+                                setViewPanel={setViewPanels}
+                                curTabValue={ct}
+                                tabName={tb}
+                            />
+
+                        }
 
                     </div>
 
@@ -55,10 +67,13 @@ export function TopContainer() {
                             </div>
                         </div>
 
-                        <div className="btm_cnt-5" onClick={() => {
-                            setViewPanels(!viewPanel);
-                            setCurTab("BE");
-                        }}>
+                        <div className="btm_cnt-5"
+                        
+                            onClick={() => {
+                                setViewPanels(!viewPanel);
+                                setCurTab("BE");
+                                setTb("Batches Enrolled")
+                            }}>
                             <span>View Details</span>
                         </div>
 

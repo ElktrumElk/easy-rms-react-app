@@ -9,17 +9,19 @@ import ModuleContainer from "./modules_cnt";
  * @param {CallableFunction} param0.setViewPanel - The callback function to change the state of the view panel
  * @param {CallableFunction} param0.curTab - Open the exact tab when on view 
  * @param {String} param0.curTabValue - Holds the value of the current Tab state
+ * @param {String} param0.tabName - Holds the value of the current Tab name
  * 
  * 
  * @returns 
  */
-export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, curTabValue }) {
+export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, curTabValue, tabName }) {
 
     const [currentTab, setCurrentTab] = useState("BE");
-    const [tabName, setTabName] = useState("Resources")
+
 
     useEffect(() => {
         setCurrentTab(curTabValue);
+        console.log(currentTab)
     }, [curTabValue]);
 
     return (
@@ -35,26 +37,26 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
                         />
 
                         <div className="top_cnt-8">
-                            <h1>Resources</h1>
+                            <h1>{tabName}</h1>
                             <button className="new_resources_btn-8">
                                 <img src="/icons/plus_ic.png" width={"25"} height={"25"} />
                                 <span>New Resources</span>
                             </button>
                         </div>
                         <div className="tabs-8">
-                            <button className={currentTab === "BE" && "active"}
+                            <button className={currentTab === "BE" ? "active" : undefined}
                                 onClick={() => { setCurrentTab("BE") }}
                             >
                                 Batches Enrolled
                             </button>
 
                             <button
-                                className={currentTab === "MD" && "active"}
+                                className={currentTab === "MD" ? "active" : undefined}
                                 onClick={() => { setCurrentTab("MD") }}
                             >Modules</button>
 
                             <button
-                                className={currentTab === "AC" && "active"}
+                                className={currentTab === "AC" ? "active" : undefined}
                                 onClick={() => { setCurrentTab("AC") }}
                             >Accessed Course</button>
                         </div>
