@@ -1,9 +1,12 @@
 :root {
     --add-panel-btn-cl: rgba(128, 128, 128, 0.443);
+    --tools-add-panel-bg-cl: rgb(211, 210, 210);
 }
 
 .dash_board.dark {
     --add-panel-btn-cl: rgba(41, 40, 40, 0.311);
+    --tools-add-panel-bg-cl: rgb(20, 20, 20);
+
 }
 
 .toolsCnt-7 {
@@ -11,7 +14,7 @@
     gap: .5rem;
     align-items: center;
     margin-inline-start: auto;
-
+    background-color: transparent;
 }
 
 .tool_btn-7 {
@@ -40,11 +43,10 @@
     grid-template-columns: 1fr;
     grid-template-rows: .5fr 2fr 1fr;
     background-color: var(--comp-a-bg-cl);
-    border-radius: .4rem;
+    border-radius: 1rem;
     box-shadow: 0px 0px .2rem rgb(142, 142, 142);
     gap: .1rem;
     position: fixed;
-   
     top: 17%;
     left: 50%;
     z-index: 10;
@@ -52,9 +54,11 @@
     pointer-events: none;
 
 }
+
 /*Expand*/
 .add_panel-7.expand {
     max-height: 40rem;
+    min-height: 20rem;
     pointer-events: all;
 }
 
@@ -77,8 +81,6 @@
     justify-content: center;
     gap: .5rem;
     box-shadow: 0px 0px .2rem rgb(142, 142, 142);
-
-
 }
 
 .add_panel_cnt-7:nth-child(2) img {
@@ -117,7 +119,7 @@
     }
 
     .toolsCnt-7 {
-        background-color: rgb(255, 255, 255);
+        background-color: var(--tools-add-panel-bg-cl);
         border-radius: 4rem;
     }
 
@@ -125,5 +127,58 @@
         box-shadow: 0px 0px .2rem gray;
         border-radius: 4rem;
         padding: .2re .2rem;
+    }
+}
+
+@media (max-width: 1045px) {
+    .add_panel-7 {
+        width: 50%;
+        left: 30%;
+    }
+}
+
+@media (max-width: 905px) {
+    .add_panel-7 {
+        left: 30%;
+    }
+}
+
+@media (max-width: 765px) {
+    .add_panel-7 {
+        left: 16%;
+        width: 70%;
+        align-self: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .add_panel-7 {
+        left: 5%;
+        right: 5%;
+        width: 85%;
+        align-self: center;
+
+    }
+
+    .add_panel-7.expand {
+        max-height: 60rem;
+        min-height: 30rem;
+
+    }
+
+}
+
+@media (max-width: 481px) {
+    .add_panel-7 {
+        left: 4%;
+    }
+}
+
+@media (max-height: 667px) {
+
+    .add_panel-7.expand {
+        max-height: 80%;
+        min-height: 80%;
+        top: 5%;
     }
 }
