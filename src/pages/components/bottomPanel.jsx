@@ -39,12 +39,12 @@ export default function BottomPanel({ modules = [], isDisplay = false, click, co
 
     const handleColorMode = () => {
         if (isDark) {
-            console.log("light")
+            //console.log("light")
             colorMode("light")
             localStorage.setItem("userPreferColorTheme", "light")
 
         } else {
-            console.log("dark")
+            //console.log("dark")
             colorMode("dark");
             localStorage.setItem("userPreferColorTheme", "dark")
         }
@@ -53,10 +53,10 @@ export default function BottomPanel({ modules = [], isDisplay = false, click, co
     useEffect(() => {
         if (colorModeValue === 'dark') {
             setDark(true);
-            console.log("yup")
+           // console.log("yup")
         } else {
             setDark(false);
-            console.log("yo")
+            //console.log("yo")
         }
     }, [colorModeValue])
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { BackBtn } from "./components/buttons"
-
+import educationalServiceData from "../accounts/db";
 /**
  * 
  * @param {Object} param0 
@@ -9,8 +9,12 @@ import { BackBtn } from "./components/buttons"
  * @returns 
  */
 export default function LoginPage({ onBack, onLoginSuccess }) {
+    const dat = educationalServiceData();
+    console.log(dat['CODE']);
 
-    const educationalType = ["CODE", "Ipam", "FBC"];
+    const educationalType = [...Array.from(Object.keys(dat))];
+    console.log(educationalType);
+    
     const loginType = ["Student", "Lecturer", "Admin"];
     const availableID = ["ID2026001", "ID2026002", "ID2026003"];
 
@@ -21,6 +25,7 @@ export default function LoginPage({ onBack, onLoginSuccess }) {
     const logTypeValue = useRef(null);
     const IdValue = useRef(null);
     const preventFormSubmit = useRef(null);
+
 
 
     const loginValidation = () => {

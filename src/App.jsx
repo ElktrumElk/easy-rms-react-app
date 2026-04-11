@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/DashboardPage';
 
 
+
 function App() {
   const [currentPage, setCurrentPage] = useState('default');
   const [loggedIn, getLoggedIn] = useState(localStorage.getItem("isLoggedIn"));
@@ -23,7 +24,10 @@ function App() {
     }
   }, [loggedIn])
 
+  
+
   const renderPage = () => {
+
     switch (currentPage) {
       case 'login':
         return <LoginPage onBack={() => setCurrentPage('default')} onLoginSuccess={() => setCurrentPage('dashboard')} />;
