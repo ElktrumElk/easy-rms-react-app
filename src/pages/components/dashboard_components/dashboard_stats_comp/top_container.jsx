@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import TotalNumberResources from "./total_num_res";
 
 export function TopContainer() {
@@ -8,6 +8,10 @@ export function TopContainer() {
 
     /**Name of the tab to be displayed */
     const [tb, setTb] = useState(null);
+
+    useEffect(() => {
+        console.log(ct)
+    }, [ct])
     return (
         <>
             <div className="top_bar-5">
@@ -25,7 +29,7 @@ export function TopContainer() {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>4</span>
+                                <span>12</span>
                             </div>
 
                             <div className="rating_cnt">
@@ -34,7 +38,12 @@ export function TopContainer() {
                             </div>
                         </div>
 
-                        <div className="btm_cnt-5" onClick={() => { setViewPanels(!viewPanel) }}>
+                        <div className="btm_cnt-5" onClick={() => {
+                            setViewPanels(!viewPanel);
+                            setTb("Batches Enrolled");
+                            setCurTab("BE");
+
+                        }}>
                             <span>View Details</span>
                         </div>
 
@@ -68,7 +77,7 @@ export function TopContainer() {
                         </div>
 
                         <div className="btm_cnt-5"
-                        
+
                             onClick={() => {
                                 setViewPanels(!viewPanel);
                                 setCurTab("BE");
@@ -81,13 +90,13 @@ export function TopContainer() {
                     <div className="status_card-5">
 
                         <div className="status_card_tp_cnt-5">
-                            <span><strong>Recently Access</strong></span>
+                            <span><strong>Access Course</strong></span>
                         </div>
 
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>0</span>
+                                <span>2</span>
                             </div>
                             <div className="rating_cnt negative">
                                 <img src="/down" />
@@ -95,7 +104,13 @@ export function TopContainer() {
                             </div>
                         </div>
 
-                        <div className="btm_cnt-5">
+                        <div className="btm_cnt-5"
+                            onClick={() => {
+                                setViewPanels(!viewPanel);
+                                setCurTab("AC");
+                                setTb("Access Course")
+                            }}
+                        >
                             <span>View Details</span>
                         </div>
 
@@ -110,7 +125,7 @@ export function TopContainer() {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>53</span>
+                                <span>6</span>
                             </div>
                             <div className="rating_cnt negative">
                                 <img src="down" />
@@ -118,7 +133,12 @@ export function TopContainer() {
                             </div>
                         </div>
 
-                        <div className="btm_cnt-5">
+                        <div className="btm_cnt-5"
+                            onClick={() => {
+                                setViewPanels(!viewPanel);
+                                setCurTab("MD");
+                                setTb("Modules")
+                            }}>
                             <span>View Details</span>
                         </div>
 

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import batchData from "./dashboard_components/batches/batch_file_data";
+import moduleData from "./dashboard_components/batches/module_data";
 
 
 /**
@@ -9,7 +9,7 @@ import batchData from "./dashboard_components/batches/batch_file_data";
 /**
  * 
  * @param {Object} param0
- * @param {Array} param0.Modules - List of the Modules 
+ * @param {Array} param0.modules - List of the modules 
  * @param {Boolean} param0.isDisplay - boolean. 
  * @param {Function} param0.click - boolean. 
  * @param {Function} param0.colorMode - set The color mode to dark or white
@@ -17,7 +17,7 @@ import batchData from "./dashboard_components/batches/batch_file_data";
  *
  * @returns 
  */
-export default function BottomPanel({ Modules = [], isDisplay = false, click, colorMode, colorModeValue }) {
+export default function BottomPanel({ modules = [], isDisplay = false, click, colorMode, colorModeValue }) {
 
     const [showList, setShowList] = useState(false);
 
@@ -85,12 +85,12 @@ export default function BottomPanel({ Modules = [], isDisplay = false, click, co
                         <img className="bottom_panel_ic-6" src="https://img.icons8.com/?size=100&id=727&format=png&color=8a2be2" alt="batch_ic" />
                         <strong>Modules</strong>
                     </div>
-                    <strong>{Modules.length}</strong>
+                    <strong>{modules.length}</strong>
                 </div>
 
                 <ul className={showList ? "batch_lists_cnt-6 expand" : "batch_lists_cnt-6"}>
                     {
-                        Modules.map((batchName, idx) => (
+                        modules.map((batchName, idx) => (
                             <li ref={batchClick} className="batch_lists" key={idx} onClick={() => { currBatch(idx) }}>{batchName}</li>
                         ))
                     }

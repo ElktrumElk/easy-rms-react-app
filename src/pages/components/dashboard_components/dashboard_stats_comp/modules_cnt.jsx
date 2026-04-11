@@ -8,6 +8,8 @@ export default function ModuleContainer() {
             moduleName: "Advance Excel",
             inCharge: "Mr Zeshan",
             state: "Current",
+            icon: "/icons/progress_ic.png",
+            color: "#efdf0977",
             batch: "Batch 1 2026",
             totalFiles: 14,
             timeAssign: "Mon 9 Feb 2026",
@@ -20,6 +22,8 @@ export default function ModuleContainer() {
             moduleName: "HTML / CSS",
             inCharge: "Mr Abdullah",
             state: "Draft",
+            icon: '/icons/draft_ic.png',
+            color: "#00c0eb77",
             batch: "Batch 1 2026",
             totalFiles: 19,
             timeAssign: "Mon 11 Jan 2026",
@@ -30,7 +34,9 @@ export default function ModuleContainer() {
         {
             moduleName: "Linux",
             inCharge: "Mr Rajesh Kuma",
-            state: "Finnished",
+            state: "Completed",
+            icon: "/icons/progress_ic.png",
+            color: "#00ff2f77",
             batch: "Batch 3 2026",
             totalFiles: 20,
             timeAssign: "Mon 9 Feb 2026",
@@ -41,6 +47,8 @@ export default function ModuleContainer() {
             moduleName: "MS Office",
             inCharge: "Mr Bangura",
             state: "Current",
+            icon: "/icons/progress_ic.png",
+            color: "#efdf0977",
             totalFiles: 25,
             batch: "Batch 4 2026",
             timeAssign: "Mon 9 Feb 2026",
@@ -52,6 +60,8 @@ export default function ModuleContainer() {
             moduleName: "Logic Building",
             inCharge: "Mr Bangura",
             state: "Completed",
+            icon: "/icons/progress_ic.png",
+            color: "#00ff2f77",
             totalFiles: 10,
             batch: "Batch 1 2026",
             timeAssign: "Mon 9 Feb 2026",
@@ -63,6 +73,8 @@ export default function ModuleContainer() {
             moduleName: "Advance Excel",
             inCharge: "Mr Zeshan",
             state: "Current",
+            icon: "/icons/progress_ic.png",
+            color: "#efdf0977",
             totalFiles: 15,
             timeAssign: "Mon 9 Jan 2026",
             lastUpdated: " 3 days ago",
@@ -81,8 +93,10 @@ export default function ModuleContainer() {
                             <div className="res_name_cnt-8">
                                 <h2>{module.moduleName}</h2>
 
-                                <div className="list_status_cnt-8">
-                                    <img src="/icons/progress_ic.png" width={"20"} height={"20"} />
+                                <div className="list_status_cnt-8" style={{
+                                    backgroundColor: `${module.color}`
+                                }}>
+                                    <img src={module.icon} width={"20"} height={"20"} />
                                     <span>{module.state}</span>
                                 </div>
                             </div>

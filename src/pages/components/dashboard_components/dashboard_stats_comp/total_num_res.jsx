@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import BatchesEnrolledContainer from "./batches_enrolled_cnt"
 import ModuleContainer from "./modules_cnt";
+import AccessCourseContainer from "./access_course_cnt";
 
 /**
  * 
@@ -16,7 +17,7 @@ import ModuleContainer from "./modules_cnt";
  */
 export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, curTabValue, tabName }) {
 
-    const [currentTab, setCurrentTab] = useState("BE");
+    const [currentTab, setCurrentTab] = useState(null);
 
 
     useEffect(() => {
@@ -66,6 +67,7 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
                     <div className="list_cnt-8">
                         {currentTab === "BE" && <BatchesEnrolledContainer />}
                         {currentTab === "MD" && <ModuleContainer />}
+                        {currentTab === "AC" && <AccessCourseContainer />}
                     </div>
 
                 </div>

@@ -71,6 +71,9 @@
     background-color: transparent;
     border: none;
     flex: 0 0 auto;
+    color: var(--dark-thm-cl);
+    padding: 1rem 1rem;
+
 }
 
 .tabs-8::-webkit-scrollbar {
@@ -79,6 +82,8 @@
 
 .tabs-8 button.active {
     border-bottom: 1px solid rgb(4, 115, 135);
+    background: rgba(48, 48, 48, 0.306);
+    border-radius: 1rem;
 }
 
 .list_cnt-8 {

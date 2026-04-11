@@ -205,7 +205,7 @@ export function DashboardMainPanel({ render_frame,
                         <DashboardStats />
                 }
 
-                <BottomPanel Modules={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue} />
+                <BottomPanel modules={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue} />
                 <AddFilePanel showAddPanel={showAddPanel} setAddPanel={setAddPanel}/>
             </section>
         </>

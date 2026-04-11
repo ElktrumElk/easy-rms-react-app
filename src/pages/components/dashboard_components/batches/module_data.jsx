@@ -1,6 +1,6 @@
 
 
-export default function batchData() {
+export default function moduleData() {
     const batchfiles = [
         {
             batchname: "Advance Excel",
