@@ -262,7 +262,7 @@ export default function moduleData() {
                     year: '2026',
                     files: [
                         {
-                            name: 'filter.docx',
+                            name: 'filter.pptx',
                             time: '2:45pm',
                             icon: ''
 
@@ -274,7 +274,7 @@ export default function moduleData() {
 
                         },
                         {
-                            name: 'example.docx',
+                            name: 'example.pptx',
                             time: '2:48pm',
                             icon: ''
 

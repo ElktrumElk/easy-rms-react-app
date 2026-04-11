@@ -150,6 +150,8 @@ export default function BatchComponent({
                                         </button>
                                         <img className="files_download_btn-4" src="https://img.icons8.com/?size=100&id=14100&format=png&color=7a7a7a" />
                                     </div>
+
+                                    <div className="bottom_left-8"></div>
                                 </div>
                             ))}
                         </div>
