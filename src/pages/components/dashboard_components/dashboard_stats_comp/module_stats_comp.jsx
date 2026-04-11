@@ -1,3 +1,4 @@
+import BarChart from "../bar_chart";
 
 export default function ModuleStats() {
 
@@ -12,8 +13,7 @@ export default function ModuleStats() {
                     </div>
 
                     <div className="bar_chat-5">
-                        <img id="stats_g_load" className="loading-5" src="/animations/icons8-iphone-spinner.gif" />
-                        <canvas id="bar_cnt"></canvas> 
+                        <BarChart /> 
                     </div>
                 </div>
 
