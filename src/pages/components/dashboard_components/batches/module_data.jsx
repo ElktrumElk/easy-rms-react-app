@@ -11,18 +11,18 @@ export default function moduleData() {
                     files: [
                         {
 
-                            name: 'sales.xlxs',
+                            name: 'sales.xlsx',
                             time: '2:45pm',
                             icon: ''
                         },
                         {
-                            name: 'management.xlxs',
+                            name: 'management.pdf',
                             time: '9:47pm',
                             icon: ''
 
                         },
                         {
-                            name: 'sales_book.xlxs',
+                            name: 'sales_book.xlsx',
                             time: '2:48pm',
                             icon: ''
 
@@ -34,13 +34,13 @@ export default function moduleData() {
                     year: '2026',
                     files: [
                         {
-                            name: 'filter.xlxs',
+                            name: 'filter.xlsx',
                             time: '2:45pm',
                             icon: ''
 
                         },
                         {
-                            name: 'data.xlxs',
+                            name: 'data.xlsx',
                             time: '2:47pm',
                             icon: ''
 
@@ -58,19 +58,19 @@ export default function moduleData() {
                     year: '2026',
                     files: [
                         {
-                            name: 'cash.xlxs',
+                            name: 'cash.xlsx',
                             time: '2:45pm',
                             icon: ''
 
                         },
                         {
-                            name: 'chapter 54.xlxs',
+                            name: 'chapter 54.xlsx',
                             time: '2:47pm',
                             icon: ''
 
                         },
                         {
-                            name: 'work.xlxs',
+                            name: 'work.xlsx',
                             time: '2:48pm',
                             icon: ''
 
@@ -134,7 +134,7 @@ export default function moduleData() {
                     year: '2026',
                     files: [
                         {
-                            name: 'cash.xlxs',
+                            name: 'cash.xlsx',
                             time: '2:45pm',
                             icon: ''
 
@@ -146,7 +146,7 @@ export default function moduleData() {
 
                         },
                         {
-                            name: 'work.xlxs',
+                            name: 'work.xlsx',
                             time: '10:48pm',
                             icon: ''
                         }
@@ -286,18 +286,18 @@ export default function moduleData() {
                     year: '2026',
                     files: [
                         {
-                            name: 'cash.xlxs',
+                            name: 'cash.xlsx',
                             time: '2:45pm',
                             icon: ''
                         },
                         {
-                            name: 'chapter 3.xlxs',
+                            name: 'chapter 3.xlsx',
                             time: '2:47pm',
                             icon: ''
 
                         },
                         {
-                            name: 'work.xlxs',
+                            name: 'work.xlsx',
                             time: '2:48pm',
                             icon: ''
                         }

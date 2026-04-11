@@ -71,7 +71,7 @@ export function DashSideBar({
                             </li>
 
                             {/**Modules list at the side panel*/}
-                            <Modules data={batchCb} batchName={funcName} setBatchArray={setBatchArray} externalIndex={externalIndex} isClicked={setClick} />
+                            <Modules data={batchCb} moduleName={funcName} setBatchArray={setBatchArray} externalIndex={externalIndex} isClicked={setClick} />
 
                         </ul>
 

@@ -12,9 +12,9 @@ import SelectFile from "../super_users/select_file_button";
  * @param {CallableFunction} param0.setAddPanel - the function to change the showAddPanel value
  * @returns 
  */
-export default function BatchComponent({ 
-    data, 
-    selectFile, 
+export default function BatchComponent({
+    data,
+    selectFile,
     setSelectFile,
     showAddPanel,
     setAddPanel
@@ -69,6 +69,22 @@ export default function BatchComponent({
         }
     }, [selectFile]);
 
+    const [extensionIcons] = useState({
+        pdf: '/icons/file_format_extentions/pdf.png',
+        doc: '/icons/file_format_extentions/document.png',
+        docx: '/icons/file_format_extentions/word.png',
+        txt: 'https://cdn-icons-png.flaticon.com/512/337/337945.png',
+        xlsx: '/icons/file_format_extentions/ms_excel.png',
+        xls: 'https://cdn-icons-png.flaticon.com/512/337/337947.png',
+        csv: 'https://cdn-icons-png.flaticon.com/512/337/337949.png',
+        rtf: 'https://cdn-icons-png.flaticon.com/512/337/337945.png',
+        odt: 'https://cdn-icons-png.flaticon.com/512/337/337932.png',
+        pptx: 'https://cdn-icons-png.flaticon.com/512/337/337950.png',
+
+        // Default fallback (unknown extensions treated as txt)
+        default: 'https://cdn-icons-png.flaticon.com/512/337/337945.png'
+    });
+
     return (
         <>
             <div id="dash_cmp" className="cnt_a-4">
@@ -79,11 +95,13 @@ export default function BatchComponent({
                             alt="date" />
                         <span><strong id="currentSecTime">Tue 15 Apr, 2026</strong></span>
                     </div>
+
                     <div className="toolsCnt-7">
                         <AddButton setAddPanel={setAddPanel} showAddPanel={showAddPanel} />
                         <SelectFile setSelectFile={setSelectFile} selectFile={selectFile} />
                         {deletBtn && <DeleteFileButton />}
                     </div>
+
                 </div>
 
                 <div id="file_cnt" className="file_cnt-4">
@@ -117,7 +135,7 @@ export default function BatchComponent({
 
                                         <img
                                             className="file_type_ic-4"
-                                            src="https://img.icons8.com/?size=100&id=117561&format=png&color=000000"
+                                            src={extensionIcons[file.name.split('.', 2)[1]] ? extensionIcons[file.name.split('.', 2)[1]] : extensionIcons['default']}
                                             alt="ms_excel"
                                         />
 
