@@ -76,10 +76,10 @@ export default function BatchComponent({
         txt: 'https://cdn-icons-png.flaticon.com/512/337/337945.png',
         xlsx: '/icons/file_format_extentions/ms_excel.png',
         xls: 'https://cdn-icons-png.flaticon.com/512/337/337947.png',
-        csv: 'https://cdn-icons-png.flaticon.com/512/337/337949.png',
+        csv: '/icons/file_format_extentions/csv.png',
         rtf: 'https://cdn-icons-png.flaticon.com/512/337/337945.png',
         odt: 'https://cdn-icons-png.flaticon.com/512/337/337932.png',
-        pptx: 'https://cdn-icons-png.flaticon.com/512/337/337950.png',
+        pptx: '/icons/file_format_extentions/powerPoint.png',
 
         // Default fallback (unknown extensions treated as txt)
         default: 'https://cdn-icons-png.flaticon.com/512/337/337945.png'
