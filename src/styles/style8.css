@@ -196,11 +196,16 @@
     width: 5rem;
     height: 2rem;
     position: absolute;
-    right: 2%;
-    margin-block-start: 10%;
+    right: 22px;
+    margin-block-start: 111px;
     border-top-right-radius: .1rem;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
+
+    display: flex;
+    align-items: center;
+    place-content: center;
+    color: rgb(153, 153, 153);
 
 }
 
@@ -237,5 +242,11 @@
 @media (max-width: 381px) {
     .list_status_cnt-8 span {
         display: none;
+    }
+}
+
+@media (max-width: 920px) {
+    .bottom_left-8 {
+        margin-block-start: 88px;
     }
 }
