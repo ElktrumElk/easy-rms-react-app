@@ -43,17 +43,18 @@ const AdminComponent = () => {
                             <span>Action</span>
                         </div>
                     </div>
+
                     <div className="admin_lists_view-10">
                         { 
-                            aList.map((admin, index) => {
-                                <div className="adminRow-10">
+                            aList.map((admin, index) => (
+                                <div key={index} className="adminRow-10">
 
                                     <div className="admin_num_cnt-10">
-                                        <span>{index}</span>
+                                        <span>{index+1}</span>
                                     </div>
 
                                     <div className="admin_name_cnt-10">
-                                        <span>{admin.name}</span>
+                                        <strong>{admin.name}</strong>
                                         <span>{admin.email}</span>
                                     </div>
 
@@ -69,7 +70,7 @@ const AdminComponent = () => {
                                         <img />
                                     </div>
                                 </div>
-                            })
+                            ))
                         }
                     </div>
                 </div>

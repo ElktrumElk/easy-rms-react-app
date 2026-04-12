@@ -34,6 +34,7 @@ const adminLists = () => {
 
         }
     ]);
+    
     return adminlists;
 }
 

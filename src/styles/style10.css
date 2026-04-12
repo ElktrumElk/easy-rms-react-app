@@ -1,76 +1,76 @@
 .sidebar_user_list-10 {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  max-width: 280px;
-  padding: 0.75rem 0.75rem 0.75rem 1rem;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 280px;
+    padding: 0.75rem 0.75rem 0.75rem 1rem;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .sidebar_user_list_ul-10 {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  list-style: none;
-  margin: 0;
-  padding: 1rem 0 1rem 1.4rem;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0 1rem 1.4rem;
+    position: relative;
 }
 
 .sidebar_user_list_ul-10::before {
-  content: "";
-  position: absolute;
-  left: 0.8rem;
-  top: 1rem;
-  bottom: 1rem;
-  width: 2px;
-  background: rgba(15, 23, 42, 0.18);
-  border-radius: 99px;
+    content: "";
+    position: absolute;
+    left: 0.8rem;
+    top: 1rem;
+    bottom: 1rem;
+    width: 2px;
+    background: rgba(15, 23, 42, 0.18);
+    border-radius: 99px;
 }
 
 .sidebar_user_list_item-10 {
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 0.9rem 1rem 0.9rem 2.2rem;
-  color: #102a43;
-  background: #ffffff;
-  border-radius: 0.9rem;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  transition: background 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.9rem 1rem 0.9rem 2.2rem;
+    color: #102a43;
+    background: #ffffff;
+    border-radius: 0.9rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .sidebar_user_list_item-10::before {
-  content: "";
-  position: absolute;
-  left: 0.45rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0.85rem;
-  height: 0.85rem;
-  border-radius: 50%;
-  background: #2563eb;
-  box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.08);
+    content: "";
+    position: absolute;
+    left: 0.45rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 50%;
+    background: #2563eb;
+    box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.08);
 }
 
 .sidebar_user_list_item-10:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  left: 0.85rem;
-  top: 100%;
-  width: 2px;
-  height: 0.85rem;
-  background: rgba(15, 23, 42, 0.18);
+    content: "";
+    position: absolute;
+    left: 0.85rem;
+    top: 100%;
+    width: 2px;
+    height: 0.85rem;
+    background: rgba(15, 23, 42, 0.18);
 }
 
 .sidebar_user_list_item-10:hover {
-  background: rgba(37, 99, 235, 0.08);
-  transform: translateX(2px);
+    background: rgba(37, 99, 235, 0.08);
+    transform: translateX(2px);
 }
 
 .sidebar_user_list_item_label-10 {
-  font-weight: 700;
-  letter-spacing: 0.01em;
+    font-weight: 700;
+    letter-spacing: 0.01em;
 }
 
 
@@ -86,7 +86,6 @@
     margin-block-start: 1rem;
     border-radius: 1rem;
     gap: 1rem;
-    
 }
 
 .admin_top_container-10 {
@@ -96,7 +95,7 @@
     padding: 2rem 1rem;
     color: gray;
     align-items: center;
-    
+
 }
 
 .admin_cnt-10 {
@@ -104,19 +103,48 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+
 }
 
 .admin_table_head-10 {
     display: grid;
-    grid-template-columns:.3fr repeat(3, 1fr) .3fr;
+    grid-template-columns: .3fr repeat(3, 1fr) .3fr;
+    background-color: whitesmoke;
+    padding: 1rem 1rem;
 }
+
 .admin_table_head-10 :where(div, span) {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
+
 .admin_lists_view-10 {
     width: 100%;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.adminRow-10 {
+    display: grid;
+    grid-template-columns: .3fr repeat(3, 1fr) .3fr;
+}
+.adminRow-10 div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem 0rem;
+    border-block-end: .2px solid rgba(128, 128, 128, 0.466);
+    
+}
+.adminRow-10 div:first-child {
+    padding: 0rem 1rem
+}
+.adminRow-10 div span {
+   color: gray;
 }
