@@ -50,9 +50,16 @@ export function DashSideBar({
                 <header className="side_bar_header-3">
 
                     <div className="logo_cnt-3">
-                        <img className="logo_img-3" src="/easy_ic.png" alt="" />
+                        <img
+                            className="logo_img-3"
+                            src="/easy_ic.png"
+                            onClick={() => { handleExpand(!isExpand) }}
+                        />
                         <h1 id="app_name" className="app_name-3">Easy</h1>
-                        <button onClick={() => {handleExpand(!isExpand)}}>Expand</button>
+                        {
+
+                            isExpand && <button onClick={() => { handleExpand(!isExpand) }}>Colapse</button>
+                        }
                     </div>
                 </header>
 
@@ -78,25 +85,36 @@ export function DashSideBar({
                                 <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=727&format=png&color=7a7a7a"
                                     alt="batch" />
                                 <span>Modules</span>
-                                {
 
-                                    isExpand && <DropDown isClick={isClick} idx={1} />
+                                {
+                                    isExpand &&
+                                    <DropDown
+                                        isClick={isClick}
+                                        idx={1} />
                                 }
                             </li>
 
                             {
-                                /**Modules list at the side panel
-                                 <Modules data={batchCb} moduleName={funcName} setBatchArray={setBatchArray} externalIndex={externalIndex} isClicked={setClick} />
-                                 */
+                                /**The list of modules at the side bar */
+                                isClick &&
+                                <Modules
+                                    data={batchCb}
+                                    moduleName={funcName}
+                                    setBatchArray={setBatchArray}
+                                    externalIndex={externalIndex}
+                                    isClicked={setClick} />
                             }
 
-                            <li id="batch_lrg_btn"
+                            <li
+                                id="batch_lrg_btn"
                                 className="g_list-3"
                                 title="Modules"
+
                                 onClick={() => {
                                     setIsClick(isClick !== 2 ? 2 : 0);
                                     handleExpand(true);
                                 }}>
+
                                 <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=102261&format=png&color=7a7a7a"
                                     alt="batch" />
                                 <span>Users</span>
