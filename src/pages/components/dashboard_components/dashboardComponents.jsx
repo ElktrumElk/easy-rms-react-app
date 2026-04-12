@@ -4,6 +4,8 @@ import BatchComponent from "./batches/batch_components";
 import BottomPanel from "../bottomPanel";
 import { useEffect, useRef, useState } from "react";
 import AddFilePanel from "./super_users/panels/add_file_panel";
+import UsersComponentList from "./users_list_comp";
+import { DropDown } from "./little_componets/little";
 
 /**\
  * 
@@ -38,6 +40,10 @@ export function DashSideBar({
     returnHome,
     funcName,
 }) {
+
+    const [isClick, setIsClick] = useState(0);
+
+
     return (
         <>
             <div id="side_bar" className={isExpand ? "side_bar-3 expand" : "side_bar-3"}>
@@ -46,13 +52,11 @@ export function DashSideBar({
                     <div className="logo_cnt-3">
                         <img className="logo_img-3" src="/easy_ic.png" alt="" />
                         <h1 id="app_name" className="app_name-3">Easy</h1>
+                        <button >Expand</button>
                     </div>
                 </header>
 
                 <section className="opt-3">
-                    <div id="g_2" className="heading">
-                        <h2 className="g-3">General</h2>
-                    </div>
 
                     <div className="gen-3">
                         <ul id="gen_list" className="gen_list-3">
@@ -64,15 +68,47 @@ export function DashSideBar({
                             </li>
 
 
-                            <li id="batch_lrg_btn" className="g_list-3" title="Modules" onClick={handleExpand}>
+                            <li
+                                id="batch_lrg_btn"
+                                className="g_list-3" title="Modules"
+                                onClick={() => {
+                                    setIsClick(isClick !== 1 ? 1 : 0);
+                                    handleExpand();
+                                }}>
                                 <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=727&format=png&color=7a7a7a"
                                     alt="batch" />
                                 <span>Modules</span>
+                                {
+
+                                    isExpand && <DropDown isClick={isClick} idx={1} />
+                                }
                             </li>
 
-                            {/**Modules list at the side panel*/}
-                            <Modules data={batchCb} moduleName={funcName} setBatchArray={setBatchArray} externalIndex={externalIndex} isClicked={setClick} />
+                            {
+                                /**Modules list at the side panel
+                                 <Modules data={batchCb} moduleName={funcName} setBatchArray={setBatchArray} externalIndex={externalIndex} isClicked={setClick} />
+                                 */
+                            }
 
+                            <li id="batch_lrg_btn"
+                                className="g_list-3"
+                                title="Modules"
+                                onClick={() => {
+                                    setIsClick(isClick !== 2 ? 2 : 0);
+                                    handleExpand();
+
+                                }}>
+                                <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=102261&format=png&color=7a7a7a"
+                                    alt="batch" />
+                                <span>Users</span>
+                                {
+                                    isExpand && <DropDown isClick={isClick} idx={2} />
+                                }
+                            </li>
+                            {/**
+                            <UsersComponentList />
+                             * 
+                             */}
                         </ul>
 
                     </div>
@@ -206,7 +242,7 @@ export function DashboardMainPanel({ render_frame,
                 }
 
                 <BottomPanel modules={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue} />
-                <AddFilePanel showAddPanel={showAddPanel} setAddPanel={setAddPanel}/>
+                <AddFilePanel showAddPanel={showAddPanel} setAddPanel={setAddPanel} />
             </section>
         </>
     )

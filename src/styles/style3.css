@@ -95,8 +95,8 @@ body {
 
 /*The side batch buttons*/
 
-.side_bar-3.expand .gen_list-3 .g_list-3 {
-    width: 80%;
+.side_bar-3.expand .gen_list-3 {
+    width: 95%;
 }
 
 
@@ -207,7 +207,7 @@ body {
 .gen_list-3 {
     display: flex;
     flex-direction: column;
-    align-items: center;
+  
     gap: .2rem;
     list-style: none;
     padding: 0;
@@ -274,12 +274,21 @@ body {
 
 
 .g_list-3:hover {
-    background: rgba(198, 199, 199, 0.265);
+    background: rgb(2, 72, 104);
     border-radius: 1rem;
     scale: 1.1;
-    color: black;
+    color: white;
+}
+.Drop_down_arrow-3 {
+    width: 20px;
+    height: 20px;
+    margin-inline-start: auto;
+    transform: rotate(-90deg);
 }
 
+.Drop_down_arrow-3.active {
+    transform: rotate(0deg);
+}
 /*============================================*/
 
 /*header*/
