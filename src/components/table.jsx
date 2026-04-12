@@ -1,9 +1,15 @@
-import adminLists from "../accounts/admin_lists"
 
 
-
-const AdminComponent = () => {
-    const aList = adminLists();
+/**
+ * 
+ * @param {Object} param0 
+ * @param {Array} param0.list - List of users
+ * @param {String} param0.buttonText - Text to be display at the blue button
+ * @param {String} param0.tableTitle - Title of the component or Table
+ * @param {String} param0.tableUserName - what should display as the head title of names
+ * @returns 
+ */
+export const ListTable = ({list, tableTitle, buttonText, tableUserName}) => {
 
     return (
         <>
@@ -12,7 +18,7 @@ const AdminComponent = () => {
 
                 <div className="admin_top_container-10">
                     <div>
-                        <h2>Instructors List</h2>
+                        <h2>{tableTitle}</h2>
                     </div>
                     <div className="tools_cnt-10">
                         <input
@@ -22,7 +28,7 @@ const AdminComponent = () => {
                             
                         <button className="add_admin_btn-10">
                             <img src="/icons/add_ics.png" width={"20"} height={"20"} />
-                            <span>Add new Admin</span>
+                            <span>{buttonText}</span>
                         </button>
                     </div>
                 </div>
@@ -32,7 +38,7 @@ const AdminComponent = () => {
                         <span>#</span>
                         <div>
                             <img />
-                            <span>Admin</span>
+                            <span>{tableUserName}</span>
                         </div>
                         <div className="admin_id_head-10">
                             <img />
@@ -50,7 +56,7 @@ const AdminComponent = () => {
 
                     <div className="admin_lists_view-10">
                         {
-                            aList.map((admin, index) => (
+                            list.map((admin, index) => (
                                 <div key={index} className="adminRow-10">
 
                                     <div className="admin_num_cnt-10">
@@ -85,4 +91,3 @@ const AdminComponent = () => {
     )
 }
 
-export default AdminComponent;

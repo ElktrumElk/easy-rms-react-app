@@ -1,6 +1,7 @@
-import { DashSideBar, DashboardHeader, DashboardMainPanel } from "./components/dashboard_components/dashboardComponents.jsx";
+import { DashSideBar, DashboardHeader, DashboardMainPanel} from "./components/dashboard_components/dashboardComponents.jsx";
 import { useEffect, useState } from "react";
 import { UserTheme } from "../context/userThemeContext.jsx";
+import { RenderUsersListContext } from "../context/userListClick.jsx";
 /**
  * 
  * The home page of the user 
@@ -60,12 +61,14 @@ export default function Dashboard() {
     }, [sideBatchClick, externalBatch])
 
     const [showAddPanel, setAddPanel] = useState(false);
+    const [isUserPanel, setUserPanel] = useState(null);
     /**==========================JSX ELEMENT============================= */
     return (
         <>
            
             <UserTheme.Provider value={{colorMode, showAddPanel, selectFile, dashName}} >
-                <div id="dashboard" className={
+                <RenderUsersListContext.Provider value={isUserPanel}>
+                    <div id="dashboard" className={
                     isExpand ? colorMode === "light" ? "p_cnt-3 side_expand" : "p_cnt-3 side_expand dash_board dark" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
                 }>
 
@@ -82,6 +85,7 @@ export default function Dashboard() {
                         externalIndex={externalBatch}
                         setClick={isClick}
                         funcName={setDashNameSideBar}
+                        setUserClick={setUserPanel}
                     />
 
                     {/**Header */}
@@ -109,6 +113,7 @@ export default function Dashboard() {
                         setAddPanel={setAddPanel}
                     />
                 </div>
+                </RenderUsersListContext.Provider>
             </UserTheme.Provider>
         </>
     )

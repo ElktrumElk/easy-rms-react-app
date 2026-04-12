@@ -2,13 +2,13 @@ import DashboardStats from "./dashboard_stats"
 import Modules from "./batches/batch"
 import BatchComponent from "./batches/batch_components";
 import BottomPanel from "../bottomPanel";
-import { useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import AddFilePanel from "./super_users/panels/add_file_panel";
 import UsersComponentList from "./users_list_comp";
 import { DropDown } from "./little_componets/little";
 import { UserLists } from "../../../components/sidebar_user_list";
-import AdminComponent from "../../../components/instuctors_components";
-
+import AdminLists from "../../../components/admin_lists";
+import { RenderUsersListContext } from "../../../context/userListClick";
 /**\
  * 
  * 
@@ -21,17 +21,7 @@ import AdminComponent from "../../../components/instuctors_components";
  * 
  */
 
-/**
- * The sidebar panel
- * @param {Object} param0 
- * @param {CallableFunction} param0.batchCb - The batch Callback to update the data of the render_frame
- * @param {CallableFunction} param0.handleExpand  - Expand the side bar / Collapse the side bar
- * @param {CallableFunction} param0.setBatchArray - The setter for the batch list state
- * @param {Number} param0.externalIndex - The setter for the batch list state
- * @param {CallableFunction} param0.setClick - Trigger the back button when clicked 
- * @param {CallableFunction} param0.funcName - Trigger the back button when clicked 
- * @returns 
- */
+
 export function DashSideBar({
     handleExpand,
     isExpand,
@@ -41,10 +31,10 @@ export function DashSideBar({
     setClick,
     returnHome,
     funcName,
+    setUserClick,
 }) {
 
     const [isClick, setIsClick] = useState(0);
-
 
     return (
         <>
@@ -70,7 +60,15 @@ export function DashSideBar({
                     <div className="gen-3">
                         <ul id="gen_list" className="gen_list-3">
 
-                            <li id="Home_btn" className="g_list-3" title="home" onClick={() => { returnHome(null) }}>
+                            <li
+                                id="Home_btn"
+                                className="g_list-3"
+                                title="home"
+                                onClick={() => {
+                                    returnHome(null);
+                                    setUserClick(null);
+                                }}>
+
                                 <img className="ic_1-3"
                                     src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" />
                                 <span>Home</span>
@@ -125,7 +123,7 @@ export function DashSideBar({
 
                             {
                                 isClick === 2 &&
-                                <UserLists />
+                                <UserLists setUserClick={setUserClick} />
                             }
                             {/**
                             <UsersComponentList />
@@ -246,7 +244,7 @@ export function DashboardMainPanel({ render_frame,
     showAddPanel,
     setAddPanel
 }) {
-
+    const isUserPanel = useContext(RenderUsersListContext);
     return (
         <>
             <section id='main_section' className="cont-3" >
@@ -259,17 +257,14 @@ export function DashboardMainPanel({ render_frame,
                             showAddPanel={showAddPanel}
                             setAddPanel={setAddPanel}
                         />
-                        :
-                        <AdminComponent />
-
-                    /*<DashboardStats />*/
-
+                        : isUserPanel === "admin" ? <AdminLists /> : <DashboardStats />
 
                 }
 
                 <BottomPanel modules={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue} />
                 <AddFilePanel showAddPanel={showAddPanel} setAddPanel={setAddPanel} />
             </section>
+
         </>
     )
 }
