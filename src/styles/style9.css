@@ -1,19 +1,18 @@
-
-
-
 .module_sec_cnt-9 {
     width: 100%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
+
 .module_sec_cnt-9 h2 {
     color: gray;
     align-self: flex-start;
     margin-inline-start: 1rem;
     margin-block-start: 1rem;
+    
 }
 
 .module_cnt-9 {
@@ -29,7 +28,7 @@
 .module_card-9 {
     width: 100%;
     min-height: 5rem;
-   border-top: .1px solid rgba(128, 128, 128, 0.731);
+    border-top: .1px solid rgba(128, 128, 128, 0.731);
     border-radius: 1rem;
     display: flex;
     align-items: center;
@@ -37,8 +36,25 @@
     padding: 1rem;
 }
 
+
 .modulename-9 {
     display: flex;
     align-items: center;
 }
-
+.cnt1-9 {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.module_new_file_notify-9 {
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+    height: 20px;
+    padding: .2rem .2rem;
+    place-items: center;
+    place-content: center;
+    background-color: rgb(6, 184, 6);
+    border-radius: 4rem;
+    color: white;
+}

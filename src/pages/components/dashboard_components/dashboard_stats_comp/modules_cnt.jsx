@@ -75,10 +75,10 @@ export function ModuleView() {
                                     <h3>{v.moduleName}</h3>
                                 </div>
 
-                                <div>
+                                <div className="cnt1-9">
                                     <span>{v.lastUpdated}</span>
-                                    <div>
-                                        <span></span>
+                                    <div className="module_new_file_notify-9">
+                                        <span>{Math.floor(Math.random() * 10)}</span>
                                     </div>
                                 </div>
                             </div>
