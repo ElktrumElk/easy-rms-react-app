@@ -19,6 +19,7 @@ export default function GreetingContainer() {
                 <div className="sub_greeting_cnt-8">
                     <div className="greetings-8">
                         <h2>Good Morning Elkanah Cole.</h2>
+                        <span><strong>ID: </strong>Code2026001</span>
                     </div>
                 </div>
 

@@ -219,7 +219,7 @@
     width: 100%;
     min-height: 10rem;
     max-width: unset;
-    background-color: rgb(28, 28, 255);
+    background-color: rgb(2, 72, 104);
     border-radius: 2rem;
     display: grid;
     grid-template-columns: 2fr .5fr;
@@ -231,16 +231,20 @@
 
 .sub_greeting_cnt-8 {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
     min-height: 100%;
     width: 100%;
 }
 
+
 .greetings-8 h2 {
     font-weight: 600;
     font-size: 2rem;  
-
+    color: white;
+}
+.greeting_cnt-8 span {
+    color: rgb(160, 160, 160);
 }
 .quote-8 {
     grid-row: span 2;
@@ -256,8 +260,6 @@
 .verified_info_cnt-8 {
     display: flex;
     align-items: center;
-
-
 }
 
 .verified-8 {
@@ -267,6 +269,7 @@
     box-sizing: content-box;
     display: flex;
     align-items: center;
+    color: rgb(194, 194, 194);
 }
 
 @media (max-width: 600px) {
