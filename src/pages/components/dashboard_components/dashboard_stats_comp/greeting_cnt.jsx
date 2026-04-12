@@ -7,7 +7,7 @@ export default function GreetingContainer() {
                 <div className="verified_info_cnt-8">
                     <div className="verified-8">
                         <img />
-                        <span>Verified</span>
+                        <span>Admin</span>
                     </div>
 
                 </div>
