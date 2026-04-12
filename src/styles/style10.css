@@ -97,7 +97,7 @@
     color: gray;
     align-items: center;
     padding: 1rem 1rem;
-    
+
 
 }
 
@@ -135,6 +135,7 @@
     display: grid;
     grid-template-columns: .3fr repeat(3, 1fr) .3fr;
 }
+
 .adminRow-10 div {
     width: 100%;
     display: flex;
@@ -143,14 +144,17 @@
     justify-content: center;
     padding: 1rem 0rem;
     border-block-end: .2px solid rgba(128, 128, 128, 0.466);
-    
+
 }
+
 .adminRow-10 div:first-child {
     padding: 0rem 1rem
 }
+
 .adminRow-10 div span {
-   color: gray;
+    color: gray;
 }
+
 .action_btn-10 {
     padding: 1rem 1rem;
     height: 3rem;
@@ -163,19 +167,22 @@
     justify-content: center;
 
 }
+
 .action_btn-10 img {
     filter: grayscale(20%);
 }
+
 .admin_search_inp-10 {
-   width: 20rem;
-   height: 2.5rem;
-   font-size: 1.2rem;
-   outline: none;
-   border: 1px solid rgba(128, 128, 128, 0.607);
-   border-radius: .3rem;
-   padding: .6rem .2rem;
+    width: 20rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    outline: none;
+    border: 1px solid rgba(128, 128, 128, 0.607);
+    border-radius: .3rem;
+    padding: .6rem .2rem;
 
 }
+
 .tools_cnt-10 {
     display: flex;
     align-items: center;
@@ -193,4 +200,62 @@
     align-items: center;
     justify-content: center;
     gap: .5rem;
+}
+
+.phone_number_cnt-10 {
+    display: flex;
+}
+
+@media (max-width: 711px) {
+    .admin_search_inp-10 {
+        display: none;
+    }
+
+    .adminRow-10 div.phone_number_cnt-10 {
+        display: none;
+    }
+
+    .adminRow-10 {
+        grid-template-columns: .3fr repeat(2, 1fr) .3fr;
+    }
+
+    .admin_table_head-10 {
+        grid-template-columns: .3fr repeat(2, 1fr) .3fr;
+    }
+
+    .p_number-10 {
+        display: none;
+    }
+}
+
+@media (max-width: 487px) {
+    .adminRow-10 {
+        grid-template-columns: .3fr repeat(1, 1fr) .3fr;
+    }
+
+    .admin_table_head-10 {
+        grid-template-columns: .3fr repeat(1, 1fr) .3fr;
+    }
+    .admin_id_head-10 {
+        display: none;
+    }
+
+    .adminRow-10 div.ids-10 {
+        display: none;
+    }
+    .admin_top_container-10 {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        height: auto;
+    }
+    .tools_cnt-10 {
+        flex-direction: column-reverse;
+        gap: .5rem;
+    }
+     .admin_search_inp-10 {
+        display: flex;
+        width: 20rem;
+    }
+
 }

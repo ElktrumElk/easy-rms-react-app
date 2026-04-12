@@ -24,7 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .app {
@@ -35,7 +35,6 @@ body {
     width: 100%;
     min-height: 100dvh;
     box-sizing: border-box;
-    
 }
 
 /*Welcom page section*/

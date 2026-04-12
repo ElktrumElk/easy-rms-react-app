@@ -34,13 +34,13 @@ const AdminComponent = () => {
                             <img />
                             <span>Admin</span>
                         </div>
-                        <div>
+                        <div className="admin_id_head-10">
                             <img />
                             <span>ID</span>
                         </div>
-                        <div>
+                        <div className="p_number-10">
                             <img />
-                            <span>Phone Number</span>
+                            <span >Phone Number</span>
                         </div>
                         <div>
                             <img />
@@ -62,12 +62,12 @@ const AdminComponent = () => {
                                         <span>{admin.email}</span>
                                     </div>
 
-                                    <div>
+                                    <div className="ids-10">
                                         <span>{admin.id}</span>
                                     </div>
 
-                                    <div>
-                                        <span>{admin.number}</span>
+                                    <div className="phone_number_cnt-10">
+                                        <span >{admin.number}</span>
                                     </div>
 
                                     <div>
