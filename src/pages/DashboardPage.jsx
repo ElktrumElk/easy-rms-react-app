@@ -1,26 +1,15 @@
 import { DashSideBar, DashboardHeader, DashboardMainPanel } from "./components/dashboard_components/dashboardComponents.jsx";
 import { useEffect, useState } from "react";
-
+import { UserTheme } from "../context/userThemeContext.jsx";
 /**
  * 
  * The home page of the user 
  * 
 */
-
 export default function Dashboard() {
 
     /**Variable that holds the state of the sidebar (expand / collapse) */
     const [isExpand, setExpand] = useState(false);
-    /**Handle the expand and collapse of the sidebar */
-    const handleExpand = () => {
-        if (!isExpand) {
-            setExpand(true);
-
-        } else {
-            setExpand(false);
-        }
-    }
-
     /**Holds the frame that is rendered on the main_panel */
     const [mainPanelData, setData] = useState(null);
     /**The List of Modules available */
@@ -29,10 +18,7 @@ export default function Dashboard() {
     const [isBottomPanelShow, setBottomPanel] = useState(false);
     /**if the back btn is shown */
     const [isBackBtn, setBackBtn] = useState(false);
-    /**
-     * @var {Number} externalBtach --This variable hook carries the bottom panel triggering of batch to be render on the main panel 
-     * 
-     * */
+    /**This variable hook carries the bottom panel triggering of batch to be render on the main panel * */
     const [externalBatch, setExternalBatch] = useState(null);
     /**Set the name of the dash board */
     const [dashName, setDashName] = useState("Dashboard");
@@ -54,7 +40,9 @@ export default function Dashboard() {
 
     }, [externalBatch, sideBatchClick]);
 
+    /**Get colormode */
     const [colorMode, setColorMode] = useState(localStorage.getItem("userPreferColorTheme"));
+
     useEffect(() => {
         if (mainPanelData === null) {
             setDashName("Dashboard");
@@ -62,8 +50,9 @@ export default function Dashboard() {
             setExternalBatch(null);
             setBackBtn(false)
         }
-    })
+    }, [mainPanelData])
 
+    /**File selection */
     const [selectFile, setSelectFile] = useState(false);
     useEffect(() => {
         setSelectFile(false);
@@ -74,50 +63,53 @@ export default function Dashboard() {
     /**==========================JSX ELEMENT============================= */
     return (
         <>
-            <div id="dashboard" className={
-                isExpand ? colorMode === "light" ? "p_cnt-3 side_expand" : "p_cnt-3 side_expand dash_board dark" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
-            }>
+           
+            <UserTheme.Provider value={{colorMode, showAddPanel, selectFile, dashName}} >
+                <div id="dashboard" className={
+                    isExpand ? colorMode === "light" ? "p_cnt-3 side_expand" : "p_cnt-3 side_expand dash_board dark" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
+                }>
 
-                {/**Side bar 
+                    {/**Side bar 
                  * You can find the dashSideBar from the file DashBoardComponents
                  * */
-                }
-                <DashSideBar
-                    isExpand={isExpand}
-                    handleExpand={setExpand}
-                    returnHome={setData}
-                    batchCb={setData}
-                    setBatchArray={setArray}
-                    externalIndex={externalBatch}
-                    setClick={isClick}
-                    funcName={setDashNameSideBar}
-                />
-
-                {/**Header */}
-                <DashboardHeader bottomPanelShow={setBottomPanel}
-                    bottomPanelValue={isBottomPanelShow}
-                    headerName={dashName}
-                    isBack={isBackBtn}
-                    isBackFunc={setBackBtn}
-                    isBackComponent={setData} 
-                    setColorMode={setColorMode}
-                    colorModeValue={colorMode}
+                    }
+                    <DashSideBar
+                        isExpand={isExpand}
+                        handleExpand={setExpand}
+                        returnHome={setData}
+                        batchCb={setData}
+                        setBatchArray={setArray}
+                        externalIndex={externalBatch}
+                        setClick={isClick}
+                        funcName={setDashNameSideBar}
                     />
 
-                {/**main panel */}
-                <DashboardMainPanel
-                    render_frame={mainPanelData}
-                    batchList={batchArray}
-                    isBottomDisplay={isBottomPanelShow}
-                    isBottomBatch={setExternalBatch}
-                    setColorMode={setColorMode}
-                    colorModeValue={colorMode}
-                    selectFile={selectFile}
-                    setSelectFile={setSelectFile}
-                    showAddPanel={showAddPanel}
-                    setAddPanel={setAddPanel}
-                />
-            </div>
+                    {/**Header */}
+                    <DashboardHeader bottomPanelShow={setBottomPanel}
+                        bottomPanelValue={isBottomPanelShow}
+                        headerName={dashName}
+                        isBack={isBackBtn}
+                        isBackFunc={setBackBtn}
+                        isBackComponent={setData}
+                        setColorMode={setColorMode}
+                        colorModeValue={colorMode}
+                    />
+
+                    {/**main panel */}
+                    <DashboardMainPanel
+                        render_frame={mainPanelData}
+                        batchList={batchArray}
+                        isBottomDisplay={isBottomPanelShow}
+                        isBottomBatch={setExternalBatch}
+                        setColorMode={setColorMode}
+                        colorModeValue={colorMode}
+                        selectFile={selectFile}
+                        setSelectFile={setSelectFile}
+                        showAddPanel={showAddPanel}
+                        setAddPanel={setAddPanel}
+                    />
+                </div>
+            </UserTheme.Provider>
         </>
     )
 }

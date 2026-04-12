@@ -7,6 +7,7 @@ export default function DefaultPage() {
 
   return (
     <>
+  
       <div id="welcome_screen" className="welc-1">
         <header className="header-1">
           <div className="logo_cnt-1">
