@@ -218,7 +218,7 @@
 .greeting_cnt-8 {
     width: 100%;
     min-height: 13.5rem;
-    max-width: unset;
+    height: auto;
     background-color: rgb(2, 72, 104);
     border-radius: 2rem;
     display: grid;
@@ -227,7 +227,7 @@
     gap: 1rem;
     padding: 1rem;
     overflow-y: hidden;
-    
+
 }
 
 .sub_greeting_cnt-8 {
@@ -241,12 +241,14 @@
 
 .greetings-8 h2 {
     font-weight: 600;
-    font-size: 2rem;  
+    font-size: 2rem;
     color: white;
 }
+
 .greeting_cnt-8 span {
     color: rgb(160, 160, 160);
 }
+
 .quote-8 {
     grid-row: span 2;
     height: 100%;
@@ -271,6 +273,10 @@
     display: flex;
     align-items: center;
     color: rgb(194, 194, 194);
+}
+
+.qin-8 {
+    display: none;
 }
 
 @media (max-width: 600px) {
@@ -312,5 +318,46 @@
 @media (max-width: 920px) {
     .bottom_left-8 {
         margin-block-start: 88px;
+    }
+}
+
+
+@media (max-width: 699px) {
+    .greeting_cnt-8 {
+        min-height: 15.5rem;
+        grid-template-columns: .1fr 1fr 1fr;
+
+    }
+
+    .sub_greeting_cnt-8 {
+
+        grid-column: span 3;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+
+    }
+
+    .greetings-8 {
+        grid-column: span 2;
+    }
+
+    .quote-8 {
+        display: none;
+    }
+
+    .qin-8 {
+        display: flex;
+        grid-row: span 2;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .greeting_cnt-8 {
+        min-height: 20rem;
+    }
+    .greetings-8 h2 {
+        font-size: 1.7rem;
     }
 }
