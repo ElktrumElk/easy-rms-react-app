@@ -88,7 +88,7 @@ export default function Dashboard() {
                 }
                 <DashSideBar
                     isExpand={isExpand}
-                    handleExpand={handleExpand}
+                    handleExpand={setExpand}
                     returnHome={setData}
                     batchCb={setData}
                     setBatchArray={setArray}

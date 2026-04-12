@@ -52,7 +52,7 @@ export function DashSideBar({
                     <div className="logo_cnt-3">
                         <img className="logo_img-3" src="/easy_ic.png" alt="" />
                         <h1 id="app_name" className="app_name-3">Easy</h1>
-                        <button >Expand</button>
+                        <button onClick={() => {handleExpand(!isExpand)}}>Expand</button>
                     </div>
                 </header>
 
@@ -73,7 +73,7 @@ export function DashSideBar({
                                 className="g_list-3" title="Modules"
                                 onClick={() => {
                                     setIsClick(isClick !== 1 ? 1 : 0);
-                                    handleExpand();
+                                    handleExpand(true);
                                 }}>
                                 <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=727&format=png&color=7a7a7a"
                                     alt="batch" />
@@ -95,8 +95,7 @@ export function DashSideBar({
                                 title="Modules"
                                 onClick={() => {
                                     setIsClick(isClick !== 2 ? 2 : 0);
-                                    handleExpand();
-
+                                    handleExpand(true);
                                 }}>
                                 <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=102261&format=png&color=7a7a7a"
                                     alt="batch" />
