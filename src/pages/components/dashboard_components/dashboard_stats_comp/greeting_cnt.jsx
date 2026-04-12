@@ -21,6 +21,7 @@ export default function GreetingContainer() {
                         <h2>Good Morning Elkanah Cole.</h2>
                         <span><strong>ID: </strong>Code2026001</span>
                     </div>
+                        <button className="view_batch_button-9">View Batch</button>
                 </div>
 
             </div>

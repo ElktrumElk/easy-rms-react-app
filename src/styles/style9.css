@@ -58,3 +58,12 @@
     border-radius: 4rem;
     color: white;
 }
+
+.view_batch_button-9 {
+    background-color: white;
+    border: none;
+    border-radius: .5rem;
+    padding: 1rem 1rem;
+    width: 9rem;
+
+}

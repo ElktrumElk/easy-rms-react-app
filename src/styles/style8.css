@@ -217,7 +217,7 @@
 
 .greeting_cnt-8 {
     width: 100%;
-    min-height: 10rem;
+    min-height: 13.5rem;
     max-width: unset;
     background-color: rgb(2, 72, 104);
     border-radius: 2rem;
@@ -226,6 +226,7 @@
     grid-template-rows: .4fr 2fr;
     gap: 1rem;
     padding: 1rem;
+    overflow-y: hidden;
     
 }
 
