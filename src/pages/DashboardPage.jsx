@@ -1,9 +1,5 @@
-import { BackBtn } from "./components/buttons";
-import { DashSideBar, DashboardHeader, DashboardMainPanel } from "./components/dashboard_components/dashboardComponents"
+import { DashSideBar, DashboardHeader, DashboardMainPanel } from "./components/dashboard_components/dashboardComponents.jsx";
 import { useEffect, useState } from "react";
-
-
-
 
 /**
  * 

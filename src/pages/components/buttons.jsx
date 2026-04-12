@@ -1,7 +1,4 @@
-
 //Sign in button
-
-import { useState } from "react"
 
 /**
  * 
@@ -10,15 +7,16 @@ import { useState } from "react"
  * @returns 
  */
 export default function SignButton({ content, className, cb }) {
-    //const [updateSignClick, setUpdateSignClick] = useState(false);
-
-    const updateSignClick = () => {
-        if (typeof cb === 'function') {
-            cb(true);
-        }
+  const updateSignClick = () => {
+    if (typeof cb === "function") {
+      cb(true);
     }
-    return <button onClick={updateSignClick} id="sign_in" className={className}>{content}</button>
-
+  };
+  return (
+    <button onClick={updateSignClick} id="sign_in" className={className}>
+      {content}
+    </button>
+  );
 }
 
 export function BackBtn({ cb }) {
