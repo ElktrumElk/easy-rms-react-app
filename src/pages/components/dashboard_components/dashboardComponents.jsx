@@ -9,6 +9,7 @@ import { DropDown } from "./little_componets/little";
 import { UserLists } from "../../../components/sidebar_user_list";
 import AdminLists from "../../../components/admin_lists";
 import { RenderUsersListContext } from "../../../context/userListClick";
+import InstructorLists from "../../../components/instructors_lists";
 /**\
  * 
  * 
@@ -257,7 +258,14 @@ export function DashboardMainPanel({ render_frame,
                             showAddPanel={showAddPanel}
                             setAddPanel={setAddPanel}
                         />
-                        : isUserPanel === "admin" ? <AdminLists /> : <DashboardStats />
+                        :
+                        isUserPanel === "admin" ?
+                            <AdminLists />
+                            :
+                            isUserPanel === "instructors" ?
+                                <InstructorLists />
+                                :
+                                <DashboardStats />
 
                 }
 

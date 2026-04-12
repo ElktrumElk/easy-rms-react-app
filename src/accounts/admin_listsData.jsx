@@ -33,7 +33,7 @@ const adminLists = () => {
             email: "abdullah@gmail.com"
 
         }
-    ]);
+    ]); 
     
     return adminlists;
 }

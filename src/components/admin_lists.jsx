@@ -1,4 +1,4 @@
-import adminLists from "../accounts/admin_lists"
+import adminLists from "../accounts/admin_listsData"
 import { ListTable } from "./table";
 
 
