@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import AddFilePanel from "./super_users/panels/add_file_panel";
 import UsersComponentList from "./users_list_comp";
 import { DropDown } from "./little_componets/little";
+import { UserLists } from "../../../components/sidebar_user_list";
 
 /**\
  * 
@@ -120,6 +121,11 @@ export function DashSideBar({
                                 <span>Users</span>
                                 {isExpand && <DropDown isClick={isClick} idx={2} />}
                             </li>
+
+                            {
+                                isClick === 2 && 
+                                <UserLists />
+                            }
                             {/**
                             <UsersComponentList />
                              * 

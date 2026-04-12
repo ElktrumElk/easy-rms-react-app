@@ -1,0 +1,67 @@
+.sidebar_user_list-10 {
+  max-width: 260px;
+  padding: 0.5rem 0.75rem;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.sidebar_user_list_ul-10 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.sidebar_user_list_ul-10::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.1rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: rgba(15, 23, 42, 0.16);
+}
+
+.sidebar_user_list_item-10 {
+  position: relative;
+  margin: 0;
+  padding: 0.9rem 1rem 0.9rem 2.2rem;
+  color: #102a43;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  margin-bottom: 0.75rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar_user_list_item-10::before {
+  content: "";
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #2563eb;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.08);
+}
+
+.sidebar_user_list_item-10:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  top: calc(50% + 0.35rem);
+  width: 0.9rem;
+  height: 2px;
+  background: rgba(15, 23, 42, 0.16);
+}
+
+.sidebar_user_list_item-10:hover {
+  background: rgba(37, 99, 235, 0.06);
+  transform: translateX(1px);
+}
+
+.sidebar_user_list_item_label-10 {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
