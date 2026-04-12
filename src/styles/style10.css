@@ -90,11 +90,14 @@
 
 .admin_top_container-10 {
     width: 100%;
+    height: 4rem;
     display: flex;
     justify-content: space-between;
-    padding: 2rem 1rem;
+
     color: gray;
     align-items: center;
+    padding: 1rem 1rem;
+    
 
 }
 
@@ -147,4 +150,43 @@
 }
 .adminRow-10 div span {
    color: gray;
+}
+.action_btn-10 {
+    padding: 1rem 1rem;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: rgba(128, 128, 128, 0.094);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.action_btn-10 img {
+    filter: grayscale(20%);
+}
+.admin_search_inp-10 {
+   width: 20rem;
+   height: 2rem;
+   font-size: 1.2rem;
+   outline: none;
+   border: 1px solid rgba(128, 128, 128, 0.607);
+   border-radius: .3rem;
+   padding: .6rem .2rem;
+
+}
+.tools_cnt-10 {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 1rem;
+}
+
+.add_admin_btn-10 {
+    width: 10rem;
+    height: 3rem;
+    border-radius: .5rem;
+    background-color: rgb(5, 47, 81);
+    color: white;
 }

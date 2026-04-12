@@ -15,8 +15,8 @@ const AdminComponent = () => {
                         <h2>Instructors List</h2>
                     </div>
                     <div className="tools_cnt-10">
-                        <input />
-                        <button>
+                        <input placeholder="Search..." className="admin_search_inp-10" />
+                        <button className="add_admin_btn-10">
                             <img />
                             <span>Add new Admin</span>
                         </button>
@@ -45,12 +45,12 @@ const AdminComponent = () => {
                     </div>
 
                     <div className="admin_lists_view-10">
-                        { 
+                        {
                             aList.map((admin, index) => (
                                 <div key={index} className="adminRow-10">
 
                                     <div className="admin_num_cnt-10">
-                                        <span>{index+1}</span>
+                                        <span>{index + 1}</span>
                                     </div>
 
                                     <div className="admin_name_cnt-10">
@@ -62,12 +62,14 @@ const AdminComponent = () => {
                                         <span>{admin.id}</span>
                                     </div>
 
-                                     <div>
+                                    <div>
                                         <span>{admin.number}</span>
                                     </div>
 
-                                     <div>
-                                        <img />
+                                    <div>
+                                        <button className="action_btn-10">
+                                            <img  src="/icons/ellipsis.png" width={"10"} height={"10"} />
+                                        </button>
                                     </div>
                                 </div>
                             ))
