@@ -151,7 +151,7 @@ export function DashboardHeader({
                         <input id="search" className="search_inp" placeholder="search..." />
 
                         <img id="searc_btn" className="ic-3 ic_2-3 ic_search-3"
-                            src="https://img.icons8.com/?size=100&id=132&format=png&color=7a7a7a" alt="search" />
+                            src="/icons/notification_dark.png" alt="notification" />
 
                         <img id="theme_tg_btn" className="ic-3 ic_2-3"
                             src={colorModeValue === "dark" ? "/icons/light_mode_ic.png" : "/icons/dark_mode_ic.png"} alt="dark" onClick={() => { colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark') }} />

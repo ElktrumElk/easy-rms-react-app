@@ -1,87 +1,9 @@
 import { useState } from "react"
-
+import moduleDat from "./module_data"
 
 export default function ModuleContainer() {
 
-    const [modules] = useState([
-        {
-            moduleName: "Advance Excel",
-            inCharge: "Mr Zeshan",
-            state: "Current",
-            icon: "/icons/progress_ic.png",
-            color: "#efdf0977",
-            batch: "Batch 1 2026",
-            totalFiles: 14,
-            timeAssign: "Mon 9 Feb 2026",
-            lastUpdated: " 2 days ago",
-            totalChapters: 10,
-
-
-        },
-        {
-            moduleName: "HTML / CSS",
-            inCharge: "Mr Abdullah",
-            state: "Draft",
-            icon: '/icons/draft_ic.png',
-            color: "#00c0eb77",
-            batch: "Batch 1 2026",
-            totalFiles: 19,
-            timeAssign: "Mon 11 Jan 2026",
-            lastUpdated: "10th Feb 2026",
-            totalChapters: 10,
-
-        },
-        {
-            moduleName: "Linux",
-            inCharge: "Mr Rajesh Kuma",
-            state: "Completed",
-            icon: "/icons/progress_ic.png",
-            color: "#00ff2f77",
-            batch: "Batch 3 2026",
-            totalFiles: 20,
-            timeAssign: "Mon 9 Feb 2026",
-            lastUpdated: " 2 days ago",
-            totalChapters: 10,
-        },
-        {
-            moduleName: "MS Office",
-            inCharge: "Mr Bangura",
-            state: "Current",
-            icon: "/icons/progress_ic.png",
-            color: "#efdf0977",
-            totalFiles: 25,
-            batch: "Batch 4 2026",
-            timeAssign: "Mon 9 Feb 2026",
-            lastUpdated: " 1 days ago",
-            totalChapters: 10,
-
-        },
-        {
-            moduleName: "Logic Building",
-            inCharge: "Mr Bangura",
-            state: "Completed",
-            icon: "/icons/progress_ic.png",
-            color: "#00ff2f77",
-            totalFiles: 10,
-            batch: "Batch 1 2026",
-            timeAssign: "Mon 9 Feb 2026",
-            lastUpdated: " 2 days ago",
-            totalChapters: 10,
-
-        },
-        {
-            moduleName: "Advance Excel",
-            inCharge: "Mr Zeshan",
-            state: "Current",
-            icon: "/icons/progress_ic.png",
-            color: "#efdf0977",
-            totalFiles: 15,
-            timeAssign: "Mon 9 Jan 2026",
-            lastUpdated: " 3 days ago",
-            totalChapters: 10,
-            batch: "Batch 2 2026",
-        },
-    ]);
+    const modules = moduleDat();
 
     return (
         <>
@@ -133,6 +55,37 @@ export default function ModuleContainer() {
                     </div>
                 ))
             }
+        </>
+    )
+}
+
+
+export function ModuleView() {
+
+    const [modules] = moduleDat();
+    return (
+        <>
+            <section className="module_sec_cnt-9">
+                <div className="module_cnt-9">
+                <h2>Modules</h2>
+                    {
+                        modules.map((v, idx) => (
+                            <div key={idx} className="module_card-9">
+                                <div className="modulename-9">
+                                    <h3>{v.moduleName}</h3>
+                                </div>
+
+                                <div>
+                                    <span>{v.lastUpdated}</span>
+                                    <div>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </section>
         </>
     )
 }
