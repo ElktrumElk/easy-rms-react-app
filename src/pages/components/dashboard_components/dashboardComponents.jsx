@@ -96,7 +96,7 @@ export function DashSideBar({
 
                             {
                                 /**The list of modules at the side bar */
-                                isClick &&
+                                isClick === 1 &&
                                 <Modules
                                     data={batchCb}
                                     moduleName={funcName}
@@ -118,9 +118,7 @@ export function DashSideBar({
                                 <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=102261&format=png&color=7a7a7a"
                                     alt="batch" />
                                 <span>Users</span>
-                                {
-                                    isExpand && <DropDown isClick={isClick} idx={2} />
-                                }
+                                {isExpand && <DropDown isClick={isClick} idx={2} />}
                             </li>
                             {/**
                             <UsersComponentList />

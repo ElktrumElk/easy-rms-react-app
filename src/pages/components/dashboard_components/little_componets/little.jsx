@@ -1,5 +1,5 @@
 
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { UserTheme } from "../../../../context/userThemeContext"
 /**
  * 
@@ -9,11 +9,19 @@ import { UserTheme } from "../../../../context/userThemeContext"
  * @returns 
  */
 export const DropDown = ({isClick, idx}) => {
+
+    /**ColorMode */
     const {colorMode} = useContext(UserTheme);
-  
+    useEffect(() => {
+        if (colorMode !== null) {
+
+            localStorage.setItem("userPreferColorTheme", colorMode)
+        }
+    }, [colorMode])
+
     return (
         <>
-            <img className={isClick === idx ? "Drop_down_arrow-3" : "Drop_down_arrow-3 active"} src={colorMode === "dark" ? "/icons/dd_arrow_dark.png" : "/icons/drop_down_white.png"} alt="drop_down" />
+            <img className={isClick === idx ? "Drop_down_arrow-3 active": "Drop_down_arrow-3"} src={colorMode === "dark" ? "/icons/drop_down_white.png" : "/icons/dd_arrow_dark.png"} alt="drop_down" />
         </>
     )
 }

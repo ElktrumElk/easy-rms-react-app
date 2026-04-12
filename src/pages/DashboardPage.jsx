@@ -41,7 +41,7 @@ export default function Dashboard() {
     }, [externalBatch, sideBatchClick]);
 
     /**Get colormode */
-    const [colorMode, setColorMode] = useState(localStorage.getItem("userPreferColorTheme"));
+    const [colorMode, setColorMode] = useState(localStorage.getItem("userPreferColorTheme") || 'light');
 
     useEffect(() => {
         if (mainPanelData === null) {
