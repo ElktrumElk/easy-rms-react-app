@@ -7,6 +7,7 @@ import AddFilePanel from "./super_users/panels/add_file_panel";
 import UsersComponentList from "./users_list_comp";
 import { DropDown } from "./little_componets/little";
 import { UserLists } from "../../../components/sidebar_user_list";
+import AdminComponent from "../../../components/instuctors_components";
 
 /**\
  * 
@@ -123,7 +124,7 @@ export function DashSideBar({
                             </li>
 
                             {
-                                isClick === 2 && 
+                                isClick === 2 &&
                                 <UserLists />
                             }
                             {/**
@@ -259,7 +260,11 @@ export function DashboardMainPanel({ render_frame,
                             setAddPanel={setAddPanel}
                         />
                         :
-                        <DashboardStats />
+                        <AdminComponent />
+
+                    /*<DashboardStats />*/
+
+
                 }
 
                 <BottomPanel modules={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue} />

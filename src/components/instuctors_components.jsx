@@ -2,7 +2,7 @@ import adminLists from "../accounts/admin_lists"
 
 
 
-const InstructorComponent = () => {
+const AdminComponent = () => {
     const aList = adminLists();
 
     return (
@@ -77,3 +77,5 @@ const InstructorComponent = () => {
         </>
     )
 }
+
+export default AdminComponent;
