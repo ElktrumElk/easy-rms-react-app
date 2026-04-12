@@ -5,7 +5,7 @@ import { ListTable } from "./table";
 
 
 export default function InstructorLists() {
-    const [iLists] = instructorListsData();
+    const iLists = instructorListsData();
 
     return (
         <ListTable
