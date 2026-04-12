@@ -12,7 +12,7 @@ const AdminComponent = () => {
 
                 <div className="admin_top_container-10">
                     <div>
-                        <span>Instructors List</span>
+                        <h2>Instructors List</h2>
                     </div>
                     <div className="tools_cnt-10">
                         <input />
@@ -23,8 +23,8 @@ const AdminComponent = () => {
                     </div>
                 </div>
 
-                <div className="admin_table_head-10">
-                    <div>
+                <div className="admin_cnt-10">
+                    <div className="admin_table_head-10">
                         <span>#</span>
                         <div>
                             <img />

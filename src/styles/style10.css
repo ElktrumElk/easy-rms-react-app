@@ -74,6 +74,7 @@
 }
 
 
+/*===========================*/
 .admin_list_component-10 {
     display: flex;
     flex-direction: column;
@@ -84,5 +85,38 @@
     place-self: center;
     margin-block-start: 1rem;
     border-radius: 1rem;
+    gap: 1rem;
     
+}
+
+.admin_top_container-10 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    color: gray;
+    align-items: center;
+    
+}
+
+.admin_cnt-10 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.admin_table_head-10 {
+    display: grid;
+    grid-template-columns:.3fr repeat(3, 1fr) .3fr;
+}
+.admin_table_head-10 :where(div, span) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_lists_view-10 {
+    width: 100%;
+    flex: 1;
 }
