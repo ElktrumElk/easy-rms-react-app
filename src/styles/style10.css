@@ -168,7 +168,7 @@
 }
 .admin_search_inp-10 {
    width: 20rem;
-   height: 2rem;
+   height: 2.5rem;
    font-size: 1.2rem;
    outline: none;
    border: 1px solid rgba(128, 128, 128, 0.607);
@@ -189,4 +189,8 @@
     border-radius: .5rem;
     background-color: rgb(5, 47, 81);
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
 }
