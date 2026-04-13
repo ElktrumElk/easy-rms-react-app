@@ -11,6 +11,7 @@ import AdminLists from "../../../components/admin_lists";
 import { RenderUsersListContext } from "../../../context/userListClick";
 import InstructorLists from "../../../components/instructors_lists";
 import { resetToDashboard } from "../../../hooks/reset_to_dahsboard";
+import StudentLists from "../../../components/student_lists";
 /**\
  * 
  * 
@@ -120,7 +121,14 @@ export function DashSideBar({
                                 <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=102261&format=png&color=7a7a7a"
                                     alt="batch" />
                                 <span>Users</span>
-                                {isExpand && <DropDown isClick={isClick} idx={2} />}
+                                {
+                                    /**
+                                     * render the drop down icon if the side bar is been expanded
+                                     * the isClick triggers that a lists has been
+                                     * the idx is used to detect the right list that has been click
+                                     */
+                                    isExpand && <DropDown isClick={isClick} idx={2} />
+                                }
                             </li>
 
                             {
@@ -197,13 +205,13 @@ export function DashboardHeader({
                                     onClick={() => { isBackFunc(false) }} />
                                 :
                                 /**The home icon at the top of the header */
-                                <img 
-                                className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" 
-                                onClick={() => {
-                                    resetToDashboard(isBackComponent, userListsComponent)
-                                    /**isBackComponent(false);
-                                    userListsComponent(null);*/
-                                }}
+                                <img
+                                    className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b"
+                                    onClick={() => {
+                                        resetToDashboard(isBackComponent, userListsComponent)
+                                        /**isBackComponent(false);
+                                        userListsComponent(null);*/
+                                    }}
                                 />
                         }
                         <h1 className="current-3">{isBack ? headerName : "Dashboard"}</h1>
@@ -257,6 +265,7 @@ export function ScrollViewArea({ render_frame,
     setAddPanel,
     mobileUserClick
 }) {
+    /**Holds the value of which user panel to render on the scrollView */
     const isUserPanel = useContext(RenderUsersListContext);
     return (
         <>
@@ -277,7 +286,10 @@ export function ScrollViewArea({ render_frame,
                             isUserPanel === "instructors" ?
                                 <InstructorLists />
                                 :
-                                <DashboardStats />
+                                isUserPanel === "student" ?
+                                    <StudentLists />
+                                    :
+                                    <DashboardStats />
 
                 }
 

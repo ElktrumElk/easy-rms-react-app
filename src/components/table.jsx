@@ -7,9 +7,10 @@
  * @param {String} param0.buttonText - Text to be display at the blue button
  * @param {String} param0.tableTitle - Title of the component or Table
  * @param {String} param0.tableUserName - what should display as the head title of names
+ * @param {Boolean} param0.isStudent - isit is student it will get the student data
  * @returns 
  */
-export const ListTable = ({list, tableTitle, buttonText, tableUserName}) => {
+export const ListTable = ({list, tableTitle, buttonText, tableUserName, isStudent = false}) => {
 
     return (
         <>
@@ -42,11 +43,11 @@ export const ListTable = ({list, tableTitle, buttonText, tableUserName}) => {
                         </div>
                         <div className="admin_id_head-10">
                             <img />
-                            <span>ID</span>
+                            <span>{isStudent ? "Batch" : "ID"}</span>
                         </div>
                         <div className="p_number-10">
                             <img />
-                            <span >Phone Number</span>
+                            <span >{isStudent ? "Course":"Phone Number"}</span>
                         </div>
                         <div>
                             <img />
@@ -56,7 +57,7 @@ export const ListTable = ({list, tableTitle, buttonText, tableUserName}) => {
 
                     <div className="admin_lists_view-10">
                         {
-                            list.map((admin, index) => (
+                            list.map((item, index) => (
                                 <div key={index} className="adminRow-10">
 
                                     <div className="admin_num_cnt-10">
@@ -64,16 +65,16 @@ export const ListTable = ({list, tableTitle, buttonText, tableUserName}) => {
                                     </div>
 
                                     <div className="admin_name_cnt-10">
-                                        <strong>{admin.name}</strong>
-                                        <span>{admin.email}</span>
+                                        <strong>{item.name}</strong>
+                                        <span>{isStudent ? item.id : item.email}</span>
                                     </div>
 
                                     <div className="ids-10">
-                                        <span>{admin.id}</span>
+                                        <span>{isStudent ? item.batch : item.id}</span>
                                     </div>
 
                                     <div className="phone_number_cnt-10">
-                                        <span >{admin.number}</span>
+                                        <span >{isStudent ? item.course : item.number}</span>
                                     </div>
 
                                     <div>

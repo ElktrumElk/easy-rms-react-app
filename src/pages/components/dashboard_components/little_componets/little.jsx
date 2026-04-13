@@ -2,7 +2,8 @@
 import { useContext, useEffect } from "react"
 import { UserTheme } from "../../../../context/userThemeContext"
 /**
- * 
+ * The drop down arrow
+ * just the arrow icon on the right of every drop down lists
  * @param {Object} param0 
  * @param {Number} param0.isClick
  * @param {Number} param0.idx
