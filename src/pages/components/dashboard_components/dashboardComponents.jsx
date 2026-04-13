@@ -124,7 +124,7 @@ export function DashSideBar({
 
                             {
                                 isClick === 2 &&
-                                <UserLists setUserClick={setUserClick} />
+                                <UserLists setUserClick={setUserClick}/>
                             }
                             {/**
                             <UsersComponentList />

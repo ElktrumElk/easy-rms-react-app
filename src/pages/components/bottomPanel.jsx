@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import moduleData from "./dashboard_components/batches/module_data";
-
+import { UserLists } from "../../components/sidebar_user_list";
 
 /**
  * Comment: The bottom pannel you can find the bottom panel import in the dashBoardComponent file at
@@ -53,12 +53,14 @@ export default function BottomPanel({ modules = [], isDisplay = false, click, co
     useEffect(() => {
         if (colorModeValue === 'dark') {
             setDark(true);
-           // console.log("yup")
+            // console.log("yup")
         } else {
             setDark(false);
             //console.log("yo")
         }
     }, [colorModeValue])
+
+    const [mobileShowUser, setShowUsers] = useState(false);
 
     return (
         <div
@@ -100,6 +102,35 @@ export default function BottomPanel({ modules = [], isDisplay = false, click, co
 
             </div>
 
+            <div className="bottom_cnts-6"
+                style={{
+                    borderBottom: "1px solid gray",
+                    paddingBottom: "1rem",
+                    flexDirection: "column",
+                    gap: "1rem",
+                    alignItems: "flex-start"
+
+                }}
+                onClick={() => { setShowUsers(!mobileShowUser) }}
+            >
+                <div className="batch_name_cnt-6">
+                    <img className="bottom_panel_ic-6"
+                        src="https://img.icons8.com/?size=100&id=102261&format=png&color=7e7e7e"
+                        alt="batch" />
+                    <strong>Users</strong>
+                </div>
+                {/**=================USER LISTS===================== */
+                    
+                    mobileShowUser &&
+                    <UserLists styles={{
+                        padding: "0",
+                        margin: 0,
+                        width: "100%",
+                        padding: "0"
+                    }} />
+                }
+            </div>
+
             <div className="bottom_cnts-6">
                 <div className="batch_name_cnt-6">
                     <img className="bottom_panel_ic-6"
@@ -115,6 +146,8 @@ export default function BottomPanel({ modules = [], isDisplay = false, click, co
                     </div>
                 </div>
             </div>
+
+
 
         </div>
     )
