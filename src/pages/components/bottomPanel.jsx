@@ -120,17 +120,19 @@ export default function BottomPanel({
                     gap: "1rem",
                     alignItems: "flex-start"
 
-                }}>
+                }}
+                onClick={() => { setShowUsers(!mobileShowUser) }}
+            >
                 <div
                     className="batch_name_cnt-6"
-                    onClick={() => { setShowUsers(!mobileShowUser) }}
+
                 >
                     <img className="bottom_panel_ic-6"
                         src="https://img.icons8.com/?size=100&id=102261&format=png&color=7e7e7e"
                         alt="batch" />
                     <strong>Users</strong>
                 </div>
-                {/**=================USER LISTS===================== */
+                    {/**=================USER LISTS===================== */
 
                     mobileShowUser &&
                     <UserLists
