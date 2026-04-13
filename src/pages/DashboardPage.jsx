@@ -111,6 +111,7 @@ export default function Dashboard() {
                         setSelectFile={setSelectFile}
                         showAddPanel={showAddPanel}
                         setAddPanel={setAddPanel}
+                        mobileUserClick={setUserPanel}
                     />
                 </div>
                 </RenderUsersListContext.Provider>

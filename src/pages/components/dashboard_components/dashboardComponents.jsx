@@ -124,7 +124,7 @@ export function DashSideBar({
 
                             {
                                 isClick === 2 &&
-                                <UserLists setUserClick={setUserClick}/>
+                                <UserLists setUserClick={setUserClick} />
                             }
                             {/**
                             <UsersComponentList />
@@ -233,6 +233,7 @@ export function DashboardHeader({
  * @param {CallableFunction} param0.setSelectFile - The callbackfunction for the select file to change state true / false
  * @param {Boolean} param0.showAddPanel - Show Add panel
  * @param {Boolean} param0.setAddPanel - function to change the state of the add panel 
+ * @param {CallableFunction} param0.mobileUserClick - function to render user lists for mobile users
 */
 export function ScrollViewArea({ render_frame,
     batchList,
@@ -243,7 +244,8 @@ export function ScrollViewArea({ render_frame,
     selectFile,
     setSelectFile,
     showAddPanel,
-    setAddPanel
+    setAddPanel,
+    mobileUserClick
 }) {
     const isUserPanel = useContext(RenderUsersListContext);
     return (
@@ -269,7 +271,14 @@ export function ScrollViewArea({ render_frame,
 
                 }
 
-                <BottomPanel modules={batchList} isDisplay={isBottomDisplay} click={isBottomBatch} colorMode={setColorMode} colorModeValue={colorModeValue} />
+                <BottomPanel
+                    modules={batchList}
+                    isDisplay={isBottomDisplay}
+                    click={isBottomBatch}
+                    colorMode={setColorMode}
+                    colorModeValue={colorModeValue}
+                    mobileUserClick={mobileUserClick} />
+
                 <AddFilePanel showAddPanel={showAddPanel} setAddPanel={setAddPanel} />
             </section>
 

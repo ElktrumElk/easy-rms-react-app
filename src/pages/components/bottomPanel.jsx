@@ -14,10 +14,19 @@ import { UserLists } from "../../components/sidebar_user_list";
  * @param {Function} param0.click - boolean. 
  * @param {Function} param0.colorMode - set The color mode to dark or white
  * @param {String} param0.colorModeValue = The value of the color mode to get the user saved prefer theme
+ * @param {String} param0.mobileUserClick = The value of the color mode to get the user saved prefer theme
+ * 
  *
  * @returns 
  */
-export default function BottomPanel({ modules = [], isDisplay = false, click, colorMode, colorModeValue }) {
+export default function BottomPanel({
+    modules = [],
+    isDisplay = false,
+    click,
+    colorMode,
+    colorModeValue,
+    mobileUserClick
+}) {
 
     const [showList, setShowList] = useState(false);
 
@@ -102,7 +111,8 @@ export default function BottomPanel({ modules = [], isDisplay = false, click, co
 
             </div>
 
-            <div className="bottom_cnts-6"
+            <div
+                className="bottom_cnts-6"
                 style={{
                     borderBottom: "1px solid gray",
                     paddingBottom: "1rem",
@@ -110,24 +120,28 @@ export default function BottomPanel({ modules = [], isDisplay = false, click, co
                     gap: "1rem",
                     alignItems: "flex-start"
 
-                }}
-                onClick={() => { setShowUsers(!mobileShowUser) }}
-            >
-                <div className="batch_name_cnt-6">
+                }}>
+                <div
+                    className="batch_name_cnt-6"
+                    onClick={() => { setShowUsers(!mobileShowUser) }}
+                >
                     <img className="bottom_panel_ic-6"
                         src="https://img.icons8.com/?size=100&id=102261&format=png&color=7e7e7e"
                         alt="batch" />
                     <strong>Users</strong>
                 </div>
                 {/**=================USER LISTS===================== */
-                    
+
                     mobileShowUser &&
-                    <UserLists styles={{
-                        padding: "0",
-                        margin: 0,
-                        width: "100%",
-                        padding: "0"
-                    }} />
+                    <UserLists
+                        styles={{
+                            padding: "0",
+                            margin: 0,
+                            width: "100%",
+                            padding: "0"
+                        }}
+                        setUserClick={mobileUserClick}
+                    />
                 }
             </div>
 
