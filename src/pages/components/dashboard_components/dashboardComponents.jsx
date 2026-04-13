@@ -10,6 +10,7 @@ import { UserLists } from "../../../components/sidebar_user_list";
 import AdminLists from "../../../components/admin_lists";
 import { RenderUsersListContext } from "../../../context/userListClick";
 import InstructorLists from "../../../components/instructors_lists";
+import { resetToDashboard } from "../../../hooks/reset_to_dahsboard";
 /**\
  * 
  * 
@@ -149,6 +150,7 @@ export function DashSideBar({
  * @param {CallableFunction} param0.isBackFunc - function of the back
  * @param {CallableFunction} param0.setColorMode - Set the color mode to dark or white
  * @param {String} param0.colorMode.Value - Holds the value of the color mode
+ * @param {String} param0.userListsComponent - holds the state to render the list component
  * @returns 
  */
 export function DashboardHeader({
@@ -159,7 +161,8 @@ export function DashboardHeader({
     isBackFunc = null,
     isBackComponent = null,
     setColorMode,
-    colorModeValue
+    colorModeValue,
+    userListsComponent
 }) {
     const date = new Date();
     //days
@@ -194,7 +197,14 @@ export function DashboardHeader({
                                     onClick={() => { isBackFunc(false) }} />
                                 :
                                 /**The home icon at the top of the header */
-                                <img className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" />
+                                <img 
+                                className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b" 
+                                onClick={() => {
+                                    resetToDashboard(isBackComponent, userListsComponent)
+                                    /**isBackComponent(false);
+                                    userListsComponent(null);*/
+                                }}
+                                />
                         }
                         <h1 className="current-3">{isBack ? headerName : "Dashboard"}</h1>
                     </div>

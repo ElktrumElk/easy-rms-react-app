@@ -97,6 +97,7 @@ export default function Dashboard() {
                         isBackComponent={setData}
                         setColorMode={setColorMode}
                         colorModeValue={colorMode}
+                        userListsComponent={setUserPanel}
                     />
 
                     {/**main panel */}
