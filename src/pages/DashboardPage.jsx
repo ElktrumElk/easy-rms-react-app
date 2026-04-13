@@ -1,4 +1,4 @@
-import { DashSideBar, DashboardHeader, DashboardMainPanel} from "./components/dashboard_components/dashboardComponents.jsx";
+import { DashSideBar, DashboardHeader, ScrollViewArea} from "./components/dashboard_components/dashboardComponents.jsx";
 import { useEffect, useState } from "react";
 import { UserTheme } from "../context/userThemeContext.jsx";
 import { RenderUsersListContext } from "../context/userListClick.jsx";
@@ -100,7 +100,7 @@ export default function Dashboard() {
                     />
 
                     {/**main panel */}
-                    <DashboardMainPanel
+                    <ScrollViewArea
                         render_frame={mainPanelData}
                         batchList={batchArray}
                         isBottomDisplay={isBottomPanelShow}

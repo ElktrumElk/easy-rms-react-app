@@ -234,7 +234,7 @@ export function DashboardHeader({
  * @param {Boolean} param0.showAddPanel - Show Add panel
  * @param {Boolean} param0.setAddPanel - function to change the state of the add panel 
 */
-export function DashboardMainPanel({ render_frame,
+export function ScrollViewArea({ render_frame,
     batchList,
     isBottomDisplay,
     isBottomBatch,
