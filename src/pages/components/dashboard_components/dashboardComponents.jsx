@@ -247,11 +247,11 @@ export function DashboardHeader({
  * @param {CallableFunction} param0.isBottomBatch - A callable function thats update the batch list rendering on the main frame
  * @param {CallableFunction} param0.setColorMode - set the useState of the colorMode to triger colorMode changes
  * @param {String} param0.colorModeValue - Value of the colorMode needs to be passed here
- * @param {Boolean} param0.selectFile - if The select icon should be display for file selection
- * @param {CallableFunction} param0.setSelectFile - The callbackfunction for the select file to change state true / false
- * @param {Boolean} param0.showAddPanel - Show Add panel
- * @param {Boolean} param0.setAddPanel - function to change the state of the add panel 
- * @param {CallableFunction} param0.mobileUserClick - function to render user lists for mobile users
+ * @param {Boolean} param0.selectFile - Display the select file icon.
+ * @param {CallableFunction} param0.setSelectFile - The callbackfunction for the select files in the module. state true / false
+ * @param {Boolean} param0.showAddPanel - Holds the value of the Add panel to display or not
+ * @param {Boolean} param0.setAddPanel - function to change the state of the add panel. display or not.
+ * @param {CallableFunction} param0.mobileUserClick - function to render user lists for mobile users in the scrollview area
 */
 export function ScrollViewArea({ render_frame,
     batchList,

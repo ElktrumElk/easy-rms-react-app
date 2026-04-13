@@ -14,7 +14,7 @@ import { UserLists } from "../../components/sidebar_user_list";
  * @param {Function} param0.click - boolean. 
  * @param {Function} param0.colorMode - set The color mode to dark or white
  * @param {String} param0.colorModeValue = The value of the color mode to get the user saved prefer theme
- * @param {String} param0.mobileUserClick = The value of the color mode to get the user saved prefer theme
+ * @param {CallableFunction} param0.mobileUserClick = The function to render out the userList component on the scrollview
  * 
  *
  * @returns 
@@ -59,6 +59,7 @@ export default function BottomPanel({
         }
     }
 
+    /**Listen for dark mode */
     useEffect(() => {
         if (colorModeValue === 'dark') {
             setDark(true);
@@ -69,6 +70,7 @@ export default function BottomPanel({
         }
     }, [colorModeValue])
 
+    /**State to show the userOption lists on a mobile version */
     const [mobileShowUser, setShowUsers] = useState(false);
 
     return (
