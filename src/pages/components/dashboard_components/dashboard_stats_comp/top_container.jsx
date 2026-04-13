@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState } from "react"
 import TotalNumberResources from "./total_num_res";
 
-export function TopContainer() {
+/**
+ * 
+ * @param {Object} param0 
+ * @param {String} param0.viewBatchButtonClick
+ * @param {CallableFunction} param0.viewBatchFunction
+ * 
+ * @returns 
+ */
+export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
     const [viewPanel, setViewPanels] = useState(false);
     const [ct, setCurTab] = useState(null);
@@ -10,8 +18,15 @@ export function TopContainer() {
     const [tb, setTb] = useState(null);
 
     useEffect(() => {
-        console.log(ct)
-    }, [ct])
+        if(viewBatchButtonClick !== null) {
+            setViewPanels(true);
+            setTb("Batches Enrolled");
+            setCurTab("BE");
+            viewBatchFunction(null)
+        }
+    }, [viewBatchButtonClick])
+
+
     return (
         <>
             <div className="top_bar-5">
@@ -90,7 +105,7 @@ export function TopContainer() {
                     <div className="status_card-5">
 
                         <div className="status_card_tp_cnt-5">
-                            <span><strong>Access Course</strong></span>
+                            <span><strong>Course</strong></span>
                         </div>
 
 
@@ -108,7 +123,7 @@ export function TopContainer() {
                             onClick={() => {
                                 setViewPanels(!viewPanel);
                                 setCurTab("AC");
-                                setTb("Access Course")
+                                setTb("Course")
                             }}
                         >
                             <span>View Details</span>
@@ -119,7 +134,7 @@ export function TopContainer() {
                     <div className="status_card-5">
 
                         <div className="status_card_tp_cnt-5">
-                            <span><strong>Accessed Modules</strong></span>
+                            <span><strong>Modules</strong></span>
                         </div>
 
 

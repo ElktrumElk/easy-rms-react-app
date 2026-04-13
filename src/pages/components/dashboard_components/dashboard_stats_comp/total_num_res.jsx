@@ -59,7 +59,7 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
                             <button
                                 className={currentTab === "AC" ? "active" : undefined}
                                 onClick={() => { setCurrentTab("AC") }}
-                            >Accessed Course</button>
+                            >Course</button>
                         </div>
                     </div>
 

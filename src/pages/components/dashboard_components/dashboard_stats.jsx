@@ -1,3 +1,4 @@
+import { useState } from "react";
 import GreetingContainer from "./dashboard_stats_comp/greeting_cnt";
 import ModuleStats from "./dashboard_stats_comp/module_stats_comp";
 import { ModuleView } from "./dashboard_stats_comp/modules_cnt";
@@ -6,15 +7,18 @@ import { TopContainer } from "./dashboard_stats_comp/top_container";
 
 /**The whole section of the dashboard statistics */
 export default function DashboardStats() {
-
+    const [isViewBatch, setViewbatch] = useState(null)
     return (
         <>
             <div id="main_page" className="home_screen">
                 {/**Greetings */}
-                <GreetingContainer />
+                <GreetingContainer isViewBatch={setViewbatch}/>
                 
                 {/**Top cnt */}
-                <TopContainer />
+                <TopContainer 
+                viewBatchButtonClick={isViewBatch}
+                viewBatchFunction={setViewbatch}
+                />
 
                 {/**module stats component */}
                 <ModuleStats />

@@ -1,6 +1,14 @@
+import quotes from "../../../../scripts/quotes"
 
+/**
+ * 
+ * @param {Object} param0 
+ * @param {CallableFunction} param0.isViewBatch - A function to display the batch panel. it only allow string to be pass as an argument
+ * @returns 
+ */
+export default function GreetingContainer({isViewBatch}) {
 
-export default function GreetingContainer() {
+    
     return (
         <>
             <div className="greeting_cnt-8">
@@ -21,7 +29,7 @@ export default function GreetingContainer() {
                         <h2>Good Morning Elkanah Cole.</h2>
                         <span><strong>ID: </strong>Code2026001</span>
                     </div>
-                    <button className="view_batch_button-9">View Batch</button>
+                    <button className="view_batch_button-9" onClick={() => {isViewBatch("BE")}}>View Batch</button>
 
                     <div className="quote-8 qin-8">
                         <p>

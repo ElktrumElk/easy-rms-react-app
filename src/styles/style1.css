@@ -23,11 +23,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
-    background-color: var(--bg);
+    background-color: var(--main-bg-cl);
 }
 
 .app {
-    background-color: var(--bg);
+    background-color: var(--main-bg-cl);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,18 +127,14 @@ body {
 
 .main_frame-1 {
     width: 97%;
-    height: 100%;
+    height: 85dvh;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
-    place-items: center;
-    place-content: center;
-    background-position: center;
-    background-size: cover;
-    box-shadow: 0px 0px .2rem gray;
-    flex: 1;
+    align-items: center;
     align-self: center;
     flex-shrink: 1;
+    gap: 2rem;
 }
 
 .logo_img_2-1 {
@@ -155,7 +151,7 @@ body {
     text-align: center;
     color: var(--global-txt-cl);
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.5rem;
     transform: scaleY(1.1);
     flex-shrink: 1;
     flex-basis: auto;
@@ -164,7 +160,15 @@ body {
 .slogan_mini-1 {
     font-family: sans-serif;
     text-align: center;
-    color: var(--global-txt-cl);
+    color: gray;
+}
+.slogan_cnt-1 {
+    margin-block-start: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .reg_sig_btn-1 {
@@ -172,9 +176,7 @@ body {
     flex-direction: column;
     width: 90%;
     gap: 1rem;
-    justify-content: space-between;
-    margin-block-start: 1rem;
-   
+    justify-content: space-between; 
 }
 .btns-1 {
     width: 100%;
@@ -201,5 +203,6 @@ body {
       flex-direction: row;
       width: 50%;
       max-width: 500px;
+
     }
 }
