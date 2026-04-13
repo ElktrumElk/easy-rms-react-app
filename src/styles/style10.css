@@ -115,7 +115,10 @@
     background-color: whitesmoke;
     padding: 1rem 1rem;
 }
+.dash_board.dark .admin_table_head-10 {
+    background-color: rgba(0, 0, 0, 0.555);
 
+}
 .admin_table_head-10 :where(div, span) {
     width: 100%;
     display: flex;
@@ -180,6 +183,7 @@
     border: 1px solid rgba(128, 128, 128, 0.607);
     border-radius: .3rem;
     padding: .6rem .2rem;
+    background: transparent
 
 }
 
