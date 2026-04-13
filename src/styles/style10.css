@@ -40,6 +40,10 @@
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
+.dash_board.dark .sidebar_user_list_item-10 {
+    background: var(--layout-1);
+}
+
 .sidebar_user_list_item-10::before {
     content: "";
     position: absolute;
@@ -115,10 +119,12 @@
     background-color: whitesmoke;
     padding: 1rem 1rem;
 }
+
 .dash_board.dark .admin_table_head-10 {
     background-color: rgba(0, 0, 0, 0.555);
 
 }
+
 .admin_table_head-10 :where(div, span) {
     width: 100%;
     display: flex;
@@ -184,7 +190,6 @@
     border-radius: .3rem;
     padding: .6rem .2rem;
     background: transparent
-
 }
 
 .tools_cnt-10 {
@@ -204,6 +209,7 @@
     align-items: center;
     justify-content: center;
     gap: .5rem;
+    border: none;
 }
 
 .phone_number_cnt-10 {
@@ -240,6 +246,7 @@
     .admin_table_head-10 {
         grid-template-columns: .3fr repeat(1, 1fr) .3fr;
     }
+
     .admin_id_head-10 {
         display: none;
     }
@@ -247,17 +254,20 @@
     .adminRow-10 div.ids-10 {
         display: none;
     }
+
     .admin_top_container-10 {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
         height: auto;
     }
+
     .tools_cnt-10 {
         flex-direction: column-reverse;
         gap: .5rem;
     }
-     .admin_search_inp-10 {
+
+    .admin_search_inp-10 {
         display: flex;
         width: 20rem;
     }
