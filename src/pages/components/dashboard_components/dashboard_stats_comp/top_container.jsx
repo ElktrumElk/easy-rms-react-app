@@ -81,7 +81,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                     <div className="status_card-5">
 
                         <div className="status_card_tp_cnt-5">
-                            <img src="https://img.icons8.com/?size=100&id=1476&format=png&color=0760db" width={"20"} height={"20"}
+                            <img src="https://img.icons8.com/?size=100&id=7890&format=png&color=0760db" width={"20"} height={"20"}
                                 style={{
                                     background: "#0760db48",
                                     borderRadius: ".4rem",
@@ -113,6 +113,14 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                     <div className="status_card-5">
 
                         <div className="status_card_tp_cnt-5">
+                            <img src="https://img.icons8.com/?size=100&id=79259&format=png&color=d7c820" width={"20"} height={"20"}
+                                style={{
+                                    background: "#d7c82048",
+                                    borderRadius: ".4rem",
+                                    padding: ".5rem .5rem",
+                                    boxSizing: "content-box"
+                                }}
+                            />
                             <span><strong>Course</strong></span>
                         </div>
 
@@ -139,6 +147,14 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                     <div className="status_card-5">
 
                         <div className="status_card_tp_cnt-5">
+                            <img src="https://img.icons8.com/?size=100&id=22798&format=png&color=c820d7" width={"20"} height={"20"}
+                                style={{
+                                    background: "#c820d748",
+                                    borderRadius: ".4rem",
+                                    padding: ".5rem .5rem",
+                                    boxSizing: "content-box"
+                                }}
+                            />
                             <span><strong>Modules</strong></span>
                         </div>
 
