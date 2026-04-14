@@ -27,5 +27,5 @@ export function BackBtn({ cb }) {
         }
     }
 
-    return <img className="login_back_btn-2" alt="Back" onClick={updateBackClick}/>
+    return <img src="/icons/back_arrow.png" className="login_back_btn-2" alt="Back" onClick={updateBackClick}/>
 }
