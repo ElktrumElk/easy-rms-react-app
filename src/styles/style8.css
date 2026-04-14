@@ -23,7 +23,8 @@
     height: 100%;
     box-sizing: border-box;
     overflow-y: auto;
-
+    background-color: var(--main-bg-cl);
+    padding: 1rem;
 }
 
 .Ttl_num_res_list-8 {
@@ -44,8 +45,10 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem 1rem 0rem 1rem;
-    background-color: rgba(118, 214, 255, 0.05);
+    background-color: rgb(2, 72, 104);
     border-bottom: .4px solid gray;
+    border-radius: 1rem;
+    color: white;
 }
 
 .top_cnt-8 {
@@ -87,11 +90,13 @@
 }
 
 .list_cnt-8 {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     width: 100%;
-    gap: 2rem;
+    gap: 1rem;
+    justify-items: center;
+
 
 }
 
@@ -103,9 +108,10 @@
     display: flex;
     flex-direction: column;
     gap: .2rem;
-    border: .2px solid gray;
+    border: .2px solid rgba(128, 128, 128, 0.473);
     border-radius: 1rem;
     overflow-y: auto;
+    background-color: white;
 }
 
 .list_top_sec-8 {
@@ -174,7 +180,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem 1rem;
-    background-color: rgb(6, 139, 255);
+    background-color: rgb(3, 120, 222);
     border-radius: .5rem;
     border: none;
     color: white;
@@ -357,6 +363,7 @@
     .greeting_cnt-8 {
         min-height: 20rem;
     }
+
     .greetings-8 h2 {
         font-size: 1.7rem;
     }

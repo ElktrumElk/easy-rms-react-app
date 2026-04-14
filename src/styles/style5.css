@@ -48,7 +48,7 @@
     width: 100%;
     min-height: 10rem;
     background-color: var(--layout-1);
-    border-radius: .6rem;
+    border-radius: 1rem;
     border: .3px solid rgba(205, 203, 203, 0.457);
     display: grid;
     grid-template-columns: 1fr;

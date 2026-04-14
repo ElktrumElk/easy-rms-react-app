@@ -1,10 +1,9 @@
 .module_sec_cnt-9 {
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .module_sec_cnt-9 h2 {
@@ -23,6 +22,8 @@
     align-items: center;
     background-color: var(--layout-1);
     border-radius: 1rem;
+    flex: 1;
+
 }
 
 .module_card-9 {

@@ -1,4 +1,4 @@
-import { DashSideBar, DashboardHeader, ScrollViewArea} from "./components/dashboard_components/dashboardComponents.jsx";
+import { DashSideBar, DashboardHeader, ScrollViewArea } from "./components/dashboard_components/dashboardComponents.jsx";
 import { useEffect, useState } from "react";
 import { UserTheme } from "../context/userThemeContext.jsx";
 import { RenderUsersListContext } from "../context/userListClick.jsx";
@@ -65,56 +65,57 @@ export default function Dashboard() {
     /**==========================JSX ELEMENT============================= */
     return (
         <>
-           
-            <UserTheme.Provider value={{colorMode, showAddPanel, selectFile, dashName}} >
+
+            <UserTheme.Provider value={{ colorMode, showAddPanel, selectFile, dashName }} >
                 <RenderUsersListContext.Provider value={isUserPanel}>
                     <div id="dashboard" className={
-                    isExpand ? colorMode === "light" ? "p_cnt-3 side_expand" : "p_cnt-3 side_expand dash_board dark" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
-                }>
+                        isExpand ? colorMode === "light" ? "p_cnt-3 side_expand" : "p_cnt-3 side_expand dash_board dark" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
+                    }>
 
-                    {/**Side bar 
+                        {/**Side bar 
                  * You can find the dashSideBar from the file DashBoardComponents
                  * */
-                    }
-                    <DashSideBar
-                        isExpand={isExpand}
-                        handleExpand={setExpand}
-                        returnHome={setData}
-                        batchCb={setData}
-                        setBatchArray={setArray}
-                        externalIndex={externalBatch}
-                        setClick={isClick}
-                        funcName={setDashNameSideBar}
-                        setUserClick={setUserPanel}
-                    />
+                        }
+                        <DashSideBar
+                            isExpand={isExpand}
+                            handleExpand={setExpand}
+                            returnHome={setData}
+                            batchCb={setData}
+                            setBatchArray={setArray}
+                            externalIndex={externalBatch}
+                            setClick={isClick}
+                            funcName={setDashNameSideBar}
+                            setUserClick={setUserPanel}
+                        />
+                        <div className="main_frame_panel-3">
+                            {/**Header */}
+                            <DashboardHeader bottomPanelShow={setBottomPanel}
+                                bottomPanelValue={isBottomPanelShow}
+                                headerName={dashName}
+                                isBack={isBackBtn}
+                                isBackFunc={setBackBtn}
+                                isBackComponent={setData}
+                                setColorMode={setColorMode}
+                                colorModeValue={colorMode}
+                                userListsComponent={setUserPanel}
+                            />
 
-                    {/**Header */}
-                    <DashboardHeader bottomPanelShow={setBottomPanel}
-                        bottomPanelValue={isBottomPanelShow}
-                        headerName={dashName}
-                        isBack={isBackBtn}
-                        isBackFunc={setBackBtn}
-                        isBackComponent={setData}
-                        setColorMode={setColorMode}
-                        colorModeValue={colorMode}
-                        userListsComponent={setUserPanel}
-                    />
-
-                    {/**main panel */}
-                    <ScrollViewArea
-                        render_frame={mainPanelData}
-                        batchList={batchArray}
-                        isBottomDisplay={isBottomPanelShow}
-                        isBottomBatch={setExternalBatch}
-                        setColorMode={setColorMode}
-                        colorModeValue={colorMode}
-                        selectFile={selectFile}
-                        setSelectFile={setSelectFile}
-                        showAddPanel={showAddPanel}
-                        setAddPanel={setAddPanel}
-                        mobileUserClick={setUserPanel}
-                    />
-                </div>
+                            {/**main panel */}
+                            <ScrollViewArea
+                                render_frame={mainPanelData}
+                                batchList={batchArray}
+                                isBottomDisplay={isBottomPanelShow}
+                                isBottomBatch={setExternalBatch}
+                                setColorMode={setColorMode}
+                                colorModeValue={colorMode}
+                                selectFile={selectFile}
+                                setSelectFile={setSelectFile}
+                                showAddPanel={showAddPanel}
+                                setAddPanel={setAddPanel}
+                                mobileUserClick={setUserPanel}
+                            />
+                        </div>
+                    </div>
                 </RenderUsersListContext.Provider>
             </UserTheme.Provider>
         </>
