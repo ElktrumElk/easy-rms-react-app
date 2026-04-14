@@ -39,17 +39,20 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                     <div className={viewPanel ? "status_card-5 top_status_card-8" : "status_card-5"}>
 
                         <div className="status_card_tp_cnt-5">
-                            <span><strong>Number of Resources</strong></span>
+                            <img src="https://img.icons8.com/?size=100&id=1476&format=png&color=31f791" width={"20"} height={"20"}
+                                style={{
+                                    background: "#20d79d48",
+                                    borderRadius: ".4rem",
+                                    padding: ".5rem .5rem",
+                                    boxSizing: "content-box"
+                                }}
+                            />
+                            <span><strong>Resources</strong></span>
                         </div>
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
                                 <span>12</span>
-                            </div>
-
-                            <div className="rating_cnt">
-                                <img src="/down" />
-                                <span>15%</span>
                             </div>
                         </div>
 
@@ -78,17 +81,22 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                     <div className="status_card-5">
 
                         <div className="status_card_tp_cnt-5">
-                            <span><strong>Batches Enrolled</strong></span>
+                            <img src="https://img.icons8.com/?size=100&id=1476&format=png&color=0760db" width={"20"} height={"20"}
+                                style={{
+                                    background: "#0760db48",
+                                    borderRadius: ".4rem",
+                                    padding: ".5rem .5rem",
+                                    boxSizing: "content-box"
+                                }}
+                            />
+                            <span><strong>Batch</strong></span>
                         </div>
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
                                 <span>4</span>
                             </div>
-                            <div className="rating_cnt">
-                                <img src="/down" />
-                                <span>50%</span>
-                            </div>
+                           
                         </div>
 
                         <div className="btm_cnt-5"
@@ -113,10 +121,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                             <div className="num_cnt-5">
                                 <span>2</span>
                             </div>
-                            <div className="rating_cnt negative">
-                                <img src="/down" />
-                                <span>-20%</span>
-                            </div>
+                          
                         </div>
 
                         <div className="btm_cnt-5"
@@ -141,10 +146,6 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
                                 <span>6</span>
-                            </div>
-                            <div className="rating_cnt negative">
-                                <img src="down" />
-                                <span>-78%</span>
                             </div>
                         </div>
 

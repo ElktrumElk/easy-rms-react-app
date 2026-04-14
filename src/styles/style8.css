@@ -27,7 +27,7 @@
     height: 100%;
     box-sizing: border-box;
     overflow-y: auto;
-    background-color: var(--main-bg-cl);
+    background-color: var(--bg);
     padding: 1rem;
 }
 
@@ -115,7 +115,7 @@
     border: .2px solid rgba(128, 128, 128, 0.473);
     border-radius: 1rem;
     overflow-y: auto;
-    background-color: var(--layout_1);
+    background-color: var(--layout-1);
 }
 
 .list_top_sec-8 {

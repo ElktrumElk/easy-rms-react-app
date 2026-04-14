@@ -235,7 +235,7 @@ export function DashboardHeader({
                             src={colorModeValue === "dark" ? "/icons/light_mode_ic.png" : "/icons/dark_mode_ic.png"} alt="dark" onClick={() => { colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark') }} />
 
                         <img id="hambuger_menu" className="ic-3 ic_2-3 hamburder-3"
-                            src="https://img.icons8.com/?size=100&id=120374&format=png&color=000000" alt="hambugerMenu" onClick={() => { bottomPanelShow(!bottomPanelValue) }} />
+                            src={colorMode === "dark" ? "https://img.icons8.com/?size=100&id=120374&format=png&color=FFFFFF" : "https://img.icons8.com/?size=100&id=120374&format=png&color=000000"} alt="hambugerMenu" onClick={() => { bottomPanelShow(!bottomPanelValue) }} />
                     </div>
                 </header>
 
