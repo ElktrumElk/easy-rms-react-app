@@ -2,7 +2,7 @@ import DashboardStats from "./dashboard_stats"
 import Modules from "./batches/batch"
 import BatchComponent from "./batches/batch_components";
 import BottomPanel from "../bottomPanel";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect,  useState } from "react";
 import AddFilePanel from "./super_users/panels/add_file_panel";
 import UsersComponentList from "./users_list_comp";
 import { DropDown } from "./little_componets/little";
@@ -12,6 +12,8 @@ import { RenderUsersListContext } from "../../../context/userListClick";
 import InstructorLists from "../../../components/instructors_lists";
 import { resetToDashboard } from "../../../hooks/reset_to_dahsboard";
 import StudentLists from "../../../components/student_lists";
+import { UserTheme } from "../../../context/userThemeContext";
+
 /**\
  * 
  * 
@@ -185,6 +187,7 @@ export function DashboardHeader({
 
     const callender = `${day} ${date.getDate()} ${month} ${year}`;
 
+    const {colorMode} = useContext(UserTheme);
     useEffect(() => {
         if (!isBack) {
             isBackComponent(false);
@@ -206,7 +209,7 @@ export function DashboardHeader({
                                 :
                                 /**The home icon at the top of the header */
                                 <img
-                                    className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=#1E319B"
+                                    className="ic-3 ic3-3" src={colorMode === "dark" ? "https://img.icons8.com/?size=100&id=73&format=png&color=FFFFFF" : "https://img.icons8.com/?size=100&id=73&format=png&color=1E319B"}
                                     onClick={() => {
                                         resetToDashboard(isBackComponent, userListsComponent)
                                         /**isBackComponent(false);
