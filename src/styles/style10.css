@@ -189,7 +189,7 @@
     border: .4px solid var(--theme_color);
     border-radius: .3rem;
     padding: .6rem .2rem;
-    background: transparent
+    background: transparent;
 }
 
 .tools_cnt-10 {
