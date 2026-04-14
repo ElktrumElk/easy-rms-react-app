@@ -1,11 +1,4 @@
 
-:root {
-    --main-bg-cl: whitesmoke;
-}
-
-.dash_board.dark {
-    --main-bg-cl: rgb(10, 10, 10);
-}
 .top_status_card-8 {
     position: fixed;
     inset: 0;

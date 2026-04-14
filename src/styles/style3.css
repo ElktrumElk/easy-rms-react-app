@@ -42,15 +42,6 @@
     transition: background .4s ease;
 }
 
-body {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: auto;
-    margin: 0;
-    box-sizing: border-box;
-}
 
 .p_cnt-3 {
     display: grid;
