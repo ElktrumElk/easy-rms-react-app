@@ -28,8 +28,6 @@ export default function DefaultPage() {
               alt="lg"
             />
             <div className="slogan_cnt-1">
-
-              <h2 className="slogan-1">Centralized Learning for a Smarter Future</h2>
               <p className="slogan_mini-1">Everything you need to learn right here.</p>
             </div>
 
