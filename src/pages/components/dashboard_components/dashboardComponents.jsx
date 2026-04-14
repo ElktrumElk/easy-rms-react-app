@@ -2,7 +2,7 @@ import DashboardStats from "./dashboard_stats"
 import Modules from "./batches/batch"
 import BatchComponent from "./batches/batch_components";
 import BottomPanel from "../bottomPanel";
-import { useContext, useEffect,  useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AddFilePanel from "./super_users/panels/add_file_panel";
 import UsersComponentList from "./users_list_comp";
 import { DropDown } from "./little_componets/little";
@@ -40,6 +40,7 @@ export function DashSideBar({
 }) {
 
     const [isClick, setIsClick] = useState(0);
+
 
     return (
         <>
@@ -107,7 +108,21 @@ export function DashSideBar({
                                     moduleName={funcName}
                                     setBatchArray={setBatchArray}
                                     externalIndex={externalIndex}
-                                    isClicked={setClick} />
+                                    isClicked={setClick}
+
+                                />
+
+                            }
+                            {
+                                window.screen.width <= 600 &&
+                                <Modules
+                                    data={batchCb}
+                                    moduleName={funcName}
+                                    setBatchArray={setBatchArray}
+                                    externalIndex={externalIndex}
+                                    isClicked={setClick}
+
+                                />
                             }
 
                             <li
@@ -187,7 +202,7 @@ export function DashboardHeader({
 
     const callender = `${day} ${date.getDate()} ${month} ${year}`;
 
-    const {colorMode} = useContext(UserTheme);
+    const { colorMode } = useContext(UserTheme);
     useEffect(() => {
         if (!isBack) {
             isBackComponent(false);
@@ -268,6 +283,8 @@ export function ScrollViewArea({ render_frame,
     setAddPanel,
     mobileUserClick
 }) {
+
+
     /**Holds the value of which user panel to render on the scrollView */
     const isUserPanel = useContext(RenderUsersListContext);
     return (

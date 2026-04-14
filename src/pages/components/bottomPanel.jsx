@@ -28,6 +28,8 @@ export default function BottomPanel({
     mobileUserClick
 }) {
 
+    
+    /**Handle the toggle of showing batch list */
     const [showList, setShowList] = useState(false);
 
     const handleShowList = () => {

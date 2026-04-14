@@ -24,6 +24,7 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
         "N++"
     ]);
 
+
     const moduleFiles = moduleData();
     const moduleClick = useRef([]);
     const [currentClicked, setCurrentClicked] = useState(null);
@@ -51,9 +52,16 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
         }
     }, [items, setBatchArray]);
 
+    /**load the lists of items */
+    let isInit_load = 0;
+
+
+
+
 
     /**Listen for changes for the external index */
     useEffect(() => {
+        
         if (externalIndex !== null) {
             if (typeof data === 'function') {
                 data(moduleFiles[externalIndex !== null || !isNaN(externalIndex) ? externalIndex : 0]);
