@@ -30,11 +30,12 @@
     width: 100%;
     min-height: 5rem;
     border-top: .1px solid rgba(128, 128, 128, 0.731);
-    border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    color:var(--global-txt-cl);
+    font-weight: 300;
 }
 
 
@@ -44,8 +45,9 @@
 }
 .cnt1-9 {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
-    align-items: center;
+    align-items: flex-end;
 }
 .module_new_file_notify-9 {
     display: flex;
@@ -55,7 +57,7 @@
     padding: .2rem .2rem;
     place-items: center;
     place-content: center;
-    background-color: rgb(6, 184, 6);
+    background-color: var(--theme_color);
     border-radius: 4rem;
     color: white;
 }

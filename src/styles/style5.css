@@ -42,33 +42,14 @@
     gap: 1rem;
 }
 
-.glass-liquid-5 {
-  background: linear-gradient(
-    135deg,
-    rgba(248, 248, 248, 0.148) 0%,
-    rgba(30, 49, 155, 0.075) 40%,
-    rgba(255, 255, 255, 0.1) 60%,
-    rgba(30, 49, 155, 0.094) 100%
-  );
-  
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 24px;
-  
-  box-shadow: 
-    0 10px 40px rgba(143, 143, 143, 0.2),
-    inset 0 0px 12px rgba(255, 255, 255, 0.674);
-}
 
 .status_card-5 {
     width: 100%;
     min-height: 10rem;
     background-color: var(--layout-1);
     border-radius: 1rem;
-   
-    
+
+
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
@@ -76,6 +57,8 @@
     gap: 1rem;
     transition: width .4s ease, height .4s ease;
 
+    box-shadow:
+        0 10px 40px rgba(143, 143, 143, 0.2)
 }
 
 .status_card-5.expand {
@@ -125,28 +108,16 @@
     font-size: 2rem;
     font-weight: bolder;
     font-family: sans-serif;
+    color: var(--global-txt-cl);
 }
 
-.status_card_mid_cnt-5 .rating_cnt {
-    display: flex;
-    align-items: center;
-    padding: .2rem .5rem;
-    border: 1px solid green;
-    border-radius: .2rem;
-    background: rgba(122, 245, 122, 0.237);
-}
-
-.status_card_mid_cnt-5 .rating_cnt.negative {
-    border: 1px solid red;
-    background: rgba(255, 111, 111, 0.61);
-}
 
 .btm_cnt-5 {
     display: flex;
     padding-top: .1rem;
     align-items: center;
     border-top: 1px solid rgba(180, 179, 179, 0.598);
-    
+
 }
 
 .btm_cnt-5 span {
@@ -187,7 +158,7 @@
     width: 100%;
     min-height: 20rem;
     margin-block-end: 11rem;
-    
+
 }
 
 /**Last viewd file cnt================*/
@@ -573,6 +544,7 @@
     .views-5 {
         display: none;
     }
+
     .rec_file_cmp-5 {
         grid-template-columns: 3fr 1fr;
     }
