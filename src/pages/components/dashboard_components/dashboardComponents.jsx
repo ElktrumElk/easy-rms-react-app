@@ -206,7 +206,7 @@ export function DashboardHeader({
                                 :
                                 /**The home icon at the top of the header */
                                 <img
-                                    className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=a9049b"
+                                    className="ic-3 ic3-3" src="https://img.icons8.com/?size=100&id=73&format=png&color=#1E319B"
                                     onClick={() => {
                                         resetToDashboard(isBackComponent, userListsComponent)
                                         /**isBackComponent(false);

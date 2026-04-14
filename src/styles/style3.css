@@ -263,7 +263,7 @@
 
 
 .g_list-3:hover {
-    background: rgb(2, 72, 104);
+    background: var(--theme_color);
     border-radius: 1rem;
     scale: 1.1;
     color: white;
@@ -479,7 +479,7 @@
 }
 
 .batch_list-3 ul li.active {
-    background: rgba(128, 128, 128, 0.411);
+    background: var(--theme_color);
 }
 
 .batch_list-3 ul li:hover {

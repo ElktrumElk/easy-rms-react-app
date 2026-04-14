@@ -17,7 +17,7 @@
     gap: 1rem;
     padding-bottom: 2rem;
     max-height: 900px;
-    transform: translateY(100%);
+    transform: translateY(120%);
     transition: transform .5s ease;
     pointer-events: none;
     z-index: 20;

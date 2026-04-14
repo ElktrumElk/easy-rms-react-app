@@ -63,8 +63,8 @@ const BarChart = () => {
             {
                 label: 'Total Files',
                 data: animatedValues,
-                backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: '#1E319B',
+                borderColor: '#1E319B',
                 borderWidth: 1,
             },
         ],
