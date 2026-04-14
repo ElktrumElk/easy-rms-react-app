@@ -12,13 +12,9 @@ import './styles/style9.css';
 import { AuthProvider } from "./context/AuthContext.jsx";
 import AppRoutes from "./routes/AppRoutes.jsx";
 import { useEffect } from 'react';
-import { useState } from 'react';
-import { useThemeSync } from './scripts/auto_them_sync.js';
+
 export default function App() {
 
-  window.addEventListener("load", () => {
-    console.log("changed made")
-  })
   return (
     <AuthProvider>
 
