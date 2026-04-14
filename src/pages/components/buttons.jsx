@@ -27,12 +27,5 @@ export function BackBtn({ cb }) {
         }
     }
 
-    return <img style={{
-        padding: "1rem 1rem",
-        border: "1px solid blue",
-        position: "absolute",
-        top: "20px",
-        right: "10px"
-
-    }} alt="Back" onClick={updateBackClick}/>
+    return <img className="login_back_btn-2" alt="Back" onClick={updateBackClick}/>
 }

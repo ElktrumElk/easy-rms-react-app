@@ -9,14 +9,6 @@ export default function DefaultPage() {
     <>
       <div id="welcome_screen" className="welc-1 splash-screen">
         <header className="header-1">
-          <div className="logo_cnt-1">
-            <img
-              className="logo_img-1"
-              src="https://img.icons8.com/?size=100&id=32242&format=png&color=000000"
-              alt="logo"
-            />
-            <h1 className="logo_name-1">easy</h1>
-          </div>
         </header>
 
         <section className="fram_sec-1">
