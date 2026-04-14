@@ -3,6 +3,8 @@
     --global-txt-cl: black;
     --sign-in-btn-bg: transparent;
     --df-border: 1px solid rgb(77, 107, 125);
+    --theme_color: #1E319B;
+    --secondary-btn-color: #FFD60A;
 }
 
 
@@ -36,6 +38,7 @@ body {
     box-sizing: border-box;
     overflow: hidden;
     position: fixed;
+
 }
 
 /*Welcom page section*/
@@ -46,10 +49,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*background-image: url('/splash_screen/splash_screen.png');*/
     background-position: center;
     background-size: cover;
 }
+
+.splash-screen {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--theme_color);
+    pointer-events: none;
+}
+
 
 /*Header at the top*/
 .header-1 {
@@ -57,7 +72,7 @@ body {
     justify-content: space-between;
     width: 98%;
     padding: .4rem 0rem;
-    
+
 }
 
 .logo_cnt-1 {
@@ -83,6 +98,7 @@ body {
     display: none;
     gap: 2rem;
 }
+
 .nav_links_cnt-1 {
     display: flex;
     align-items: center;
@@ -96,7 +112,7 @@ body {
 
 .sign_btn_cnt-1 {
     display: flex;
-    
+
 }
 
 /*Sign in button at the top*/
@@ -111,6 +127,7 @@ body {
     background-color: var(--sign-in-btn-bg);
     border: var(--df-border);
 }
+
 /*===========================*/
 
 /*splash Screen*/
@@ -135,8 +152,15 @@ body {
     flex-direction: column;
     align-items: center;
     align-self: center;
+    margin-block-start: 10rem;
+    
     flex-shrink: 1;
     gap: 2rem;
+}
+
+.default_page_anim-1 {
+    width: 100%;
+    margin-block-start: 10rem;
 }
 
 .logo_img_2-1 {
@@ -162,8 +186,9 @@ body {
 .slogan_mini-1 {
     font-family: sans-serif;
     text-align: center;
-    color: gray;
+    color: #FFFFFF;
 }
+
 .slogan_cnt-1 {
     margin-block-start: auto;
     width: 90%;
@@ -178,37 +203,37 @@ body {
     flex-direction: column;
     width: 90%;
     gap: 1rem;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
+
 .btns-1 {
     width: 100%;
     padding: 1rem 1rem;
     border: none;
     border-radius: 2rem;
-    box-shadow: 0px 0px .2rem gray;
-    background: rgb(34, 102, 238);
-    color: white;
+   
+    background: #00C4FF;
+    color: #E0E7FF;
 
 }
 
 .s_1-1 {
     background: transparent;
-    color: var(--global-txt-cl);
+    color: white;
+    border: .2px solid rgba(128, 128, 128, 0.614);
+    font-family: 'Inter', system-ui, sans-serif;
 }
 
-.default_page_anim-10 {
-   width: 100%;
-} 
 
 @media (min-width: 600px) {
     .nav_child_cnt-1 {
         display: flex;
     }
 
-    .reg_sig_btn-1 { 
-      flex-direction: row;
-      width: 50%;
-      max-width: 500px;
+    .reg_sig_btn-1 {
+        flex-direction: row;
+        width: 50%;
+        max-width: 500px;
 
     }
 }
@@ -217,10 +242,12 @@ body {
     .fram_sec-1 {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        
+
         height: 100dvh;
     }
+
     .main_frame-1 {
         height: fit-content;
     }
+
 }
