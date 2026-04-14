@@ -216,6 +216,7 @@
     display: flex;
 }
 
+
 @media (max-width: 711px) {
     .admin_search_inp-10 {
         display: none;
