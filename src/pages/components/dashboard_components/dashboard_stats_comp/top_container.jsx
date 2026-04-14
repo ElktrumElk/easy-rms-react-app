@@ -36,7 +36,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                     <div className="bg"></div>
 
-                    <div className={viewPanel ? "status_card-5 top_status_card-8" : "status_card-5"}>
+                    <div className={viewPanel ? "status_card-5 top_status_card-8" : "status_card-5 glass-liquid-5"}>
 
                         <div className="status_card_tp_cnt-5">
                             <img src="https://img.icons8.com/?size=100&id=1476&format=png&color=31f791" width={"20"} height={"20"}
@@ -78,7 +78,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                     </div>
 
-                    <div className="status_card-5">
+                    <div className="status_card-5 glass-liquid-5">
 
                         <div className="status_card_tp_cnt-5">
                             <img src="https://img.icons8.com/?size=100&id=7890&format=png&color=0760db" width={"20"} height={"20"}
@@ -110,9 +110,9 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                         </div>
 
                     </div>
-                    <div className="status_card-5">
+                    <div className="status_card-5 glass-liquid-5">
 
-                        <div className="status_card_tp_cnt-5">
+                        <div className="status_card_tp_cnt-5 ">
                             <img src="https://img.icons8.com/?size=100&id=79259&format=png&color=d7c820" width={"20"} height={"20"}
                                 style={{
                                     background: "#d7c82048",
@@ -144,7 +144,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                     </div>
 
-                    <div className="status_card-5">
+                    <div className="status_card-5 glass-liquid-5">
 
                         <div className="status_card_tp_cnt-5">
                             <img src="https://img.icons8.com/?size=100&id=22798&format=png&color=c820d7" width={"20"} height={"20"}
