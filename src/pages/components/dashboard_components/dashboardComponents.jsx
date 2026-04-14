@@ -101,28 +101,25 @@ export function DashSideBar({
                             </li>
 
                             {
-                                /**The list of modules at the side bar */
-                                isClick === 1 &&
-                                <Modules
-                                    data={batchCb}
-                                    moduleName={funcName}
-                                    setBatchArray={setBatchArray}
-                                    externalIndex={externalIndex}
-                                    isClicked={setClick}
+                                window.screen.width <= 600 ?
+                                    <Modules
+                                        data={batchCb}
+                                        moduleName={funcName}
+                                        setBatchArray={setBatchArray}
+                                        externalIndex={externalIndex}
+                                        isClicked={setClick}
+                                    /> :
+                                    /**The list of modules at the side bar */
+                                    isClick === 1 &&
+                                    <Modules
+                                        data={batchCb}
+                                        moduleName={funcName}
+                                        setBatchArray={setBatchArray}
+                                        externalIndex={externalIndex}
+                                        isClicked={setClick}
 
-                                />
+                                    />
 
-                            }
-                            {
-                                window.screen.width <= 600 &&
-                                <Modules
-                                    data={batchCb}
-                                    moduleName={funcName}
-                                    setBatchArray={setBatchArray}
-                                    externalIndex={externalIndex}
-                                    isClicked={setClick}
-
-                                />
                             }
 
                             <li
