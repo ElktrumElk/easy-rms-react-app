@@ -7,7 +7,6 @@ export default function DefaultPage() {
 
   return (
     <>
-
       <div id="welcome_screen" className="welc-1">
         <header className="header-1">
           <div className="logo_cnt-1">
@@ -22,11 +21,8 @@ export default function DefaultPage() {
 
         <section className="fram_sec-1">
           <div className="main_frame-1">
-            <img
-              className="logo_img-1 logo_img_2-1"
-              src="https://img.icons8.com/?size=100&id=32242&format=png&color=000000"
-              alt="lg"
-            />
+            
+          
             <div className="slogan_cnt-1">
               <p className="slogan_mini-1">Everything you need to learn right here.</p>
             </div>
