@@ -1,7 +1,8 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import AddButton from "../super_users/addfile_button";
 import DeleteFileButton from "../super_users/delete_file_btn";
 import SelectFile from "../super_users/select_file_button";
+import { AuthContext } from "../../../../context/auth_context_export";
 
 /**
  * 
@@ -85,6 +86,8 @@ export default function BatchComponent({
         default: 'https://cdn-icons-png.flaticon.com/512/337/337945.png'
     });
 
+    /**This holds the role of the User currenlty logged in*/
+    const {userRole} = useContext(AuthContext);
     return (
         <>
             <div id="dash_cmp" className="cnt_a-4">
@@ -97,9 +100,13 @@ export default function BatchComponent({
                     </div>
 
                     <div className="toolsCnt-7">
-                        <AddButton setAddPanel={setAddPanel} showAddPanel={showAddPanel} />
-                        <SelectFile setSelectFile={setSelectFile} selectFile={selectFile} />
+
+                        {/**Add only instructor previllege. Select and delete both instructor and admin previllege */}
+                        
+                        {userRole === "Instructor" && <AddButton setAddPanel={setAddPanel} showAddPanel={showAddPanel} />}
+                        {userRole === "Instructor" || userRole === "Admin" && <SelectFile setSelectFile={setSelectFile} selectFile={selectFile} />}
                         {deletBtn && <DeleteFileButton />}
+                        
                     </div>
 
                 </div>

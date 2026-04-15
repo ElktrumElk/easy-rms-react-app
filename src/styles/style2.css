@@ -14,6 +14,7 @@
     grid-auto-rows: minmax(100dvh, auto);
     width: 100%;
     min-height: 100dvh;
+    background-color: var(--bg);
 }
 
 .left-2 {

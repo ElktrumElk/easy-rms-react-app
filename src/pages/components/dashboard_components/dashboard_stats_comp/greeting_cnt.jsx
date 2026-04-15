@@ -1,5 +1,8 @@
 import quotes from "../../../../scripts/quotes"
 
+import { useContext } from "react";
+import { AuthContext } from "../../../../context/auth_context_export";
+
 /**
  * 
  * @param {Object} param0 
@@ -8,14 +11,14 @@ import quotes from "../../../../scripts/quotes"
  */
 export default function GreetingContainer({isViewBatch}) {
 
-    
+    const {userRole} = useContext(AuthContext);
     return (
         <>
             <div className="greeting_cnt-8">
                 <div className="verified_info_cnt-8">
                     <div className="verified-8">
                         <img />
-                        <span>Admin</span>
+                        <span>{userRole}</span>
                     </div>
 
                 </div>

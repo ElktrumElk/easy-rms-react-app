@@ -11,7 +11,7 @@ export default function LoginPage() {
     const { isAuthenticated, login } = useAuth();
     const dat = educationalServiceData();
     const educationalType = Object.keys(dat);
-    const loginType = ["Student", "Lecturer", "Admin"];
+    const loginType = ["Student", "Instructor", "Admin"];
     const availableID = ["ID2026001", "ID2026002", "ID2026003"];
 
     const [error, showError] = useState(false);
@@ -104,7 +104,7 @@ export default function LoginPage() {
                                     <div className="edu_serv_list-2">
                                         <ul>
                                             <li>Student</li>
-                                            <li>Lecturer</li>
+                                            <li>Instructor</li>
                                             <li>Admin</li>
                                         </ul>
                                     </div>

@@ -16,6 +16,7 @@ export default function DefaultPage() {
           <div className="main_frame-1">
             
             <div className="slogan_cnt-1">
+              <h1 className="slogan-1">Centralize Your Future in One Place.</h1>
               <p className="slogan_mini-1">Everything you need to learn right here.</p>
             </div>
 

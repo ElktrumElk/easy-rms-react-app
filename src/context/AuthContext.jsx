@@ -1,11 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-
-export const AuthContext = createContext(null);
+import { AuthContext } from "./auth_context_export";
 
 export function AuthProvider({ children }) {
+  
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
   });
+  
   const [userRole, setUserRole] = useState(() => {
     return localStorage.getItem("userRole") || null;
   });
