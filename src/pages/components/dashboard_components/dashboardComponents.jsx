@@ -286,18 +286,16 @@ export function ScrollViewArea({ render_frame,
     const isUserPanel = useContext(RenderUsersListContext);
     const { colorMode } = useContext(UserTheme)
     useState(() => {
-
         if (colorMode === "dark") {
 
             document.body.style.backgroundColor = "#080808";
-            console.log("yup")
+          
+            console.log(colorMode)
         } else {
             document.body.style.backgroundColor = "#f5f5f5";
-
         }
-
-
     }, [render_frame, colorMode])
+
     return (
         <>
             <section id='main_section' className="cont-3" >

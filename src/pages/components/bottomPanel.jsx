@@ -28,7 +28,7 @@ export default function BottomPanel({
     mobileUserClick
 }) {
 
-    
+
     /**Handle the toggle of showing batch list */
     const [showList, setShowList] = useState(false);
 
@@ -65,10 +65,12 @@ export default function BottomPanel({
     useEffect(() => {
         if (colorModeValue === 'dark') {
             setDark(true);
-            // console.log("yup")
+            document.body.style.backgroundColor = "#080808";
+            console.log("yup")
         } else {
             setDark(false);
-            //console.log("yo")
+            document.body.style.backgroundColor = "#f5f5f5";
+            console.log("yo")
         }
     }, [colorModeValue])
 
@@ -136,7 +138,7 @@ export default function BottomPanel({
                         alt="batch" />
                     <strong>Users</strong>
                 </div>
-                    {/**=================USER LISTS===================== */
+                {/**=================USER LISTS===================== */
 
                     mobileShowUser &&
                     <UserLists
