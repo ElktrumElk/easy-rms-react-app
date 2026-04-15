@@ -4,6 +4,8 @@
  * 
 */
 
+import { useContext } from "react"
+import { UserTheme } from "../../../../context/userThemeContext"
 /**
  * 
  * @param {Object} param0 
@@ -13,10 +15,12 @@
  */
 export default function AddButton({setAddPanel, showAddPanel}) {
 
+    const {colorMode} = useContext(UserTheme)
+   
     return (
         <>
             <div className="tool_btn-7" onClick={() => {setAddPanel(!showAddPanel)}}>
-                <img className="add_btn_ic-7" src="https://img.icons8.com/?size=100&id=24717&format=png&color=000000"></img>
+                <img className="add_btn_ic-7" src={colorMode === "dark" ? "/icons/add_ics.png" : "/icons/add_ics_dark.png"}></img>
                 <span>{showAddPanel ? "Close" : "Add"}</span>
             </div>
         </>

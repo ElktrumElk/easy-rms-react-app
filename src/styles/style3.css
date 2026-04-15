@@ -25,7 +25,7 @@
     color: var(--dark-thm-cl);
 }
 
-.dash_board.dark  {
+.dash_board.dark {
     background-color: #0e0d0dd3;
 }
 
@@ -53,14 +53,16 @@
     transition: grid-template-columns .5s ease;
 
 }
+
 .main_frame_panel-3 {
 
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    min-height: 100%;
 }
+
 .p_cnt-3.side_expand {
     grid-template-columns: 300px 1fr;
 }
@@ -95,7 +97,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
 .side_bar_header-3 {
@@ -196,7 +198,7 @@
 .gen_list-3 {
     display: flex;
     flex-direction: column;
-  
+
     gap: .2rem;
     list-style: none;
     padding: 0;
@@ -268,6 +270,7 @@
     scale: 1.1;
     color: white;
 }
+
 .Drop_down_arrow-3 {
     width: 20px;
     height: 20px;
@@ -279,6 +282,7 @@
     transform: rotate(0deg);
     background: none;
 }
+
 /*============================================*/
 
 /*header*/
@@ -487,7 +491,7 @@
 }
 
 .callender-3 {
- 
+
     padding: .5rem .5rem;
     background: transparent;
     display: flex;
@@ -535,7 +539,13 @@
     .p_cnt-3.side_expand {
         grid-template-columns: 1fr;
     }
+
     .callender-3 {
         display: none;
+    }
+
+    .app {
+        position: unset;
+        
     }
 }
