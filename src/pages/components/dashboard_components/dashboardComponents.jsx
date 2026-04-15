@@ -284,6 +284,20 @@ export function ScrollViewArea({ render_frame,
 
     /**Holds the value of which user panel to render on the scrollView */
     const isUserPanel = useContext(RenderUsersListContext);
+    const { colorMode } = useContext(UserTheme)
+    useState(() => {
+
+        if (colorMode === "dark") {
+
+            document.body.style.backgroundColor = "#080808";
+            console.log("yup")
+        } else {
+            document.body.style.backgroundColor = "#f5f5f5";
+
+        }
+
+
+    }, [render_frame, colorMode])
     return (
         <>
             <section id='main_section' className="cont-3" >

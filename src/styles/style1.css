@@ -1,9 +1,10 @@
 :root {
-    --main-bg-cl: whitesmoke;
-    --global-txt-cl: black;
+    --main-bg-cl: #f5f5f5;
+    --global-txt-cl: #000000;
     --sign-in-btn-bg: transparent;
     --df-border: 1px solid rgb(77, 107, 125);
     --theme_color: #1E319B;
+    --theme_color2: #1E319B;
     --secondary-btn-color: #FFD60A;
 }
 
@@ -16,23 +17,25 @@
 
 
 .dash_board.dark {
-    --main-bg-cl: black;
+    --main-bg-cl: rgb(141, 137, 137);
     --global-txt-cl: rgba(147, 147, 147, 0.961);
+    --theme_color2: #000000;
 }
 
+html,
 body {
     overflow-x: hidden;
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-color: var(--main-bg-cl);
     min-height: 100dvh;
+    background-color: var(--theme_color2);
 
 }
 
 
 .app {
-    background-color: var(--main-bg-cl);
+   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,7 +44,7 @@ body {
     box-sizing: border-box;
     position: fixed;
     color: #023b5fe2;
-    overflow-y: auto;
+    background-color: var(--main-bg-cl);
 }
 
 /*Welcom page section*/
