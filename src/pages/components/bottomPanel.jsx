@@ -103,10 +103,10 @@ export default function BottomPanel({
                     <strong>{modules.length}</strong>
                 </div>
 
-                <ul className={showList ? "batch_lists_cnt-6 expand" : "batch_lists_cnt-6"}>
+                <ul className={showList ? "sidebar_user_list_ul-10 expand" : "sidebar_user_list_ul-10 batch_lists_cnt-6"}>
                     {
                         modules.map((batchName, idx) => (
-                            <li ref={batchClick} className="batch_lists" key={idx} onClick={() => { currBatch(idx) }}>{batchName}</li>
+                            <li ref={batchClick} className="sidebar_user_list_item-10" key={idx} onClick={() => { currBatch(idx) }}>{batchName}</li>
                         ))
                     }
                 </ul>
