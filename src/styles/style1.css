@@ -44,7 +44,7 @@ body {
     box-sizing: border-box;
     position: fixed;
     color: #023b5fe2;
-    background-color: var(--main-bg-cl);
+    background-color: var(--main-bg);
 }
 
 /*Welcom page section*/

@@ -65,7 +65,7 @@ export default function BottomPanel({
     useEffect(() => {
         if (colorModeValue === 'dark') {
             setDark(true);
-            document.body.style.backgroundColor = "#080808";
+            document.body.style.backgroundColor = "black";
             console.log("yup")
         } else {
             setDark(false);
