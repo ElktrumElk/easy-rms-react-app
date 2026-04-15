@@ -40,6 +40,7 @@
     opacity: 0;
     transition: max-height .4s ease, padding .3s ease, opacity .4s ease;
     overflow: hidden;
+    padding: 0;
 }
 
 .sidebar_user_list_ul-10.expand {
