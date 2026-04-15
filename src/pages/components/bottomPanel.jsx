@@ -94,7 +94,6 @@ export default function BottomPanel({
                     <span>Student ID</span>
                     <span>Code20560028</span>
                 </div>
-
             </div>
             {
                 userRole !== "Admin" &&
