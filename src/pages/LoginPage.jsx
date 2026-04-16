@@ -26,16 +26,21 @@ export default function LoginPage() {
     const logTypeValue = useRef(null);
     const IdValue = useRef(null);
 
+
     const data = fetchData({
         navigate: navigate,
         type: "navigate"
     });
-    //console.log(dat); debuggin
 
+    //console.log(dat); debuggin
+    let k = 0;
     useEffect(() => {
-        if (isAuthenticated) {
-            setLoginData(data);
-            console.log("Also this")
+        k += 1;
+        if (k <= 1) {
+            if (isAuthenticated) {
+                setLoginData(data);
+                console.log("Also this")
+            }
         }
     }, [isAuthenticated, navigate]);
 
