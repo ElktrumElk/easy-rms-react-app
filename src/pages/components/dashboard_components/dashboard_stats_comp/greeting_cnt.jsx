@@ -18,6 +18,7 @@ export default function GreetingContainer({ isViewBatch }) {
 
     //const navigate = useNavigate();
     const data = fetchData({ navigate: false, type: false });
+    console.log(data)
 
 
     const { userRole } = useContext(AuthContext);
@@ -40,11 +41,13 @@ export default function GreetingContainer({ isViewBatch }) {
             if (hour > 12 && minute >= 0 && hour < 18 && minute <= 59) {
 
                 greet = `Good Afternoon ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
+                
             }
             else if (hour >= 18 && minute >= 0 && hour < 24) {
                 greet = `Good Evening ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
             } else {
                 greet = `Good Morning ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
+                
             }
 
             const timeOut = setTimeout(() => {
@@ -84,7 +87,7 @@ export default function GreetingContainer({ isViewBatch }) {
                         <h2 className={dayinWords === "" ? "greeting_skeleton-8 loading_skeleton" : ''} style={{
                             opacity: dayinWords === "" ? 1 : greetinOpacity
                         }}>{dayinWords}</h2>
-                        <span><strong>ID: </strong>Code2026001</span>
+                        <span><strong>ID: </strong>{data.adminPersonalData.RegisterId}</span>
                     </div>
 
                     <button className="view_batch_button-9" onClick={() => { isViewBatch("BE") }}>View Batch</button>

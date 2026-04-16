@@ -73,35 +73,35 @@ export default function educationalServiceData() {
                     }
                 },
 
-                modules: {
-                    "Advance Excel": {
-                        batchAssociated: "00001",
-                        inCharge: "Zeshan",
-                        numberofFiles: 0
+                courses: {
+                    "Software-Egineering": {
+                        numberOfBatch: 7,
+                        numberofModules: 10,
+                        totalStudent: 400
                     },
 
-                    "HTML / CSS": {
-                        batchAssociated: "00001",
-                        inCharge: "Zeshan",
-                        numberofFiles: 0,
+                    "Infrastructure-networking": {
+                        numberOfBatch: 5,
+                        numberofModules: 10,
+                        totalStudent: 200
                     },
 
-                    "N++": {
-                        batchAssociated: "00001",
-                        inCharge: "Zeshan",
-                        numberofFiles: 0,
+                    "Cyber-Security": {
+                        numberOfBatch: 4,
+                        numberofModules: 7,
+                        totalStudent: 80
                     },
 
-                    "MS Office": {
-                        batchAssociated: "00001",
-                        inCharge: "Zeshan",
-                        numberofFiles: 0,
+                    "Graphic-Multimedia": {
+                        numberOfBatch: 4,
+                        numberofModules: 4,
+                        totalStudent: 1500
                     },
 
-                    "Logic Building": {
-                        batchAssociated: "00001",
-                        inCharge: "Zeshan",
-                        numberofFiles: 0,
+                    "CCTV-installatin": {
+                        numberOfBatch: 3,
+                        numberofModules: 2,
+                        totalStudent: 25
                     }
                 }
             },
