@@ -67,29 +67,31 @@ export default function GreetingContainer({ isViewBatch }) {
         <>
             <div className="greeting_cnt-8">
                 <div className="verified_info_cnt-8">
-                    <div className="verified-8">
+                    <div className={userRole ? "verified-8":"verified-8 loading_skeleton"}>
                         <img />
                         <span>{userRole}</span>
                     </div>
 
                 </div>
-                <div className="quote-8">
+                <div className={quote !== null ? "quote-8 " : "quote-8 loading_skeleton"}>
                     <p>
-                        {quote !== null ? `${quote.quote}` : '...'}
+                        {quote !== null ? `${quote.quote}` : ''}
                     </p>
                 </div>
                 <div className="sub_greeting_cnt-8">
-                    <div className="greetings-8">
-                        <h2 style={{
-                            opacity: greetinOpacity
+
+                    <div className={"greetings-8"}>
+                        <h2 className={dayinWords === "" ? "greeting_skeleton-8 loading_skeleton" : ''} style={{
+                            opacity: dayinWords === "" ? 1 : greetinOpacity
                         }}>{dayinWords}</h2>
                         <span><strong>ID: </strong>Code2026001</span>
                     </div>
+
                     <button className="view_batch_button-9" onClick={() => { isViewBatch("BE") }}>View Batch</button>
 
-                    <div className="quote-8 qin-8">
+                    <div className={quote !== null ? "quote-8 qin-8 " : "quote-8 qin-8 loading_skeleton"}>
                         <p>
-                            {quote !== null ? `${quote.quote}` : '...'}
+                            {quote !== null ? `${quote.quote}` : ''}
                         </p>
                     </div>
                 </div>
