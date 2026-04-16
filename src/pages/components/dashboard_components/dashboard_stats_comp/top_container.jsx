@@ -3,16 +3,18 @@ import TotalNumberResources from "./total_num_res";
 import fetchData from "../../../../scripts/fetchData";
 import { ValidData } from "../../../../context/validData";
 import { AuthContext } from "../../../../context/auth_context_export";
+import { RenderUsersListContext } from "../../../../context/userListClick";
 
 /**
  * 
  * @param {Object} param0 
  * @param {String} param0.viewBatchButtonClick
  * @param {CallableFunction} param0.viewBatchFunction
+ * @param {CallableFunction} param0.isAdminStudentView - Admin Click to view students panel
  * 
  * @returns 
  */
-export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
+export function TopContainer({ viewBatchButtonClick, viewBatchFunction, isAdminStudentView }) {
 
     const [viewPanel, setViewPanels] = useState(false);
     const [ct, setCurTab] = useState(null);
@@ -93,6 +95,8 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
         }
     }, [viewBatchButtonClick])
 
+    // const { setUserPanel, isUserPanel } = useContext(RenderUsersListContext);
+    
 
     return (
         <>
@@ -140,7 +144,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                                 curTabValue={ct}
                                 tabName={tb}
                                 curTab={setTb}
-                                
+
                             />
 
                         }
@@ -238,10 +242,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                             onClick={
 
                                 userRole === "Admin" ? () => {
-                                    /**Comment: If the current user is an admin user */
-                                    setViewPanels(!viewPanel);
-                                    setCurTab("BE")
-                                    setTb("Batches Enrolled")
+                                    isAdminStudentView("student")
                                 }
                                     :
                                     () => {

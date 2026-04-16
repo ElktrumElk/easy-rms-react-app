@@ -7,7 +7,7 @@ import { TopContainer } from "./dashboard_stats_comp/top_container";
 import { AuthContext } from "../../../context/auth_context_export";
 
 /**The whole section of the dashboard statistics */
-export default function DashboardStats() {
+export default function DashboardStats({adminStudentView}) {
     const [isViewBatch, setViewbatch] = useState(null)
     const { userRole } = useContext(AuthContext);
     return (
@@ -20,6 +20,7 @@ export default function DashboardStats() {
                 <TopContainer
                     viewBatchButtonClick={isViewBatch}
                     viewBatchFunction={setViewbatch}
+                    isAdminStudentView={adminStudentView}
                 />
 
                 {/**module stats component */}

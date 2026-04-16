@@ -318,7 +318,7 @@ export function ScrollViewArea({ render_frame,
                                 isUserPanel === "student" ?
                                     <StudentLists />
                                     :
-                                    <DashboardStats />
+                                    <DashboardStats adminStudentView={mobileUserClick} />
 
                 }
 
