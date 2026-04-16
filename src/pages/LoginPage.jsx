@@ -3,46 +3,93 @@ import { useNavigate } from "react-router-dom";
 import { BackBtn } from "./components/buttons.jsx";
 import educationalServiceData from "../accounts/db";
 import useAuth from "../hooks/useAuth.js";
+import { useValidationLogin } from "../hooks/useValidation_login.js";
+import { fetchData } from "../scripts/fetchData.js";
 
 export default function LoginPage() {
 
     const navigate = useNavigate();
-    
+
+
     const { isAuthenticated, login } = useAuth();
+    const { setLoginData } = useValidationLogin();
+
+
     const dat = educationalServiceData();
     const educationalType = Object.keys(dat);
     const loginType = ["Student", "Instructor", "Admin"];
-    const availableID = ["ID2026001", "ID2026002", "ID2026003"];
+
+    //const availableID = ["ID2026001", "ID2026002", "ID2026003"]; dev
 
     const [error, showError] = useState(false);
     const eduTypeValue = useRef(null);
     const logTypeValue = useRef(null);
     const IdValue = useRef(null);
 
+    //console.log(dat); debuggin
+
     useEffect(() => {
         if (isAuthenticated) {
-            navigate("/dashboard", { replace: true });
+            const data = fetchData({
+                navigate: navigate,
+                type: "navigate"
+            });
+            
+            setLoginData(data);
+            console.log("Also this")
         }
     }, [isAuthenticated, navigate]);
 
     const loginValidation = (event) => {
         event.preventDefault();
+
+        /**Login inputs */
+        //Educational service
         const eduValue = eduTypeValue.current?.value?.trim() || "";
+        //Login Type
         const logValue = logTypeValue.current?.value?.trim() || "";
+        //ID for validation
         const idValue = IdValue.current?.value?.trim() || "";
 
+        //validating this is where i stopped go over......
         if (
-            !educationalType.includes(eduValue) ||
-            !loginType.includes(logValue) ||
-            !availableID.includes(idValue)
+            educationalType.includes(eduValue) ||
+            loginType.includes(logValue)
         ) {
+            if (logValue === "Admin") {
+                dat[`${eduValue}`]?.['admins']?.forEach((admin, idx) => {
+                    if (admin.loginId === idValue) {
+                        login(logValue);
+                        navigate("/dashboard", { replace: true });
+                        /**Temporal */
+                        localStorage.setItem("adminID", admin.RegisterId);
+                        localStorage.setItem("Edu", eduValue);
+                        localStorage.setItem("index", idx);
+                        localStorage.setItem("isLoggedIn", false);
+
+                        setLoginData({
+                            adminPersonalData: admin,
+                            data: dat[`${eduValue}`]['Admindata']
+                        })
+
+                        navigate("/dashboard", { replace: true });
+
+                    } else {
+                        localStorage.setItem("isLoggedIn", false);
+                        showError(true);
+                        return;
+                    }
+                })
+            }
+
+        }
+        else {
+
             localStorage.setItem("isLoggedIn", false);
             showError(true);
             return;
         }
 
-        login(logValue);
-        navigate("/dashboard", { replace: true });
     };
 
     const hideErr = () => {
@@ -51,6 +98,7 @@ export default function LoginPage() {
 
     return (
         <>
+
             <div id="login" className="log_cnt-2">
                 <BackBtn cb={() => navigate("/")} />
 

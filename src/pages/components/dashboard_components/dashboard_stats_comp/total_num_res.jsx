@@ -27,6 +27,7 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
     }, [curTabValue]);
 
     const { userRole } = useContext(AuthContext);
+    
     return (
         <>
             <section className="tnrl-8">

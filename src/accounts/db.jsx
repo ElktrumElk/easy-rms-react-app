@@ -10,97 +10,102 @@ export default function educationalServiceData() {
             admins: [
                 {
                     name: "Madusan",
-                    RegisterId: "Id" + Math.floor(Math.random() * 99999),
+                    RegisterId: "Id654321",
                     superAdmin: true,
-                    loginId: "123456789",
+                    loginId: "123456789"
 
                 },
                 {
                     name: "Rajesh Kumar",
-                    RegisterId: "Id" + Math.floor(Math.random() * 99999),
+                    RegisterId: "Id123456",
                     superAdmin: false,
-                    loginId: "24681012",
-                },
-                {
-                    data: {
-                        batchesEnrolled: {
-
-                            "00001": {
-                                name: "Batch 1 2026",
-                                dateEnrolled: "Wed 5 Jan 2026",
-                                inCharge: "Zeshan",
-                                modules: 10,
-                                courseName: "Software Engineerer",
-                                students: null
-                            },
-                            "00002": {
-                                name: "Batch 2 2026",
-                                dateEnrolled: "Mon 10 Jan 2026",
-                                inCharge: "Zeshan",
-                                modules: 10,
-                                courseName: "Infrastrutral Management",
-                                students: null
-
-
-                            },
-                            "00003": {
-                                name: "Batch 3 2026",
-                                dateEnrolled: "Fri 8 Feb 2026",
-                                inCharge: "Zeshan",
-                                modules: 10,
-                                courseName: "Graphic Media",
-                                students: null
-
-                            },
-                            "00004": {
-                                name: "Batch 4 2026",
-                                dateEnrolled: "Thu 27 Jan 2026",
-                                inCharge: "Zeshan",
-                                modules: 10,
-                                courseName: "Software Engineerer",
-                                students: null
-
-
-                            },
-                            "00005": {
-                                name: "Batch 5 2026",
-                                dateEnrolled: "Fri 9 Jan 2026",
-                                inCharge: "Zeshan",
-                                modules: 9,
-                                courseName: "Cyber Security",
-                                students: null
-                            }
-                        },
-                        modules: {
-                            "Advance Excel": {
-                                batchAssociated: "00001",
-                                inCharge: "Zeshan",
-                                numberofFiles: null
-                            },
-                            "HTML / CSS": {
-                                batchAssociated: "00001",
-                                inCharge: "Zeshan",
-                                numberofFiles: null,
-                            },
-                            "N++": {
-                                batchAssociated: "00001",
-                                inCharge: "Zeshan",
-                                numberofFiles: null,
-                            },
-                            "MS Office": {
-                                batchAssociated: "00001",
-                                inCharge: "Zeshan",
-                                numberofFiles: null,
-                            },
-                            "Logic Building": {
-                                batchAssociated: "00001",
-                                inCharge: "Zeshan",
-                                numberofFiles: null,
-                            }
-                        }
-                    }
+                    loginId: "24681012"
                 }
             ],
+
+            Admindata: {
+
+                batchesEnrolled: {
+
+                    b01: {
+                        name: "Batch 1 2026",
+                        dateEnrolled: "Wed 5 Jan 2026",
+                        inCharge: "Zeshan",
+                        modules: 10,
+                        courseName: "Software Engineerer",
+                        students: 0
+                    },
+
+                    b02: {
+                        name: "Batch 2 2026",
+                        dateEnrolled: "Mon 10 Jan 2026",
+                        inCharge: "Abdullah Mustapha",
+                        modules: 10,
+                        courseName: "Infrastrutral Management",
+                        students: 0
+                    },
+
+                    b03: {
+                        name: "Batch 3 2026",
+                        dateEnrolled: "Fri 8 Feb 2026",
+                        inCharge: "Rajesh Kumar",
+                        modules: 10,
+                        courseName: "Graphic Media",
+                        students: 0
+                    },
+
+                    b04: {
+                        name: "Batch 4 2026",
+                        dateEnrolled: "Thu 27 Jan 2026",
+                        inCharge: "Zeshan",
+                        modules: 10,
+                        courseName: "Software Engineerer",
+                        students: 0
+                    },
+
+                    b05: {
+                        name: "Batch 5 2026",
+                        dateEnrolled: "Fri 9 Jan 2026",
+                        inCharge: "Zeshan",
+                        modules: 9,
+                        courseName: "Cyber Security",
+                        students: 0
+                    }
+                },
+
+                modules: {
+                    "Advance Excel": {
+                        batchAssociated: "00001",
+                        inCharge: "Zeshan",
+                        numberofFiles: 0
+                    },
+
+                    "HTML / CSS": {
+                        batchAssociated: "00001",
+                        inCharge: "Zeshan",
+                        numberofFiles: 0,
+                    },
+
+                    "N++": {
+                        batchAssociated: "00001",
+                        inCharge: "Zeshan",
+                        numberofFiles: 0,
+                    },
+
+                    "MS Office": {
+                        batchAssociated: "00001",
+                        inCharge: "Zeshan",
+                        numberofFiles: 0,
+                    },
+
+                    "Logic Building": {
+                        batchAssociated: "00001",
+                        inCharge: "Zeshan",
+                        numberofFiles: 0,
+                    }
+                }
+            },
+
             student: {
                 "ID2026001": {
                     studentName: "Elkanah Cole",
@@ -127,7 +132,7 @@ export default function educationalServiceData() {
                                 date: "Mon 9 Feb 2026",
                                 batchAssociated: "00001",
                                 inCharge: "Abdullah",
-                                numberofFiles: null,
+                                numberofFiles: 0,
                                 status: "onHold"
                             },
                             {
@@ -135,13 +140,14 @@ export default function educationalServiceData() {
                                 batchAssociated: "00001",
                                 date: "Wed 26 Feb 2026",
                                 inCharge: "Zeshan",
-                                numberofFiles: null,
+                                numberofFiles: 0,
                                 status: "Current"
                             }
                         ]
                     }
                 }
             },
+
 
             lecturer: {
                 "LE2026001": {
@@ -157,7 +163,7 @@ export default function educationalServiceData() {
                                 date: "Mon 9 Feb 2026",
                                 batchAssociated: "00001",
                                 inCharge: "Abdullah",
-                                numberofFiles: null,
+                                numberofFiles: 0,
                                 status: "onHold"
                             },
                             {
@@ -165,7 +171,7 @@ export default function educationalServiceData() {
                                 batchAssociated: "00001",
                                 date: "Wed 26 Feb 2026",
                                 inCharge: "Zeshan",
-                                numberofFiles: null,
+                                numberofFiles: 0,
                                 status: "Current"
                             }
                         ]
@@ -173,6 +179,7 @@ export default function educationalServiceData() {
                 }
             }
         },
+
 
         "ipam": {},
         "fbc": {},

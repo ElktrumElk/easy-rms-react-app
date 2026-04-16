@@ -12,14 +12,17 @@ import './styles/style9.css';
 import { AuthProvider } from "./context/AuthContext.jsx";
 import AppRoutes from "./routes/AppRoutes.jsx";
 import { useEffect } from 'react';
+import ValidDataProvider from './context/validData_provider.jsx';
 
 export default function App() {
 
   return (
     <AuthProvider>
-      <div className='app'>
-        <AppRoutes />
-      </div>
+      <ValidDataProvider>
+        <div className='app'>
+          <AppRoutes />
+        </div>
+      </ValidDataProvider>
     </AuthProvider>
   );
 }
