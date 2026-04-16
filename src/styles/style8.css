@@ -289,6 +289,10 @@
     display: none;
 }
 
+.quote.loading {
+    animation: quote_loade .4s linear infinite;
+}
+
 
 
 @media (max-width: 920px) {

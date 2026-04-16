@@ -4,9 +4,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../context/auth_context_export";
 import { ValidData } from "../../../../context/validData";
 import { useNavigate } from "react-router-dom";
-import fetchData  from "../../../../scripts/fetchData";
+import fetchData from "../../../../scripts/fetchData";
 import { useValidationLogin } from "../../../../hooks/useValidation_login";
-
 /**
  * 
  * @param {Object} param0 
@@ -27,13 +26,11 @@ export default function GreetingContainer({ isViewBatch }) {
     const [dayinWords, setDay] = useState("");
     const [ind, setInd] = useState(0);
     const [greetinOpacity, setGreetinOpacity] = useState(0)
-
-    const time = new Date()
-    const hour = time.getHours()
+    const time = new Date();
+    const hour = time.getHours();
     const minute = time.getMinutes();
 
-
-
+    const quote = quotes();
 
     let j = 0;
     let greet = "";
@@ -41,24 +38,24 @@ export default function GreetingContainer({ isViewBatch }) {
         j += 1;
         if (j <= 1) {
             if (hour > 12 && minute >= 0 && hour < 18 && minute <= 59) {
-               
+
                 greet = `Good Afternoon ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
             }
             else if (hour >= 18 && minute >= 0 && hour < 24) {
-               greet = `Good Evening ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
+                greet = `Good Evening ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
             } else {
                 greet = `Good Morning ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
-                console.log(greet)
             }
 
             const timeOut = setTimeout(() => {
-                console.log(greet.length)
+
                 if (ind < greet.length) {
                     setDay((prev) => prev + greet[ind])
                     setInd(ind + 1)
                     setGreetinOpacity((prev) => prev += 1 / 10)
                 }
             }, 100)
+
 
         }
 
@@ -78,7 +75,7 @@ export default function GreetingContainer({ isViewBatch }) {
                 </div>
                 <div className="quote-8">
                     <p>
-                        Knoweldge is the key in becoming rich.
+                        {quote !== null ? `${quote.quote}` : '...'}
                     </p>
                 </div>
                 <div className="sub_greeting_cnt-8">
@@ -92,7 +89,7 @@ export default function GreetingContainer({ isViewBatch }) {
 
                     <div className="quote-8 qin-8">
                         <p>
-                            Knoweldge is the key in becoming rich.
+                            {quote !== null ? `${quote.quote}` : '...'}
                         </p>
                     </div>
                 </div>

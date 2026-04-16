@@ -68,5 +68,6 @@
     border-radius: .5rem;
     padding: 1rem 1rem;
     width: 9rem;
+    max-height: 4rem;
 
 }
