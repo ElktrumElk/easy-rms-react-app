@@ -139,6 +139,8 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                                 setViewPanel={setViewPanels}
                                 curTabValue={ct}
                                 tabName={tb}
+                                curTab={setTb}
+                                
                             />
 
                         }
@@ -234,7 +236,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                         <div className="btm_cnt-5"
                             onClick={
-                                
+
                                 userRole === "Admin" ? () => {
                                     /**Comment: If the current user is an admin user */
                                     setViewPanels(!viewPanel);

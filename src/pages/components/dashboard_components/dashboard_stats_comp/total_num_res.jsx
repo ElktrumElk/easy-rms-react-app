@@ -9,7 +9,7 @@ import { AuthContext } from "../../../../context/auth_context_export";
  * @param {Object} param0
  * @param {Boolean} param0.viewPanel - true / false Holds the value state of the resource panel
  * @param {CallableFunction} param0.setViewPanel - The callback function to change the state of the view panel
- * @param {CallableFunction} param0.curTab - Open the exact tab when on view 
+ * @param {CallableFunction} param0.curTab - sets the name of the tab
  * @param {String} param0.curTabValue - Holds the value of the current Tab state
  * @param {String} param0.tabName - Holds the value of the current Tab name
  * 
@@ -23,7 +23,9 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
 
     useEffect(() => {
         setCurrentTab(curTabValue);
-        console.log(currentTab)
+        console.log("yes boy")
+        document.getElementsByClassName("main_frame_panel-3")[0].style.position = "fixed";
+
     }, [curTabValue]);
 
     const { userRole } = useContext(AuthContext);
@@ -37,7 +39,11 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
                             src="/icons/close_ic.png"
                             width={"20px"}
                             height={"20px"}
-                            onClick={() => { setViewPanel(!viewPanel) }}
+                            onClick={() => {
+                                setViewPanel(!viewPanel);
+                                document.getElementsByClassName("main_frame_panel-3")[0].style.position = "unset"
+
+                            }}
                         />
 
 
@@ -55,7 +61,11 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
 
                         <div className="tabs-8">
                             <button className={currentTab === "BE" ? "active" : undefined}
-                                onClick={() => { setCurrentTab("BE") }}
+                                onClick={() => { 
+                                    setCurrentTab("BE");
+                                    curTab("Batches Enrolled")
+
+                                 }}
                             >
                                 Batches Enrolled
                             </button>
@@ -63,12 +73,20 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
                                 userRole !== "Admin" &&
                                 <button
                                     className={currentTab === "MD" ? "active" : undefined}
-                                    onClick={() => { setCurrentTab("MD") }}
+                                    onClick={() => {
+
+                                        setCurrentTab("MD");
+                                        curTab("Modules")
+
+                                    }}
                                 >Modules</button>
                             }
                             <button
                                 className={currentTab === "AC" ? "active" : undefined}
-                                onClick={() => { setCurrentTab("AC") }}
+                                onClick={() => {
+                                    setCurrentTab("AC");
+                                    curTab("Courses");
+                                }}
                             >Course</button>
                         </div>
                     </div>
