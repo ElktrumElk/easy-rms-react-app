@@ -1,12 +1,12 @@
 
 import { useState } from "react";
 import educationalServiceData from "../../../../accounts/db";
-import fetchData  from "../../../../scripts/fetchData";
+import fetchData from "../../../../scripts/fetchData";
 
 export default function BatchesEnrolledContainer() {
 
     const [batchData] = useState(fetchData({ navigate: false, type: false }).data);
-    
+
     return (
         <>
             {
@@ -41,6 +41,10 @@ export default function BatchesEnrolledContainer() {
                             <div>
                                 <img src="/icons/modules_ic.png" width={"20px"} height={"20px"} />
                                 <span><strong>{batchData.batchesEnrolled[batch].modules}</strong> Modules</span>
+                            </div>
+                            <div>
+                                <img src="https://img.icons8.com/?size=100&id=11173&format=png&color=a4e5f6" width={"20px"} height={"20px"} />
+                                <span><strong>{batchData.batchesEnrolled[batch].students}</strong> Students</span>
                             </div>
                         </div>
                         <div className="li_btm-8">
