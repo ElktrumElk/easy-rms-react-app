@@ -26,16 +26,27 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
     let startBatchNumber = 0;
     let startCourseNumber = 0;
+    let startStudentNumber = 0;
 
 
     useEffect(() => {
         let endBatchNumber = Object.keys(data.data.batchesEnrolled).length;
         let endCourseNumber = Object.keys(data.data.courses).length;
+        let endStudentNumer = 0
+
+        /**Caculate the total amount of children */
+        Object.keys(data.data.batchesEnrolled).forEach((b, idx) => {
+            endStudentNumer += data.data.batchesEnrolled[`${b}`].students
+        })
+
 
         const interval = setInterval(() => {
+
             if (userRole === "Admin") {
-                if (startBatchNumber > endBatchNumber || startCourseNumber > endCourseNumber) {
-                    console.log(data)
+                if (startBatchNumber > endBatchNumber &&
+                    startCourseNumber > endCourseNumber &&
+                    startStudentNumber > endStudentNumer
+                ) {
                     clearInterval(interval)
                 } else {
                     if (startBatchNumber <= endBatchNumber) {
@@ -46,13 +57,17 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                         setCourseNumber(startCourseNumber);
                         startCourseNumber += 1;
                     }
+                    if (startStudentNumber <= endStudentNumer) {
+                        setTotalStudent(startStudentNumber)
+                        startStudentNumber += 2;
+                    }
                 }
 
             } else {
                 //comment: just for the main time it will be replace with student login
                 setBatchNumber(0);
             }
-        }, 80)
+        }, 1)
 
         return () => clearInterval(interval);
     }, [data])
@@ -205,7 +220,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>6</span>
+                                <span>{totalStudent}</span>
                             </div>
                         </div>
 
