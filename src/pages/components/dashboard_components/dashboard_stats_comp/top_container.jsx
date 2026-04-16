@@ -17,8 +17,45 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
     const [viewPanel, setViewPanels] = useState(false);
     const [ct, setCurTab] = useState(null);
 
-    const data = fetchData({ navigate: false, type: false });
+    const [data, setData] = useState(fetchData({ navigate: false, type: false }));
     const { userRole } = useContext(AuthContext);
+
+    const [batchNumber, setBatchNumber] = useState(0);
+    const [courseNumber, setCourseNumber] = useState(0);
+    const [totalStudent, setTotalStudent] = useState(0);
+
+    let startBatchNumber = 0;
+    let startCourseNumber = 0;
+
+
+    useEffect(() => {
+        let endBatchNumber = Object.keys(data.data.batchesEnrolled).length;
+        let endCourseNumber = Object.keys(data.data.courses).length;
+
+        const interval = setInterval(() => {
+            if (userRole === "Admin") {
+                if (startBatchNumber > endBatchNumber || startCourseNumber > endCourseNumber) {
+                    console.log(data)
+                    clearInterval(interval)
+                } else {
+                    if (startBatchNumber <= endBatchNumber) {
+                        setBatchNumber(startBatchNumber);
+                        startBatchNumber += 1;
+                    }
+                    if (startCourseNumber <= endCourseNumber) {
+                        setCourseNumber(startCourseNumber);
+                        startCourseNumber += 1;
+                    }
+                }
+
+            } else {
+                //comment: just for the main time it will be replace with student login
+                setBatchNumber(0);
+            }
+        }, 80)
+
+        return () => clearInterval(interval);
+    }, [data])
 
 
     /**Name of the tab to be displayed */
@@ -101,7 +138,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>{Object.keys(data.data.batchesEnrolled).length}</span>
+                                <span>{batchNumber}</span>
                             </div>
 
                         </div>
@@ -134,7 +171,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>{Object.keys(data.data.courses).length}</span>
+                                <span>{courseNumber}</span>
                             </div>
 
                         </div>
@@ -162,7 +199,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                                     boxSizing: "content-box"
                                 }}
                             />
-                            <span><strong>Modules</strong></span>
+                            <span><strong>{userRole === "Admin" ? "Total Student" : "Modules"}</strong></span>
                         </div>
 
 

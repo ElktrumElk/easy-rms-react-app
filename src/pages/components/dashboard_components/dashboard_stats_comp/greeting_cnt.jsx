@@ -1,24 +1,17 @@
-import quotes from "../../../../scripts/quotes"
-
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useMemo } from "react";
 import { AuthContext } from "../../../../context/auth_context_export";
 import { ValidData } from "../../../../context/validData";
-import { useNavigate } from "react-router-dom";
 import fetchData from "../../../../scripts/fetchData";
 import { useValidationLogin } from "../../../../hooks/useValidation_login";
-/**
- * 
- * @param {Object} param0 
- * @param {CallableFunction} param0.isViewBatch - A function to display the batch panel. it only allow string to be pass as an argument
- * @returns 
- */
-export default function GreetingContainer({ isViewBatch }) {
+import quotes from "../../../../scripts/quotes";
 
+export default function GreetingContainer({ isViewBatch }) {
     const { setLoginData } = useValidationLogin();
 
-    //const navigate = useNavigate();
-    const data = fetchData({ navigate: false, type: false });
-    console.log(data)
+    // 1. Move data fetching to useEffect + useState (or use a proper data-fetching library like TanStack Query)
+    const [data, setData] = useState(fetchData({ navigate: false, type: false }));
+    const [loading, setLoading] = useState(true);
+
 
 
     const { userRole } = useContext(AuthContext);
@@ -26,51 +19,56 @@ export default function GreetingContainer({ isViewBatch }) {
 
     const [dayinWords, setDay] = useState("");
     const [ind, setInd] = useState(0);
-    const [greetinOpacity, setGreetinOpacity] = useState(0)
-    const time = new Date();
-    const hour = time.getHours();
-    const minute = time.getMinutes();
+    const [greetinOpacity, setGreetinOpacity] = useState(0);
 
-    const quote = quotes();
-
-    let j = 0;
-    let greet = "";
+    const quote = quotes(); // assuming this is cheap
+    
+ 
+   
+    // Better greeting logic
     useEffect(() => {
-        j += 1;
-        if (j <= 1) {
-            if (hour > 12 && minute >= 0 && hour < 18 && minute <= 59) {
+        if (!data && !loginData) return; // wait for data
 
-                greet = `Good Afternoon ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
-                
-            }
-            else if (hour >= 18 && minute >= 0 && hour < 24) {
-                greet = `Good Evening ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
-            } else {
-                greet = `Good Morning ${loginData ? loginData.adminPersonalData.name : data.adminPersonalData.name}`
-                
-            }
+        const time = new Date();
+        const hour = time.getHours();
 
-            const timeOut = setTimeout(() => {
+        let greet = "";
+        const name = loginData?.adminPersonalData?.name || data?.adminPersonalData?.name || "";
 
-                if (ind < greet.length) {
-                    setDay((prev) => prev + greet[ind])
-                    setInd(ind + 1)
-                    setGreetinOpacity((prev) => prev += 1 / 10)
-                }
-            }, 100)
-
-
+        if (hour >= 12 && hour < 18) {
+            greet = `Good Afternoon ${name}`;
+        } else if (hour >= 18) {
+            greet = `Good Evening ${name}`;
+        } else {
+            greet = `Good Morning ${name}`;
         }
 
-    }, [minute, hour, ind])
 
+        let i = 0;
+        let g = ""; //used this to fix the unexpected out put of the greeting
+        const interval = setInterval(() => {
 
+            if (i < greet.length) {
+                g += greet[i]
+                setDay(g);
+                setInd(i + 1);
+                setGreetinOpacity((prev) => Math.min(1, prev + 0.1));
+                i++;
+            } else {
+
+                clearInterval(interval);
+            }
+        }, 100);
+
+        return () => clearInterval(interval);
+        
+    }, [data, loginData]); // depend on data/loginData, not on changing minute/hour
 
     return (
         <>
             <div className="greeting_cnt-8">
                 <div className="verified_info_cnt-8">
-                    <div className={userRole ? "verified-8":"verified-8 loading_skeleton"}>
+                    <div className={userRole ? "verified-8" : "verified-8 loading_skeleton"}>
                         <img />
                         <span>{userRole}</span>
                     </div>

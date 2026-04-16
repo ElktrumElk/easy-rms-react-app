@@ -33,7 +33,7 @@ export default function educationalServiceData() {
                         inCharge: "Zeshan",
                         modules: 10,
                         courseName: "Software Engineerer",
-                        students: 0
+                        students: 20
                     },
 
                     b02: {
@@ -42,7 +42,7 @@ export default function educationalServiceData() {
                         inCharge: "Abdullah Mustapha",
                         modules: 10,
                         courseName: "Infrastrutral Management",
-                        students: 0
+                        students: 10
                     },
 
                     b03: {
@@ -51,7 +51,7 @@ export default function educationalServiceData() {
                         inCharge: "Rajesh Kumar",
                         modules: 10,
                         courseName: "Graphic Media",
-                        students: 0
+                        students: 7
                     },
 
                     b04: {
@@ -60,7 +60,7 @@ export default function educationalServiceData() {
                         inCharge: "Zeshan",
                         modules: 10,
                         courseName: "Software Engineerer",
-                        students: 0
+                        students: 10
                     },
 
                     b05: {
@@ -69,7 +69,7 @@ export default function educationalServiceData() {
                         inCharge: "Zeshan",
                         modules: 9,
                         courseName: "Cyber Security",
-                        students: 0
+                        students: 21
                     }
                 },
 
@@ -77,31 +77,31 @@ export default function educationalServiceData() {
                     "Software-Egineering": {
                         numberOfBatch: 1,
                         numberofModules: 10,
-                        totalStudent: 400
+                        totalStudent: 0
                     },
 
                     "Infrastructure-networking": {
                         numberOfBatch: 1,
                         numberofModules: 10,
-                        totalStudent: 200
+                        totalStudent: 0
                     },
 
                     "Cyber-Security": {
                         numberOfBatch: 1,
                         numberofModules: 7,
-                        totalStudent: 80
+                        totalStudent: 0
                     },
 
                     "Graphic-Multimedia": {
                         numberOfBatch: 1,
                         numberofModules: 4,
-                        totalStudent: 150
+                        totalStudent: 0
                     },
 
                     "CCTV-installatin": {
                         numberOfBatch: 1,
                         numberofModules: 2,
-                        totalStudent: 25
+                        totalStudent: 0
                     }
                 }
             },
