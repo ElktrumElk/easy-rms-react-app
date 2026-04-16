@@ -3,6 +3,8 @@ import BatchesEnrolledContainer from "./batches_enrolled_cnt"
 import ModuleContainer from "./modules_cnt";
 import AccessCourseContainer from "./access_course_cnt";
 import { AuthContext } from "../../../../context/auth_context_export";
+import { UserTheme } from "../../../../context/userThemeContext";
+import UpdateBackkgroundColor from "../../../../scripts/update_background";
 
 /**
  * 
@@ -19,12 +21,14 @@ import { AuthContext } from "../../../../context/auth_context_export";
 export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, curTabValue, tabName }) {
 
     const [currentTab, setCurrentTab] = useState(null);
-
+    const { colorMode } = useContext(UserTheme);
 
     useEffect(() => {
         setCurrentTab(curTabValue);
         console.log("yes boy")
         document.getElementsByClassName("main_frame_panel-3")[0].style.position = "fixed";
+        
+        UpdateBackkgroundColor(colorMode)
 
     }, [curTabValue]);
 
@@ -61,11 +65,11 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
 
                         <div className="tabs-8">
                             <button className={currentTab === "BE" ? "active" : undefined}
-                                onClick={() => { 
+                                onClick={() => {
                                     setCurrentTab("BE");
                                     curTab("Batches Enrolled")
 
-                                 }}
+                                }}
                             >
                                 Batches Enrolled
                             </button>
