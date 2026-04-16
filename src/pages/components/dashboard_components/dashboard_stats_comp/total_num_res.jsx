@@ -27,7 +27,7 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
     }, [curTabValue]);
 
     const { userRole } = useContext(AuthContext);
-    
+
     return (
         <>
             <section className="tnrl-8">
@@ -59,12 +59,13 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
                             >
                                 Batches Enrolled
                             </button>
-
-                            <button
-                                className={currentTab === "MD" ? "active" : undefined}
-                                onClick={() => { setCurrentTab("MD") }}
-                            >Modules</button>
-
+                            {
+                                userRole !== "Admin" &&
+                                <button
+                                    className={currentTab === "MD" ? "active" : undefined}
+                                    onClick={() => { setCurrentTab("MD") }}
+                                >Modules</button>
+                            }
                             <button
                                 className={currentTab === "AC" ? "active" : undefined}
                                 onClick={() => { setCurrentTab("AC") }}

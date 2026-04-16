@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import BarChart from "../bar_chart";
+import { AuthContext } from "../../../../context/auth_context_export";
 
 export default function ModuleStats() {
+
+    const {userRole} = useContext(AuthContext);
 
     return (
         <>
@@ -8,7 +12,7 @@ export default function ModuleStats() {
                 <div className="stat_cnt-5">
 
                     <div className="top_stat_cnt-5">
-                        <h3>Modules Stats</h3>
+                        <h3>{userRole === "Admin" ? "Batch Statistics" : "Modules Stats"}</h3>
                         <img src="https://img.icons8.com/?size=100&id=20763&format=png&color=000000" width="20px" alt="elipse" />
                     </div>
 

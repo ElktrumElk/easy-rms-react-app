@@ -23,29 +23,33 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
     const [batchNumber, setBatchNumber] = useState(0);
     const [courseNumber, setCourseNumber] = useState(0);
     const [totalStudent, setTotalStudent] = useState(0);
+    const [totalResources, setTotalResources] = useState(0);
 
     let startBatchNumber = 0;
     let startCourseNumber = 0;
     let startStudentNumber = 0;
+    let startResources = 0;
 
 
     useEffect(() => {
         let endBatchNumber = Object.keys(data.data.batchesEnrolled).length;
         let endCourseNumber = Object.keys(data.data.courses).length;
-        let endStudentNumer = 0
+        let endStudentNumer = 0;
 
         /**Caculate the total amount of children */
         Object.keys(data.data.batchesEnrolled).forEach((b, idx) => {
             endStudentNumer += data.data.batchesEnrolled[`${b}`].students
         })
 
+        let endResources = endBatchNumber + endCourseNumber + endStudentNumer;
 
         const interval = setInterval(() => {
 
             if (userRole === "Admin") {
                 if (startBatchNumber > endBatchNumber &&
                     startCourseNumber > endCourseNumber &&
-                    startStudentNumber > endStudentNumer
+                    startStudentNumber > endStudentNumer &&
+                    startResources > endResources
                 ) {
                     clearInterval(interval)
                 } else {
@@ -60,6 +64,10 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                     if (startStudentNumber <= endStudentNumer) {
                         setTotalStudent(startStudentNumber)
                         startStudentNumber += 2;
+                    }
+                    if (startResources <= endResources) {
+                        setTotalResources(startResources);
+                        startResources += 2;
                     }
                 }
 
@@ -111,7 +119,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>12</span>
+                                <span>{totalResources}</span>
                             </div>
                         </div>
 
@@ -225,11 +233,21 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
                         </div>
 
                         <div className="btm_cnt-5"
-                            onClick={() => {
-                                setViewPanels(!viewPanel);
-                                setCurTab("MD");
-                                setTb("Modules")
-                            }}>
+                            onClick={
+                                
+                                userRole === "Admin" ? () => {
+                                    /**Comment: If the current user is an admin user */
+                                    setViewPanels(!viewPanel);
+                                    setCurTab("BE")
+                                    setTb("Batches Enrolled")
+                                }
+                                    :
+                                    () => {
+                                        setViewPanels(!viewPanel);
+                                        setCurTab("MD");
+                                        setTb("Modules");
+                                    }
+                            }>
                             <span>View Details</span>
                         </div>
 
