@@ -7,7 +7,7 @@ import educationalServiceData from "../accounts/db";
  * @param {Function} param0.navigate - React useNavigat should be passed here for navigation
  * @param {String} param0.type - The type is need to set navigation. it value should be navigate
  */
-export function fetchData({navigate = false, type = false}) {
+export default function fetchData({navigate = false, type = false}) {
     /**Comment: Fetch store data */
 
     const adminId = localStorage.getItem("adminID");

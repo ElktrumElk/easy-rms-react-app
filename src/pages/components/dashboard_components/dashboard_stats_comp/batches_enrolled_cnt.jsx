@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import educationalServiceData from "../../../../accounts/db";
-import { fetchData } from "../../../../scripts/fetchData";
+import fetchData  from "../../../../scripts/fetchData";
 
 export default function BatchesEnrolledContainer() {
 

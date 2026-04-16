@@ -1,7 +1,7 @@
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth.js";
 import { useEffect } from "react";
-import { fetchData } from "../scripts/fetchData.js";
+import fetchData  from "../scripts/fetchData.js";
 
 export default function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth();

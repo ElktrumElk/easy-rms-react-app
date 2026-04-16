@@ -4,7 +4,7 @@ import { BackBtn } from "./components/buttons.jsx";
 import educationalServiceData from "../accounts/db";
 import useAuth from "../hooks/useAuth.js";
 import { useValidationLogin } from "../hooks/useValidation_login.js";
-import { fetchData } from "../scripts/fetchData.js";
+import fetchData from "../scripts/fetchData.js";
 
 export default function LoginPage() {
 
@@ -26,15 +26,14 @@ export default function LoginPage() {
     const logTypeValue = useRef(null);
     const IdValue = useRef(null);
 
+    const data = fetchData({
+        navigate: navigate,
+        type: "navigate"
+    });
     //console.log(dat); debuggin
 
     useEffect(() => {
         if (isAuthenticated) {
-            const data = fetchData({
-                navigate: navigate,
-                type: "navigate"
-            });
-            
             setLoginData(data);
             console.log("Also this")
         }

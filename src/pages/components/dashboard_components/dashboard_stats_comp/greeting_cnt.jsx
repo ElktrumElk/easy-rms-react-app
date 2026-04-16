@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../context/auth_context_export";
 import { ValidData } from "../../../../context/validData";
 import { useNavigate } from "react-router-dom";
-import { fetchData } from "../../../../scripts/fetchData";
+import fetchData  from "../../../../scripts/fetchData";
 import { useValidationLogin } from "../../../../hooks/useValidation_login";
 
 /**
