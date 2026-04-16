@@ -75,31 +75,31 @@ export default function educationalServiceData() {
 
                 courses: {
                     "Software-Egineering": {
-                        numberOfBatch: 7,
+                        numberOfBatch: 1,
                         numberofModules: 10,
                         totalStudent: 400
                     },
 
                     "Infrastructure-networking": {
-                        numberOfBatch: 5,
+                        numberOfBatch: 1,
                         numberofModules: 10,
                         totalStudent: 200
                     },
 
                     "Cyber-Security": {
-                        numberOfBatch: 4,
+                        numberOfBatch: 1,
                         numberofModules: 7,
                         totalStudent: 80
                     },
 
                     "Graphic-Multimedia": {
-                        numberOfBatch: 4,
+                        numberOfBatch: 1,
                         numberofModules: 4,
-                        totalStudent: 1500
+                        totalStudent: 150
                     },
 
                     "CCTV-installatin": {
-                        numberOfBatch: 3,
+                        numberOfBatch: 1,
                         numberofModules: 2,
                         totalStudent: 25
                     }

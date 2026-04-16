@@ -1,5 +1,8 @@
-import { useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import TotalNumberResources from "./total_num_res";
+import fetchData from "../../../../scripts/fetchData";
+import { ValidData } from "../../../../context/validData";
+import { AuthContext } from "../../../../context/auth_context_export";
 
 /**
  * 
@@ -14,11 +17,15 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
     const [viewPanel, setViewPanels] = useState(false);
     const [ct, setCurTab] = useState(null);
 
+    const data = fetchData({ navigate: false, type: false });
+    const { userRole } = useContext(AuthContext);
+
+
     /**Name of the tab to be displayed */
     const [tb, setTb] = useState(null);
 
     useEffect(() => {
-        if(viewBatchButtonClick !== null) {
+        if (viewBatchButtonClick !== null) {
             setViewPanels(true);
             setTb("Batches Enrolled");
             setCurTab("BE");
@@ -94,9 +101,9 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>4</span>
+                                <span>{Object.keys(data.data.batchesEnrolled).length}</span>
                             </div>
-                           
+
                         </div>
 
                         <div className="btm_cnt-5"
@@ -127,9 +134,9 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction }) {
 
                         <div className="status_card_mid_cnt-5">
                             <div className="num_cnt-5">
-                                <span>2</span>
+                                <span>{Object.keys(data.data.courses).length}</span>
                             </div>
-                          
+
                         </div>
 
                         <div className="btm_cnt-5"
