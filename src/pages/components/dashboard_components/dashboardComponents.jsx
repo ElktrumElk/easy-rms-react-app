@@ -13,6 +13,7 @@ import InstructorLists from "../../../components/instructors_lists";
 import { resetToDashboard } from "../../../hooks/reset_to_dahsboard";
 import StudentLists from "../../../components/student_lists";
 import { UserTheme } from "../../../context/userThemeContext";
+import LogOutButton from "../../../components/log_out_btn";
 
 /**\
  * 
@@ -157,6 +158,8 @@ export function DashSideBar({
 
                     </div>
                 </section>
+                <LogOutButton sideBarExpand={isExpand} />
+
             </div>
         </>
     )
@@ -289,7 +292,7 @@ export function ScrollViewArea({ render_frame,
         if (colorMode === "dark") {
 
             document.body.style.backgroundColor = "#080808";
-          
+
             console.log(colorMode)
         } else {
             document.body.style.backgroundColor = "#f5f5f5";

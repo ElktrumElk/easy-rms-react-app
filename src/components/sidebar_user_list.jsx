@@ -1,7 +1,6 @@
 
 
 import { useState } from "react";
-import "../styles/style10.css";
 
 
 /**
