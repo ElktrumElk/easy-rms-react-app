@@ -69,14 +69,13 @@ export default function LoginPage() {
                         localStorage.setItem("adminID", admin.RegisterId);
                         localStorage.setItem("Edu", eduValue);
                         localStorage.setItem("index", idx);
-                        localStorage.setItem("isLoggedIn", false);
+                        localStorage.setItem("isLoggedIn", true);
 
                         setLoginData({
                             adminPersonalData: admin,
                             data: dat[`${eduValue}`]['Admindata']
                         })
 
-                        navigate("/dashboard", { replace: true });
 
                     } else {
                         localStorage.setItem("isLoggedIn", false);
@@ -84,6 +83,25 @@ export default function LoginPage() {
                         return;
                     }
                 })
+            } else if (logValue === "Student") {
+                if (Object.keys(dat[`${eduValue}`]?.['student']).includes(idValue)) {
+
+                    const studentData = dat[`${eduValue}`]?.['student'][`${idValue}`]
+
+                    login(logValue);
+                    navigate("/dashboard", { replace: true });
+                    /**Temporal */
+                    localStorage.clear("*");
+                    localStorage.setItem("studentId", studentData.studentId);
+                    localStorage.setItem("Edu", eduValue);
+                    localStorage.setItem("isLoggedIn", true);
+
+                    setLoginData({
+                        adminPersonalData: admin,
+                        data: dat[`${eduValue}`]['Admindata']
+                    })
+
+                }
             }
 
         }

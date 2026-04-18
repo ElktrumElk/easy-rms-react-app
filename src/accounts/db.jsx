@@ -75,33 +75,53 @@ export default function educationalServiceData() {
 
                 courses: {
                     "Software-Egineering": {
+                        timeCreated: 'Mon 5 Jan 2022',
                         numberOfBatch: 1,
                         numberofModules: 10,
-                        totalStudent: 0
+                        totalStudent: 0,
+                        duration: "2 years",
+                        fee: 19200,
+                        certificate: 'Diploma / Degree'
                     },
 
                     "Infrastructure-networking": {
+                        timeCreated: 'Mon 5 Jan 2022',
                         numberOfBatch: 1,
                         numberofModules: 10,
-                        totalStudent: 0
+                        totalStudent: 0,
+                        duration: "2 years",
+                        fee: 19200,
+                        certificate: 'Diploma / Degree'
                     },
 
                     "Cyber-Security": {
+                        timeCreated: 'Wed 9 Feb 2024',
                         numberOfBatch: 1,
                         numberofModules: 7,
-                        totalStudent: 0
+                        totalStudent: 0,
+                        duration: "2 years",
+                        fee: 19200,
+                        certificate: 'Diploma / Degree'
                     },
 
                     "Graphic-Multimedia": {
+                        timeCreated: 'Mon 18 March 2024',
                         numberOfBatch: 1,
                         numberofModules: 4,
-                        totalStudent: 0
+                        totalStudent: 0,
+                        duration: "2 years",
+                        fee: 19200,
+                        certificate: 'Diploma'
                     },
 
                     "CCTV-installatin": {
+                        timeCreated: 'Mon 9 Jan 2025',
                         numberOfBatch: 1,
                         numberofModules: 2,
-                        totalStudent: 0
+                        totalStudent: 0,
+                        duration: "2 years",
+                        fee: 19200,
+                        certificate: 'Diploma'
                     }
                 }
             },

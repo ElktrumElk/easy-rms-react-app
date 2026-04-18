@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -10,6 +10,8 @@ import {
 } from 'chart.js';
 
 import { Bar } from 'react-chartjs-2';
+import { AuthContext } from '../../../context/auth_context_export';
+import fetchData from '../../../scripts/fetchData';
 
 ChartJS.register(
     CategoryScale,
@@ -21,12 +23,28 @@ ChartJS.register(
 );
 
 const BarChart = () => {
-    const targetValues = [70, 85, 37, 28, 16, 95];   // Your final values
+
+    const { userRole } = useContext(AuthContext);
+    const data = fetchData({ navigate: false, type: false });
+
+    /**Comment: Inittialize the target value */
+    let targetValues = [];
+    let labels = []
+
+    if (userRole === "Admin") {
+        //Comment: Loop through if user is an Admin
+        Object.keys(data.data.batchesEnrolled).forEach((v, idx) => {
+            //Comment: Assign the the values to the targetValue array
+            targetValues.push(data.data.batchesEnrolled[`${v}`]?.students);
+            labels.push(data.data.batchesEnrolled[`${v}`]?.name)
+        })
+    };
 
     const [animatedValues, setAnimatedValues] = useState([0, 0, 0, 0, 0, 0]);
-
+   
     // Animation Logic
     useEffect(() => {
+
         let start = 0;
         const duration = 1500; // Animation duration in milliseconds
 
@@ -53,15 +71,16 @@ const BarChart = () => {
         requestAnimationFrame(animate);
 
         return () => {
-            
+
         };
     }, []);
 
     const chartData = {
-        labels: ['Advance Excel', 'N++', 'C++', 'Linux', 'MS office', 'Logic Building'],
+
+        labels: labels,
         datasets: [
             {
-                label: 'Total Files',
+                label: userRole === 'Admin' ? 'Total Students' : 'Total Files',
                 data: animatedValues,
                 backgroundColor: '#1E319B',
                 borderColor: '#1E319B',
@@ -79,7 +98,7 @@ const BarChart = () => {
             },
             title: {
                 display: true,
-                text: 'Total Files in Modules',
+                text: userRole === 'Admin' ? 'Batches' : 'Modules',
             },
         },
         scales: {
