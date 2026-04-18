@@ -46,13 +46,13 @@ export default function fetchData({navigate = false, type = false}) {
             else {
                 //Comment: return to login if the hash index wasn't found
                 localStorage.setItem("isLoggedIn", false);
-                navigate("/login", { replace: true });
+                return false;
             }
         }
     }
     else {
         localStorage.setItem("isLoggedIn", false);
-        navigate("/login", { replace: true });
+        return false;
     }
 
 }

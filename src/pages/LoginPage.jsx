@@ -56,8 +56,9 @@ export default function LoginPage() {
         const idValue = IdValue.current?.value?.trim() || "";
 
         //validating this is where i stopped go over......
+        
         if (
-            educationalType.includes(eduValue) ||
+            educationalType.includes(eduValue) &&
             loginType.includes(logValue)
         ) {
             if (logValue === "Admin") {
@@ -109,6 +110,7 @@ export default function LoginPage() {
 
             localStorage.setItem("isLoggedIn", false);
             showError(true);
+            console.log("Error")
             return;
         }
 
