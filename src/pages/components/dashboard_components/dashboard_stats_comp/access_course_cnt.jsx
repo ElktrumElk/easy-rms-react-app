@@ -65,11 +65,21 @@ export default function AccessCourseContainer() {
                         <div className="li_btm-8">
                             <div>
                                 <img src="/icons/payment_made.png" width={"20px"} height={"20px"} />
-                                <span>{"Payment : <strong>{course.payment}</strong>"}</span>
-                                <span className="module_up_status-8">Balance: {course.balance}</span>
+                                {
+                                    userRole === 'Admin' ?
+                                        <span>
+                                            Students: < strong > {course.totalStudent}</strong>
+                                        </span>
+                                        :
+                                        <span>
+                                            Payment: <strong>{course.payment}</strong>
+                                        </span>
+                                }
+
+                                {userRole !== "Admin" && <span className="module_up_status-8">Balance: {course.balance}</span>}
                             </div>
                         </div>
-                    </div>
+                    </div >
                 ))
             }
         </>
