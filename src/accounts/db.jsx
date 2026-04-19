@@ -8,7 +8,7 @@ export default function educationalServiceData() {
         "CODE": {
             /**The administrator */
             admins: {
-                
+
                 "Id654321": {
                     name: "Madusan",
                     superAdmin: true,
@@ -129,10 +129,12 @@ export default function educationalServiceData() {
                 "Code2026001": {
                     studentName: "Elkanah Cole",
                     loginID: "ID2026001",
+                    studentId: "Code2026001",
+
                     data: {
                         batchesEnrolled: 1,
                         accessCourse: 1,
-                        accessModules: 1,
+                        accessModules: 2,
                         course: [
                             {
                                 name: "Software Engineering",

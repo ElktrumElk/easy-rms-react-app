@@ -4,7 +4,7 @@ import fetchData from "../../../../scripts/fetchData";
 import { ValidData } from "../../../../context/validData";
 import { AuthContext } from "../../../../context/auth_context_export";
 import { RenderUsersListContext } from "../../../../context/userListClick";
-
+import { batchNumberValidator, courseValidator, endStudnetNumber } from "../../../../scripts/data_extractor";
 /**
  * 
  * @param {Object} param0 
@@ -21,6 +21,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction, isAdminS
 
     const [data, setData] = useState(fetchData({ navigate: false, type: false }));
     const { userRole } = useContext(AuthContext);
+    const isInitialLogin = localStorage.getItems('initLogin');
 
     const [batchNumber, setBatchNumber] = useState(0);
     const [courseNumber, setCourseNumber] = useState(0);
@@ -34,48 +35,42 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction, isAdminS
 
 
     useEffect(() => {
-        let endBatchNumber = Object.keys(data.data.batchesEnrolled).length;
-        let endCourseNumber = Object.keys(data.data.courses).length;
+
+        let endBatchNumber = () => batchNumberValidator(userRole, isInitialLogin ? ValidData : data);
+        let endCourseNumber = () => courseValidator(userRole, isInitialLogin ? ValidData : data);
         let endStudentNumer = 0;
 
-        /**Caculate the total amount of children */
-        Object.keys(data.data.batchesEnrolled).forEach((b, idx) => {
-            endStudentNumer += data.data.batchesEnrolled[`${b}`].students
-        })
+        /*Set the student number for Admin and modules for student/lecturer login*/
+        endStudnetNumber(userRole, endStudentNumer, isInitialLogin ? ValidData : data);
 
+        /**Caculate the total amount of resources */
         let endResources = endBatchNumber + endCourseNumber + endStudentNumer;
 
         const interval = setInterval(() => {
 
-            if (userRole === "Admin") {
-                if (startBatchNumber > endBatchNumber &&
-                    startCourseNumber > endCourseNumber &&
-                    startStudentNumber > endStudentNumer &&
-                    startResources > endResources
-                ) {
-                    clearInterval(interval)
-                } else {
-                    if (startBatchNumber <= endBatchNumber) {
-                        setBatchNumber(startBatchNumber);
-                        startBatchNumber += 1;
-                    }
-                    if (startCourseNumber <= endCourseNumber) {
-                        setCourseNumber(startCourseNumber);
-                        startCourseNumber += 1;
-                    }
-                    if (startStudentNumber <= endStudentNumer) {
-                        setTotalStudent(startStudentNumber)
-                        startStudentNumber += 2;
-                    }
-                    if (startResources <= endResources) {
-                        setTotalResources(startResources);
-                        startResources += 2;
-                    }
-                }
-
+            if (startBatchNumber > endBatchNumber &&
+                startCourseNumber > endCourseNumber &&
+                startStudentNumber > endStudentNumer &&
+                startResources > endResources
+            ) {
+                clearInterval(interval)
             } else {
-                //comment: just for the main time it will be replace with student login
-                setBatchNumber(0);
+                if (startBatchNumber <= endBatchNumber) {
+                    setBatchNumber(startBatchNumber);
+                    startBatchNumber += 1;
+                }
+                if (startCourseNumber <= endCourseNumber) {
+                    setCourseNumber(startCourseNumber);
+                    startCourseNumber += 1;
+                }
+                if (startStudentNumber <= endStudentNumer) {
+                    setTotalStudent(startStudentNumber)
+                    startStudentNumber += 2;
+                }
+                if (startResources <= endResources) {
+                    setTotalResources(startResources);
+                    startResources += 2;
+                }
             }
         }, 1)
 
@@ -96,7 +91,6 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction, isAdminS
     }, [viewBatchButtonClick])
 
     // const { setUserPanel, isUserPanel } = useContext(RenderUsersListContext);
-    
 
     return (
         <>

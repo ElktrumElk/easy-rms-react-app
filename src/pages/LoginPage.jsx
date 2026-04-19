@@ -86,6 +86,7 @@ export default function LoginPage() {
                     localStorage.setItem("adminID", idValue);
                     localStorage.setItem("edu", eduValue);
                     localStorage.setItem("isLoggedIn", true);
+                    localStorage.setItem("initLogin", true)
 
                     //comment: Share the data aross the application
                     setLoginData({
@@ -101,12 +102,13 @@ export default function LoginPage() {
                 }
             }
 
+
             /**======================Student Login============================== 
             * =========                                                ======== */
             else if (logValue === "Student") {
 
                 if (dat[`${eduValue}`]?.[`${logValue.toLowerCase()}`]?.[`${idValue}`]) {
-                    
+
                     if (passValue === dat[`${eduValue}`]?.[`${logValue.toLowerCase()}`]?.[`${idValue}`]?.[`loginID`]) {
                         const studentData = dat[`${eduValue}`]?.[`${logValue.toLowerCase()}`]?.[`${idValue}`]
 
@@ -117,20 +119,28 @@ export default function LoginPage() {
                         localStorage.setItem("studentId", studentData.studentId);
                         localStorage.setItem("Edu", eduValue);
                         localStorage.setItem("isLoggedIn", true);
+                        localStorage.setItem("initLogin", true)
 
+
+                        //comment: share the data
                         setLoginData({
-                            adminPersonalData: admin,
-                            data: dat[`${eduValue}`]['Admindata']
-                        })
+                            studentPersonalData: { studentName: studentData.studentName, studentId: studentData.studentId },
+                            data: studentData.data
+                        });
+
+                        console.log(studentData.data)
+
+                    } else {
+                        showError(true);
+                        console.log("pass error"); //debugging
                     }
                 } else {
                     showError(true);
-                    console.log("Error")
+                    console.log("id Error") //debugging
                 }
             }
         }
         else {
-
             localStorage.setItem("isLoggedIn", false);
             showError(true);
             console.log("Error")
@@ -139,6 +149,9 @@ export default function LoginPage() {
 
     };
 
+    /**
+     * Hide error
+     */
     const hideErr = () => {
         showError(false);
     };

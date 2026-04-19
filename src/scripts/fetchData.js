@@ -35,6 +35,10 @@ export default function fetchData({ navigate = false, type = false }) {
                 if (type === "navigate") {
                     navigate("/dashboard", { replace: true });
                 }
+
+                //comment: set initial login to false
+                localStorage.setItem("initLogin", false);
+
                 //comment: returns the data
                 return {
                     adminPersonalData: datas[index],
@@ -50,7 +54,7 @@ export default function fetchData({ navigate = false, type = false }) {
             }
         }
         else if (role === 'Student') {
-          
+
             const studentID = localStorage.getItem('studentId');
             let datas;
             if (studentID) {
