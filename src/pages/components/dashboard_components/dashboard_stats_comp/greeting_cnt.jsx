@@ -22,9 +22,9 @@ export default function GreetingContainer({ isViewBatch }) {
     const [greetinOpacity, setGreetinOpacity] = useState(0);
 
     const quote = quotes(); // assuming this is cheap
-    
- 
-   
+
+
+
     // Better greeting logic
     useEffect(() => {
         if (!data && !loginData) return; // wait for data
@@ -33,7 +33,7 @@ export default function GreetingContainer({ isViewBatch }) {
         const hour = time.getHours();
 
         let greet = "";
-        const name = loginData?.adminPersonalData?.name || data?.adminPersonalData?.name || loginData?.studentPersonalData?.studentName|| data?.studentPersonalData?.studentName|| "";
+        const name = loginData?.adminPersonalData?.name || data?.adminPersonalData?.name || loginData?.studentPersonalData?.studentName || data?.studentPersonalData?.studentName || "";
 
         if (hour >= 12 && hour < 18) {
             greet = `Good Afternoon ${name}`;
@@ -42,7 +42,6 @@ export default function GreetingContainer({ isViewBatch }) {
         } else {
             greet = `Good Morning ${name}`;
         }
-
 
         let i = 0;
         let g = ""; //used this to fix the unexpected out put of the greeting
@@ -55,13 +54,12 @@ export default function GreetingContainer({ isViewBatch }) {
                 setGreetinOpacity((prev) => Math.min(1, prev + 0.1));
                 i++;
             } else {
-
                 clearInterval(interval);
             }
         }, 100);
 
         return () => clearInterval(interval);
-        
+
     }, [data, loginData]); // depend on data/loginData, not on changing minute/hour
 
     return (

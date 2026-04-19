@@ -130,11 +130,13 @@ export default function educationalServiceData() {
                     studentName: "Elkanah Cole",
                     loginID: "ID2026001",
                     studentId: "Code2026001",
+    
 
                     data: {
                         batchesEnrolled: 1,
+                        batchId: 'b01',
                         accessCourse: 1,
-                        accessModules: 2,
+                        accessModules: 4,
                         course: [
                             {
                                 name: "Software Engineering",
@@ -153,15 +155,31 @@ export default function educationalServiceData() {
                                 date: "Mon 9 Feb 2026",
                                 batchAssociated: "00001",
                                 inCharge: "Abdullah",
-                                numberofFiles: 0,
+                                numberofFiles: 7,
                                 status: "onHold"
                             },
                             {
-                                name: "Advance Excel",
+                                name: "JavaScript",
                                 batchAssociated: "00001",
                                 date: "Wed 26 Feb 2026",
                                 inCharge: "Zeshan",
-                                numberofFiles: 0,
+                                numberofFiles: 8,
+                                status: "Current"
+                            },
+                            {
+                                name: "C++",
+                                batchAssociated: "00001",
+                                date: "Wed 26 Feb 2026",
+                                inCharge: "Zeshan",
+                                numberofFiles: 15,
+                                status: "Current"
+                            },
+                            {
+                                name: "SQL",
+                                batchAssociated: "00001",
+                                date: "Wed 26 Feb 2026",
+                                inCharge: "Zeshan",
+                                numberofFiles: 9,
                                 status: "Current"
                             }
                         ]

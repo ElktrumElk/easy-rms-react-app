@@ -31,17 +31,22 @@ const BarChart = () => {
     let targetValues = [];
     let labels = []
 
-    if (userRole === "Admin") {
+    if (userRole === 'Admin') {
         //Comment: Loop through if user is an Admin
         Object.keys(data.data.batchesEnrolled).forEach((v, idx) => {
             //Comment: Assign the the values to the targetValue array
             targetValues.push(data.data.batchesEnrolled[`${v}`]?.students);
             labels.push(data.data.batchesEnrolled[`${v}`]?.name)
         })
+    } else if (userRole === 'Student') {
+        Object.keys(data.data.modules).forEach((m, idx) => {
+            targetValues.push(data.data.modules[idx].numberofFiles);
+            labels.push(data.data.modules[idx].name);
+        })
     };
 
     const [animatedValues, setAnimatedValues] = useState([0, 0, 0, 0, 0, 0]);
-   
+
     // Animation Logic
     useEffect(() => {
 
@@ -84,7 +89,7 @@ const BarChart = () => {
                 data: animatedValues,
                 backgroundColor: '#1E319B',
                 borderColor: '#1E319B',
-                borderWidth: 1,
+                borderWidth: 1
             },
         ],
     };

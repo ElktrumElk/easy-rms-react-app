@@ -1,11 +1,13 @@
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import educationalServiceData from "../../../../accounts/db";
 import fetchData from "../../../../scripts/fetchData";
+import { AuthContext } from "../../../../context/auth_context_export";
 
 export default function BatchesEnrolledContainer() {
 
     const [batchData] = useState(fetchData({ navigate: false, type: false }).data);
+    const {userRole} = useContext(AuthContext);
 
     return (
         <>
