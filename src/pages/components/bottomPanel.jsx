@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useContext } from "react";
 import moduleData from "./dashboard_components/batches/module_data";
 import { UserLists } from "../../components/sidebar_user_list";
 import { AuthContext } from "../../context/auth_context_export";
+import LogOutButton from "../../components/log_out_btn";
 
 /**
  * Comment: The bottom pannel you can find the bottom panel import in the dashBoardComponent file at
@@ -176,7 +177,10 @@ export default function BottomPanel({
                 </div>
             </div>
 
-
+            <br></br>
+            <div className="bottom_cnts-6">
+                <LogOutButton sideBarExpand={true} />
+            </div>
 
         </div>
     )
