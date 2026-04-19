@@ -51,6 +51,6 @@ export function endStudnetNumber(userRole, endStudentNumer, data) {
         })
     }
     else if (userRole === 'Student') {
-        endStudentNumer += data.data.accessModules
+        return data.data.accessModules
     }
 }

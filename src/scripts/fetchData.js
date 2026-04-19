@@ -10,60 +10,71 @@ import educationalServiceData from "../accounts/db";
 export default function fetchData({ navigate = false, type = false }) {
     /**Comment: Fetch store data */
 
-    const adminId = localStorage.getItem("adminID");
     const educationalValue = localStorage.getItem("Edu")
     const role = localStorage.getItem("userRole");
     const dat = educationalServiceData()
 
     //Check for proper validation */
-    if (adminId && educationalValue && role) {
-
-        //Comment: Retrieve the save data from the local storage. This is demo! */
-        const datas = dat[`${educationalValue}`][`${role.toLowerCase()}s`]
+    if (educationalValue && role) {
 
         //Comment:  Check if the role is admin for loop fetching*/
         if (role === 'Admin') {
+            const adminId = localStorage.getItem("adminID");
 
-            //comment: Get the save key index for direct hash fetching
-            const index = localStorage.getItem("index");
-            //Comment: check if index exist
-            if (index) {
-                /**
-                 * comment: if the type is set to navigate then it will return to the dashboard 
-                 * This is actually needed for login validation
-                 * */
-                if (type === "navigate") {
-                    navigate("/dashboard", { replace: true });
+            if (adminId) {
+                //Comment: Retrieve the save data from the local storage. This is demo! */
+                const datas = dat[`${educationalValue}`][`${role.toLowerCase()}s`]
+
+                //comment: Get the save key index for direct hash fetching
+                const index = localStorage.getItem("index");
+                //Comment: check if index exist
+                if (index) {
+                    /**
+                     * comment: if the type is set to navigate then it will return to the dashboard 
+                     * This is actually needed for login validation
+                     * */
+                    if (type === "navigate") {
+                        navigate("/dashboard", { replace: true });
+                    }
+
+                    //comment: set initial login to false
+                    localStorage.setItem("initLogin", false);
+
+                    //comment: returns the data
+                    return {
+                        adminPersonalData: datas[index],
+                        data: dat[`${educationalValue}`]['Admindata']
+                    }
+                    //comment: automatically navigate to the dashboard
                 }
 
-                //comment: set initial login to false
-                localStorage.setItem("initLogin", false);
-
-                //comment: returns the data
-                return {
-                    adminPersonalData: datas[index],
-                    data: dat[`${educationalValue}`]['Admindata']
+                else {
+                    //Comment: return to login if the hash index wasn't found
+                    localStorage.setItem("isLoggedIn", false);
+                    console.log("From fetch data 53 log set to false")
+                    return false;
                 }
-                //comment: automatically navigate to the dashboard
-            }
-
-            else {
-                //Comment: return to login if the hash index wasn't found
-                localStorage.setItem("isLoggedIn", false);
-                return false;
             }
         }
+
         else if (role === 'Student') {
 
             const studentID = localStorage.getItem('studentId');
-            let datas;
-            if (studentID) {
-                Object.keys(dat[`${educationalValue}`]?.['student']).forEach(idx => {
-                    if (studentID === dat[`${educationalValue}`]?.['student'][`${idx}`].studentId) {
-                        datas = dat[`${educationalValue}`]?.['student']
-                    }
-                })
+
+            /** **Comment**: Get the data of the student */
+            let datas = dat[`${educationalValue}`]?.[`${role.toLocaleLowerCase()}`]?.[`${studentID}`];
+
+            if (type === "navigate") {
+                navigate("/dashboard", { replace: true });
             }
+            
+            return {
+                studentPersonalData: { studentName: datas.studentName, studentId: datas.studentId },
+                data: datas.data
+            }
+        }
+        else {
+            return "Still under development"
         }
     }
     else {

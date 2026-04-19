@@ -3,6 +3,7 @@ import { ValidData } from "../context/validData"
 
 
 
+/**Check if user is logged in or not */
 export function useValidationLogin() {
 
     const isValid = useContext(ValidData);

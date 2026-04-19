@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import TotalNumberResources from "./total_num_res";
 import fetchData from "../../../../scripts/fetchData";
-import { ValidData } from "../../../../context/validData";
+import { useValidationLogin } from "../../../../hooks/useValidation_login";
 import { AuthContext } from "../../../../context/auth_context_export";
 import { RenderUsersListContext } from "../../../../context/userListClick";
 import { batchNumberValidator, courseValidator, endStudnetNumber } from "../../../../scripts/data_extractor";
@@ -20,8 +20,9 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction, isAdminS
     const [ct, setCurTab] = useState(null);
 
     const [data, setData] = useState(fetchData({ navigate: false, type: false }));
+
     const { userRole } = useContext(AuthContext);
-    const isInitialLogin = localStorage.getItems('initLogin');
+    const isInitialLogin = localStorage.getItem('initLogin');
 
     const [batchNumber, setBatchNumber] = useState(0);
     const [courseNumber, setCourseNumber] = useState(0);
@@ -36,30 +37,27 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction, isAdminS
 
     useEffect(() => {
 
-        let endBatchNumber = () => batchNumberValidator(userRole, isInitialLogin ? ValidData : data);
-        let endCourseNumber = () => courseValidator(userRole, isInitialLogin ? ValidData : data);
-        let endStudentNumer = 0;
-
-        /*Set the student number for Admin and modules for student/lecturer login*/
-        endStudnetNumber(userRole, endStudentNumer, isInitialLogin ? ValidData : data);
-
+        let endBatchNumber = () => batchNumberValidator(userRole, data);
+        let endCourseNumber = () => courseValidator(userRole, data);
+        const endStudentNumer = endStudnetNumber(userRole, null, data);
+        
         /**Caculate the total amount of resources */
-        let endResources = endBatchNumber + endCourseNumber + endStudentNumer;
-
+        let endResources = endBatchNumber() + endCourseNumber() + endStudentNumer;
+        console.log(data)
         const interval = setInterval(() => {
 
-            if (startBatchNumber > endBatchNumber &&
-                startCourseNumber > endCourseNumber &&
+            if (startBatchNumber > endBatchNumber() &&
+                startCourseNumber > endCourseNumber() &&
                 startStudentNumber > endStudentNumer &&
                 startResources > endResources
             ) {
                 clearInterval(interval)
             } else {
-                if (startBatchNumber <= endBatchNumber) {
+                if (startBatchNumber <= endBatchNumber()) {
                     setBatchNumber(startBatchNumber);
                     startBatchNumber += 1;
                 }
-                if (startCourseNumber <= endCourseNumber) {
+                if (startCourseNumber <= endCourseNumber()) {
                     setCourseNumber(startCourseNumber);
                     startCourseNumber += 1;
                 }
@@ -81,17 +79,17 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction, isAdminS
     /**Name of the tab to be displayed */
     const [tb, setTb] = useState(null);
 
+    /**Comment: listen if the view Batch button was clicked  */
     useEffect(() => {
         if (viewBatchButtonClick !== null) {
             setViewPanels(true);
             setTb("Batches Enrolled");
             setCurTab("BE");
-            viewBatchFunction(null)
+            viewBatchFunction(null);
         }
     }, [viewBatchButtonClick])
 
     // const { setUserPanel, isUserPanel } = useContext(RenderUsersListContext);
-
     return (
         <>
             <div className="top_bar-5">

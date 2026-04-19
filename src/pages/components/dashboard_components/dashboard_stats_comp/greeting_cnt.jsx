@@ -33,7 +33,7 @@ export default function GreetingContainer({ isViewBatch }) {
         const hour = time.getHours();
 
         let greet = "";
-        const name = loginData?.adminPersonalData?.name || data?.adminPersonalData?.name || "";
+        const name = loginData?.adminPersonalData?.name || data?.adminPersonalData?.name || loginData?.studentPersonalData?.studentName|| data?.studentPersonalData?.studentName|| "";
 
         if (hour >= 12 && hour < 18) {
             greet = `Good Afternoon ${name}`;
@@ -85,7 +85,7 @@ export default function GreetingContainer({ isViewBatch }) {
                         <h2 className={dayinWords === "" ? "greeting_skeleton-8 loading_skeleton" : ''} style={{
                             opacity: dayinWords === "" ? 1 : greetinOpacity
                         }}>{dayinWords}</h2>
-                        <span><strong>ID: </strong>{userRole === 'Admin' ? data.adminPersonalData.RegisterId : "none"}</span>
+                        <span><strong>ID: </strong>{userRole === 'Admin' ? data.adminPersonalData.RegisterId : data.studentPersonalData.studentId}</span>
                     </div>
 
                     <button className="view_batch_button-9" onClick={() => { isViewBatch("BE") }}>View Batch</button>

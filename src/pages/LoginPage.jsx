@@ -119,6 +119,7 @@ export default function LoginPage() {
                         localStorage.setItem("studentId", studentData.studentId);
                         localStorage.setItem("Edu", eduValue);
                         localStorage.setItem("isLoggedIn", true);
+                        console.log("item just set")
                         localStorage.setItem("initLogin", true)
 
 
