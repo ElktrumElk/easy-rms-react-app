@@ -7,7 +7,7 @@ import educationalServiceData from "../accounts/db";
  * @param {Function} param0.navigate - React useNavigat should be passed here for navigation
  * @param {String} param0.type - The type is need to set navigation. it value should be navigate
  */
-export default function fetchData({navigate = false, type = false}) {
+export default function fetchData({ navigate = false, type = false }) {
     /**Comment: Fetch store data */
 
     const adminId = localStorage.getItem("adminID");
@@ -32,13 +32,13 @@ export default function fetchData({navigate = false, type = false}) {
                  * comment: if the type is set to navigate then it will return to the dashboard 
                  * This is actually needed for login validation
                  * */
-                if (type === "navigate"){
+                if (type === "navigate") {
                     navigate("/dashboard", { replace: true });
                 }
                 //comment: returns the data
                 return {
                     adminPersonalData: datas[index],
-                    data:  dat[`${educationalValue}`]['Admindata']
+                    data: dat[`${educationalValue}`]['Admindata']
                 }
                 //comment: automatically navigate to the dashboard
             }
@@ -47,6 +47,18 @@ export default function fetchData({navigate = false, type = false}) {
                 //Comment: return to login if the hash index wasn't found
                 localStorage.setItem("isLoggedIn", false);
                 return false;
+            }
+        }
+        else if (role === 'Student') {
+          
+            const studentID = localStorage.getItem('studentId');
+            let datas;
+            if (studentID) {
+                Object.keys(dat[`${educationalValue}`]?.['student']).forEach(idx => {
+                    if (studentID === dat[`${educationalValue}`]?.['student'][`${idx}`].studentId) {
+                        datas = dat[`${educationalValue}`]?.['student']
+                    }
+                })
             }
         }
     }

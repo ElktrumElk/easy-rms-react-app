@@ -7,21 +7,20 @@ export default function educationalServiceData() {
     const [educationalServices] = useState({
         "CODE": {
             /**The administrator */
-            admins: [
-                {
+            admins: {
+                
+                "Id654321": {
                     name: "Madusan",
-                    RegisterId: "Id654321",
                     superAdmin: true,
                     loginId: "123456789"
-
                 },
-                {
+
+                "Id123456": {
                     name: "Rajesh Kumar",
-                    RegisterId: "Id123456",
                     superAdmin: false,
                     loginId: "24681012"
                 }
-            ],
+            },
 
             Admindata: {
 
@@ -127,9 +126,9 @@ export default function educationalServiceData() {
             },
 
             student: {
-                "ID2026001": {
+                "Code2026001": {
                     studentName: "Elkanah Cole",
-                    studentId: "Code2025001",
+                    loginID: "ID2026001",
                     data: {
                         batchesEnrolled: 1,
                         accessCourse: 1,

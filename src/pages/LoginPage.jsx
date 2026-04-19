@@ -10,40 +10,48 @@ export default function LoginPage() {
 
     const navigate = useNavigate();
 
-
+    //Comment: A useContext that holds users logins
     const { isAuthenticated, login } = useAuth();
+    //comment: validate user and share the data across the application
     const { setLoginData } = useValidationLogin();
 
 
     const dat = educationalServiceData();
-    const educationalType = Object.keys(dat);
     const loginType = ["Student", "Instructor", "Admin"];
 
     //const availableID = ["ID2026001", "ID2026002", "ID2026003"]; dev
 
+    //Comment: Shows the invalid login
     const [error, showError] = useState(false);
+
+    //Comment: Reference
     const eduTypeValue = useRef(null);
+    //comment: login input element
     const logTypeValue = useRef(null);
+    //comment: id input element
     const IdValue = useRef(null);
+    //comment: password input element
+    const passwordValue = useRef(null);
 
-
+    //Commet: Fetch data if use already logged in
     const data = fetchData({
         navigate: navigate,
         type: "navigate"
     });
 
-    //console.log(dat); debuggin
-    let k = 0;
+    //Comment: Authenticate
     useEffect(() => {
-        k += 1;
-        if (k <= 1) {
-            if (isAuthenticated) {
-                setLoginData(data);
-                console.log("Also this")
-            }
-        }
-    }, [isAuthenticated, navigate]);
+        console.log("User not logged in") //debigging
 
+        if (isAuthenticated) {
+            setLoginData(data);
+            console.log("User has already logged in") //debigging
+        }
+        document.body.style.backgroundColor = '#f5f5f5' //handling ackground color to match the cureent page
+
+    }, []);
+
+    //comment: handle login 
     const loginValidation = (event) => {
         event.preventDefault();
 
@@ -54,57 +62,72 @@ export default function LoginPage() {
         const logValue = logTypeValue.current?.value?.trim() || "";
         //ID for validation
         const idValue = IdValue.current?.value?.trim() || "";
+        //Password validation
+        const passValue = passwordValue.current?.value?.trim() || "";
 
-        //validating this is where i stopped go over......
-        
+
+
         if (
-            educationalType.includes(eduValue) &&
+            dat[`${eduValue}`] &&
             loginType.includes(logValue)
         ) {
+            /*Admin login*/
             if (logValue === "Admin") {
-                dat[`${eduValue}`]?.['admins']?.forEach((admin, idx) => {
-                    if (admin.loginId === idValue) {
+                //Comment: Get the data of the education
+                const data = dat[`${eduValue}`];
+                //comment: Check if id exist
+                if (data.admins[`${idValue}`]) {
+                    //comment: now check for the password
+                    if (data.admins[`${idValue}`]?.[`${passValue}`])
+                        login(logValue);
+                    navigate("/dashboard", { replace: true });
+
+                    /**Temporal-> save tha data in the localstorage... this is a frontend development */
+                    localStorage.setItem("adminID", idValue);
+                    localStorage.setItem("edu", eduValue);
+                    localStorage.setItem("isLoggedIn", true);
+
+                    //comment: Share the data aross the application
+                    setLoginData({
+                        adminPersonalData: data.admins[`${idValue}`],
+                        data: dat[`${eduValue}`]['Admindata']
+                    })
+
+
+                } else {
+                    localStorage.setItem("isLoggedIn", false);
+                    showError(true);
+                    return;
+                }
+            }
+
+            /**======================Student Login============================== 
+            * =========                                                ======== */
+            else if (logValue === "Student") {
+
+                if (dat[`${eduValue}`]?.[`${logValue.toLowerCase()}`]?.[`${idValue}`]) {
+                    
+                    if (passValue === dat[`${eduValue}`]?.[`${logValue.toLowerCase()}`]?.[`${idValue}`]?.[`loginID`]) {
+                        const studentData = dat[`${eduValue}`]?.[`${logValue.toLowerCase()}`]?.[`${idValue}`]
+
                         login(logValue);
                         navigate("/dashboard", { replace: true });
                         /**Temporal */
-                        localStorage.setItem("adminID", admin.RegisterId);
+                        localStorage.clear("*");
+                        localStorage.setItem("studentId", studentData.studentId);
                         localStorage.setItem("Edu", eduValue);
-                        localStorage.setItem("index", idx);
                         localStorage.setItem("isLoggedIn", true);
 
                         setLoginData({
                             adminPersonalData: admin,
                             data: dat[`${eduValue}`]['Admindata']
                         })
-
-
-                    } else {
-                        localStorage.setItem("isLoggedIn", false);
-                        showError(true);
-                        return;
                     }
-                })
-            } else if (logValue === "Student") {
-                if (Object.keys(dat[`${eduValue}`]?.['student']).includes(idValue)) {
-
-                    const studentData = dat[`${eduValue}`]?.['student'][`${idValue}`]
-
-                    login(logValue);
-                    navigate("/dashboard", { replace: true });
-                    /**Temporal */
-                    localStorage.clear("*");
-                    localStorage.setItem("studentId", studentData.studentId);
-                    localStorage.setItem("Edu", eduValue);
-                    localStorage.setItem("isLoggedIn", true);
-
-                    setLoginData({
-                        adminPersonalData: admin,
-                        data: dat[`${eduValue}`]['Admindata']
-                    })
-
+                } else {
+                    showError(true);
+                    console.log("Error")
                 }
             }
-
         }
         else {
 
@@ -190,12 +213,25 @@ export default function LoginPage() {
                                     <input
                                         ref={IdValue}
                                         className="inp"
-                                        placeholder="ID:********"
+                                        placeholder="ID"
                                         type="password"
                                         required
                                         onFocus={hideErr}
                                     />
                                 </fieldset>
+
+                                <fieldset className="inp_cnt1-2">
+                                    <legend>Password</legend>
+                                    <input
+                                        ref={passwordValue}
+                                        className="inp"
+                                        placeholder="Password"
+                                        type="password"
+                                        required
+                                        onFocus={hideErr}
+                                    />
+                                </fieldset>
+
                                 <div className="child_cnt-2">
                                     <div className="sub_child_cnt-2">
                                         <input className="check_box-2" type="checkbox" />

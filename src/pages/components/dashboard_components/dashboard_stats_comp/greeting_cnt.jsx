@@ -85,7 +85,7 @@ export default function GreetingContainer({ isViewBatch }) {
                         <h2 className={dayinWords === "" ? "greeting_skeleton-8 loading_skeleton" : ''} style={{
                             opacity: dayinWords === "" ? 1 : greetinOpacity
                         }}>{dayinWords}</h2>
-                        <span><strong>ID: </strong>{data.adminPersonalData.RegisterId}</span>
+                        <span><strong>ID: </strong>{userRole === 'Admin' ? data.adminPersonalData.RegisterId : "none"}</span>
                     </div>
 
                     <button className="view_batch_button-9" onClick={() => { isViewBatch("BE") }}>View Batch</button>

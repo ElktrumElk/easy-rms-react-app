@@ -38,13 +38,14 @@
     display: flex;
     flex-direction: column;
     place-items: center;
-    place-content: center;
     gap: 2rem;
+    height: auto;
+    overflow-y: auto;
 }
 
 
 .info-2 h1 {
-    color: var(--theme_color)
+    color: var(--theme_color);
 }
 
 .login_back_btn-2 {
@@ -60,7 +61,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin-block-start: 2rem;
+    margin-block-start: 5rem;
 
 }
 
