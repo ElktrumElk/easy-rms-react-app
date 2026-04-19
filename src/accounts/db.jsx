@@ -130,7 +130,7 @@ export default function educationalServiceData() {
                     studentName: "Elkanah Cole",
                     loginID: "ID2026001",
                     studentId: "Code2026001",
-    
+
 
                     data: {
                         batchesEnrolled: 1,
@@ -151,37 +151,63 @@ export default function educationalServiceData() {
                         ],
                         modules: [
                             {
-                                name: "HTML / CSS",
-                                date: "Mon 9 Feb 2026",
-                                batchAssociated: "00001",
+                                moduleName: "HTML / CSS",
                                 inCharge: "Abdullah",
-                                numberofFiles: 7,
-                                status: "onHold"
+                                state: "Draft",
+                                icon: '/icons/draft_ic.png',
+                                color: "#00c0eb4e",
+                                batch: "Batch 1 2026",
+                                totalFiles: 8,
+                                timeAssign: "Mon 11 Jan 2026",
+                                lastUpdated: "10th Feb 2026",
+                                totalChapters: 10
                             },
                             {
-                                name: "JavaScript",
-                                batchAssociated: "00001",
-                                date: "Wed 26 Feb 2026",
-                                inCharge: "Zeshan",
-                                numberofFiles: 8,
-                                status: "Current"
+                                moduleName: "C++",
+                                inCharge: "Abdullah",
+                                state: "Completed",
+                                icon: "/icons/progress_ic.png",
+                                color: "#43ef0942",
+                                batch: "Batch 1 2026",
+                                totalFiles: 15,
+                                timeAssign: "Mon 11 Jan 2026",
+                                lastUpdated: "yesterday",
+                                totalChapters: 10,
                             },
                             {
-                                name: "C++",
-                                batchAssociated: "00001",
-                                date: "Wed 26 Feb 2026",
+                                moduleName: "Advance Excel",
                                 inCharge: "Zeshan",
-                                numberofFiles: 15,
-                                status: "Current"
+                                state: "Current",
+                                icon: "/icons/progress_ic.png",
+                                color: "#efdf0977",
+                                batch: "Batch 1 2026",
+                                totalFiles: 21,
+                                timeAssign: "Mon 11 Jan 2026",
+                                lastUpdated: "Wed 15 Apr",
+                                totalChapters: 10
                             },
                             {
-                                name: "SQL",
-                                batchAssociated: "00001",
-                                date: "Wed 26 Feb 2026",
-                                inCharge: "Zeshan",
-                                numberofFiles: 9,
-                                status: "Current"
+                                moduleName: "Logic Buildign",
+                                inCharge: "Gabati",
+                                state: "Draft",
+                                icon: '/icons/draft_ic.png',
+                                color: "#00c0eb77",
+                                batch: "Batch 1 2026",
+                                totalFiles: 19,
+                                timeAssign: "Mon 11 Jan 2026",
+                                lastUpdated: "10th Feb 2026",
+                                totalChapters: 24
                             }
+                        ],
+                        batches: [
+                            {
+                                name: "Batch 1 2026",
+                                dateEnrolled: "Wed 5 Jan 2026",
+                                inCharge: "Zeshan",
+                                modules: 10,
+                                courseName: "Software Engineerer",
+                                students: 20
+                            },
                         ]
                     }
                 }

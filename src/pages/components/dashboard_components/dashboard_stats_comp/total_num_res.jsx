@@ -25,7 +25,6 @@ export default function TotalNumberResources({ viewPanel, setViewPanel, curTab, 
 
     useEffect(() => {
         setCurrentTab(curTabValue);
-        console.log("yes boy")
         document.getElementsByClassName("main_frame_panel-3")[0].style.position = "fixed";
         
         UpdateBackkgroundColor(colorMode)

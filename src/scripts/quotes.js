@@ -19,10 +19,12 @@ export default function quotes() {
                 })
                 .catch(err => {
                     console.error("Error fetching quote:", err);
+                    setQuote({quote: 'Eduction is all about learning new thing'});
                     setLoading(false);
                 });
         }
+
     }, []);
-    
+
     return quote;
 }

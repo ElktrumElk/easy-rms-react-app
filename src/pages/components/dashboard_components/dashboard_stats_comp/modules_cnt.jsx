@@ -1,60 +1,17 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import moduleDat from "./module_data"
+import CreateModules from "../../../../components/create_modules";
+import fetchData from "../../../../scripts/fetchData";
+import { AuthContext } from "../../../../context/auth_context_export";
 
 export default function ModuleContainer() {
 
-    const modules = moduleDat();
-
+    const [batchData] = useState(fetchData({ navigate: false, type: false }).data);
+    const {userRole} = useContext(AuthContext);
+    
     return (
         <>
-            {
-                modules.map((module, indx) => (
-
-                    <div key={indx} className="list_sub_cnt-8">
-                        <div className="list_top_sec-8">
-                            <div className="res_name_cnt-8">
-                                <h2>{module.moduleName}</h2>
-
-                                <div className="list_status_cnt-8" style={{
-                                    backgroundColor: `${module.color}`
-                                }}>
-                                    <img src={module.icon} width={"20"} height={"20"} />
-                                    <span>{module.state}</span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div className="list_info-8">
-                            <div>
-                                <img src="/icons/date_ic.png" width={"20px"} height={"20px"} />
-                                <span>{module.timeAssign}</span>
-                            </div>
-
-                            <div>
-                                <img src="/icons/inCharge_ic.png" width={"20px"} height={"20px"} />
-                                <span>{module.inCharge}</span>
-                            </div>
-                            <div>
-                                <img src="/icons/module_btch_ic.png" width={"20px"} height={"20px"} />
-                                <span>{module.batch}</span>
-                            </div>
-
-                            <div>
-                                <img src="/icons/modules_ic.png" width={"20px"} height={"20px"} />
-                                <span><strong>{module.totalFiles}</strong> Files</span>
-                            </div>
-                        </div>
-                        <div className="li_btm-8">
-                            <div>
-                                <div>*</div>
-                                <span>Chapters {module.totalChapters}</span>
-                                <span className="module_up_status-8">Updated {module.lastUpdated}</span>
-                            </div>
-                        </div>
-                    </div>
-                ))
-            }
+            {userRole !== 'Admin' && <CreateModules modules={batchData.modules} />}
         </>
     )
 }
@@ -67,7 +24,7 @@ export function ModuleView() {
         <>
             <section className="module_sec_cnt-9">
                 <div className="module_cnt-9">
-                <h2>Modules</h2>
+                    <h2>Modules</h2>
                     {
                         modules.map((v, idx) => (
                             <div key={idx} className="module_card-9">
