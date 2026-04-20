@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
-import moduleData from "./module_data";
+import modulesFiles from "../../../../accounts/modules";
 import { AuthContext } from "../../../../context/auth_context_export";
 import fetchData from "../../../../scripts/fetchData";
 
@@ -20,24 +20,31 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
     const { userRole } = useContext(AuthContext);
     const [datas] = useState(fetchData({ navigate: false, type: false }));
 
-    /**Array of Modules */
-    const listModules = useMemo(() => {
-        if (userRole === 'Admin' || !datas?.data?.modules) return [];
-
-        return datas.data.modules.map(m => m.moduleName);
-    }, [datas, userRole]);
-
-
-
-    const moduleFiles = moduleData();
+    const batchKey = datas?.data?.batchId || 'b01';
+    const currentModules = useMemo(() => modulesFiles({ batchKey }), [batchKey]);
     const moduleClick = useRef([]);
     const [currentClicked, setCurrentClicked] = useState(null);
+
+    /**Array of Modules */
+    const listModules = useMemo(() => {
+        if (userRole === 'Admin') return [];
+        return currentModules.modules.map(m => m.name);
+    }, [currentModules, userRole]);
 
 
     /**The cureent batch that is beign clicked */
     const CurrentBatch = (idx) => {
+        const selected = currentModules.modules[idx];
+
+        if (!selected) return;
+
         if (typeof data === 'function' || typeof isClicked === 'function') {
-            data(moduleFiles[idx]);
+            data({
+                moduleKey: selected.moduleKey,
+                moduleName: selected.name,
+                batchFiles: selected.filesByDate
+            });
+
             if (typeof moduleName === 'function') {
                 moduleName(listModules[idx]);
             }
@@ -47,7 +54,7 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
     };
 
 
-    /**================================== */
+    /**==================SET THE LISTS OF Batches================ */
     useEffect(() => {
         if (typeof setBatchArray === 'function' ||
             typeof isClicked === 'function'
@@ -62,13 +69,17 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
 
     /**Listen for changes for the external index */
     useEffect(() => {
-
         if (externalIndex !== null) {
-            if (typeof data === 'function') {
-                data(moduleFiles[externalIndex !== null || !isNaN(externalIndex) ? externalIndex : 0]);
+            const selected = currentModules.modules[externalIndex];
+            if (selected && typeof data === 'function') {
+                data({
+                    moduleKey: selected.moduleKey,
+                    moduleName: selected.name,
+                    batchFiles: selected.filesByDate
+                });
             }
         }
-    }, [externalIndex])
+    }, [externalIndex, currentModules, data]);
 
     return (
         <>
