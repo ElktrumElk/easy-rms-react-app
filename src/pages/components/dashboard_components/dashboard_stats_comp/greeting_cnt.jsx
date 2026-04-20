@@ -61,7 +61,7 @@ export default function GreetingContainer({ isViewBatch }) {
         return () => clearInterval(interval);
 
     }, [data, loginData]); // depend on data/loginData, not on changing minute/hour
-
+    console.log(data)
     return (
         <>
             <div className="greeting_cnt-8">

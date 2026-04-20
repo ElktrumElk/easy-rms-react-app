@@ -10,7 +10,7 @@ import educationalServiceData from "../accounts/db";
 export default function fetchData({ navigate = false, type = false }) {
     /**Comment: Fetch store data */
 
-    const educationalValue = localStorage.getItem("Edu")
+    const educationalValue = localStorage.getItem("edu")
     const role = localStorage.getItem("userRole");
     const dat = educationalServiceData()
 
@@ -24,11 +24,6 @@ export default function fetchData({ navigate = false, type = false }) {
             if (adminId) {
                 //Comment: Retrieve the save data from the local storage. This is demo! */
                 const datas = dat[`${educationalValue}`][`${role.toLowerCase()}s`]
-
-                //comment: Get the save key index for direct hash fetching
-                const index = localStorage.getItem("index");
-                //Comment: check if index exist
-                if (index) {
                     /**
                      * comment: if the type is set to navigate then it will return to the dashboard 
                      * This is actually needed for login validation
@@ -42,18 +37,10 @@ export default function fetchData({ navigate = false, type = false }) {
 
                     //comment: returns the data
                     return {
-                        adminPersonalData: datas[index],
+                        adminPersonalData: datas[`${adminId}`],
                         data: dat[`${educationalValue}`]['Admindata']
                     }
-                    //comment: automatically navigate to the dashboard
-                }
-
-                else {
-                    //Comment: return to login if the hash index wasn't found
-                    localStorage.setItem("isLoggedIn", false);
-                    console.log("From fetch data 53 log set to false")
-                    return false;
-                }
+              
             }
         }
 
@@ -78,7 +65,7 @@ export default function fetchData({ navigate = false, type = false }) {
         }
     }
     else {
-        localStorage.setItem("isLoggedIn", false);
+       localStorage.setItem("isLoggedIn", false);
         return false;
     }
 

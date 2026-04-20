@@ -13,6 +13,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("isLoggedIn", isAuthenticated ? "true" : "false");
+  
     if (userRole) {
       localStorage.setItem("userRole", userRole);
     } else {

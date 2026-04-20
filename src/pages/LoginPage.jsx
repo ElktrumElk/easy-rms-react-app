@@ -78,21 +78,24 @@ export default function LoginPage() {
                 //comment: Check if id exist
                 if (data.admins[`${idValue}`]) {
                     //comment: now check for the password
-                    if (data.admins[`${idValue}`]?.[`${passValue}`])
+                    if (passValue === data.admins[`${idValue}`]?.[`loginId`]) {
                         login(logValue);
-                    navigate("/dashboard", { replace: true });
 
-                    /**Temporal-> save tha data in the localstorage... this is a frontend development */
-                    localStorage.setItem("adminID", idValue);
-                    localStorage.setItem("edu", eduValue);
-                    localStorage.setItem("isLoggedIn", true);
-                    localStorage.setItem("initLogin", true)
+                        /**Temporal-> save tha data in the localstorage... this is a frontend development */
+                        localStorage.setItem("adminID", idValue);
+                        localStorage.setItem("edu", eduValue);
+                        localStorage.setItem("isLoggedIn", true);
+                        localStorage.setItem("initLogin", true)
+                        navigate("/dashboard", { replace: true });
+                        //comment: Share the data aross the application
+                        setLoginData({
+                            adminPersonalData: data.admins[`${idValue}`],
+                            data: dat[`${eduValue}`]['Admindata']
+                        })
 
-                    //comment: Share the data aross the application
-                    setLoginData({
-                        adminPersonalData: data.admins[`${idValue}`],
-                        data: dat[`${eduValue}`]['Admindata']
-                    })
+                    }else {
+                        showError(true);
+                    }
 
 
                 } else {
@@ -117,9 +120,8 @@ export default function LoginPage() {
                         /**Temporal */
                         localStorage.clear("*");
                         localStorage.setItem("studentId", studentData.studentId);
-                        localStorage.setItem("Edu", eduValue);
+                        localStorage.setItem("edu", eduValue);
                         localStorage.setItem("isLoggedIn", true);
-                        console.log("item just set")
                         localStorage.setItem("initLogin", true)
 
 
@@ -144,7 +146,6 @@ export default function LoginPage() {
         else {
             localStorage.setItem("isLoggedIn", false);
             showError(true);
-            console.log("Error")
             return;
         }
 
@@ -228,7 +229,7 @@ export default function LoginPage() {
                                         ref={IdValue}
                                         className="inp"
                                         placeholder="ID"
-                                        type="password"
+                                        type="text"
                                         required
                                         onFocus={hideErr}
                                     />
