@@ -8,13 +8,19 @@ import { AuthContext } from "../../../context/auth_context_export";
 
 /**The whole section of the dashboard statistics */
 export default function DashboardStats({ adminStudentView }) {
-    
+
     const [isViewBatch, setViewbatch] = useState(null)
     const { userRole } = useContext(AuthContext);
 
     /**Comment: The scroll view section element */
-    document.getElementById('main_section').style.overflowY = ''
+    if (document.getElementById('main_section')) {
+        document.getElementById('main_section').style.overflowY = ''
+    }
 
+
+
+
+    /***Return */
     return (
         <>
             <div id="main_page" className="home_screen">

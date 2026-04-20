@@ -1,5 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import moduleData from "./module_data";
+import { AuthContext } from "../../../../context/auth_context_export";
+import fetchData from "../../../../scripts/fetchData";
 
 /**
  * 
@@ -15,14 +17,16 @@ import moduleData from "./module_data";
 
 export default function Modules({ data, setBatchArray, isClicked, moduleName, isExternalclicked = false, externalIndex = null }) {
 
+    const { userRole } = useContext(AuthContext);
+    const [datas] = useState(fetchData({ navigate: false, type: false }));
+
     /**Array of Modules */
-    const [items] = useState([
-        "Advance Excel",
-        "Linux",
-        "C++",
-        "MS Office",
-        "N++"
-    ]);
+    const listModules = useMemo(() => {
+        if (userRole === 'Admin' || !datas?.data?.modules) return [];
+
+        return datas.data.modules.map(m => m.moduleName);
+    }, [datas, userRole]);
+
 
 
     const moduleFiles = moduleData();
@@ -35,7 +39,7 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
         if (typeof data === 'function' || typeof isClicked === 'function') {
             data(moduleFiles[idx]);
             if (typeof moduleName === 'function') {
-                moduleName(items[idx]);
+                moduleName(listModules[idx]);
             }
             setCurrentClicked(idx);
             isClicked(idx);
@@ -48,17 +52,17 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
         if (typeof setBatchArray === 'function' ||
             typeof isClicked === 'function'
         ) {
-            setBatchArray(items);
+            setBatchArray(listModules);
         }
-    }, [items, setBatchArray]);
+    }, [listModules, setBatchArray]);
 
-    /**load the lists of items */
+    /**load the lists of listModules */
     let isInit_load = 0;
 
 
     /**Listen for changes for the external index */
     useEffect(() => {
-        
+
         if (externalIndex !== null) {
             if (typeof data === 'function') {
                 data(moduleFiles[externalIndex !== null || !isNaN(externalIndex) ? externalIndex : 0]);
@@ -72,7 +76,7 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
                 <div className="batch_list_lrg-3">
                     <ul>
                         {
-                            items.map((values, idx) => (
+                            listModules.map((values, idx) => (
                                 <li id={idx} ref={moduleClick} className={currentClicked === idx ? 'active' : ''} key={idx} onClick={() => CurrentBatch(idx)}>{values}</li>
                             ))
                         }

@@ -94,6 +94,7 @@ export function DashSideBar({
                                 <span>Modules</span>
 
                                 {
+                                    /**THis is just the drop down icon on the tabs */
                                     isExpand &&
                                     <DropDown
                                         isClick={isClick}
@@ -102,6 +103,10 @@ export function DashSideBar({
                             </li>
 
                             {
+                                /**
+                                 * Comment: This redundancy was done to call the list of modules for a mobile screen view
+                                 * with out it the list of modules won't render for mobile viewers unless triggered buy the sidebar
+                                 */
                                 window.screen.width <= 600 ?
                                     <Modules
                                         data={batchCb}
