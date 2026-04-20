@@ -20,8 +20,9 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
     const { userRole } = useContext(AuthContext);
     const [datas] = useState(fetchData({ navigate: false, type: false }));
 
-    const batchKey = datas?.data?.batchId || 'b01';
-    const currentModules = useMemo(() => modulesFiles({ batchKey }), [batchKey]);
+    //comment: get the batch id from the user db
+    const batchKey = datas?.data?.batchId || null;
+    const currentModules = useMemo(() => batchKey !== null ? modulesFiles({ batchKey }) : () => { return }, [batchKey]);
     const moduleClick = useRef([]);
     const [currentClicked, setCurrentClicked] = useState(null);
 

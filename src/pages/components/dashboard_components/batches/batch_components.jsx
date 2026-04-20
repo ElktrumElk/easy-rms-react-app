@@ -118,7 +118,7 @@ export default function BatchComponent({
                     {data.batchFiles.map((dat, parentIdx) => (
                         <div key={parentIdx} id="file_1" className="group_time-4">
                             <span id="sec_date" className="sec_date-4">
-                                {dat.date + dat.year}
+                                {dat.date}
                             </span>
 
                             {dat.files.map((file, childIdx) => (

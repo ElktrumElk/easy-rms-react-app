@@ -14,6 +14,7 @@ import { resetToDashboard } from "../../../hooks/reset_to_dahsboard";
 import StudentLists from "../../../components/student_lists";
 import { UserTheme } from "../../../context/userThemeContext";
 import LogOutButton from "../../../components/log_out_btn";
+import { AuthContext } from "../../../context/auth_context_export";
 
 /**\
  * 
@@ -42,7 +43,8 @@ export function DashSideBar({
 
     const [isClick, setIsClick] = useState(0);
 
-
+    const {userRole} = useContext(AuthContext);
+    const {colorMode} = useContext(UserTheme)
     return (
         <>
             <div id="side_bar" className={isExpand ? "side_bar-3 expand" : "side_bar-3"}>
@@ -51,7 +53,7 @@ export function DashSideBar({
                     <div className="logo_cnt-3">
                         <img
                             className="logo_img-3"
-                            src="/easy_ic.png"
+                            src={colorMode === 'dark' ? '/rms_logo_light.jpg':"/rms_logo_dark.jpg"}
                             onClick={() => { handleExpand(!isExpand) }}
                         />
                         <h1 id="app_name" className="app_name-3">Easy</h1>
@@ -127,30 +129,32 @@ export function DashSideBar({
                                     />
 
                             }
+                            {
+                            /** */
+                            userRole === 'Admin' &&
+                                <li
+                                    id="batch_lrg_btn"
+                                    className="g_list-3"
+                                    title="Users"
 
-                            <li
-                                id="batch_lrg_btn"
-                                className="g_list-3"
-                                title="Modules"
+                                    onClick={() => {
+                                        setIsClick(isClick !== 2 ? 2 : 0);
+                                        handleExpand(true);
+                                    }}>
 
-                                onClick={() => {
-                                    setIsClick(isClick !== 2 ? 2 : 0);
-                                    handleExpand(true);
-                                }}>
-
-                                <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=102261&format=png&color=7a7a7a"
-                                    alt="batch" />
-                                <span>Users</span>
-                                {
-                                    /**
-                                     * render the drop down icon if the side bar is been expanded
-                                     * the isClick triggers that a lists has been
-                                     * the idx is used to detect the right list that has been click
-                                     */
-                                    isExpand && <DropDown isClick={isClick} idx={2} />
-                                }
-                            </li>
-
+                                    <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=102261&format=png&color=7a7a7a"
+                                        alt="batch" />
+                                    <span>Users</span>
+                                    {
+                                        /**
+                                         * render the drop down icon if the side bar is been expanded
+                                         * the isClick triggers that a lists has been
+                                         * the idx is used to detect the right list that has been click
+                                         */
+                                        isExpand && <DropDown isClick={isClick} idx={2} />
+                                    }
+                                </li>
+                            }
                             {
                                 isClick === 2 &&
                                 <UserLists setUserClick={setUserClick} />
@@ -249,7 +253,7 @@ export function DashboardHeader({
                         <input id="search" className="search_inp" placeholder="search..." />
 
                         <img id="searc_btn" className="ic-3 ic_2-3 ic_search-3"
-                            src={colorMode === 'dark' ? '/icons/notification_light.png':'/icons/notification_dark.png'} alt="notification" />
+                            src={colorMode === 'dark' ? '/icons/notification_light.png' : '/icons/notification_dark.png'} alt="notification" />
 
                         <img id="theme_tg_btn" className="ic-3 ic_2-3"
                             src={colorModeValue === "dark" ? "/icons/light_mode_ic.png" : "/icons/dark_mode_ic.png"} alt="dark" onClick={() => { colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark') }} />
@@ -276,7 +280,7 @@ export function DashboardHeader({
  * @param {Boolean} param0.setAddPanel - function to change the state of the add panel. display or not.
  * @param {CallableFunction} param0.mobileUserClick - function to render user lists for mobile users in the scrollview area
 */
-export function ScrollViewArea({ 
+export function ScrollViewArea({
     render_frame,
     batchList,
     isBottomDisplay,
@@ -294,7 +298,7 @@ export function ScrollViewArea({
     /**Holds the value of which user panel to render on the scrollView */
     const isUserPanel = useContext(RenderUsersListContext);
     const { colorMode } = useContext(UserTheme);
-    
+
     useState(() => {
         if (colorMode === "dark") {
 
@@ -302,7 +306,7 @@ export function ScrollViewArea({
         } else {
             document.body.style.backgroundColor = "#f5f5f5";
         }
-        
+
     }, [render_frame, colorMode])
 
     return (
