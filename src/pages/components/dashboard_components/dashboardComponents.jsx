@@ -56,7 +56,9 @@ export function DashSideBar({
                             src={colorMode === 'dark' ? '/rms_logo_light.jpg':"/rms_logo_dark.jpg"}
                             onClick={() => { handleExpand(!isExpand) }}
                         />
-                        <h1 id="app_name" className="app_name-3">Easy</h1>
+                        <h1 id="app_name" className="app_name-3" style={{
+                            color: colorMode === 'dark' ? 'white' : '#1e319b'
+                        }}>RMS</h1>
                         {
 
                             isExpand && <button onClick={() => { handleExpand(!isExpand) }}>Colapse</button>
