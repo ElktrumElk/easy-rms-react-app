@@ -238,13 +238,13 @@ export function DashboardHeader({
                     <div className="sub_cnt-3 sa-3">
 
                         <div className="callender-3">
-                            <img src="https://img.icons8.com/?size=100&id=SqCUs5XkuU76&format=png&color=000000" width="20" height="20" />
+                            <img src={colorMode === 'dark' ? 'https://img.icons8.com/?size=100&id=SqCUs5XkuU76&format=png&color=FFFFFF' : "https://img.icons8.com/?size=100&id=SqCUs5XkuU76&format=png&color=000000"} width="20" height="20" />
                             <span>{callender}</span>
                         </div>
                         <input id="search" className="search_inp" placeholder="search..." />
 
                         <img id="searc_btn" className="ic-3 ic_2-3 ic_search-3"
-                            src="/icons/notification_dark.png" alt="notification" />
+                            src={colorMode === 'dark' ? '/icons/notification_light.png':'/icons/notification_dark.png'} alt="notification" />
 
                         <img id="theme_tg_btn" className="ic-3 ic_2-3"
                             src={colorModeValue === "dark" ? "/icons/light_mode_ic.png" : "/icons/dark_mode_ic.png"} alt="dark" onClick={() => { colorModeValue === "dark" ? setColorMode('light') : setColorMode('dark') }} />
@@ -271,7 +271,8 @@ export function DashboardHeader({
  * @param {Boolean} param0.setAddPanel - function to change the state of the add panel. display or not.
  * @param {CallableFunction} param0.mobileUserClick - function to render user lists for mobile users in the scrollview area
 */
-export function ScrollViewArea({ render_frame,
+export function ScrollViewArea({ 
+    render_frame,
     batchList,
     isBottomDisplay,
     isBottomBatch,
@@ -287,16 +288,16 @@ export function ScrollViewArea({ render_frame,
 
     /**Holds the value of which user panel to render on the scrollView */
     const isUserPanel = useContext(RenderUsersListContext);
-    const { colorMode } = useContext(UserTheme)
+    const { colorMode } = useContext(UserTheme);
+    
     useState(() => {
         if (colorMode === "dark") {
 
             document.body.style.backgroundColor = "#080808";
-
-            console.log(colorMode)
         } else {
             document.body.style.backgroundColor = "#f5f5f5";
         }
+        
     }, [render_frame, colorMode])
 
     return (
@@ -311,6 +312,7 @@ export function ScrollViewArea({ render_frame,
                             showAddPanel={showAddPanel}
                             setAddPanel={setAddPanel}
                         />
+
                         :
                         isUserPanel === "admin" ?
                             <AdminLists />

@@ -62,22 +62,21 @@ export default function Dashboard() {
 
     const [showAddPanel, setAddPanel] = useState(false);
     const [isUserPanel, setUserPanel] = useState(null);
-    
-   
+
+
     /**==========================JSX ELEMENT============================= */
     return (
         <>
 
             <UserTheme.Provider value={{ colorMode, showAddPanel, selectFile, dashName }} >
                 <RenderUsersListContext.Provider value={isUserPanel}>
-                    <div id="dashboard" className={
-                        isExpand ? colorMode === "light" ? "p_cnt-3 side_expand" : "p_cnt-3 side_expand dash_board dark" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
-                    }>
+                    <div id="dashboard"
+                      
+                        className={
+                            isExpand ? colorMode === "light" ? "p_cnt-3 side_expand" : "p_cnt-3 side_expand dash_board dark" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
+                        }>
 
-                        {/**Side bar 
-                 * You can find the dashSideBar from the file DashBoardComponents
-                 * */
-                        }
+                        {/**Side barYou can find the dashSideBar from the file DashBoardComponents */}
                         <DashSideBar
                             isExpand={isExpand}
                             handleExpand={setExpand}
@@ -89,7 +88,9 @@ export default function Dashboard() {
                             funcName={setDashNameSideBar}
                             setUserClick={setUserPanel}
                         />
-                        <div className="main_frame_panel-3">
+
+                        <div id="main_frame_pan" className="main_frame_panel-3" >
+
                             {/**Header */}
                             <DashboardHeader bottomPanelShow={setBottomPanel}
                                 bottomPanelValue={isBottomPanelShow}

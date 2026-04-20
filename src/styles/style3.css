@@ -51,17 +51,17 @@
     min-height: 100%;
     gap: .2rem;
     transition: grid-template-columns .5s ease;
-
+    
 }
 
 .main_frame_panel-3 {
 
-    overflow-y: auto;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100%;
+   
 }
 
 .p_cnt-3.side_expand {
@@ -98,7 +98,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .side_bar_header-3 {
@@ -361,7 +360,6 @@
     left: 0;
     z-index: 11;
     background-color: rgba(0, 0, 0, 0.217);
-    overflow-y: auto;
 
 }
 
@@ -547,6 +545,6 @@
 
     .app {
         position: unset;
-        
+
     }
 }

@@ -24,8 +24,11 @@ export default function BatchComponent({
     const fileSelectedRef = useRef([])
     const [deletBtn, showDeleteBtn] = useState(false)
 
-    let i = 0;
 
+    document.getElementById('main_section').style.overflowY = 'hidden'
+
+
+    let i = 0;
     const HandleFileSelect = (parentIdx, childIdx) => {
         const clickedImg = fileSelectedRef.current[parentIdx]?.[childIdx];
 
@@ -87,10 +90,10 @@ export default function BatchComponent({
     });
 
     /**This holds the role of the User currenlty logged in*/
-    const {userRole} = useContext(AuthContext);
+    const { userRole } = useContext(AuthContext);
     return (
         <>
-            <div id="dash_cmp" className="cnt_a-4">
+            <div id="dash_cmp" className="cnt_a-4" >
 
                 <div id="time_root_cnt" className="stat_1-4">
                     <div className="date-4">
@@ -102,11 +105,11 @@ export default function BatchComponent({
                     <div className="toolsCnt-7">
 
                         {/**Add only instructor previllege. Select and delete both instructor and admin previllege */}
-                        
+
                         {userRole === "Instructor" && <AddButton setAddPanel={setAddPanel} showAddPanel={showAddPanel} />}
                         {userRole === "Instructor" || userRole === "Admin" && <SelectFile setSelectFile={setSelectFile} selectFile={selectFile} />}
                         {deletBtn && <DeleteFileButton />}
-                        
+
                     </div>
 
                 </div>

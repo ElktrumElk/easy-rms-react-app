@@ -7,9 +7,14 @@ import { TopContainer } from "./dashboard_stats_comp/top_container";
 import { AuthContext } from "../../../context/auth_context_export";
 
 /**The whole section of the dashboard statistics */
-export default function DashboardStats({adminStudentView}) {
+export default function DashboardStats({ adminStudentView }) {
+    
     const [isViewBatch, setViewbatch] = useState(null)
     const { userRole } = useContext(AuthContext);
+
+    /**Comment: The scroll view section element */
+    document.getElementById('main_section').style.overflowY = ''
+
     return (
         <>
             <div id="main_page" className="home_screen">

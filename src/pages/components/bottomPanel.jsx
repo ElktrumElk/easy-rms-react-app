@@ -179,7 +179,7 @@ export default function BottomPanel({
 
             <br></br>
             <div className="bottom_cnts-6">
-                <LogOutButton sideBarExpand={true} />
+                <LogOutButton sideBarExpand={true} styles={{marginInlineStart: 'auto', marginInlineEnd: 'auto'}} />
             </div>
 
         </div>

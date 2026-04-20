@@ -1,8 +1,10 @@
 import { useState } from "react";
 /**
  * The data of the module available
+ * this is a demo file
  * @returns {Object}
  */
+
 export default function moduleDat() {
     /**
      * @var {Object} modules

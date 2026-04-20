@@ -56,9 +56,6 @@ export default function Modules({ data, setBatchArray, isClicked, moduleName, is
     let isInit_load = 0;
 
 
-
-
-
     /**Listen for changes for the external index */
     useEffect(() => {
         

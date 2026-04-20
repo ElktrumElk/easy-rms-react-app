@@ -36,8 +36,14 @@
     padding: 1rem;
     color:var(--global-txt-cl);
     font-weight: 300;
+    border-radius: .1rem;
 }
-
+.module_card-9:hover {
+    background: linear-gradient(to right, rgba(128, 128, 128, 0.075), rgba(255, 255, 255, 0.217), rgba(0, 0, 255, 0.126));
+    box-shadow: inset 0px 0px 1rem rgba(7, 110, 245, 0.527);
+    backdrop-filter: blur(2px);
+    scale: 1.1;
+}
 
 .modulename-9 {
     display: flex;

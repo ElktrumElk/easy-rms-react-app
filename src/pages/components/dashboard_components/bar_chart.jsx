@@ -39,9 +39,10 @@ const BarChart = () => {
             labels.push(data.data.batchesEnrolled[`${v}`]?.name)
         })
     } else if (userRole === 'Student') {
-        Object.keys(data.data.modules).forEach((m, idx) => {
-            targetValues.push(data.data.modules[idx].numberofFiles);
-            labels.push(data.data.modules[idx].name);
+        data.data.modules.forEach((m, idx) => {
+            targetValues.push(m.totalFiles);
+            labels.push(m.moduleName);
+            // console.log(m.totalFiles) //debugging
         })
     };
 

@@ -48,7 +48,7 @@
     min-height: 10rem;
     background-color: var(--layout-1);
     border-radius: 1rem;
-    border: .4px solid rgba(128, 128, 128, 0.475);
+    border: .1px solid rgba(128, 128, 128, 0.475);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
