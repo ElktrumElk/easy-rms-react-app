@@ -41,15 +41,14 @@ const BarChart = ({ chartType }) => {
 
     const chartRef = useRef(null);
 
-    useEffect(() => {
-
+useEffect(() => {
+    return () => {
         if (chartRef.current) {
-
             chartRef.current.destroy();
-
         }
+    };
+}, []);
 
-}, [chartType]);
 
 const chartMap = {
     BC: Bar,
@@ -151,6 +150,7 @@ const ChartComponent = chartMap[chartType];
     
     return (
     <ChartComponent
+    key={chartType}
         ref={chartRef}
         data={chartData}
         options={options}
