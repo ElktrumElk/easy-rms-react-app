@@ -128,15 +128,14 @@ const BarChart = ({ chartType }) => {
 
 
     return (
-        <>
-            {chartType === 'BC' && <Bar data={chartData} options={options} />}
-            {chartType === 'LC' && <Line data={chartData} options={options} />}
-            {chartType === 'SC' && <Scatter data={chartData} options={options} />}
-            {chartType === 'RC' && <Radar data={chartData} options={options} />}
-            
-            {chartType === 'PC' && <Pie data={chartData} options={options} />}
-        </>
-    );
+    <>
+        {chartType === 'BC' && <Bar key="bar" data={chartData} options={options} />}
+        {chartType === 'LC' && <Line key="line" data={chartData} options={options} />}
+        {chartType === 'SC' && <Scatter key="scatter" data={chartData} options={options} />}
+        {chartType === 'RC' && <Radar key="radar" data={chartData} options={options} />}
+        {chartType === 'PC' && <Pie key="pie" data={chartData} options={options} />}
+    </>
+);
 };
 
 export default BarChart;
