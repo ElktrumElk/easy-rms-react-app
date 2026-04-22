@@ -1,11 +1,27 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import BarChart from "../bar_chart";
 import { AuthContext } from "../../../../context/auth_context_export";
+import ChartOptPanel from "../../../../components/charts_opt_panel";
 
 export default function ModuleStats() {
 
-    const {userRole} = useContext(AuthContext);
+    const { userRole } = useContext(AuthContext);
+    const [isChartOptionPanel, setChartOptionPanel] = useState(false);
+    const [chartElipseClicked, setChartElispseClick] = useState(false)
 
+    /**The handle dleay for cart option to display with some transition */
+    const handleSetIsChart = () => {
+        setChartElispseClick(!chartElipseClicked);
+        if (isChartOptionPanel) {
+            setTimeout(() => {
+                setChartOptionPanel(false);
+            }, 500)
+        } else {
+            setChartOptionPanel(true); 
+        }
+    }
+
+    const [chartType, setChartType] = useState('BC');
     return (
         <>
             <section className="module_stat_sec-5">
@@ -13,11 +29,21 @@ export default function ModuleStats() {
 
                     <div className="top_stat_cnt-5">
                         <h3>{userRole === "Admin" ? "Batch Statistics" : "Modules Stats"}</h3>
-                        <img src="https://img.icons8.com/?size=100&id=20763&format=png&color=000000" width="20px" alt="elipse" />
+                        <img src="https://img.icons8.com/?size=100&id=20763&format=png&color=000000"
+                            width="20px"
+                            alt="elipse"
+                            title="more"
+                            onClick={handleSetIsChart}
+                        />
                     </div>
 
+                    {/**Chart option panel */}
+                    {
+                        isChartOptionPanel && <ChartOptPanel isVisible={isChartOptionPanel} isElipseClick={chartElipseClicked} setChartType={setChartType}/>
+                    }
+
                     <div className="bar_chat-5">
-                        <BarChart /> 
+                        <BarChart chartType={chartType}/>
                     </div>
                 </div>
 

@@ -1,4 +1,11 @@
 
+
+/**
+ * 
+ * @param {Object} param0 
+ * @param {String} param0.batchKey 
+ * @returns 
+ */
 export default function modulesFiles({batchKey}) {
 
     const files = {

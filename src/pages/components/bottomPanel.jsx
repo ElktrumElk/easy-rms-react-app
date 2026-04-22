@@ -3,6 +3,8 @@ import moduleData from "./dashboard_components/batches/module_data";
 import { UserLists } from "../../components/sidebar_user_list";
 import { AuthContext } from "../../context/auth_context_export";
 import LogOutButton from "../../components/log_out_btn";
+import { ValidData } from "../../context/validData";
+import fetchData from "../../scripts/fetchData";
 
 /**
  * Comment: The bottom pannel you can find the bottom panel import in the dashBoardComponent file at
@@ -31,14 +33,16 @@ export default function BottomPanel({
 }) {
 
 
-    /**Handle the toggle of showing batch list */
+    //Comment: Handle the toggle of showing batch list
     const [showList, setShowList] = useState(false);
+    const batchClick = useRef([]);
+    //Comment: Handle color mode
+    const [isDark, setDark] = useState(false);
 
+    /**Handle the toggle of list */
     const handleShowList = () => {
         setShowList(!showList);
     };
-
-    const batchClick = useRef([]);
 
     /**Comment: check for the active batch that is clicked */
     const currBatch = (id) => {
@@ -47,19 +51,14 @@ export default function BottomPanel({
         }
     };
 
-    /**Handle color mode */
-    const [isDark, setDark] = useState(false);
-
+    /**Handle color mode toggle */
     const handleColorMode = () => {
         if (isDark) {
-            //console.log("light")
             colorMode("light")
-            localStorage.setItem("userPreferColorTheme", "light")
-
+            localStorage.setItem("userPreferColorTheme", "light");
         } else {
-            //console.log("dark")
             colorMode("dark");
-            localStorage.setItem("userPreferColorTheme", "dark")
+            localStorage.setItem("userPreferColorTheme", "dark");
         }
     }
 
@@ -68,18 +67,31 @@ export default function BottomPanel({
         if (colorModeValue === 'dark') {
             setDark(true);
             document.body.style.backgroundColor = "black";
-            console.log("yup")
         } else {
             setDark(false);
             document.body.style.backgroundColor = "#f5f5f5";
-            console.log("yo")
         }
-    }, [colorModeValue])
+    }, [colorModeValue]);
 
     /**State to show the userOption lists on a mobile version */
     const [mobileShowUser, setShowUsers] = useState(false);
-    const { userRole } = useContext(AuthContext);
+    const { userRole, userID } = useContext(AuthContext);
+    const { loginData } = useContext(ValidData);
+    const [userName] = useState(fetchData({ navigate: false, type: false })?.[`${userRole === 'Admin' ? 'adminPersonalData' : 'studentPersonalData'}`]?.[`${userRole === 'Admin' ? 'name' : 'studentName'}`]);
 
+    const [userId] = useState(
+        fetchData({ navigate: false, type: false })
+        ?.[`${userRole === 'Admin' ?
+            'adminPersonalData' :
+            'studentPersonalData'}`
+        ]
+        ?.[`${userRole === 'Admin' ?
+            'adminId' :
+            'studentId'}`
+        ]
+    );
+
+    
     return (
         <div
             className={isDisplay ? "bottom_panel-5 bottom_panel-6 expand" : "bottom_panel-5 bottom_panel-6"}>
@@ -87,13 +99,13 @@ export default function BottomPanel({
             <div className="std_info_cnt-3 border_bottom-3 student_info-6">
 
                 <div className="std_info-3">
-                    <span>Student Name</span>
-                    <span>Elkanah Cole</span>
+                    <span>{userRole} Name</span>
+                    <span>{userName}</span>
                 </div>
 
                 <div className="std_info-3">
-                    <span>Student ID</span>
-                    <span>Code20560028</span>
+                    <span>{userRole} ID</span>
+                    <span>{userID || userId}</span>
                 </div>
             </div>
             {
@@ -179,7 +191,7 @@ export default function BottomPanel({
 
             <br></br>
             <div className="bottom_cnts-6">
-                <LogOutButton sideBarExpand={true} styles={{marginInlineStart: 'auto', marginInlineEnd: 'auto'}} />
+                <LogOutButton sideBarExpand={true} styles={{ marginInlineStart: 'auto', marginInlineEnd: 'auto' }} />
             </div>
 
         </div>

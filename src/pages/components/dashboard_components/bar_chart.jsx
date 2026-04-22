@@ -1,15 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
     BarElement,
+    LineElement,
     Title,
     Tooltip,
     Legend,
 } from 'chart.js';
 
-import { Bar } from 'react-chartjs-2';
+import { Bar, Pie } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
+import { Scatter } from 'react-chartjs-2';
+import { Radar } from 'react-chartjs-2';
+
 import { AuthContext } from '../../../context/auth_context_export';
 import fetchData from '../../../scripts/fetchData';
 
@@ -17,15 +22,23 @@ ChartJS.register(
     CategoryScale,
     LinearScale,
     BarElement,
+    LineElement,
     Title,
     Tooltip,
     Legend
 );
 
-const BarChart = () => {
+/**
+ * 
+ * @param {Object} param0 
+ * @param {String} param0.chartType - Type of chart to be render 
+ * @returns 
+ */
+const BarChart = ({ chartType }) => {
 
     const { userRole } = useContext(AuthContext);
     const data = fetchData({ navigate: false, type: false });
+
 
     /**Comment: Inittialize the target value */
     let targetValues = [];
@@ -76,9 +89,7 @@ const BarChart = () => {
 
         requestAnimationFrame(animate);
 
-        return () => {
-
-        };
+        return () => {};
     }, []);
 
     const chartData = {
@@ -114,10 +125,17 @@ const BarChart = () => {
         },
     };
 
+
+
     return (
-
-        <Bar data={chartData} options={options} />
-
+        <>
+            {chartType === 'BC' && <Bar data={chartData} options={options} />}
+            {chartType === 'LC' && <Line data={chartData} options={options} />}
+            {chartType === 'SC' && <Scatter data={chartData} options={options} />}
+            {chartType === 'RC' && <Radar data={chartData} options={options} />}
+            
+            {chartType === 'PC' && <Pie data={chartData} options={options} />}
+        </>
     );
 };
 

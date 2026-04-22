@@ -157,6 +157,21 @@
 
 }
 
+.expand_btn-3 {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    border-radius: 4rem;
+    margin-inline-start: auto;
+    border: none;
+    box-shadow: 0 0 .3rem gray;
+    background-color: white;
+
+
+}
+
 .crt_ic-3 {
     width: 20px;
     height: 20px;

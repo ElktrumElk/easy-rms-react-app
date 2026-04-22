@@ -15,7 +15,6 @@ export default function AccessCourseContainer() {
         Object.keys(data.data.courses).forEach((course, idx) => {
             accesCourse.push(data.data.courses[`${course}`]);
             courseName.push(course);
-            console.log(accesCourse);
         })
 
     }

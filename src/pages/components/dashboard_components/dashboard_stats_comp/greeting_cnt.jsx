@@ -14,7 +14,7 @@ export default function GreetingContainer({ isViewBatch }) {
 
 
 
-    const { userRole } = useContext(AuthContext);
+    const { userRole, userID } = useContext(AuthContext);
     const { loginData } = useContext(ValidData);
 
     const [dayinWords, setDay] = useState("");
@@ -61,7 +61,7 @@ export default function GreetingContainer({ isViewBatch }) {
         return () => clearInterval(interval);
 
     }, [data, loginData]); // depend on data/loginData, not on changing minute/hour
-    console.log(data)
+   
     return (
         <>
             <div className="greeting_cnt-8">
@@ -83,7 +83,7 @@ export default function GreetingContainer({ isViewBatch }) {
                         <h2 className={dayinWords === "" ? "greeting_skeleton-8 loading_skeleton" : ''} style={{
                             opacity: dayinWords === "" ? 1 : greetinOpacity
                         }}>{dayinWords}</h2>
-                        <span><strong>ID: </strong>{userRole === 'Admin' ? data.adminPersonalData.RegisterId : data.studentPersonalData.studentId}</span>
+                        <span><strong>ID: </strong>{userID}</span>
                     </div>
 
                     <button className="view_batch_button-9" onClick={() => { isViewBatch("BE") }}>View Batch</button>

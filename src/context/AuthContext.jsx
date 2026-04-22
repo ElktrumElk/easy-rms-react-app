@@ -2,18 +2,28 @@ import { createContext, useEffect, useState } from "react";
 import { AuthContext } from "./auth_context_export";
 
 export function AuthProvider({ children }) {
-  
+
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
   });
-  
+
   const [userRole, setUserRole] = useState(() => {
     return localStorage.getItem("userRole") || null;
   });
 
+  const [userID, setUserID] = useState(() => {
+    if (userRole === 'Admin') {
+      return localStorage.getItem('adminID');
+    } else if (userRole === 'Student') {
+      return localStorage.getItem('studentId');
+    } else if (userRole === 'Instructor') {
+      return localStorage.getItem('instructorID');
+    }
+  });
+
   useEffect(() => {
     localStorage.setItem("isLoggedIn", isAuthenticated ? "true" : "false");
-  
+
     if (userRole) {
       localStorage.setItem("userRole", userRole);
     } else {
@@ -32,7 +42,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, userRole, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, userRole, login, logout, userID, setUserID }}>
       {children}
     </AuthContext.Provider>
   );

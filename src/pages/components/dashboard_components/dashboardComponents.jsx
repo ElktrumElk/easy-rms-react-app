@@ -43,8 +43,8 @@ export function DashSideBar({
 
     const [isClick, setIsClick] = useState(0);
 
-    const {userRole} = useContext(AuthContext);
-    const {colorMode} = useContext(UserTheme)
+    const { userRole } = useContext(AuthContext);
+    const { colorMode } = useContext(UserTheme)
     return (
         <>
             <div id="side_bar" className={isExpand ? "side_bar-3 expand" : "side_bar-3"}>
@@ -53,7 +53,7 @@ export function DashSideBar({
                     <div className="logo_cnt-3">
                         <img
                             className="logo_img-3"
-                            src={colorMode === 'dark' ? '/rms_logo_light.jpg':"/rms_logo_dark.jpg"}
+                            src={colorMode === 'dark' ? '/rms_logo_light.jpg' : "/rms_logo_dark.jpg"}
                             onClick={() => { handleExpand(!isExpand) }}
                         />
                         <h1 id="app_name" className="app_name-3" style={{
@@ -61,7 +61,9 @@ export function DashSideBar({
                         }}>RMS</h1>
                         {
 
-                            isExpand && <button onClick={() => { handleExpand(!isExpand) }}>Colapse</button>
+                            isExpand && <button className="expand_btn-3" onClick={() => { handleExpand(!isExpand) }}>
+                                <img src={colorMode === 'dark' ? "https://img.icons8.com/?size=100&id=37224&format=png&color=FFFFFF":"https://img.icons8.com/?size=100&id=37224&format=png&color=000000"} alt="close" width={'30'} height={'30'}/>
+                            </button>
                         }
                     </div>
                 </header>
@@ -85,26 +87,26 @@ export function DashSideBar({
                                 <span>Home</span>
                             </li>
 
+                            {
+                                /**Comment: SIDE MODULE BUTTON */
 
-                            <li
-                                id="batch_lrg_btn"
-                                className="g_list-3" title="Modules"
-                                onClick={() => {
-                                    setIsClick(isClick !== 1 ? 1 : 0);
-                                    handleExpand(true);
-                                }}>
-                                <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=727&format=png&color=7a7a7a"
-                                    alt="batch" />
-                                <span>Modules</span>
+                                userRole !== 'Admin' &&
+                                <li
+                                    id="batch_lrg_btn"
+                                    className="g_list-3" title="Modules"
+                                    onClick={() => {
+                                        setIsClick(isClick !== 1 ? 1 : 0);
+                                        handleExpand(true);
+                                    }}>
 
-                                {
-                                    /**THis is just the drop down icon on the tabs */
-                                    isExpand &&
-                                    <DropDown
-                                        isClick={isClick}
-                                        idx={1} />
-                                }
-                            </li>
+                                    <img className="ic_1-3" src="https://img.icons8.com/?size=100&id=727&format=png&color=7a7a7a" alt="batch" />
+                                    <span>Modules</span>
+                                    {
+                                        /**THis is just the drop down icon on the tabs */
+                                        isExpand && <DropDown isClick={isClick} idx={1} />
+                                    }
+                                </li>
+                            }
 
                             {
                                 /**
@@ -132,8 +134,8 @@ export function DashSideBar({
 
                             }
                             {
-                            /** */
-                            userRole === 'Admin' &&
+                                /** */
+                                userRole === 'Admin' &&
                                 <li
                                     id="batch_lrg_btn"
                                     className="g_list-3"

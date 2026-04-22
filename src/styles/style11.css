@@ -1,4 +1,3 @@
-
 /*Log out button*/
 .logout_button-11 {
     width: 90%;
@@ -19,6 +18,7 @@
     width: 20px;
     height: 20px;
 }
+
 /*logout text*/
 .logout_text-11 {
     color: red;
@@ -32,3 +32,80 @@
     border: none;
 }
 
+
+.chat_opt_panel-11 {
+    width: 15rem;
+    height: fit-content;
+    max-height: 0;
+    background-color: rgba(255, 255, 255, 0.084);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 1rem rgba(177, 177, 177, 0.299),
+        inset 0 0 1rem rgba(243, 243, 243, 0.781);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    z-index: 6;
+    transition: max-height .4s ease;
+    overflow-y: hidden;
+
+}
+
+
+.chat_opt_panel-11 ul {
+    display: flex;
+    flex-direction: column;
+    padding: .3rem;
+    list-style: none;
+    gap: 1rem;
+}
+
+
+.chart_list_opt-11 {
+    padding: .2rem .2rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    border: .1px solid rgba(128, 128, 128, 0.539);
+    user-select: none;
+}
+
+.chart_list_opt-11:hover {
+    background-color: rgba(121, 177, 220, 0.304);
+    scale: 1.01;
+}
+.chart_list_opt-11::before {
+    content: "";
+    display: inline-block;
+    /* or block */
+    width: 25px;
+    height: 25px;
+    border-radius: 4rem;
+    background: radial-gradient(blue 30%, transparent 40%, blue);
+
+}
+
+.chart_list_opt-11::after {
+    content: "";
+    position: absolute;
+    top: 2.5rem;
+    left: 1.6rem;
+    display: inline-block;
+    /* or block */
+    width: 5px;
+    height: calc(100% - 4rem);
+    border-radius: 4rem;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(85, 85, 225), rgba(255, 255, 255, 0)) ;
+    z-index: -1;
+
+}
+
+.chat_opt_panel-11 ul li:last-child::after {
+    content: none;
+
+
+}

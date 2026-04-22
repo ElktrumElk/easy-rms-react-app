@@ -3,11 +3,12 @@ import moduleDat from "./module_data"
 import CreateModules from "../../../../components/create_modules";
 import fetchData from "../../../../scripts/fetchData";
 import { AuthContext } from "../../../../context/auth_context_export";
+import modulesFiles from "../../../../accounts/modules";
 
 export default function ModuleContainer() {
 
     const [batchData] = useState(fetchData({ navigate: false, type: false }).data);
-    const { userRole } = useContext(AuthContext);
+    const { userRole} = useContext(AuthContext);
 
     return (
         <>
@@ -23,6 +24,7 @@ export default function ModuleContainer() {
 export function ModuleView() {
 
     const [batchData] = useState(fetchData({ navigate: false, type: false }).data);
+    const modules = useState(() => modulesFiles({batchKey: batchData.batchId}));
 
     return (
         <>
@@ -30,14 +32,14 @@ export function ModuleView() {
                 <div className="module_cnt-9">
                     <h2>Modules</h2>
                     {
-                       batchData.modules.map((v, idx) => (
+                       modules[0].modules.map((v, idx) => (
                             <div key={idx} className="module_card-9">
                                 <div className="modulename-9">
-                                    <h3>{v.moduleName}</h3>
+                                    <h3>{v.name}</h3>
                                 </div>
 
                                 <div className="cnt1-9">
-                                    <span style={{color: '#213fea'}}>{v.lastUpdated}</span>
+                                    <span style={{color: '#213fea'}}>{v.filesByDate[v.filesByDate.length - 1].files[v.filesByDate[v.filesByDate.length - 1].files.length - 1].time}</span>
                                     <div className="module_new_file_notify-9">
                                         <span>{Math.floor(Math.random() * 10 + 1)}</span>
                                     </div>

@@ -43,7 +43,7 @@ export function TopContainer({ viewBatchButtonClick, viewBatchFunction, isAdminS
         
         /**Caculate the total amount of resources */
         let endResources = endBatchNumber() + endCourseNumber() + endStudentNumer;
-       
+     
         const interval = setInterval(() => {
 
             if (startBatchNumber > endBatchNumber() &&

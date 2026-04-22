@@ -46,9 +46,11 @@ export function courseValidator(userRole, data) {
  */
 export function endStudnetNumber(userRole, endStudentNumer, data) {
     if (userRole === 'Admin') {
+        let num = 0;
         Object.keys(data.data.batchesEnrolled).forEach((b, idx) => {
-            endStudentNumer += data.data.batchesEnrolled[`${b}`].students
+            num += data.data.batchesEnrolled[`${b}`].students
         })
+        return num;
     }
     else if (userRole === 'Student') {
         return data.data.accessModules
