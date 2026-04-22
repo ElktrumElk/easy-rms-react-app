@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useContext, useMemo } from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -39,6 +39,27 @@ const BarChart = ({ chartType }) => {
     const { userRole } = useContext(AuthContext);
     const data = fetchData({ navigate: false, type: false });
 
+    const chartRef = useRef(null);
+
+    useEffect(() => {
+
+        if (chartRef.current) {
+
+            chartRef.current.destroy();
+
+        }
+
+}, [chartType]);
+
+const chartMap = {
+    BC: Bar,
+    LC: Line,
+    SC: Scatter,
+    RC: Radar,
+    PC: Pie
+};
+
+const ChartComponent = chartMap[chartType];
 
     /**Comment: Inittialize the target value */
     let targetValues = [];
@@ -127,14 +148,13 @@ const BarChart = ({ chartType }) => {
 
 
 
+    
     return (
-    <>
-        {chartType === 'BC' && <Bar key="bar" data={chartData} options={options} />}
-        {chartType === 'LC' && <Line key="line" data={chartData} options={options} />}
-        {chartType === 'SC' && <Scatter key="scatter" data={chartData} options={options} />}
-        {chartType === 'RC' && <Radar key="radar" data={chartData} options={options} />}
-        {chartType === 'PC' && <Pie key="pie" data={chartData} options={options} />}
-    </>
+    <ChartComponent
+        ref={chartRef}
+        data={chartData}
+        options={options}
+    />
 );
 };
 
