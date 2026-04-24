@@ -172,15 +172,7 @@ export default function LoginPage() {
                 </div>
                 <div className="info-2">
                     <div className="cnt1-2">
-                        <img
 
-                            src="/login_ilustration.png"
-                            alt="logo"
-                            style={{
-                                width: '150px',
-                                height: '150px'
-                            }}
-                        />
                         <h1>Sign In</h1>
                         <p>Fill in the form bellow to continue</p>
                     </div>
@@ -188,9 +180,8 @@ export default function LoginPage() {
                     <form className="form-2" onSubmit={loginValidation}>
                         <div className="cnt2-2">
                             <fieldset className="inp_cnt1-2">
-                                <legend>Eductional Service</legend>
                                 <div className="input_container-1">
-                                    <img src="https://img.icons8.com/?size=100&id=30379&format=png&color=7a7a7a" width={'30'} height={'30'}></img>
+                                    <img src="https://img.icons8.com/?size=100&id=44471&format=png&color=1E319B" width={'30'} height={'30'} />
                                     <input
                                         ref={eduTypeValue}
                                         className="inp edu_inp-2"
@@ -213,14 +204,16 @@ export default function LoginPage() {
 
                             <div className="cnt3-2 a1-2">
                                 <fieldset className="inp_cnt1-2">
-                                    <legend>Login Type</legend>
-                                    <input
-                                        ref={logTypeValue}
-                                        className="inp edu_inp-2"
-                                        type="text"
-                                        onFocus={hideErr}
-                                        placeholder="Login Type"
-                                    />
+                                    <div className="input_container-1">
+                                        <img src="https://img.icons8.com/?size=100&id=102261&format=png&color=1E319B" width={'30'} height={'30'} />
+                                        <input
+                                            ref={logTypeValue}
+                                            className="inp edu_inp-2"
+                                            type="text"
+                                            onFocus={hideErr}
+                                            placeholder="Login Type"
+                                        />
+                                    </div>
                                     <div className="edu_serv_list-2">
                                         <ul>
                                             <li>Student</li>
@@ -234,27 +227,31 @@ export default function LoginPage() {
 
                             <div className="cnt3-2">
                                 <fieldset className="inp_cnt1-2">
-                                    <legend>ID</legend>
-                                    <input
-                                        ref={IdValue}
-                                        className="inp"
-                                        placeholder="ID"
-                                        type="text"
-                                        required
-                                        onFocus={hideErr}
-                                    />
+                                    <div className="input_container-1">
+                                        <img src="https://img.icons8.com/?size=100&id=18799&format=png&color=1E319B" width={'30'} height={'30'} />
+                                        <input
+                                            ref={IdValue}
+                                            className="inp"
+                                            placeholder="ID"
+                                            type="text"
+                                            required
+                                            onFocus={hideErr}
+                                        />
+                                    </div>
                                 </fieldset>
 
                                 <fieldset className="inp_cnt1-2">
-                                    <legend>Password</legend>
-                                    <input
-                                        ref={passwordValue}
-                                        className="inp"
-                                        placeholder="Password"
-                                        type="password"
-                                        required
-                                        onFocus={hideErr}
-                                    />
+                                    <div className="input_container-1">
+                                        <img src="https://img.icons8.com/?size=100&id=44471&format=png&color=1E319B" width={'30'} height={'30'} />
+                                        <input
+                                            ref={passwordValue}
+                                            className="inp"
+                                            placeholder="Password"
+                                            type="password"
+                                            required
+                                            onFocus={hideErr}
+                                        />
+                                    </div>
                                 </fieldset>
 
                                 <div className="child_cnt-2">
@@ -282,7 +279,7 @@ export default function LoginPage() {
                         </p>
                     </form>
                     <p className="info2-2">
-                        You can register your Educational Service at <a href="#">easyeduregister.com</a>
+                        Don't have an account? <a href="#">Register</a>
                     </p>
                 </div>
             </div>

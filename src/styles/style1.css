@@ -237,6 +237,7 @@ body {
     width: 100%;
     align-items: center;
     gap: .5rem;
+    padding-left: .5rem;
 }
 @media (min-width: 800px) {
     .fram_sec-1 {
