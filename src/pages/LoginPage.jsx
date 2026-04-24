@@ -181,7 +181,7 @@ export default function LoginPage() {
                         <div className="cnt2-2">
                             <fieldset className="inp_cnt1-2">
                                 <div className="input_container-1">
-                                    <img src="https://img.icons8.com/?size=100&id=44471&format=png&color=1E319B" width={'30'} height={'30'} />
+                                    <img src="https://img.icons8.com/?size=100&id=44471&format=png&color=7a7a7a" width={'30'} height={'30'} />
                                     <input
                                         ref={eduTypeValue}
                                         className="inp edu_inp-2"
@@ -205,7 +205,7 @@ export default function LoginPage() {
                             <div className="cnt3-2 a1-2">
                                 <fieldset className="inp_cnt1-2">
                                     <div className="input_container-1">
-                                        <img src="https://img.icons8.com/?size=100&id=102261&format=png&color=1E319B" width={'30'} height={'30'} />
+                                        <img src="https://img.icons8.com/?size=100&id=102261&format=png&color=7a7a7a" width={'30'} height={'30'} />
                                         <input
                                             ref={logTypeValue}
                                             className="inp edu_inp-2"
@@ -228,7 +228,7 @@ export default function LoginPage() {
                             <div className="cnt3-2">
                                 <fieldset className="inp_cnt1-2">
                                     <div className="input_container-1">
-                                        <img src="https://img.icons8.com/?size=100&id=18799&format=png&color=1E319B" width={'30'} height={'30'} />
+                                        <img src="https://img.icons8.com/?size=100&id=18799&format=png&color=7a7a7a" width={'30'} height={'30'} />
                                         <input
                                             ref={IdValue}
                                             className="inp"
@@ -242,7 +242,7 @@ export default function LoginPage() {
 
                                 <fieldset className="inp_cnt1-2">
                                     <div className="input_container-1">
-                                        <img src="https://img.icons8.com/?size=100&id=44471&format=png&color=1E319B" width={'30'} height={'30'} />
+                                        <img src="https://img.icons8.com/?size=100&id=10480&format=png&color=7a7a7a" width={'30'} height={'30'} />
                                         <input
                                             ref={passwordValue}
                                             className="inp"
