@@ -1,5 +1,5 @@
 :root {
-    --main-bg-cl: #f5f5f5;
+    --main-bg-cl: #ffffff;
     --global-txt-cl: #000000;
     --sign-in-btn-bg: transparent;
     --df-border: 1px solid rgb(77, 107, 125);
@@ -232,7 +232,12 @@ body {
     font-family: 'Inter', system-ui, sans-serif;
 }
 
-
+.input_container-1 {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: .5rem;
+}
 @media (min-width: 800px) {
     .fram_sec-1 {
         display: grid;

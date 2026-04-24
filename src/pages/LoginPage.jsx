@@ -47,7 +47,7 @@ export default function LoginPage() {
             setLoginData(data);
             console.log("User has already logged in") //debigging
         }
-        document.body.style.backgroundColor = '#f5f5f5' //handling ackground color to match the cureent page
+        document.body.style.backgroundColor = 'white' //handling ackground color to match the cureent page
 
     }, []);
 
@@ -93,7 +93,7 @@ export default function LoginPage() {
                             data: dat[`${eduValue}`]['Admindata']
                         })
 
-                    }else {
+                    } else {
                         showError(true);
                     }
 
@@ -173,25 +173,34 @@ export default function LoginPage() {
                 <div className="info-2">
                     <div className="cnt1-2">
                         <img
-                            className="logo_img-1 logo_img_2-1"
-                            src="https://img.icons8.com/?size=100&id=32242&format=png&color=000000"
+
+                            src="/login_ilustration.png"
                             alt="logo"
+                            style={{
+                                width: '150px',
+                                height: '150px'
+                            }}
                         />
-                        <h1>Hello Again!</h1>
+                        <h1>Sign In</h1>
+                        <p>Fill in the form bellow to continue</p>
                     </div>
 
                     <form className="form-2" onSubmit={loginValidation}>
                         <div className="cnt2-2">
                             <fieldset className="inp_cnt1-2">
                                 <legend>Eductional Service</legend>
-                                <input
-                                    ref={eduTypeValue}
-                                    className="inp edu_inp-2"
-                                    placeholder="Enter Eduction Service"
-                                    type="text"
-                                    required
-                                    onFocus={hideErr}
-                                />
+                                <div className="input_container-1">
+                                    <img src="https://img.icons8.com/?size=100&id=30379&format=png&color=7a7a7a" width={'30'} height={'30'}></img>
+                                    <input
+                                        ref={eduTypeValue}
+                                        className="inp edu_inp-2"
+                                        placeholder="Enter Eduction Service"
+                                        type="text"
+                                        required
+                                        onFocus={hideErr}
+                                    />
+                                </div>
+
                                 <div className="edu_serv_list-2">
                                     <ul className="ed">
                                         <li>College of digiatal Excellence</li>
@@ -210,6 +219,7 @@ export default function LoginPage() {
                                         className="inp edu_inp-2"
                                         type="text"
                                         onFocus={hideErr}
+                                        placeholder="Login Type"
                                     />
                                     <div className="edu_serv_list-2">
                                         <ul>
@@ -253,7 +263,7 @@ export default function LoginPage() {
                                         <span>Remember Me</span>
                                     </div>
                                     <a className="fgt-2" href="#">
-                                        Forget ID
+                                        Forget Password
                                     </a>
                                 </div>
                             </div>

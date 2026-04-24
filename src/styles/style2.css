@@ -14,7 +14,7 @@
     grid-auto-rows: minmax(100dvh, auto);
     width: 100%;
     min-height: 100dvh;
-    background-color: var(--bg);
+    background-color: transparent;
 }
 
 .left-2 {
@@ -51,9 +51,12 @@
 .login_back_btn-2 {
     width: 50px;
     height: 50px;
-    position: absolute;
+    position: fixed;
     left: 10px;
     top: 20px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 .3rem rgb(189, 189, 189);
+    border-radius: 4rem;
 }
 
 .cnt1-2 {
@@ -88,7 +91,8 @@
     border-radius: .3rem;
     display: flex;
     flex-direction: column;
-    background: rgba(227, 227, 228, 0.879);
+    background: whitesmoke;
+    border-radius: .5rem;
     border: none;
 }
 
