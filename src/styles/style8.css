@@ -226,7 +226,7 @@
     width: 100%;
     min-height: 13.5rem;
     height: auto;
-    background-color: var(--layout-1);
+    background-color: transparent;
     box-shadow: 0 0 1rem rgb(178, 177, 177);
     border-radius: 2rem;
     display: grid;
@@ -236,6 +236,10 @@
     padding: 1rem;
     overflow-y: hidden;
 
+}
+
+.dash_board.dark .greeting_cnt-8 {
+    box-shadow: 0 0 1rem rgb(33, 33, 33);
 }
 
 .sub_greeting_cnt-8 {
@@ -252,11 +256,13 @@
     font-size: 2rem;
     color: var(--global-txt-cl);
 }
+
 .greetings-8 {
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
+
 .greeting_cnt-8 span {
     color: rgb(160, 160, 160);
 }
@@ -381,7 +387,7 @@
 
     .greetings-8 {
         grid-column: span 2;
-        
+
     }
 
     .quote-8 {

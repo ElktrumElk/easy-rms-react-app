@@ -64,7 +64,8 @@ export default function Dashboard() {
     const [isUserPanel, setUserPanel] = useState(null);
 
     useEffect(() => {
-        document.body.style.background = 'linear-gradient(to bottom right, #f5f5f5, #f5f5f5, rgba(183, 215, 253, 0.84) 80%, rgb(187, 236, 245), #f5f5f5)';
+        document.body.style.background = 'whitesmoke'
+        //'linear-gradient(to bottom right, #f5f5f5, #f5f5f5, rgba(183, 215, 253, 0.84) 80%, rgb(187, 236, 245), #f5f5f5)';
     }, [])
     /**==========================JSX ELEMENT============================= */
     return (
