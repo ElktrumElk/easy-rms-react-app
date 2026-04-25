@@ -242,6 +242,24 @@
     color: blue;
 }
 
+.ed li{
+    border-radius: 1rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    gap: 1rem;
+    
+}
+.ed li::before {
+    display: flex;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 4rem;
+    background: radial-gradient(rgb(0, 204, 255) 20%, white 10%, rgb(0, 204, 255));
+    margin-inline-start: .5rem;
+}
 @media (max-width: 780px) {
 
     .left-2 {

@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import { useEffect, useRef, useState  } from "react";
 import SignButton from "./components/buttons.jsx";
 import LoginSplashScreen from "../components/login_splash_screen.jsx";
 export default function DefaultPage() {

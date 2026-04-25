@@ -241,7 +241,7 @@ export default function LoginPage() {
                                         />
                                     </div>
                                     <div className="edu_serv_list-2">
-                                        <ul>
+                                        <ul className="ed">
                                             <li>Student</li>
                                             <li>Instructor</li>
                                             <li>Admin</li>
