@@ -47,7 +47,7 @@ export default function LoginPage() {
             setLoginData(data);
             console.log("User has already logged in") //debigging
         }
-        document.body.style.backgroundColor = 'white' //handling ackground color to match the cureent page
+        document.body.style.backgroundColor = 'whitesmoke' //handling ackground color to match the cureent page
 
     }, []);
 
@@ -182,8 +182,8 @@ export default function LoginPage() {
     return (
         <>
 
+            <BackBtn cb={() => navigate("/")} />
             <div id="login" className="log_cnt-2">
-                <BackBtn cb={() => navigate("/")} />
 
                 <div className="left-2">
                     <iframe

@@ -71,7 +71,7 @@ body {
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--theme_color);
     overflow-y: auto;
-    z-index: -2;
+    
 }
 
 
@@ -81,7 +81,7 @@ body {
     justify-content: space-between;
     width: 98%;
     padding: 1rem 1rem;
-
+    z-index: 1;
 }
 
 
@@ -221,6 +221,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
 }
 
 
@@ -231,6 +232,7 @@ body {
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
+    margin-block-start: 1rem;
 
 }
 
@@ -276,7 +278,7 @@ body {
     background: linear-gradient(rgba(0, 153, 255, 0.249) 90%, var(--theme_color));
     border-top-left-radius: 8rem;
     bottom: 0;
-    z-index: -2;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -287,13 +289,14 @@ body {
 .background_content-1 {
     width: 20rem;
     height: 5rem;
-    z-index: -2;
     background-color: rgba(0, 141, 223, 0.365);
     border-radius: 40rem;
 
     position: absolute;
     top: 2px;
     left: -8rem;
+    box-shadow: inset 0 0 .4rem rgb(219, 220, 222);
+
 
 }
 
