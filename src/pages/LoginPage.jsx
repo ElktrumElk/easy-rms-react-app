@@ -176,7 +176,7 @@ export default function LoginPage() {
     }, []);
 
     useEffect(() => {
-        setTranslateY(window.screen.width < 780 ? 15 : 0)
+        setTranslateY(window.screen.width < 600 ? 15 : 0)
     }, []);
 
     return (

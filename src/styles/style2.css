@@ -252,7 +252,7 @@
         grid-column: span 2;
         position: fixed;
         border-radius: 4rem;
-        transform: translateY(15%);
+        
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.511);
 
     }
@@ -282,6 +282,10 @@
     .submit_btn-2 {
         width: 90%;
         height: 5rem;
+    }
+
+    .info-2 {
+        border-radius: 0rem;
     }
 }
 
