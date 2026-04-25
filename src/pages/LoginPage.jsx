@@ -158,7 +158,7 @@ export default function LoginPage() {
         showError(false);
     };
     const [opacity, setOpacity] = useState(0);
-    const [transY, setTranslateY] = useState(20);
+    const [transY, setTranslateY] = useState(100);
 
     useEffect(() => {
         const id = setInterval(() => {
@@ -176,13 +176,14 @@ export default function LoginPage() {
     }, []);
 
     useEffect(() => {
-        setTranslateY(0)
+        setTranslateY(15)
     }, []);
 
     return (
         <>
 
             <BackBtn cb={() => navigate("/")} />
+                <h1 className="app_name-2">Easy RMS</h1>
             <div id="login" className="log_cnt-2">
 
                 <div className="left-2">

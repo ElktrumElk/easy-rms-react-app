@@ -15,8 +15,7 @@
     width: 100%;
     height: 100%;
     background-color: transparent;
-
-
+    
 }
 
 .left-2 {
@@ -41,19 +40,22 @@
     flex-direction: column;
     place-items: center;
     gap: 2rem;
-    width: 100%;
+    width: 90%;
     height: 100%;
     opacity: 0;
-    transform: translateY(20%);
+    transform: translateY(100%);
     transition: transform .5s ease, opacity .4s ease;
     place-content: center;
-
+    background: white;
+    border-radius: 2rem;
+    overflow-y: auto;
 }
 
 
 .info-2 h1 {
     color: black;
 }
+
 
 .login_back_btn-2 {
     width: 30px;
@@ -67,12 +69,16 @@
     z-index: 2;
 }
 
+.app_name-2 {
+    position: fixed;
+    top: 20px;
+}
 .cnt1-2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin-block-start: 5rem;
+    margin-block-start: 1.1rem;
 
 }
 
@@ -90,6 +96,7 @@
     display: flex;
     flex-direction: column;
     width: 70%;
+   
 }
 
 /*fieldset*/
@@ -217,8 +224,8 @@
     border-radius: 4rem;
     margin-block-start: 2rem;
     border: none;
-    background: var(--theme_color);
-    color: white;
+    background: var(--global-btn-cl);
+    color: black;
 }
 
 .info2-2 {
@@ -267,12 +274,15 @@
 
 @media (max-width: 481px) {
     .log_cnt-2 {
-        grid-template-columns: repeat(1, 1fr);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding-bottom: 5rem;
+      
     }
 
     .info-2 {
-        grid-column: span 1;
+       
         place-content: unset;
         overflow-y: auto;
 
