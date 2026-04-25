@@ -283,10 +283,10 @@
 
 
 .g_list-3:hover {
-    background: var(--theme_color);
+    background: rgba(4, 159, 242, 0.6);
     border-radius: 1rem;
     scale: 1.1;
-    color: white;
+    color: black;
 }
 
 .Drop_down_arrow-3 {
