@@ -63,7 +63,9 @@ export default function Dashboard() {
     const [showAddPanel, setAddPanel] = useState(false);
     const [isUserPanel, setUserPanel] = useState(null);
 
-
+    useEffect(() => {
+        document.body.style.background = 'linear-gradient(to bottom right, #f5f5f5, #f5f5f5, rgba(183, 215, 253, 0.84) 80%, rgb(187, 236, 245), #f5f5f5)';
+    }, [])
     /**==========================JSX ELEMENT============================= */
     return (
         <>
@@ -71,7 +73,7 @@ export default function Dashboard() {
             <UserTheme.Provider value={{ colorMode, showAddPanel, selectFile, dashName }} >
                 <RenderUsersListContext.Provider value={isUserPanel}>
                     <div id="dashboard"
-                      
+
                         className={
                             isExpand ? colorMode === "light" ? "p_cnt-3 side_expand" : "p_cnt-3 side_expand dash_board dark" : colorMode === "light" ? "p_cnt-3" : "p_cnt-3 dash_board dark"
                         }>

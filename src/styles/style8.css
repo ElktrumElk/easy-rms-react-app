@@ -226,7 +226,8 @@
     width: 100%;
     min-height: 13.5rem;
     height: auto;
-    background-color: var(--theme_color);
+    background-color: var(--layout-1);
+    box-shadow: 0 0 1rem rgb(178, 177, 177);
     border-radius: 2rem;
     display: grid;
     grid-template-columns: 2fr .5fr;
@@ -249,7 +250,7 @@
 .greetings-8 h2 {
     font-weight: 600;
     font-size: 2rem;
-    color: white;
+    color: var(--global-txt-cl);
 }
 .greetings-8 {
     display: flex;

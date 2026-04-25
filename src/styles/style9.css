@@ -69,7 +69,8 @@
 }
 
 .view_batch_button-9 {
-    background-color: white;
+    background-color: rgb(8, 88, 248);
+    color: white;
     border: none;
     border-radius: .5rem;
     padding: 1rem 1rem;
