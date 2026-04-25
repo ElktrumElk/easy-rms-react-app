@@ -292,7 +292,7 @@ export default function LoginPage() {
                             </div>
                         </div>
                         <button className="submit_btn-2" type="submit">
-                            Login
+                            Sign in
                         </button>
                         <p
                             style={{
