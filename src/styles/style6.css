@@ -21,6 +21,8 @@
     transition: transform .5s ease;
     pointer-events: none;
     z-index: 20;
+    border: none;
+    border-top: 1px solid black;
 }
 
 .bottom_panel-6.expand {

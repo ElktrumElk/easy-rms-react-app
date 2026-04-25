@@ -57,6 +57,7 @@
 .main_frame_panel-3 {
 
     overflow-x: hidden;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -521,8 +522,12 @@
 @media (max-width: 600px) {
     .p_cnt-3 {
         grid-template-columns: 1fr;
+       
     }
-
+    .main_frame_panel-3 {
+        height: 100dvh;
+    }
+   
     .side_bar-3 {
         display: none;
     }
