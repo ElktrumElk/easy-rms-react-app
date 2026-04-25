@@ -15,7 +15,7 @@
     width: 100%;
     height: 100%;
     background: transparent;
-    
+
 }
 
 .left-2 {
@@ -46,8 +46,8 @@
     transform: translateY(100%);
     transition: transform .5s ease, opacity .4s ease;
     place-content: center;
-    background: white;
-    border-radius: 4rem;
+    background-color: white;
+    border-radius: 0;
     border: 1px solid gray;
     overflow-y: auto;
 }
@@ -73,7 +73,9 @@
 .app_name-2 {
     position: fixed;
     top: 20px;
+    display: none;
 }
+
 .cnt1-2 {
     display: flex;
     flex-direction: column;
@@ -97,7 +99,7 @@
     display: flex;
     flex-direction: column;
     width: 70%;
-   
+
 }
 
 /*fieldset*/
@@ -106,7 +108,7 @@
     width: 100%;
     border-radius: .3rem;
     display: flex;
-    
+
     flex-direction: column;
     background: whitesmoke;
     border-radius: 2rem;
@@ -249,7 +251,14 @@
     .info-2 {
         grid-column: span 2;
         position: fixed;
+        border-radius: 4rem;
+        transform: translateY(15%);
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.511);
 
+    }
+
+    .app_name-2 {
+        display: flex;
     }
 
     .login_back_btn-2 {
@@ -263,11 +272,13 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+
     .cnt4-2 {
         grid-column: span 2;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+
     .submit_btn-2 {
         width: 90%;
         height: 5rem;
@@ -280,11 +291,11 @@
         flex-direction: column;
         align-items: center;
         padding-bottom: 5rem;
-      
+
     }
 
     .info-2 {
-       
+
         place-content: unset;
         overflow-y: auto;
 
