@@ -252,7 +252,7 @@
         grid-column: span 2;
         position: fixed;
         border-radius: 4rem;
-        
+
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.511);
 
     }
@@ -299,13 +299,29 @@
     }
 
     .info-2 {
-
         place-content: unset;
         overflow-y: auto;
-
     }
 
     .form-2 {
         width: 95%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cnt2-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cnt4-2 {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .submit_btn-2 {
+        width: 90%;
+        height: 5rem;
     }
 }
