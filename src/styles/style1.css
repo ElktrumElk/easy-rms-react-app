@@ -3,7 +3,7 @@
     --global-txt-cl: #000000;
     --sign-in-btn-bg: transparent;
     --df-border: 1px solid rgb(77, 107, 125);
-    --theme_color: #ffffff;
+    --theme_color: linear-gradient(to bottom right, #ffffff, white, rgba(183, 215, 253, 0.84) 80%, rgb(187, 236, 245), white);
     --theme_color2: var(--theme_color);
     --secondary-btn-color: #FFD60A;
     --global-btn-cl: rgb(0, 141, 223);
@@ -28,10 +28,9 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    height: 100%;
     min-height: 100dvh;
     background-color: var(--theme_color);
-
+    overflow-y: hidden;
 }
 
 
@@ -47,32 +46,28 @@ body {
     color: #023b5fe2;
     background-color: var(--main-bg);
     overflow-x: hidden;
-
-
-
+    overflow-y: hidden;
 }
 
 /*Welcom page section*/
 .welc-1 {
     flex: 1;
     width: 100%;
-    min-height: 100%;
+  
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .splash-screen {
-    min-height: 100vh;
-    overflow: hidden;
+
+    overflow-x: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--theme_color);
     overflow-y: auto;
-    
 }
 
 
@@ -82,7 +77,7 @@ body {
     justify-content: space-between;
     width: 98%;
     padding: 1rem 1rem;
-    z-index: 1;
+    z-index: 3;
 }
 
 
@@ -160,6 +155,7 @@ body {
     flex-shrink: 1;
 
 
+
 }
 
 .main_frame-1 {
@@ -184,6 +180,7 @@ body {
     place-content: center;
     place-items: center;
     border: none;
+    z-index: 2;
 
 }
 
@@ -210,9 +207,9 @@ body {
 .slogan_mini-1 {
     font-family: sans-serif;
     text-align: center;
-    color: #b1b1b1;
+    color: #575555;
     text-align: center;
-   width: 20rem;
+    width: 20rem;
 }
 
 .slogan_cnt-1 {
@@ -223,6 +220,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    z-index: 2;
 }
 
 
@@ -259,6 +257,11 @@ body {
     padding-left: 4rem;
     font-size: 1.2rem;
     font-weight: bolder;
+    z-index: 2;
+}
+
+.s_1-1:hover {
+    box-shadow: 1px 1px 1rem rgb(9, 9, 9);
 }
 
 .input_container-1 {
@@ -284,7 +287,7 @@ body {
     flex-direction: column;
     align-items: center;
     place-content: center;
-   
+
 }
 
 .background_content-1 {
@@ -296,7 +299,8 @@ body {
     position: absolute;
     top: 2px;
     left: -8rem;
-    box-shadow: inset 0 0 .4rem rgb(219, 220, 222);
+    z-index: 2;
+    mix-blend-mode: exclusion;
 
 
 }
@@ -305,8 +309,6 @@ body {
     .fram_sec-1 {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-
-        height: 100dvh;
     }
 
     .main_frame-1 {
@@ -318,7 +320,9 @@ body {
     }
 
     .default_page_anim-1 {
-        z-index: 1;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
     }
 }
 

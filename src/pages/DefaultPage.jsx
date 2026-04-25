@@ -38,6 +38,7 @@ export default function DefaultPage() {
             </div>
 
           </div>
+
           <div class="bubbles">
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -46,6 +47,13 @@ export default function DefaultPage() {
             <div class="bubble"></div>
             <div class="bubble"></div>
             <div class="bubble"></div>
+          </div>
+
+          <div>
+            <div className="bg_bubble-12"></div>
+            <div className="bg_bubble-12"></div>
+            <div className="bg_bubble-12"></div>
+            <div className="bg_bubble-12"></div>
           </div>
 
         </section>

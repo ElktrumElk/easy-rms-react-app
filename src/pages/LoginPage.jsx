@@ -47,7 +47,7 @@ export default function LoginPage() {
             setLoginData(data);
             console.log("User has already logged in") //debigging
         }
-        document.body.style.backgroundColor = 'whitesmoke' //handling ackground color to match the cureent page
+        document.body.style.background = 'linear-gradient(to bottom right, #ffffff, white, rgba(183, 215, 253, 0.84) 80%, rgb(187, 236, 245), white)' //handling ackground color to match the cureent page
 
     }, []);
 
