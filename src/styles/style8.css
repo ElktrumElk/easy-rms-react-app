@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: unset;
     padding: 0;
+    border: 0;
 }
 
 .top_status_card-8 :where(.status_card_tp_cnt-5, .status_card_mid_cnt-5, .rating_cnt, .btm_cnt-5) {
@@ -34,7 +35,7 @@
     align-items: center;
     gap: 1rem;
     overflow-y: auto;
-
+    
 }
 
 
@@ -45,10 +46,8 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem 1rem 0rem 1rem;
-    background-color: var(--theme_color);
-    border-bottom: .4px solid gray;
-    border-radius: 1rem;
-    color: white;
+    background-color: transparent;
+    color: var(--global-txt-cl);
 }
 
 .top_cnt-8 {
@@ -76,7 +75,7 @@
     flex: 0 0 auto;
     color: var(--dark-thm-cl);
     padding: 1rem 1rem;
-
+    position: sticky;
 }
 
 .tabs-8::-webkit-scrollbar {
@@ -85,8 +84,7 @@
 
 .tabs-8 button.active {
     border-bottom: 1px solid rgb(4, 115, 135);
-    background: rgba(48, 48, 48, 0.306);
-    border-radius: 1rem;
+   
 }
 
 .list_cnt-8 {
