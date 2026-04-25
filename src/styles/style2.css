@@ -13,8 +13,10 @@
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(100dvh, auto);
     width: 100%;
-    min-height: 100dvh;
+    height: 100%;
     background-color: transparent;
+
+
 }
 
 .left-2 {
@@ -39,9 +41,13 @@
     flex-direction: column;
     place-items: center;
     gap: 2rem;
-    height: auto;
     width: 100%;
-    position: fixed;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(20%);
+    transition: transform .5s ease, opacity .4s ease;
+    place-content: center;
+
 }
 
 
@@ -92,12 +98,13 @@
     width: 100%;
     border-radius: .3rem;
     display: flex;
+    
     flex-direction: column;
     background: whitesmoke;
     border-radius: 2rem;
     border: none;
     border: .1px solid gray;
-    
+
 }
 
 .inp_cnt1-2 legend {
@@ -141,6 +148,7 @@
     gap: .5rem;
     align-items: center;
     justify-content: space-between;
+    grid-column: span 2;
 
 }
 
@@ -224,18 +232,37 @@
 }
 
 @media (max-width: 780px) {
+
     .left-2 {
         display: none;
     }
 
     .info-2 {
         grid-column: span 2;
+        position: fixed;
+
     }
 
     .login_back_btn-2 {
         left: 20px;
     }
 
+}
+
+@media (max-width: 780px) and (min-width: 600px) {
+    .cnt2-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cnt4-2 {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .submit_btn-2 {
+        width: 90%;
+        height: 5rem;
+    }
 }
 
 @media (max-width: 481px) {
@@ -246,6 +273,9 @@
 
     .info-2 {
         grid-column: span 1;
+        place-content: unset;
+        overflow-y: auto;
+
     }
 
     .form-2 {

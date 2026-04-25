@@ -3,8 +3,8 @@
     --global-txt-cl: #000000;
     --sign-in-btn-bg: transparent;
     --df-border: 1px solid rgb(77, 107, 125);
-    --theme_color: #1E319B;
-    --theme_color2: #1E319B;
+    --theme_color: #ffffff;
+    --theme_color2: var(--theme_color);
     --secondary-btn-color: #FFD60A;
 }
 
@@ -27,8 +27,9 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    height: 100%;
     min-height: 100dvh;
-    background-color: var(--theme_color2);
+    background-color: var(--theme_color);
 
 }
 
@@ -46,6 +47,8 @@ body {
     background-color: var(--main-bg);
     overflow-x: hidden;
 
+
+
 }
 
 /*Welcom page section*/
@@ -56,19 +59,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-position: center;
-    background-size: cover;
+
 }
 
 .splash-screen {
     min-height: 100vh;
-    position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--theme_color);
+    overflow-y: auto;
+    z-index: -2;
 }
 
 
@@ -77,9 +80,10 @@ body {
     display: flex;
     justify-content: space-between;
     width: 98%;
-    padding: .4rem 0rem;
+    padding: 1rem 1rem;
 
 }
+
 
 .logo_cnt-1 {
     display: flex;
@@ -87,9 +91,15 @@ body {
     gap: .5rem;
 }
 
+.logo_cnt-1 h1 {
+    color: white;
+    font-size: 1.5rem;
+}
+
 .logo_img-1 {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 4rem;
 }
 
 .logo_name-1 {
@@ -118,7 +128,6 @@ body {
 
 .sign_btn_cnt-1 {
     display: flex;
-
 }
 
 /*Sign in button at the top*/
@@ -144,9 +153,8 @@ body {
     place-content: center;
     justify-content: space-between;
     flex: 1;
-
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     padding: 1rem 0rem;
     flex-shrink: 1;
 
@@ -167,7 +175,14 @@ body {
 
 .default_page_anim-1 {
     width: 100%;
-    margin-block-start: 10%;
+    margin-block-start: 0%;
+    align-self: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    border: none;
 
 }
 
@@ -183,8 +198,8 @@ body {
 .slogan-1 {
     font-family: sans-serif;
     text-align: center;
-    color: white;
-    font-weight: 400;
+    color: black;
+    font-weight: 600;
     font-size: 1.5rem;
     transform: scaleY(1.1);
     flex-shrink: 1;
@@ -195,16 +210,19 @@ body {
     font-family: sans-serif;
     text-align: center;
     color: #b1b1b1;
+    text-align: center;
+   width: 20rem;
 }
 
 .slogan_cnt-1 {
-    margin-block-start: auto;
+    margin-block-start: 2rem;
+    margin-block-end: 2rem;
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
+
 
 .reg_sig_btn-1 {
     display: flex;
@@ -212,24 +230,32 @@ body {
     width: 90%;
     gap: 1rem;
     justify-content: space-between;
+    align-items: center;
+
 }
 
 .btns-1 {
-    width: 100%;
+    width: 70%;
     padding: 1rem 1rem;
     border: none;
     border-radius: 2rem;
-
-    background: #00C4FF;
-    color: #E0E7FF;
-
+    background: #857F74;
+    border: 1px solid rgba(128, 128, 128, 0.61);
+    color: #ffffff;
+    font-size: 1rem;
 }
 
 .s_1-1 {
-    background: transparent;
+    background: rgb(0, 141, 223);
     color: white;
     border: .2px solid rgba(128, 128, 128, 0.614);
     font-family: 'Inter', system-ui, sans-serif;
+    transform: translateX(70%);
+    margin-block-end: 4rem;
+    display: flex;
+    padding-left: 4rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
 }
 
 .input_container-1 {
@@ -240,6 +266,37 @@ body {
     padding-left: .5rem;
     z-index: auto;
 }
+
+
+
+.front-cover-1 {
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    background: linear-gradient(rgba(0, 153, 255, 0.249) 90%, var(--theme_color));
+    border-top-left-radius: 8rem;
+    bottom: 0;
+    z-index: -2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: center;
+   
+}
+
+.background_content-1 {
+    width: 20rem;
+    height: 5rem;
+    z-index: -2;
+    background-color: rgba(0, 141, 223, 0.365);
+    border-radius: 40rem;
+
+    position: absolute;
+    top: 2px;
+    left: -8rem;
+
+}
+
 @media (min-width: 800px) {
     .fram_sec-1 {
         display: grid;
@@ -256,6 +313,9 @@ body {
         margin-block-start: 0rem;
     }
 
+    .default_page_anim-1 {
+        z-index: 1;
+    }
 }
 
 @media (min-width: 600px) {
@@ -275,6 +335,7 @@ body {
         transform-origin: top left;
         width: calc(100% / 0.7);
     }
+
 
 
 }

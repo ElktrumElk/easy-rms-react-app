@@ -9,6 +9,7 @@ import './styles/style8.css';
 import './styles/style9.css';
 import './styles/style10.css';
 import './styles/style11.css';
+import './styles/style12.css';
 
 
 import { AuthProvider } from "./context/AuthContext.jsx";

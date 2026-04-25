@@ -157,6 +157,27 @@ export default function LoginPage() {
     const hideErr = () => {
         showError(false);
     };
+    const [opacity, setOpacity] = useState(0);
+    const [transY, setTranslateY] = useState(20);
+
+    useEffect(() => {
+        const id = setInterval(() => {
+            setOpacity(prev => {
+                if (prev >= 1) {
+                    clearInterval(id);
+                    return prev;
+                }
+                console.log(prev);
+                return prev + 0.1;
+            });
+        }, 10);
+
+        return () => clearInterval(id);
+    }, []);
+
+    useEffect(() => {
+        setTranslateY(0)
+    }, []);
 
     return (
         <>
@@ -170,7 +191,10 @@ export default function LoginPage() {
                         src="https://lottie.host/embed/131e22f1-7895-42dc-979a-78cd88116916/1trkqx743Y.lottie"
                     ></iframe>
                 </div>
-                <div className="info-2">
+                <div className="info-2" style={{
+                    opacity: opacity,
+                    transform: `translateY(${transY}%)`
+                }}>
                     <div className="cnt1-2">
 
                         <h1>Sign In</h1>
@@ -179,29 +203,30 @@ export default function LoginPage() {
 
                     <form className="form-2" onSubmit={loginValidation}>
                         <div className="cnt2-2">
-                            <fieldset className="inp_cnt1-2">
-                                <div className="input_container-1">
-                                    <img src="https://img.icons8.com/?size=100&id=44471&format=png&color=7a7a7a" width={'30'} height={'30'} />
-                                    <input
-                                        ref={eduTypeValue}
-                                        className="inp edu_inp-2"
-                                        placeholder="Enter Eduction Service"
-                                        type="text"
-                                        required
-                                        onFocus={hideErr}
-                                    />
-                                </div>
+                            <div className="cnt3-2 a1-2">
+                                <fieldset className="inp_cnt1-2">
+                                    <div className="input_container-1">
+                                        <img src="https://img.icons8.com/?size=100&id=44471&format=png&color=7a7a7a" width={'30'} height={'30'} />
+                                        <input
+                                            ref={eduTypeValue}
+                                            className="inp edu_inp-2"
+                                            placeholder="Enter Eduction Service"
+                                            type="text"
+                                            required
+                                            onFocus={hideErr}
+                                        />
+                                    </div>
 
-                                <div className="edu_serv_list-2">
-                                    <ul className="ed">
-                                        <li>College of digiatal Excellence</li>
-                                        <li>Ipam</li>
-                                        <li>FBC</li>
-                                        <li>Limkonkwing</li>
-                                    </ul>
-                                </div>
-                            </fieldset>
-
+                                    <div className="edu_serv_list-2">
+                                        <ul className="ed">
+                                            <li>College of digiatal Excellence</li>
+                                            <li>Ipam</li>
+                                            <li>FBC</li>
+                                            <li>Limkonkwing</li>
+                                        </ul>
+                                    </div>
+                                </fieldset>
+                            </div>
                             <div className="cnt3-2 a1-2">
                                 <fieldset className="inp_cnt1-2">
                                     <div className="input_container-1">
@@ -225,7 +250,7 @@ export default function LoginPage() {
                                 <p className="hint-2">Enter the type of login needed</p>
                             </div>
 
-                            <div className="cnt3-2">
+                            <div className="cnt3-2 cnt4-2">
                                 <fieldset className="inp_cnt1-2">
                                     <div className="input_container-1">
                                         <img src="https://img.icons8.com/?size=100&id=18799&format=png&color=7a7a7a" width={'30'} height={'30'} />
